@@ -1,56 +1,104 @@
 <!DOCTYPE html>
-<html lang="zh">
-<head>
-        <title>赵志凡'Blog</title>
-        <meta charset="utf-8" />
-        <link href="http://blog.zzfan.info/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="赵志凡'Blog Full Atom Feed" />
-        <link href="http://blog.zzfan.info/feeds/markdown.atom.xml" type="application/atom+xml" rel="alternate" title="赵志凡'Blog Categories Atom Feed" />
-</head>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="zzfan" />
+        <meta name="copyright" content="zzfan" />
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="http://blog.zzfan.info">赵志凡'Blog <strong></strong></a></h1>
-        </header><!-- /#banner -->
-        <nav id="menu"><ul>
-            <li><a href="http://blog.zzfan.info/my-super-begining">Home</a></li>
-        </ul></nav><!-- /#menu -->
-<section id="content">
-<h2>Articles in the Markdown category</h2>
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
 
-<ol id="post-list">
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="http://blog.zzfan.info/test-for-markdown.html" rel="bookmark" title="Permalink to test for markdown">test for markdown</a></h2> </header>
-                <footer class="post-info">
-                    <abbr class="published" title="2015-04-16T00:00:00"> 2015-04-16 </abbr>
-<address class="vcard author">By <a class="url fn" href="http://blog.zzfan.info/author/zzfan.html">zzfan</a></address>                </footer><!-- /.post-info -->
-                <div class="entry-content"> <h1>How to use markdown</h1>
-<h2>How to use markdown</h2>
-<hr />
-<p>test for markdown  </p>
-<div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
-<span class="c"># -*- coding: utf-8 -*- #</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
+<meta property="og:title" content="赵志凡&#39;Blog"/>
+<meta name="twitter:title" content="赵志凡&#39;Blog">
+<meta property="og:url" content="http://blog.zzfan.info" />
+<meta property="og:site_name" content="赵志凡&#39;Blog" />
+<meta property="og:article:author" content="zzfan" />
+        <title>赵志凡&#39;Blog
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://blog.zzfan.info/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://blog.zzfan.info/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://blog.zzfan.info/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://blog.zzfan.info/theme/css/custom.css" media="screen">
+        <link href="http://blog.zzfan.info/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="赵志凡&#39;Blog - Full Atom Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://blog.zzfan.info/"><span class=site-name>赵志凡'Blog</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://blog.zzfan.info">Home</a></li>
+                            <li ><a href="http://blog.zzfan.info/categories.html">Categories</a></li>
+                            <li ><a href="http://blog.zzfan.info/tags.html">Tags</a></li>
+                            <li ><a href="http://blog.zzfan.info/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://blog.zzfan.info/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<div class="row-fluid">
 
-<span class="n">AUTHOR</span> <span class="o">=</span> <span class="s">u&#39;zzfan&#39;</span>
-<span class="n">AUTHOR_EMAIL</span> <span class="o">=</span> <span class="s">u&#39;zzfan@mail.ustc.edu.cn&#39;</span>
-<span class="n">SITENAME</span> <span class="o">=</span> <span class="s">u&quot;</span><span class="se">\u8d75\u5fd7\u51e1</span><span class="s">&#39;Blog&quot;</span>
-<span class="n">SITEURL</span> <span class="o">=</span> <span class="s">&#39;http://blog.zzfan.info&#39;</span>
-<span class="n">DEFAULT_DATE_FORMAT</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">)</span>
+    <div class="row-fluid">
 
-<span class="n">TIMEZONE</span> <span class="o">=</span> <span class="s">&#39;Asia/Shanghai&#39;</span>
+    </div>
 
-<span class="n">DEFAULT_LANG ...</span></pre></div> </div><!-- /.entry-content -->
-        </article></li>
-</ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 1
-</p>
-</section><!-- /#content -->
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-                which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-        </footer><!-- /#contentinfo -->
-</body>
+    <div class="row-fluid">
+        <div class="span8 offset2">
+            <header>
+            <h1 id="recent-posts">Recent Posts <a id="allposts" href="http://blog.zzfan.info/archives.html">all posts</a></h1>
+            </header>
+        <div class="recent-posts">
+            <article>
+                <a href="http://blog.zzfan.info/test-for-markdown.html">test for markdown  </a>
+                <section>
+                    posted in
+                <a href="http://blog.zzfan.info/categories.html#markdown-ref">Markdown</a>
+                <div class="recent-posts-time">
+                <time pubdate="pubdate" datetime="2015-04-16T00:00:00">2015-04-16</time>
+                </div>
+                </section>
+            </article>
+        </div>
+        </div>
+    </div>
+</div>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>        <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
 </html>
