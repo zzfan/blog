@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfan.info/</link><description></description><atom:link href="http://blog.zzfan.info/feeds/tools.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 16 Apr 2015 00:00:00 +0800</lastBuildDate><item><title>Markdown</title><link>http://blog.zzfan.info/markdown.html</link><description>&lt;h2&gt;什么是markdown&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章。&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 16 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfan.info,2015-04-16:markdown.html</guid><category>code</category><category>markdown</category></item></channel></rss>

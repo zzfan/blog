@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>赵志凡'Blog</title><link href="http://blog.zzfan.info/" rel="alternate"></link><link href="http://blog.zzfan.info/feeds/all.atom.xml" rel="self"></link><id>http://blog.zzfan.info/</id><updated>2015-04-16T00:00:00+08:00</updated><entry><title>Markdown</title><link href="http://blog.zzfan.info/markdown.html" rel="alternate"></link><updated>2015-04-16T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-16:markdown.html</id><summary type="html">&lt;h2&gt;什么是markdown&lt;/h2&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfan.info/</link><description></description><atom:link href="http://blog.zzfan.info/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 16 Apr 2015 00:00:00 +0800</lastBuildDate><item><title>Markdown</title><link>http://blog.zzfan.info/markdown.html</link><description>&lt;h2&gt;什么是markdown&lt;/h2&gt;
 &lt;hr /&gt;
-&lt;h2&gt;Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章。&lt;/h2&gt;</summary><category term="code"></category><category term="markdown"></category></entry><entry><title>My Super Begining</title><link href="http://blog.zzfan.info/my-super-begining.html" rel="alternate"></link><updated>2015-04-15T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-15:my-super-begining.html</id><summary type="html">&lt;p&gt;从现在开始记录自己追求梦想的脚步，其实也是为了能够使自己的每一步都能够走的扎实。&lt;/p&gt;
+&lt;h2&gt;Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章。&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 16 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfan.info,2015-04-16:markdown.html</guid><category>code</category><category>markdown</category></item><item><title>My Super Begining</title><link>http://blog.zzfan.info/my-super-begining.html</link><description>&lt;p&gt;从现在开始记录自己追求梦想的脚步，其实也是为了能够使自己的每一步都能够走的扎实。&lt;/p&gt;
 &lt;p&gt;总是在想自己到底能够得到怎样的结果，老是在调整自己的步伐，忘记了自己最初的梦想。&lt;/p&gt;
 &lt;p&gt;不要担心梦想能否实现，我要做的就是，从现在开始真正的坚持下去。&lt;/p&gt;
 &lt;p&gt;试过一些方式摸索自己的Blog、主页，其中很长一段时间跟着璧哥学了很多东西，最终选择github
@@ -15,4 +15,4 @@ Python、Javascript、html，接着又看了一些开源代码写了一些应用
 向。&lt;/p&gt;
 &lt;p&gt;在读研的我，首先面对的是好好读书培养出更成熟的想法，有更成熟的Design，其实research是一
 种很好的锻炼。也许以后对公司的选择会有不同的想法吧，但是只要自己努力了就行。&lt;/p&gt;
-&lt;p&gt;还有就是，遇到她是我一生最大的幸运，我所有的一切都和你分不开，黎梦我们一起加油！&lt;/p&gt;</summary><category term="Writing"></category><category term="Life"></category></entry></feed>
+&lt;p&gt;还有就是，遇到她是我一生最大的幸运，我所有的一切都和你分不开，黎梦我们一起加油！&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Wed, 15 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfan.info,2015-04-15:my-super-begining.html</guid><category>Writing</category><category>Life</category></item></channel></rss>
