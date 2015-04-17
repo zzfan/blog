@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfan.info/</link><description></description><atom:link href="http://blog.zzfan.info/tools/rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 16 Apr 2015 00:00:00 +0800</lastBuildDate><item><title>Markdown</title><link>http://blog.zzfan.info/markdown.html</link><description>&lt;h2&gt;什么是markdown&lt;/h2&gt;
-&lt;p&gt;Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章。&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfan.info/</link><description></description><atom:link href="http://blog.zzfan.info/tools/rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 16 Apr 2015 00:00:00 +0800</lastBuildDate><item><title>Markdown语法总结</title><link>http://blog.zzfan.info/markdownyu-fa-zong-jie.html</link><description>&lt;p&gt;完成了github博客的搭建（稍后会介绍如何搭建），先学习一下Markdown。
+Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1&gt;* 标题&lt;/h1&gt;
+&lt;p&gt;两种方法（Setex和Atx）：&lt;/p&gt;
+&lt;h2&gt;语法&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Setext&lt;/span&gt;&lt;span class="err"&gt;方式&lt;/span&gt;
+&lt;span class="err"&gt;标题一&lt;/span&gt;
+&lt;span class="o"&gt;===================&lt;/span&gt;
+
+&lt;span class="err"&gt;标题二&lt;/span&gt;
+&lt;span class="o"&gt;-------------------&lt;/span&gt;
+
+&lt;span class="n"&gt;Atx&lt;/span&gt;&lt;span class="err"&gt;方式&lt;/span&gt;
+&lt;span class="cp"&gt;#标题一&lt;/span&gt;
+&lt;span class="cp"&gt;##标题二&lt;/span&gt;
+&lt;span class="cp"&gt;###标题三&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;效果&lt;/h2&gt;
+&lt;p&gt;Setext方式
+标题一
+===================&lt;/p&gt;
+&lt;h2&gt;标题二&lt;/h2&gt;
+&lt;p&gt;Atx方式&lt;/p&gt;
+&lt;h1&gt;标题一&lt;/h1&gt;
+&lt;h2&gt;标题二&lt;/h2&gt;
+&lt;h3&gt;标题三&lt;/h3&gt;
+&lt;hr /&gt;
 &lt;p&gt;&lt;img alt="test" src="/images/test.png" /&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cm"&gt;/*************************************************************************&lt;/span&gt;
 &lt;span class="cm"&gt;    &amp;gt; File Name: flow-consumer1.h&lt;/span&gt;
@@ -35,4 +63,4 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="test1" src="/images/test.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 16 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfan.info,2015-04-16:markdown.html</guid><category>code</category><category>markdown</category></item></channel></rss>
+&lt;p&gt;&lt;img alt="test1" src="/images/test.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 16 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfan.info,2015-04-16:markdownyu-fa-zong-jie.html</guid><category>code</category><category>markdown</category></item></channel></rss>
