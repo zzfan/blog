@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>赵志凡'Blog</title><link href="http://blog.zzfan.info/" rel="alternate"></link><link href="http://blog.zzfan.info/feeds/tools.atom.xml" rel="self"></link><id>http://blog.zzfan.info/</id><updated>2015-04-16T00:00:00+08:00</updated><entry><title>Markdown</title><link href="http://blog.zzfan.info/markdown.html" rel="alternate"></link><updated>2015-04-16T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-16:markdown.html</id><summary type="html">&lt;h2&gt;什么是markdown&lt;/h2&gt;
 &lt;p&gt;Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="test" src="/images/test.png" /&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cm"&gt;/*************************************************************************&lt;/span&gt;
 &lt;span class="cm"&gt;    &amp;gt; File Name: flow-consumer1.h&lt;/span&gt;
 &lt;span class="cm"&gt;    &amp;gt; Author: zzfan&lt;/span&gt;
@@ -34,4 +35,4 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="test" src="/imgs/test.jpg" /&gt;&lt;/p&gt;</summary><category term="code"></category><category term="markdown"></category></entry></feed>
+&lt;p&gt;&lt;img alt="test" src="/images/test.jpg" /&gt;&lt;/p&gt;</summary><category term="code"></category><category term="markdown"></category></entry></feed>

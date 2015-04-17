@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>赵志凡'Blog</title><link href="http://blog.zzfan.info/" rel="alternate"></link><link href="http://blog.zzfan.info/feeds/all.atom.xml" rel="self"></link><id>http://blog.zzfan.info/</id><updated>2015-04-16T00:00:00+08:00</updated><entry><title>Markdown</title><link href="http://blog.zzfan.info/markdown.html" rel="alternate"></link><updated>2015-04-16T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-16:markdown.html</id><summary type="html">&lt;h2&gt;什么是markdown&lt;/h2&gt;
 &lt;p&gt;Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="test" src="/images/test.png" /&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cm"&gt;/*************************************************************************&lt;/span&gt;
 &lt;span class="cm"&gt;    &amp;gt; File Name: flow-consumer1.h&lt;/span&gt;
 &lt;span class="cm"&gt;    &amp;gt; Author: zzfan&lt;/span&gt;
@@ -34,7 +35,7 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;img alt="test" src="/imgs/test.jpg" /&gt;&lt;/p&gt;</summary><category term="code"></category><category term="markdown"></category></entry><entry><title>My Super Begining</title><link href="http://blog.zzfan.info/my-super-begining.html" rel="alternate"></link><updated>2015-04-15T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-15:my-super-begining.html</id><summary type="html">&lt;p&gt;从现在开始记录自己追求梦想的脚步，其实也是为了能够使自己的每一步都能够走的扎实。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="test" src="/images/test.jpg" /&gt;&lt;/p&gt;</summary><category term="code"></category><category term="markdown"></category></entry><entry><title>My Super Begining</title><link href="http://blog.zzfan.info/my-super-begining.html" rel="alternate"></link><updated>2015-04-15T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-15:my-super-begining.html</id><summary type="html">&lt;p&gt;从现在开始记录自己追求梦想的脚步，其实也是为了能够使自己的每一步都能够走的扎实。&lt;/p&gt;
 &lt;p&gt;总是在想自己到底能够得到怎样的结果，老是在调整自己的步伐，忘记了自己最初的梦想。&lt;/p&gt;
 &lt;p&gt;不要担心梦想能否实现，我要做的就是，从现在开始真正的坚持下去。&lt;/p&gt;
 &lt;p&gt;试过一些方式摸索自己的Blog、主页，其中很长一段时间跟着璧哥学了很多东西，最终选择github
