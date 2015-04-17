@@ -2,6 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfan.info/</link><description></description><atom:link href="http://blog.zzfan.info/rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 16 Apr 2015 00:00:00 +0800</lastBuildDate><item><title>Markdown语法总结</title><link>http://blog.zzfan.info/markdownyu-fa-zong-jie.html</link><description>&lt;p&gt;完成了github博客的搭建（稍后会介绍如何搭建），先学习一下Markdown。
 Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章。&lt;/p&gt;
 &lt;hr /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;this is test for 区块引用
+测试是否每一行都得添加&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h1&gt;* 标题&lt;/h1&gt;
 &lt;p&gt;两种方法（Setex和Atx）：&lt;/p&gt;
 &lt;h2&gt;语法&lt;/h2&gt;
