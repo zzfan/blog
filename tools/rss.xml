@@ -9,8 +9,8 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
 &lt;blockquote&gt;
 &lt;p&gt;Setext方式  &lt;/p&gt;
 &lt;p&gt;标题一&lt;br /&gt;
-\===================
-标题二&lt;br /&gt;
+\===================&lt;/p&gt;
+&lt;p&gt;标题二&lt;br /&gt;
 ------------------- &lt;/p&gt;
 &lt;p&gt;Atx方式  &lt;/p&gt;
 &lt;p&gt;#标题一&lt;br /&gt;
@@ -94,4 +94,7 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
 &lt;span class="p"&gt;}&lt;/span&gt;  &lt;span class="c1"&gt;//end namespace ns3&lt;/span&gt;
 
  &lt;span class="c1"&gt;// #endif &lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 16 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfan.info,2015-04-16:markdownyu-fa-zong-jie.html</guid><category>code</category><category>markdown</category></item></channel></rss>
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;代码模块的编程&lt;code&gt; ndn-app.h &lt;/code&gt;可以用这个来表示.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 16 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfan.info,2015-04-16:markdownyu-fa-zong-jie.html</guid><category>code</category><category>markdown</category></item></channel></rss>

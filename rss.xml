@@ -9,8 +9,8 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
 &lt;blockquote&gt;
 &lt;p&gt;Setext方式  &lt;/p&gt;
 &lt;p&gt;标题一&lt;br /&gt;
-\===================
-标题二&lt;br /&gt;
+\===================&lt;/p&gt;
+&lt;p&gt;标题二&lt;br /&gt;
 ------------------- &lt;/p&gt;
 &lt;p&gt;Atx方式  &lt;/p&gt;
 &lt;p&gt;#标题一&lt;br /&gt;
@@ -94,7 +94,10 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
 &lt;span class="p"&gt;}&lt;/span&gt;  &lt;span class="c1"&gt;//end namespace ns3&lt;/span&gt;
 
  &lt;span class="c1"&gt;// #endif &lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 16 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfan.info,2015-04-16:markdownyu-fa-zong-jie.html</guid><category>code</category><category>markdown</category></item><item><title>My Super Begining</title><link>http://blog.zzfan.info/my-super-begining.html</link><description>&lt;p&gt;从现在开始记录自己追求梦想的脚步，其实也是为了能够使自己的每一步都能够走的扎实。&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;代码模块的编程&lt;code&gt; ndn-app.h &lt;/code&gt;可以用这个来表示.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 16 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfan.info,2015-04-16:markdownyu-fa-zong-jie.html</guid><category>code</category><category>markdown</category></item><item><title>My Super Begining</title><link>http://blog.zzfan.info/my-super-begining.html</link><description>&lt;p&gt;从现在开始记录自己追求梦想的脚步，其实也是为了能够使自己的每一步都能够走的扎实。&lt;/p&gt;
 &lt;p&gt;总是在想自己到底能够得到怎样的结果，老是在调整自己的步伐，忘记了自己最初的梦想。&lt;/p&gt;
 &lt;p&gt;不要担心梦想能否实现，我要做的就是，从现在开始真正的坚持下去。&lt;/p&gt;
 &lt;p&gt;试过一些方式摸索自己的Blog、主页，其中很长一段时间跟着璧哥学了很多东西，最终选择github
