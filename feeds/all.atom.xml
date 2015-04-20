@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>赵志凡'Blog</title><link href="http://blog.zzfan.info/" rel="alternate"></link><link href="http://blog.zzfan.info/feeds/all.atom.xml" rel="self"></link><id>http://blog.zzfan.info/</id><updated>2015-04-16T00:00:00+08:00</updated><entry><title>Markdown语法总结</title><link href="http://blog.zzfan.info/markdownyu-fa-zong-jie.html" rel="alternate"></link><updated>2015-04-16T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-16:markdownyu-fa-zong-jie.html</id><summary type="html">&lt;p&gt;完成了github博客的搭建（稍后会介绍如何搭建），先学习一下Markdown。
-Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章。&lt;/p&gt;
+Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章。
+(本文档仅在vim插件markdown中使用，其他的平台可能有一些偏差)&lt;/p&gt;
 &lt;hr /&gt;
 &lt;h1&gt;* 标题&lt;/h1&gt;
 &lt;p&gt;两种方法（Setex和Atx）：&lt;/p&gt;
@@ -15,14 +16,6 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
 #标题一&lt;br /&gt;
 ##标题二&lt;br /&gt;
 ###标题三  &lt;/p&gt;
-&lt;h2&gt;效果&lt;/h2&gt;
-&lt;p&gt;Setext方式  &lt;/p&gt;
-&lt;h1&gt;标题一&lt;/h1&gt;
-&lt;h2&gt;标题二&lt;/h2&gt;
-&lt;p&gt;Atx方式  &lt;/p&gt;
-&lt;h1&gt;标题一&lt;/h1&gt;
-&lt;h2&gt;标题二&lt;/h2&gt;
-&lt;h3&gt;标题三&lt;/h3&gt;
 &lt;/blockquote&gt;
 &lt;h1&gt;+ 制表&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;table&lt;/span&gt; &lt;span class="na"&gt;class =&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;table table-bordered bable-striped table-condensed&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
@@ -45,24 +38,23 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;table class = "table table-bordered bable-striped table-condensed"&gt;
+&lt;h1&gt;- 插入图像、表格、代码&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
 &lt;tr&gt;
-&lt;td&gt; 时间 &lt;/td&gt;
-&lt;td&gt; 地点 &lt;/td&gt;
-&lt;td&gt; 人物 &lt;/td&gt;
+&lt;th&gt;vim&lt;/th&gt;
+&lt;th&gt;markdown&lt;/th&gt;
+&lt;th&gt;表格&lt;/th&gt;
 &lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt; 3.5 &lt;/td&gt;
-&lt;td&gt; 北京 &lt;/td&gt;
-&lt;td&gt; 姚明 &lt;/td&gt;
+&lt;td&gt;linux&lt;/td&gt;
+&lt;td&gt;插件&lt;/td&gt;
+&lt;td&gt;图表&lt;/td&gt;
 &lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt; 3.7 &lt;/td&gt;
-&lt;td&gt; 上海 &lt;/td&gt;
-&lt;td&gt; 韩寒 &lt;/td&gt;
-&lt;/tr&gt;
+&lt;/tbody&gt;
 &lt;/table&gt;
-
 &lt;p&gt;&lt;img alt="test" src="/images/test.png" /&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cm"&gt;/*************************************************************************&lt;/span&gt;
 &lt;span class="cm"&gt;    &amp;gt; File Name: flow-consumer1.h&lt;/span&gt;
@@ -94,10 +86,7 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
 &lt;span class="p"&gt;}&lt;/span&gt;  &lt;span class="c1"&gt;//end namespace ns3&lt;/span&gt;
 
  &lt;span class="c1"&gt;// #endif &lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;img alt="test1" src="/images/test.png" /&gt;&lt;/p&gt;</summary><category term="code"></category><category term="markdown"></category></entry><entry><title>My Super Begining</title><link href="http://blog.zzfan.info/my-super-begining.html" rel="alternate"></link><updated>2015-04-15T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-15:my-super-begining.html</id><summary type="html">&lt;p&gt;从现在开始记录自己追求梦想的脚步，其实也是为了能够使自己的每一步都能够走的扎实。&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="code"></category><category term="markdown"></category></entry><entry><title>My Super Begining</title><link href="http://blog.zzfan.info/my-super-begining.html" rel="alternate"></link><updated>2015-04-15T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-15:my-super-begining.html</id><summary type="html">&lt;p&gt;从现在开始记录自己追求梦想的脚步，其实也是为了能够使自己的每一步都能够走的扎实。&lt;/p&gt;
 &lt;p&gt;总是在想自己到底能够得到怎样的结果，老是在调整自己的步伐，忘记了自己最初的梦想。&lt;/p&gt;
 &lt;p&gt;不要担心梦想能否实现，我要做的就是，从现在开始真正的坚持下去。&lt;/p&gt;
 &lt;p&gt;试过一些方式摸索自己的Blog、主页，其中很长一段时间跟着璧哥学了很多东西，最终选择github
