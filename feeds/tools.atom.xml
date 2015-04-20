@@ -8,8 +8,10 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
 &lt;h2&gt;语法&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Setext方式  &lt;/p&gt;
-&lt;h1&gt;标题一&lt;/h1&gt;
-&lt;h2&gt;标题二&lt;/h2&gt;
+&lt;p&gt;标题一&lt;br /&gt;
+\===================&lt;/p&gt;
+&lt;p&gt;标题二&lt;br /&gt;
+------------------- &lt;/p&gt;
 &lt;p&gt;Atx方式&lt;br /&gt;
 #标题一&lt;br /&gt;
 ##标题二&lt;br /&gt;
@@ -37,6 +39,13 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
 
 
 &lt;h1&gt;- 插入图像、表格、代码&lt;/h1&gt;
+&lt;h2&gt;- 插入表格&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;vim&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;markdown&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="err"&gt;表格&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;
+&lt;span class="o"&gt;|---------|-----------|----------|&lt;/span&gt;
+&lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;linux&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="err"&gt;插件&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="err"&gt;图表&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -53,6 +62,7 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h2&gt;- 插入图像&lt;/h2&gt;
 &lt;p&gt;&lt;img alt="test" src="/images/test.png" /&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cm"&gt;/*************************************************************************&lt;/span&gt;
 &lt;span class="cm"&gt;    &amp;gt; File Name: flow-consumer1.h&lt;/span&gt;
