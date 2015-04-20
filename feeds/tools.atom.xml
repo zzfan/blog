@@ -8,10 +8,8 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
 &lt;h2&gt;语法&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Setext方式  &lt;/p&gt;
-&lt;p&gt;标题一&lt;br /&gt;
-\===================&lt;/p&gt;
-&lt;p&gt;标题二&lt;br /&gt;
-------------------- &lt;/p&gt;
+&lt;h1&gt;标题一&lt;/h1&gt;
+&lt;h2&gt;标题二&lt;/h2&gt;
 &lt;p&gt;Atx方式&lt;br /&gt;
 #标题一&lt;br /&gt;
 ##标题二&lt;br /&gt;
