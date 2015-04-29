@@ -4,11 +4,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive &mdash; 赵志凡'Blog</title>
+  <title>利用Pelican和Markdown搭建自己的github静态Blog &mdash; 赵志凡'Blog</title>
   <meta name="author" content="zzfan">
 
   <link href="http://blog.zzfan.info/rss.xml" type="application/rss+xml" rel="alternate"
         title="赵志凡'Blog RSS Feed" />
+
+
 
 
 
@@ -49,64 +51,61 @@
       <li >
         <a href="http://blog.zzfan.info/category/life.html">Life</a>
       </li>
-      <li >
+      <li class="active">
         <a href="http://blog.zzfan.info/category/tools.html">Tools</a>
       </li>
 </ul></nav>
   <div id="main">
     <div id="content">
 <div>
-	<article role="article">
-    	<header>
-    		<h1 class="entry-title">Blog Archive</h1>
-    	</header>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">利用Pelican和Markdown搭建自己的github静态Blog</h1>
+    <p class="meta">
+<time datetime="2015-04-29T00:00:00" pubdate>2015-04-29</time>    </p>
+</header>
 
-    	<div id="blog-archives">
-            <h2>2015</h2>
-                    <article>
-                        <h1><a href="http://blog.zzfan.info/li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html">利用Pelican和Markdown搭建自己的github静态Blog</a></h1>
-                        <time datetime="2015-04-29 00:00:00" pubdate>
-                            <span class="month">Apr</span>
-                            <span class="day">29</span>
-                            <span class="year">2015</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='http://blog.zzfan.info/category/tools.html'>Tools</a>
-                                
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="http://blog.zzfan.info/markdownyu-fa-zong-jie.html">Markdown语法总结</a></h1>
-                        <time datetime="2015-04-16 00:00:00" pubdate>
-                            <span class="month">Apr</span>
-                            <span class="day">16</span>
-                            <span class="year">2015</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='http://blog.zzfan.info/category/tools.html'>Tools</a>
-                                
-                            </span>
-                        </footer>
-                    </article>
-                    <article>
-                        <h1><a href="http://blog.zzfan.info/my-super-begining.html">My Super Begining</a></h1>
-                        <time datetime="2015-04-15 00:00:00" pubdate>
-                            <span class="month">Apr</span>
-                            <span class="day">15</span>
-                            <span class="year">2015</span>
-                        </time>
-                        <footer>
-                            <span class="categories">posted in
-                                <a class='category' href='http://blog.zzfan.info/category/life.html'>Life</a>
-                                
-                            </span>
-                        </footer>
-                    </article>
-	    </div>
-    </article>
+  <div class="entry-content"><h4><i class="icon-tag"></i> 概述</h4>
+<p>从自己搭建Blog有一段时间了，其实为了方便我的Blog大部分都是从<a href="http://github.com">Github</a>上荡下来的，有些地方没有著名版权，敬请谅解。</p>
+<p>动态的Blog我也弄过一段时间，是用<strong>node.js</strong>开发的，当时也是由于没有找到合适的免费<strong>VPS</strong>（用过一段时间的<a href="https://www.digitalocean.com/">DigitalOcean</a>，也就没有继续下去了（对于学生来说还是有点贵的）。如果有需要，可以关注我的<a href="http://github.com/zzfan">Github</a>。</p>
+<p>经过一段时间的摸索，完成了我的Github Page: <a href="blog.zzfan.info">http://blog.zzfan.info</a></p>
+<p>其实这个<a href="www.xuanfengge.com">轩枫阁</a>才是我一直想要搭建的Blog（很喜欢那种自己开发的可以不断自己的完善，而且有无限大的开发空间），但是我的方向不再网页开发，只能忍痛不去想那绚丽的让人眼花缭乱的Blog了~~</p>
+<h4><i class="icon-book"></i>具体搭建</h4>
+<p>这里我就不很详细的列举出其中的细节了，直接上命令，是在Linux上搭建的。</p>
+<ul>
+<li>安装软件<blockquote>
+<p>sudo apt-get install </p>
+</blockquote>
+</li>
+</ul>
+<div class="highlight"><pre><span class="vi">#include</span> <span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span>
+<span class="vi">#include</span> <span class="o">&lt;</span><span class="nx">iostream</span><span class="o">&gt;</span>
+<span class="nx">using</span> <span class="nx">namespace</span> <span class="nx">std</span><span class="p">;</span>
+
+<span class="nx">int</span> <span class="nx">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nx">int</span> 
+</pre></div></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">
+        zzfan
+    </span>
+  </span>
+<time datetime="2015-04-29T00:00:00" pubdate>2015-04-29</time>  <span class="categories">
+    <a class='category' href='http://blog.zzfan.info/category/tools.html'>Tools</a>
+  </span>
+  <span class="categories">
+    <a class="category" href="http://blog.zzfan.info/tag/blog.html">blog</a>,    <a class="category" href="http://blog.zzfan.info/tag/markdown.html">markdown</a>,    <a class="category" href="http://blog.zzfan.info/tag/pelican.html">pelican</a>,    <a class="category" href="http://blog.zzfan.info/tag/python.html">python</a>  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
 </div>
 <aside class="sidebar">
   <section>
@@ -167,6 +166,9 @@
   <script src="http://blog.zzfan.info/theme/js/octopress.js" type="text/javascript"></script>
   <script type="text/javascript">
     var disqus_shortname = 'zzfanhero';
+    var disqus_identifier = '/li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html';
+    var disqus_url = 'http://blog.zzfan.info/li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html';
+    var disqus_title = '利用Pelican和Markdown搭建自己的github静态Blog';
     (function() {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
       dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
