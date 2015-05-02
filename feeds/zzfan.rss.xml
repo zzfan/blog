@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfan.info/</link><description></description><atom:link href="http://blog.zzfan.info/tools/rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 29 Apr 2015 00:00:00 +0800</lastBuildDate><item><title>利用Pelican和Markdown搭建自己的github静态Blog</title><link>http://blog.zzfan.info/li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html</link><description>&lt;h2&gt;&lt;i class="icon-search"&gt;&lt;/i&gt; 概述&lt;/h2&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfan.info/</link><description></description><atom:link href="http://blog.zzfan.info/feeds/zzfan.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 30 Apr 2015 00:00:00 +0800</lastBuildDate><item><title>Reading papers</title><link>http://blog.zzfan.info/reading-papers.html</link><description>&lt;h3&gt;一下是我所看的论文以及一些介绍稍后贴出&lt;/h3&gt;
+&lt;p&gt;test
+test
+test
+test&lt;/p&gt;
+&lt;p&gt;&lt;a href="/wendang/1.pdf"&gt;Optimal Congestion Control and Request Routing in Information-Centric Networking&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 30 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfan.info,2015-04-30:reading-papers.html</guid><category>papers</category><category>NDN</category></item><item><title>利用Pelican和Markdown搭建自己的github静态Blog</title><link>http://blog.zzfan.info/li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html</link><description>&lt;h2&gt;&lt;i class="icon-search"&gt;&lt;/i&gt; 概述&lt;/h2&gt;
 &lt;p&gt;从自己搭建Blog有一段时间了，其实为了方便我的Blog大部分都是从&lt;a href="http://github.com"&gt;Github&lt;/a&gt;上荡下来的，有些地方没有著名版权，敬请谅解。&lt;/p&gt;
 &lt;p&gt;动态的Blog我也弄过一段时间，是用&lt;strong&gt;node.js&lt;/strong&gt;开发的，当时也是由于没有找到合适的免费&lt;strong&gt;VPS&lt;/strong&gt;（用过一段时间的&lt;a href="https://www.digitalocean.com/"&gt;DigitalOcean&lt;/a&gt;，也就没有继续下去了（对于学生来说还是有点贵的）。如果有需要，可以关注我的&lt;a href="http://github.com/zzfan"&gt;Github&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;经过一段时间的摸索，完成了我的Github Page: &lt;a href="http://blog.zzfan.info"&gt;http://blog.zzfan.info&lt;/a&gt;。&lt;/p&gt;
@@ -135,4 +140,18 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;代码模块的编程&lt;code&gt; ndn-app.h &lt;/code&gt;可以用这个来表示.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 16 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfan.info,2015-04-16:markdownyu-fa-zong-jie.html</guid><category>code</category><category>markdown</category></item></channel></rss>
+&lt;p&gt;代码模块的编程&lt;code&gt; ndn-app.h &lt;/code&gt;可以用这个来表示.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 16 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfan.info,2015-04-16:markdownyu-fa-zong-jie.html</guid><category>code</category><category>markdown</category></item><item><title>My Super Begining</title><link>http://blog.zzfan.info/my-super-begining.html</link><description>&lt;p&gt;从现在开始记录自己追求梦想的脚步，其实也是为了能够使自己的每一步都能够走的扎实。&lt;/p&gt;
+&lt;p&gt;总是在想自己到底能够得到怎样的结果，老是在调整自己的步伐，忘记了自己最初的梦想。&lt;/p&gt;
+&lt;p&gt;不要担心梦想能否实现，我要做的就是，从现在开始真正的坚持下去。&lt;/p&gt;
+&lt;p&gt;试过一些方式摸索自己的Blog、主页，其中很长一段时间跟着璧哥学了很多东西，最终选择github
+是因为熟悉了吧，或者说是因为github是免费的~~&lt;/p&gt;
+&lt;p&gt;也许是两年吧，接触了很多的东西。从开始只会C语言到经过C++的洗礼，然后摸索Linux、github、
+Python、Javascript、html，接着又看了一些开源代码写了一些应用，迷上了github上各种神奇的
+代码。感觉自己会很多，但是突然发现自己不知道干什么了，然后就慢慢的失去了方向。新东西太
+多了，当我熟悉完一样东西之后又有无数个其他的新东西觉得很神奇，想一步一步的去探索，就这
+样感觉自己实在浪费时间。从今天开始才下定决心的吧，我得自己创造出一些新东西，一直用别人
+做好的东西感觉很不自在。也许要走很长的路，但是我已经走出了第一步，专心一点，找准一个方
+向。&lt;/p&gt;
+&lt;p&gt;在读研的我，首先面对的是好好读书培养出更成熟的想法，有更成熟的Design，其实research是一
+种很好的锻炼。也许以后对公司的选择会有不同的想法吧，但是只要自己努力了就行。&lt;/p&gt;
+&lt;p&gt;还有就是，遇到她是我一生最大的幸运，我所有的一切都和你分不开，黎梦我们一起加油！&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Wed, 15 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfan.info,2015-04-15:my-super-begining.html</guid><category>Writing</category><category>Life</category></item></channel></rss>

@@ -65,7 +65,7 @@
 <header>
       <h1 class="entry-title">Markdown语法总结</h1>
     <p class="meta">
-<time datetime="2015-04-16T00:00:00" pubdate>2015-04-16</time>    </p>
+<time datetime="2015-04-16T00:00:00+08:00" pubdate>2015-04-16</time>    </p>
 </header>
 
   <div class="entry-content"><p>完成了github博客的搭建（稍后会介绍如何搭建），先学习一下Markdown。
@@ -126,9 +126,9 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
 
 <h1>- 插入图像、表格、代码</h1>
 <h2>- 插入表格</h2>
-<div class="highlight"><pre><span class="o">|</span> <span class="n">vim</span> <span class="o">|</span> <span class="n">markdown</span> <span class="o">|</span> <span class="err">表格</span> <span class="o">|</span>
-<span class="o">|---------|-----------|----------|</span>
-<span class="o">|</span> <span class="n">linux</span> <span class="o">|</span> <span class="err">插件</span> <span class="o">|</span> <span class="err">图表</span> <span class="o">|</span>
+<div class="highlight"><pre>| vim | markdown | 表格 |
+|---------|-----------|----------|
+| linux | 插件 | 图表 |
 </pre></div>
 
 
@@ -157,23 +157,23 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
 <span class="cm">    &gt; Created Time: Thu 04 Sep 2014 03:52:53 PM HKT</span>
 <span class="cm"> ************************************************************************/</span>
 
-<span class="p">#</span><span class="k">include</span> <span class="s">&quot;ns3/ndn-app.h&quot;</span>
+<span class="cp">#include &quot;ns3/ndn-app.h&quot;</span>
 
-<span class="p">#</span><span class="k">include</span> <span class="s">&quot;ns3/ndn-app-face.h&quot;</span>
-<span class="p">#</span><span class="k">include</span> <span class="s">&quot;ns3/random-variable.h&quot;</span>
+<span class="cp">#include &quot;ns3/ndn-app-face.h&quot;</span>
+<span class="cp">#include &quot;ns3/random-variable.h&quot;</span>
 
 <span class="n">namespace</span> <span class="n">ns3</span> <span class="p">{</span>
-    <span class="k">class</span> <span class="n">FlowConsumer</span> <span class="o">:</span> <span class="n">public</span> <span class="n">ndn</span><span class="o">::</span> <span class="n">App</span>
+    <span class="n">class</span> <span class="nl">FlowConsumer</span> <span class="p">:</span> <span class="n">public</span> <span class="n">ndn</span><span class="o">::</span> <span class="n">App</span>
     <span class="p">{</span>
-        <span class="nl">public:</span>
+        <span class="nl">public</span><span class="p">:</span>
         <span class="k">static</span> <span class="n">TypeId</span> <span class="n">GetTypeId</span><span class="p">();</span>
-        <span class="k">void</span> <span class="n">StartApplication</span><span class="p">();</span>
-        <span class="k">void</span> <span class="n">StopApplication</span><span class="p">();</span>
-        <span class="k">void</span> <span class="n">OnInterest</span><span class="p">(</span><span class="n">Ptr</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">ndn</span><span class="o">::</span><span class="n">Interest</span><span class="o">&gt;</span> <span class="n">interest</span><span class="p">);</span>
-        <span class="k">void</span> <span class="n">OnData</span><span class="p">(</span><span class="n">Ptr</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">ndn</span><span class="o">::</span><span class="n">Data</span><span class="o">&gt;</span> <span class="n">contentObject</span><span class="p">);</span>
-        <span class="k">void</span> <span class="n">Period</span><span class="p">();</span>
-        <span class="k">void</span> <span class="n">SendInterest</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="k">string</span> <span class="o">&amp;</span><span class="n">name</span><span class="p">);</span>
-        <span class="k">void</span> <span class="n">SendInterest</span><span class="p">(</span><span class="k">const</span> <span class="n">ndn</span><span class="o">::</span><span class="n">Name</span> <span class="o">&amp;</span><span class="n">name</span><span class="p">);</span>
+        <span class="kt">void</span> <span class="nf">StartApplication</span><span class="p">();</span>
+        <span class="kt">void</span> <span class="nf">StopApplication</span><span class="p">();</span>
+        <span class="kt">void</span> <span class="nf">OnInterest</span><span class="p">(</span><span class="n">Ptr</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">ndn</span><span class="o">::</span><span class="n">Interest</span><span class="o">&gt;</span> <span class="n">interest</span><span class="p">);</span>
+        <span class="kt">void</span> <span class="nf">OnData</span><span class="p">(</span><span class="n">Ptr</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">ndn</span><span class="o">::</span><span class="n">Data</span><span class="o">&gt;</span> <span class="n">contentObject</span><span class="p">);</span>
+        <span class="kt">void</span> <span class="nf">Period</span><span class="p">();</span>
+        <span class="kt">void</span> <span class="nf">SendInterest</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="o">&amp;</span><span class="n">name</span><span class="p">);</span>
+        <span class="kt">void</span> <span class="nf">SendInterest</span><span class="p">(</span><span class="k">const</span> <span class="n">ndn</span><span class="o">::</span><span class="n">Name</span> <span class="o">&amp;</span><span class="n">name</span><span class="p">);</span>
 
     <span class="p">};</span>
 
@@ -191,7 +191,7 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
         zzfan
     </span>
   </span>
-<time datetime="2015-04-16T00:00:00" pubdate>2015-04-16</time>  <span class="categories">
+<time datetime="2015-04-16T00:00:00+08:00" pubdate>2015-04-16</time>  <span class="categories">
     <a class='category' href='http://blog.zzfan.info/category/tools.html'>Tools</a>
   </span>
   <span class="categories">
