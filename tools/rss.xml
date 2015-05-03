@@ -86,11 +86,11 @@ pelican-quickstart  &lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;p&gt;
     &lt;span style="font-size:9px;color:#E56600;"&gt;&amp;gt; Where do you want to create your new web site? [.]&lt;/span&gt;&lt;br /&gt;
-&lt;span style="font-size:9px;color:#E56600;"&gt;&amp;gt; What will be the title of this web site? HeyDevOps&lt;/span&gt;&lt;br /&gt;
-&lt;span style="font-size:9px;color:#E56600;"&gt;&amp;gt; Who will be the author of this web site? mcsrainbow&lt;/span&gt;&lt;br /&gt;
+&lt;span style="font-size:9px;color:#E56600;"&gt;&amp;gt; What will be the title of this web site? 赵志凡'Blog&lt;/span&gt;&lt;br /&gt;
+&lt;span style="font-size:9px;color:#E56600;"&gt;&amp;gt; Who will be the author of this web site? zzfan&lt;/span&gt;&lt;br /&gt;
 &lt;span style="font-size:9px;color:#E56600;"&gt;&amp;gt; What will be the default language of this web site? [en] zh&lt;/span&gt;&lt;br /&gt;
 &lt;span style="font-size:9px;color:#E56600;"&gt;&amp;gt; Do you want to specify a URL prefix? e.g., http://example.com &amp;nbsp; (Y/n)&lt;/span&gt;&lt;br /&gt;
-&lt;span style="font-size:9px;color:#E56600;"&gt;&amp;gt; What is your URL prefix? (see above example; no trailing slash) http://mcsrainbow.github.io&lt;/span&gt;&lt;br /&gt;
+&lt;span style="font-size:9px;color:#E56600;"&gt;&amp;gt; What is your URL prefix? (see above example; no trailing slash) http://blog.zzfan.info&lt;/span&gt;&lt;br /&gt;
 &lt;span style="font-size:9px;color:#E56600;"&gt;&amp;gt; Do you want to enable article pagination? (Y/n)&lt;/span&gt;&lt;br /&gt;
 &lt;span style="font-size:9px;color:#E56600;"&gt;&amp;gt; How many articles per page do you want? [10]&lt;/span&gt;&lt;br /&gt;
 &lt;span style="font-size:9px;color:#E56600;"&gt;&amp;gt; Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n)&lt;/span&gt;&lt;br /&gt;
@@ -102,17 +102,166 @@ pelican-quickstart  &lt;/p&gt;
 &lt;span style="font-size:9px;color:#E56600;"&gt;&amp;gt; Do you want to upload your website using Rackspace Cloud Files? (y/N)&lt;/span&gt;&lt;br /&gt;
 &lt;span style="font-size:9px;color:#E56600;"&gt;&amp;gt; Do you want to upload your website using GitHub Pages? (y/N) Y&lt;/span&gt;&lt;br /&gt;
 &lt;span style="font-size:9px;color:#E56600;"&gt;&amp;gt; Is this your personal page (username.github.io)? (y/N) Y&lt;/span&gt;&lt;br /&gt;
-&lt;br /&gt;
-    &lt;div&gt;
-        &lt;br /&gt;
-    &lt;/div&gt;
-&lt;/p&gt;
-&lt;p&gt;
-    &lt;br /&gt;
 &lt;/p&gt; &lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/blockquote&gt;
 &lt;h4&gt;- 配置文件&lt;/h4&gt;
+&lt;p&gt;经过上面的步骤，在&lt;code&gt;blog&lt;/code&gt;文件夹里面会多出几个Pelican生成的文件，其中&lt;code&gt;pelicanconf.py&lt;/code&gt;就是配置文件&lt;br /&gt;
+为了方便，你可以把所有你需要操作的文件复制到这个文件夹里面，当作你Blog的操作文件夹。
+首先你得在你的Github上创建一个Blog的repo，没有必要&lt;code&gt;repo&lt;/code&gt;名字是"name.github.io",如果你非要把这个作为名字的话，我也不反对。然后如下：&lt;br /&gt;
+&lt;code&gt;
+cd blog&lt;br /&gt;
+git clone http://github.com/zzfan/blog&lt;br /&gt;
+cd blog&lt;br /&gt;
+git chckout gh-pages&lt;br /&gt;
+&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在这里需要说明的是在Github上创建&lt;code&gt;repo&lt;/code&gt;的时候也不要使用&lt;code&gt;Automatic Page Generator&lt;/code&gt;,因为没有这个必要，我们用不到（如果你想要用这个创建Blog的话其实很简单，具体的Github有给你很多模板）&lt;br /&gt;
+然后就是对&lt;strong&gt;pelican&lt;/strong&gt;的配置，具体的自己摸索，我的配置文件如下：  &lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/env python&lt;/span&gt;
+&lt;span class="c"&gt;# -*- coding: utf-8 -*- #&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;__future__&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;unicode_literals&lt;/span&gt;
+
+&lt;span class="n"&gt;AUTHOR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;u&amp;#39;zzfan&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;AUTHOR_EMAIL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;u&amp;#39;zzfan@mail.ustc.edu.cn&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;SITENAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;u&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\u8d75\u5fd7\u51e1&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Blog&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;SITEURL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://blog.zzfan.info&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;DEFAULT_DATE_FORMAT&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;%Y-%m-&lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;TIMEZONE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Asia/Shanghai&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;DEFAULT_LANG&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;u&amp;#39;zh&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;STATIC_PATHS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;images&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;wendang&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;SEARCH_BOX&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+
+&lt;span class="c"&gt;# Feed generation is usually not desired when developing&lt;/span&gt;
+&lt;span class="c"&gt;#FEED_DOMAIN = SITEURL&lt;/span&gt;
+&lt;span class="c"&gt;#FEED_ALL_ATOM = &amp;#39;feeds/all.atom.xml&amp;#39;&lt;/span&gt;
+&lt;span class="c"&gt;#CATEGORY_FEED_ATOM = &amp;#39;feeds/%s.atom.xml&amp;#39;&lt;/span&gt;
+
+&lt;span class="c"&gt;#FEED_ALL_RSS = &amp;#39;feeds/all.rss.xml&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;FEED_RSS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;rss.xml&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;CATEGORY_FEED_RSS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;/rss.xml&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;TRANSLATION_FEED_ATOM&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;
+
+&lt;span class="c"&gt;#Menu item&lt;/span&gt;
+&lt;span class="n"&gt;MENUITEMS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Home&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;http://blog.zzfan.info/my-super-begining&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),)&lt;/span&gt;
+
+&lt;span class="c"&gt;# Blogroll&lt;/span&gt;
+&lt;span class="c"&gt;# Social widget&lt;/span&gt;
+&lt;span class="n"&gt;SOCIAL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Github&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://github.com/zzfan/blog&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+          &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Twitter&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://twitter.com/zzfan&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),)&lt;/span&gt;
+
+&lt;span class="c"&gt;# Plugin&lt;/span&gt;
+&lt;span class="n"&gt;PLUGIN_PATH&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;u&amp;quot;pelican-plugins&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;PLUGINS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;sitemap&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;gravatar&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;gzip_cache&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="c"&gt;# Sitemap&lt;/span&gt;
+&lt;span class="n"&gt;SITEMAP&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;quot;format&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;xml&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;quot;priorities&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:{&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;articles&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mf"&gt;0.7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;indexes&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;pages&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mf"&gt;0.3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;quot;changefreqs&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:{&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;articles&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;monthly&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;indexes&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;daily&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;pages&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;monthly&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="c"&gt;# Theme&lt;/span&gt;
+&lt;span class="n"&gt;DEFAULT_PAGINATION&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;
+&lt;span class="n"&gt;THEME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;pelican-octopress-theme&amp;quot;&lt;/span&gt;
+
+&lt;span class="c"&gt;# Disqus&lt;/span&gt;
+&lt;span class="n"&gt;DISQUS_SITENAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;u&amp;quot;zzfanhero&amp;quot;&lt;/span&gt;
+
+&lt;span class="c"&gt;# Uncomment following line if you want document-relative URLs when developing&lt;/span&gt;
+&lt;span class="c"&gt;#RELATIVE_URLS = True&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;h4&gt;- 更改自己的域名&lt;/h4&gt;
+&lt;p&gt;&lt;p&gt;
+    &lt;ol&gt;
+        &lt;li&gt;
+            &lt;span style="line-height:1.5;"&gt;首先你得去godady上买一个域名&lt;img src="http://kindeditor.net/ke4/plugins/emoticons/images/29.gif" border="0" alt="" /&gt;&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;span style="line-height:1.5;"&gt;然后在CNAME区域加一条你定义的Blog名字&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            在你的Github中的repo中加入CNAME
+        &lt;/li&gt;
+        &lt;li&gt;
+            CNAME中的内容是你的定义的域名
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/p&gt;&lt;/p&gt;
 &lt;h4&gt;- 更改主题&lt;/h4&gt;
 &lt;h4&gt;- 使用插件&lt;/h4&gt;
 &lt;h4&gt;- 开始写Blog&lt;/h4&gt;
