@@ -10,11 +10,20 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;其实配置好了后就是这么简单，有时候在不同机器上会用到git pull、git add --all...,但是百度一下你就会了，而且git的提示功能是很Bug的一个存在，任何错误都会提醒你用什么命令，所以不用担心出现错误了。&lt;/p&gt;
+&lt;p&gt;其实配置好了后就是这么简单，有时候在不同机器上会用到&lt;em&gt;git pull、git add --all&lt;/em&gt;...,但是百度一下你就会了，而且git的提示功能是很Bug的一个存在，任何错误都会提醒你用什么命令，所以不用担心出现错误了。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;有一点需要注意的是，有时候可能需要在git前面加&lt;strong&gt;sudo&lt;/strong&gt;，这个你懂的。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2&gt;具体步骤&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Sat, 02 May 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfan.info,2015-05-02:gitde-yong-fa-he-yu-dao-de-wen-ti.html</guid><category>git</category><category>github</category></item><item><title>Reading papers</title><link>http://blog.zzfan.info/reading-papers.html</link><description>&lt;h3&gt;一下是我所看的论文以及一些介绍稍后贴出&lt;/h3&gt;
+&lt;h2&gt;具体步骤&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;初始配置&lt;/li&gt;
+&lt;li&gt;刚申请git的时候，必须按如下设置配置&lt;em&gt;username&lt;/em&gt;和&lt;em&gt;useremail&lt;/em&gt;：
+    &lt;code&gt;git config --global user.name "you name"
+    git config --global user.email you@yourdomain.example.com
+    git config --global push.default simple(可以有其他选项)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;安装ssh公钥
+这个配置是可以不需要的，但是为了方便可以进行配置。&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Sat, 02 May 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfan.info,2015-05-02:gitde-yong-fa-he-yu-dao-de-wen-ti.html</guid><category>git</category><category>github</category></item><item><title>Reading papers</title><link>http://blog.zzfan.info/reading-papers.html</link><description>&lt;h3&gt;一下是我所看的论文以及一些介绍稍后贴出&lt;/h3&gt;
 &lt;p&gt;test
 test
 test
