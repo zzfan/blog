@@ -31,7 +31,7 @@ Enter passphrase (empty for no passphrase): 输入你在github上注册使用的
 Enter same passphrase again: 再输入一次
 &lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;然后会看到公钥和私钥分别被保存为&lt;code&gt;id_rsa&lt;/code&gt;和&lt;code&gt;id_rsa.pub&lt;/code&gt;，然后正是我们需要的。打开github网页，在账户设置&lt;code&gt;(Account settings)&lt;/code&gt;中找到&lt;em&gt;SSH keys&lt;/em&gt;项目，点击添加SSH key&lt;code&gt;(Add SSH key)&lt;/code&gt;，把&lt;code&gt;idrsa.pub&lt;/code&gt;中的内容复制到网页中的key里面。最后回到终端测试下：  &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ssh&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;github&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;ssh&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;github&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
