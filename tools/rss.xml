@@ -9,7 +9,7 @@ git commit -m "你更改的描述" &lt;br /&gt;
 git push &lt;br /&gt;
 &lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;其实配置好了后就是这么简单，有时候在不同机器上会用到&lt;em&gt;git pull、git add --all&lt;/em&gt;...,但是百度一下你就会了，而且git的提示功能是很Bug的一个存在，任何错误都会提醒你用什么命令，所以不用担心出现错误了。&lt;/p&gt;
-&lt;p&gt;&lt;font size=11&gt; 有一点需要注意的是，有时候可能需要在git前面加&lt;strong&gt;sudo&lt;/strong&gt;，这个你懂的。&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;&lt;font size=22 color="#FF0000"&gt; 有一点需要注意的是，有时候可能需要在git前面加&lt;strong&gt;sudo&lt;/strong&gt;，这个你懂的。&lt;/font&gt;&lt;/p&gt;
 &lt;h3&gt;具体步骤&lt;/h3&gt;
 &lt;h4&gt;初始配置&lt;/h4&gt;
 &lt;ul&gt;
