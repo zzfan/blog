@@ -81,7 +81,7 @@ git push <br />
 <p>其实配置好了后就是这么简单，有时候在不同机器上会用到<em>git pull、git add --all</em>...,但是百度一下你就会了，而且git的提示功能是很Bug的一个存在，任何错误都会提醒你用什么命令，所以不用担心出现错误了。</p>
 <p><font size=4 color="#FF0000"> 有一点需要注意的是，有时候可能需要在git前面加<strong>sudo</strong>，这个你懂的。</font></p>
 <h3>具体步骤</h3>
-<h4>初始配置</h4>
+<h3>初始配置</h3>
 <ul>
 <li><strong>配置git</strong>: 刚申请git的时候，必须按如下设置配置<em>username</em>和<em>useremail</em></li>
 </ul>
@@ -97,7 +97,7 @@ git config --global push.default simple(可以有其他选项) <br />
 ssh-keygen -t rsa -C "your_email@example.com"
 </code></p>
 <p><code>
-Enter passphrase (empty for no passphrase): 输入你在github上注册使用的密码 
+Enter passphrase (empty for no passphrase): 输入你在github上注册使用的密码     <br />
 Enter same passphrase again: 再输入一次
 </code></p>
 <p>然后会看到公钥和私钥分别被保存为<code>id_rsa</code>和<code>id_rsa.pub</code>，然后正是我们需要的。打开github网页，在账户设置<code>(Account settings)</code>中找到<em>SSH keys</em>项目，点击添加SSH key<code>(Add SSH key)</code>，把<code>idrsa.pub</code>中的内容复制到网页中的key里面。最后回到终端测试下：  </p>
@@ -105,13 +105,38 @@ Enter same passphrase again: 再输入一次
 </pre></div>
 
 
-<p><span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;">The authenticity of host 'github.com (204.232.175.90)' can't be established.</span><br />
+<p>看到这个内容的时候，就说明成功了，git配置完毕:
+<span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;">The authenticity of host 'github.com (204.232.175.90)' can't be established.</span><br />
 <br />
 <span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;">RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span><br />
 <span style="color:#E56600;background-color:#FFFFFF;"></span><br />
 <span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;">Are you sure you want to continue connecting (yes/no)?</span><br />
 <br />
-<span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;">Hi&nbsp;</span><em><span style="color:#E56600;background-color:#FFFFFF;">username</span></em><span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;">! You've successfully authenticated, but GitHub does not provide shell access.</span></p></div>
+<span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;">Hi&nbsp;</span><em><span style="color:#E56600;background-color:#FFFFFF;">username</span></em><span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;">! You've successfully authenticated, but GitHub does not provide shell access.</span></p>
+<h3>Git命令</h3>
+<ul>
+<li>git init </li>
+<li>git add </li>
+<li>git rm </li>
+<li>git commit
+    git commit -m ""</li>
+<li>git status
+    查看版本库的状态。</li>
+<li>git log
+    查看历史日志，包含每次版本变化。每次版本变化对应一个commit id。</li>
+<li>git merge
+    把服务器上下载来的代码和本地代码合并，或者进行分支合并：
+    git merge repo/git-pages (是将服务器git库的git-pages分支合并到本地分支上)</li>
+<li>git diff
+    比较两个分支：git diff 分支1 分支2 </li>
+<li>git checkout
+    切换分支： git checkout 分支名</li>
+<li>git branch
+    创建分支： git branch 分支名
+    创建分支并且切换到创建的分支： git branch -b 分支名
+    删除分支： git branch -D 分支名
+    列出本地git库中的所有分支： git branch</li>
+</ul></div>
     <footer>
 <p class="meta">
   <span class="byline author vcard">
