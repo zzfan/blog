@@ -48,23 +48,23 @@ Enter same passphrase again: 再输入一次
 &lt;li&gt;git init &lt;/li&gt;
 &lt;li&gt;git add &lt;/li&gt;
 &lt;li&gt;git rm &lt;/li&gt;
-&lt;li&gt;git commit
-    git commit -m ""&lt;/li&gt;
-&lt;li&gt;git status
+&lt;li&gt;git commit&lt;br /&gt;
+    git commit -m ""  &lt;/li&gt;
+&lt;li&gt;git status&lt;br /&gt;
     查看版本库的状态。&lt;/li&gt;
-&lt;li&gt;git log
+&lt;li&gt;git log&lt;br /&gt;
     查看历史日志，包含每次版本变化。每次版本变化对应一个commit id。&lt;/li&gt;
-&lt;li&gt;git merge
-    把服务器上下载来的代码和本地代码合并，或者进行分支合并：
+&lt;li&gt;git merge&lt;br /&gt;
+    把服务器上下载来的代码和本地代码合并，或者进行分支合并：&lt;br /&gt;
     git merge repo/git-pages (是将服务器git库的git-pages分支合并到本地分支上)&lt;/li&gt;
-&lt;li&gt;git diff
+&lt;li&gt;git diff&lt;br /&gt;
     比较两个分支：git diff 分支1 分支2 &lt;/li&gt;
-&lt;li&gt;git checkout
+&lt;li&gt;git checkout&lt;br /&gt;
     切换分支： git checkout 分支名&lt;/li&gt;
-&lt;li&gt;git branch
-    创建分支： git branch 分支名
-    创建分支并且切换到创建的分支： git branch -b 分支名
-    删除分支： git branch -D 分支名
+&lt;li&gt;git branch&lt;br /&gt;
+    创建分支： git branch 分支名&lt;br /&gt;
+    创建分支并且切换到创建的分支： git branch -b 分支名&lt;br /&gt;
+    删除分支： git branch -D 分支名&lt;br /&gt;
     列出本地git库中的所有分支： git branch&lt;/li&gt;
 &lt;/ul&gt;</summary><category term="git"></category><category term="github"></category></entry><entry><title>利用Pelican和Markdown搭建自己的github静态Blog</title><link href="http://blog.zzfan.info/li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html" rel="alternate"></link><updated>2015-04-29T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-29:li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html</id><summary type="html">&lt;h2&gt;概述&lt;/h2&gt;
 &lt;p&gt;从自己搭建Blog有一段时间了，其实为了方便我的Blog大部分都是从&lt;a href="http://github.com"&gt;Github&lt;/a&gt;上荡下来的，有些地方没有著名版权，敬请谅解。&lt;/p&gt;
