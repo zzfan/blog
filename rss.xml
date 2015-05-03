@@ -43,7 +43,7 @@ sudo apt-get install pelican Markdown&lt;/p&gt;
 &lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Wed, 29 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfan.info,2015-04-29:li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html</guid><category>blog</category><category>markdown</category><category>pelican</category><category>python</category></item><item><title>Markdown语法总结</title><link>http://blog.zzfan.info/markdownyu-fa-zong-jie.html</link><description>&lt;p&gt;完成了github博客的搭建（稍后会介绍如何搭建），先学习一下Markdown。
 Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章。
 (本文档仅在vim插件markdown中使用，其他的平台可能有一些偏差)&lt;/p&gt;
-&lt;h1&gt;* 标题&lt;/h1&gt;
+&lt;h1&gt;1 标题&lt;/h1&gt;
 &lt;p&gt;两种方法（Setex和Atx）：&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -75,7 +75,7 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
 ##标题二 &lt;br /&gt;
 ###标题三   &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h1&gt;+ 制表&lt;/h1&gt;
+&lt;h1&gt;2 制表&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;table&lt;/span&gt; &lt;span class="na"&gt;class =&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;table table-bordered bable-striped table-condensed&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
 &lt;span class="nt"&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
 &lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt; 时间 &lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
