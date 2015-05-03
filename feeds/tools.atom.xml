@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>赵志凡'Blog</title><link href="http://blog.zzfan.info/" rel="alternate"></link><link href="http://blog.zzfan.info/feeds/tools.atom.xml" rel="self"></link><id>http://blog.zzfan.info/</id><updated>2015-04-29T00:00:00+08:00</updated><entry><title>利用Pelican和Markdown搭建自己的github静态Blog</title><link href="http://blog.zzfan.info/li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html" rel="alternate"></link><updated>2015-04-29T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-29:li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html</id><summary type="html">&lt;h2&gt;&lt;i class="fa fa-link"&gt;&lt;/i&gt; 概述&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>赵志凡'Blog</title><link href="http://blog.zzfan.info/" rel="alternate"></link><link href="http://blog.zzfan.info/feeds/tools.atom.xml" rel="self"></link><id>http://blog.zzfan.info/</id><updated>2015-05-02T00:00:00+08:00</updated><entry><title>Git的用法和遇到的问题</title><link href="http://blog.zzfan.info/gitde-yong-fa-he-yu-dao-de-wen-ti.html" rel="alternate"></link><updated>2015-05-02T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-05-02:gitde-yong-fa-he-yu-dao-de-wen-ti.html</id><summary type="html">&lt;p&gt;Git的用法其实很简单，首先你得注册一个Github的账户，一般要在你的Github上创建一个repo。
+那么git就有用武之地了，下面我们来介绍下具体的步骤以及注意的事项。&lt;/p&gt;
+&lt;h2&gt;经验之谈&lt;/h2&gt;
+&lt;p&gt;就我经常用到的git步骤如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;lt;!&lt;/span&gt;&lt;span class="n"&gt;DOCTYPE&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;你更改的描述&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;其实配置好了后就是这么简单，有时候在不同机器上会用到git pull、git add --all...,但是百度一下你就会了，而且git的提示功能是很Bug的一个存在，任何错误都会提醒你用什么命令，所以不用担心出现错误了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有一点需要注意的是，有时候可能需要在git前面加&lt;strong&gt;sudo&lt;/strong&gt;，这个你懂的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;具体步骤&lt;/h2&gt;</summary><category term="git"></category><category term="github"></category></entry><entry><title>利用Pelican和Markdown搭建自己的github静态Blog</title><link href="http://blog.zzfan.info/li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html" rel="alternate"></link><updated>2015-04-29T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-29:li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html</id><summary type="html">&lt;h2&gt;概述&lt;/h2&gt;
 &lt;p&gt;从自己搭建Blog有一段时间了，其实为了方便我的Blog大部分都是从&lt;a href="http://github.com"&gt;Github&lt;/a&gt;上荡下来的，有些地方没有著名版权，敬请谅解。&lt;/p&gt;
 &lt;p&gt;动态的Blog我也弄过一段时间，是用&lt;strong&gt;node.js&lt;/strong&gt;开发的，当时也是由于没有找到合适的免费&lt;strong&gt;VPS&lt;/strong&gt;（用过一段时间的&lt;a href="https://www.digitalocean.com/"&gt;DigitalOcean&lt;/a&gt;，也就没有继续下去了（对于学生来说还是有点贵的）。如果有需要，可以关注我的&lt;a href="http://github.com/zzfan"&gt;Github&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;经过一段时间的摸索，完成了我的Github Page: &lt;a href="http://blog.zzfan.info"&gt;http://blog.zzfan.info&lt;/a&gt;。&lt;/p&gt;
@@ -8,7 +23,8 @@
 &lt;p&gt;这里我就不很详细的列举出其中的细节了，直接上命令，是在Linux上搭建的。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;安装软件&lt;blockquote&gt;
-&lt;p&gt;sudo apt-get install &lt;/p&gt;
+&lt;p&gt;sudo apt-get install python python-dev python-pip
+sudo apt-get install pelican Markdown&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
