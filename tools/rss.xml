@@ -6,9 +6,9 @@
 &lt;/blockquote&gt;
 &lt;p&gt;就我经常用到的git步骤如下：&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;
-git add .
-git commit -m "你更改的描述"
-git push
+git add .&lt;br /&gt;
+git commit -m "你更改的描述" &lt;br /&gt;
+git push &lt;br /&gt;
 &lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;其实配置好了后就是这么简单，有时候在不同机器上会用到&lt;em&gt;git pull、git add --all&lt;/em&gt;...,但是百度一下你就会了，而且git的提示功能是很Bug的一个存在，任何错误都会提醒你用什么命令，所以不用担心出现错误了。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;
