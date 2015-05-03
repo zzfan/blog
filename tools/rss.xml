@@ -17,12 +17,16 @@
 &lt;h2&gt;具体步骤&lt;/h2&gt;
 &lt;h3&gt;初始配置&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;刚申请git的时候，必须按如下设置配置&lt;em&gt;username&lt;/em&gt;和&lt;em&gt;useremail&lt;/em&gt;：
-    &lt;code&gt;git config --global user.name "you name"  
-    git config --global user.email you@yourdomain.example.com   
-    git config --global push.default simple(可以有其他选项)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;安装ssh公钥
-这个配置是可以不需要的，但是为了方便可以进行配置。&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;刚申请git的时候，必须按如下设置配置&lt;em&gt;username&lt;/em&gt;和&lt;em&gt;useremail&lt;/em&gt;：
+    ```
+    git config --global user.name "you name"  &lt;/p&gt;
+&lt;p&gt;git config --global user.email you@yourdomain.example.com   &lt;/p&gt;
+&lt;p&gt;git config --global push.default simple(可以有其他选项)&lt;br /&gt;
+```
++ 安装ssh公钥
+这个配置是可以不需要的，但是为了方便可以进行配置。&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Sat, 02 May 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfan.info,2015-05-02:gitde-yong-fa-he-yu-dao-de-wen-ti.html</guid><category>git</category><category>github</category></item><item><title>利用Pelican和Markdown搭建自己的github静态Blog</title><link>http://blog.zzfan.info/li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html</link><description>&lt;h2&gt;概述&lt;/h2&gt;
 &lt;p&gt;从自己搭建Blog有一段时间了，其实为了方便我的Blog大部分都是从&lt;a href="http://github.com"&gt;Github&lt;/a&gt;上荡下来的，有些地方没有著名版权，敬请谅解。&lt;/p&gt;
 &lt;p&gt;动态的Blog我也弄过一段时间，是用&lt;strong&gt;node.js&lt;/strong&gt;开发的，当时也是由于没有找到合适的免费&lt;strong&gt;VPS&lt;/strong&gt;（用过一段时间的&lt;a href="https://www.digitalocean.com/"&gt;DigitalOcean&lt;/a&gt;，也就没有继续下去了（对于学生来说还是有点贵的）。如果有需要，可以关注我的&lt;a href="http://github.com/zzfan"&gt;Github&lt;/a&gt;。&lt;/p&gt;
