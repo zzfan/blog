@@ -23,8 +23,10 @@
 git config --global user.name "you name"  &lt;/p&gt;
 &lt;p&gt;git config --global user.email you@yourdomain.example.com   &lt;/p&gt;
 &lt;p&gt;git config --global push.default simple(可以有其他选项)&lt;br /&gt;
-```
-+ 安装ssh公钥
+```&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安装ssh公钥
 这个配置是可以不需要的，但是为了方便可以进行配置。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</summary><category term="git"></category><category term="github"></category></entry><entry><title>Reading papers</title><link href="http://blog.zzfan.info/reading-papers.html" rel="alternate"></link><updated>2015-04-30T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-30:reading-papers.html</id><summary type="html">&lt;h3&gt;一下是我所看的论文以及一些介绍稍后贴出&lt;/h3&gt;
