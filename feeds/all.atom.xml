@@ -1,33 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>赵志凡'Blog</title><link href="http://blog.zzfan.info/" rel="alternate"></link><link href="http://blog.zzfan.info/feeds/all.atom.xml" rel="self"></link><id>http://blog.zzfan.info/</id><updated>2015-05-02T00:00:00+08:00</updated><entry><title>Git的用法和遇到的问题</title><link href="http://blog.zzfan.info/gitde-yong-fa-he-yu-dao-de-wen-ti.html" rel="alternate"></link><updated>2015-05-02T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-05-02:gitde-yong-fa-he-yu-dao-de-wen-ti.html</id><summary type="html">&lt;p&gt;Git的用法其实很简单，首先你得注册一个Github的账户，一般要在你的Github上创建一个repo。
 那么git就有用武之地了，下面我们来介绍下具体的步骤以及注意的事项。&lt;/p&gt;
-&lt;h2&gt;经验之谈&lt;/h2&gt;
-&lt;p&gt;就我经常用到的git步骤如下：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;lt;!&lt;/span&gt;&lt;span class="n"&gt;DOCTYPE&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;
-&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;你更改的描述&amp;quot;&lt;/span&gt;
-&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;其实配置好了后就是这么简单，有时候在不同机器上会用到&lt;em&gt;git pull、git add --all&lt;/em&gt;...,但是百度一下你就会了，而且git的提示功能是很Bug的一个存在，任何错误都会提醒你用什么命令，所以不用担心出现错误了。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;有一点需要注意的是，有时候可能需要在git前面加&lt;strong&gt;sudo&lt;/strong&gt;，这个你懂的。&lt;/p&gt;
+&lt;h2&gt;经验之谈&lt;/h2&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;就我经常用到的git步骤如下：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;
+git add .
+git commit -m "你更改的描述"
+git push
+&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;其实配置好了后就是这么简单，有时候在不同机器上会用到&lt;em&gt;git pull、git add --all&lt;/em&gt;...,但是百度一下你就会了，而且git的提示功能是很Bug的一个存在，任何错误都会提醒你用什么命令，所以不用担心出现错误了。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;
+*有一点需要注意的是，有时候可能需要在git前面加&lt;strong&gt;sudo&lt;/strong&gt;，这个你懂的。
+&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
 &lt;h2&gt;具体步骤&lt;/h2&gt;
+&lt;/blockquote&gt;
 &lt;h4&gt;初始配置&lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;配置git: 刚申请git的时候，必须按如下设置配置&lt;em&gt;username&lt;/em&gt;和&lt;em&gt;useremail&lt;/em&gt;
-&lt;code&gt;
+&lt;li&gt;配置git: 刚申请git的时候，必须按如下设置配置&lt;em&gt;username&lt;/em&gt;和&lt;em&gt;useremail&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;
 git config --global user.name "you name"&lt;br /&gt;
 git config --global user.email you@yourdomain.example.com &lt;br /&gt;
 git config --global push.default simple(可以有其他选项) &lt;br /&gt;
-&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;安装ssh公钥: 用你在注册github时用的Email生成一个ssh公钥对
-&lt;code&gt;
+&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;安装ssh公钥: 用你在注册github时用的Email生成一个ssh公钥对&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;
 ssh-keygen -t rsa -C "your_email@example.com"
-&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="git"></category><category term="github"></category></entry><entry><title>Reading papers</title><link href="http://blog.zzfan.info/reading-papers.html" rel="alternate"></link><updated>2015-04-30T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-30:reading-papers.html</id><summary type="html">&lt;h3&gt;一下是我所看的论文以及一些介绍稍后贴出&lt;/h3&gt;
+&lt;/code&gt;&lt;/p&gt;</summary><category term="git"></category><category term="github"></category></entry><entry><title>Reading papers</title><link href="http://blog.zzfan.info/reading-papers.html" rel="alternate"></link><updated>2015-04-30T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-30:reading-papers.html</id><summary type="html">&lt;h3&gt;一下是我所看的论文以及一些介绍稍后贴出&lt;/h3&gt;
 &lt;p&gt;test
 test
 test
