@@ -30,9 +30,9 @@ ssh-keygen -t rsa -C "your_email@example.com"
 Enter passphrase (empty for no passphrase): 输入你在github上注册使用的密码 
 Enter same passphrase again: 再输入一次
 &lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;然后会看到公钥和私钥分别被保存为&lt;code&gt;id_rsa&lt;/code&gt;和&lt;code&gt;id_rsa.pub&lt;/code&gt;，然后正是我们需要的。打开github网页，在账户设置&lt;code&gt;(Account settings)&lt;/code&gt;中找到&lt;em&gt;SSH keys&lt;/em&gt;项目，点击添加SSH key&lt;code&gt;(Add SSH key)&lt;/code&gt;，把&lt;code&gt;idrsa.pub&lt;/code&gt;中的内容复制到网页中的key里面。最后回到终端测试下：
-&lt;code&gt;   ssh -T git@github.com  &lt;/code&gt;
-&lt;span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;"&gt;The authenticity of host 'github.com (204.232.175.90)' can't be established.&lt;/span&gt;&lt;br /&gt;
+&lt;p&gt;然后会看到公钥和私钥分别被保存为&lt;code&gt;id_rsa&lt;/code&gt;和&lt;code&gt;id_rsa.pub&lt;/code&gt;，然后正是我们需要的。打开github网页，在账户设置&lt;code&gt;(Account settings)&lt;/code&gt;中找到&lt;em&gt;SSH keys&lt;/em&gt;项目，点击添加SSH key&lt;code&gt;(Add SSH key)&lt;/code&gt;，把&lt;code&gt;idrsa.pub&lt;/code&gt;中的内容复制到网页中的key里面。最后回到终端测试下：&lt;br /&gt;
+&lt;code&gt;   ssh -T git@github.com  &lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;"&gt;The authenticity of host 'github.com (204.232.175.90)' can't be established.&lt;/span&gt;&lt;br /&gt;
 &lt;br /&gt;
 &lt;span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;"&gt;RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.&lt;/span&gt;&lt;br /&gt;
 &lt;span style="color:#E56600;background-color:#FFFFFF;"&gt;&lt;/span&gt;&lt;br /&gt;

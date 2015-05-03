@@ -100,9 +100,9 @@ ssh-keygen -t rsa -C "your_email@example.com"
 Enter passphrase (empty for no passphrase): 输入你在github上注册使用的密码 
 Enter same passphrase again: 再输入一次
 </code></p>
-<p>然后会看到公钥和私钥分别被保存为<code>id_rsa</code>和<code>id_rsa.pub</code>，然后正是我们需要的。打开github网页，在账户设置<code>(Account settings)</code>中找到<em>SSH keys</em>项目，点击添加SSH key<code>(Add SSH key)</code>，把<code>idrsa.pub</code>中的内容复制到网页中的key里面。最后回到终端测试下：
-<code>   ssh -T git@github.com  </code>
-<span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;">The authenticity of host 'github.com (204.232.175.90)' can't be established.</span><br />
+<p>然后会看到公钥和私钥分别被保存为<code>id_rsa</code>和<code>id_rsa.pub</code>，然后正是我们需要的。打开github网页，在账户设置<code>(Account settings)</code>中找到<em>SSH keys</em>项目，点击添加SSH key<code>(Add SSH key)</code>，把<code>idrsa.pub</code>中的内容复制到网页中的key里面。最后回到终端测试下：<br />
+<code>   ssh -T git@github.com  </code></p>
+<p><span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;">The authenticity of host 'github.com (204.232.175.90)' can't be established.</span><br />
 <br />
 <span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;">RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span><br />
 <span style="color:#E56600;background-color:#FFFFFF;"></span><br />
