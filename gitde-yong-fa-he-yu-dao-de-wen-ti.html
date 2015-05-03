@@ -85,18 +85,21 @@
 <p>有一点需要注意的是，有时候可能需要在git前面加<strong>sudo</strong>，这个你懂的。</p>
 </blockquote>
 <h2>具体步骤</h2>
-<h3>初始配置</h3>
+<h4>初始配置</h4>
 <ul>
-<li>
-<p>刚申请git的时候，必须按如下设置配置<em>username</em>和<em>useremail</em>：</p>
-<p><code>git config --global user.name "you name"                                                          
-git config --global user.email you@yourdomain.example.com                                         
-git config --global push.default simple(可以有其他选项)</code></p>
-</li>
-<li>
-<p>安装ssh公钥
-这个配置是可以不需要的，但是为了方便可以进行配置。</p>
-</li>
+<li><em><em>配置git: 刚申请git的时候，必须按如下设置配置</em>username</em>和<em>useremail</em></li>
+</ul>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="n">name</span> <span class="s">&quot;you name&quot;</span>                                                       
+<span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">user</span><span class="p">.</span><span class="n">email</span> <span class="n">you</span><span class="err">@</span><span class="n">yourdomain</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="n">com</span>                                
+<span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="n">global</span> <span class="n">push</span><span class="p">.</span><span class="k">default</span> <span class="n">simple</span><span class="p">(</span><span class="err">可以有其他选项</span><span class="p">)</span>                                  
+</pre></div>
+
+
+<ul>
+<li>安装ssh公钥: 用你在注册github时用的Email生成一个ssh公钥对
+<code>
+ssh-keygen -t rsa -C "your_email@example.com"
+</code></li>
 </ul></div>
     <footer>
 <p class="meta">
