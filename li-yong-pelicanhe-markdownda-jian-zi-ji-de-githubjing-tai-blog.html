@@ -73,16 +73,56 @@
 <p>从自己搭建Blog有一段时间了，其实为了方便我的Blog大部分都是从<a href="http://github.com">Github</a>上荡下来的，有些地方没有著名版权，敬请谅解。</p>
 <p>动态的Blog我也弄过一段时间，是用<strong>node.js</strong>开发的，当时也是由于没有找到合适的免费<strong>VPS</strong>（用过一段时间的<a href="https://www.digitalocean.com/">DigitalOcean</a>，也就没有继续下去了（对于学生来说还是有点贵的）。如果有需要，可以关注我的<a href="http://github.com/zzfan">Github</a>。</p>
 <p>经过一段时间的摸索，完成了我的Github Page: <a href="http://blog.zzfan.info">http://blog.zzfan.info</a>。</p>
-<p>其实这个<a href="http://www.xuanfengge.com">轩枫阁</a>才是我一直想要搭建的Blog（很喜欢那种自己开发的可以不断自己的完善，而且有无限大的开发空间），但是我的方向不再网页开发，只能忍痛不去想那绚丽的让人眼花缭乱的Blog了\~\~</p>
+<p>其实这个<a href="http://www.xuanfengge.com">轩枫阁</a>才是我一直想要搭建的Blog（很喜欢那种自己开发的可以不断自己的完善，而且有无限大的开发空间），但是我的方向不再网页开发，只能忍痛不去想那绚丽的让人眼花缭乱的Blog了<img src="http://kindeditor.net/ke4/plugins/emoticons/images/0.gif" border="0" alt="" /></p>
 <h2>具体搭建</h2>
 <p>这里我就不很详细的列举出其中的细节了，直接上命令，是在Linux上搭建的。</p>
-<ul>
-<li>安装软件<blockquote>
-<p>sudo apt-get install python python-dev python-pip
+<h4>- 安装软件</h4>
+<blockquote>
+<p>sudo apt-get install python python-dev python-pip<br />
 sudo apt-get install pelican Markdown</p>
 </blockquote>
-</li>
-</ul>
+<h4>- 创建工作文件</h4>
+<blockquote>
+<p>mkdir pelican-blog<br />
+cd pelican-blog<br />
+pelican-quickstart  </p>
+<blockquote>
+<p><p>
+    <span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FCFCFC;">Where do you want to create your new web site? [.]（你想在哪里创建你的网站，默认为当前目录）</span><br />
+<br />
+<span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FCFCFC;">What will be the title of this web site?（网站的标题是）</span><br />
+<br />
+<span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FCFCFC;">Who will be the author of this web site?（网站的作者是）</span><br />
+<br />
+<span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FCFCFC;">What will be the default language of this web site? [en]（网站的语言是），当然是中文啦，填‘zh’</span><br />
+<br />
+<span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FCFCFC;">Do you want to specify a URL prefix? e.g.,&nbsp;</span><a href="http://example.com/" target="_blank"><span style="color:#E56600;">http://example.com</span></a><span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FCFCFC;">&nbsp;(Y/n) （是否指定域名），Y</span><br />
+<br />
+<span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FCFCFC;">What is your URL prefix? (see above example; no trailing slash) （输入域名，不能包含反斜杠‘/’），</span><a href="http://frantic1048.github.io/" target="_blank"><span style="color:#E56600;">http://frantic1048.github.io</span></a><br />
+<br />
+<span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FCFCFC;">Do you want to enable article pagination?（是否启用文章分页）</span><br />
+<br />
+<span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FCFCFC;">Do you want to generate a Makefile to easily manage your website?（是否生成一个Makefile来管理网站）</span><br />
+<br />
+<span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FCFCFC;">Do you want an auto-reload &amp; simpleHTTP script to assist with theme and site development?（是否想有一个自动加载的小型http脚本用来修改主题和站点开发）</span><br />
+<br />
+<span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FCFCFC;">Do you want to upload your website using FTP?</span><br />
+<br />
+<span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FCFCFC;">Do you want to upload your website using SSH?</span><br />
+<br />
+<span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FCFCFC;">Do you want to upload your website using Dropbox?</span><br />
+<br />
+<span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FCFCFC;">Do you want to upload your website using S3?</span><span style="color:#E56600;"></span>
+</p>
+<p>
+    <br />
+</p> </p>
+</blockquote>
+</blockquote>
+<h4>- 配置文件</h4>
+<h4>- 更改主题</h4>
+<h4>- 使用插件</h4>
+<h4>- 开始写Blog</h4>
 <div class="highlight"><pre><span class="vi">#include</span> <span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span>
 <span class="vi">#include</span> <span class="o">&lt;</span><span class="nx">iostream</span><span class="o">&gt;</span>
 <span class="nx">using</span> <span class="nx">namespace</span> <span class="nx">std</span><span class="p">;</span>
