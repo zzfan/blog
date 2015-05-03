@@ -13,7 +13,7 @@ git push &lt;br /&gt;
 &lt;h3&gt;具体步骤&lt;/h3&gt;
 &lt;h4&gt;初始配置&lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;配置git: 刚申请git的时候，必须按如下设置配置&lt;em&gt;username&lt;/em&gt;和&lt;em&gt;useremail&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;配置git&lt;/strong&gt;: 刚申请git的时候，必须按如下设置配置&lt;em&gt;username&lt;/em&gt;和&lt;em&gt;useremail&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;code&gt;
 git config --global user.name "you name"&lt;br /&gt;
@@ -21,81 +21,24 @@ git config --global user.email you@yourdomain.example.com &lt;br /&gt;
 git config --global push.default simple(可以有其他选项) &lt;br /&gt;
 &lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;安装ssh公钥: 用你在注册github时用的Email生成一个ssh公钥对&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;安装ssh公钥&lt;/strong&gt;: 用你在注册github时用的Email生成一个ssh公钥对&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;code&gt;
 ssh-keygen -t rsa -C "your_email@example.com"
 &lt;/code&gt;&lt;/p&gt;
-&lt;h3&gt;
-    &lt;span style="color:#E56600;"&gt;标题一&lt;/span&gt;
-&lt;/h3&gt;
-
-&lt;p&gt;
-    &lt;span style="color:#E56600;"&gt;&lt;span style="background-color:#000000;"&gt;&lt;/span&gt;
-    &lt;table style="width:100%;background-color:#DFC5A4;" cellpadding="2" cellspacing="0" border="1" bordercolor="#000000"&gt;
-        &lt;tbody&gt;
-            &lt;tr&gt;
-                &lt;td&gt;
-                    &lt;br /&gt;
-                &lt;/td&gt;
-                &lt;td&gt;
-                    &lt;br /&gt;
-                &lt;/td&gt;
-                &lt;td&gt;
-                    &lt;br /&gt;
-                &lt;/td&gt;
-                &lt;td&gt;
-                    &lt;br /&gt;
-                &lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-                &lt;td&gt;
-                    &lt;br /&gt;
-                &lt;/td&gt;
-                &lt;td&gt;
-                    &lt;br /&gt;
-                &lt;/td&gt;
-                &lt;td&gt;
-                    &lt;br /&gt;
-                &lt;/td&gt;
-                &lt;td&gt;
-                    &lt;br /&gt;
-                &lt;/td&gt;
-            &lt;/tr&gt;
-            &lt;tr&gt;
-                &lt;td&gt;
-                    &lt;br /&gt;
-                &lt;/td&gt;
-                &lt;td&gt;
-                    &lt;br /&gt;
-                &lt;/td&gt;
-                &lt;td&gt;
-                    &lt;br /&gt;
-                &lt;/td&gt;
-                &lt;td&gt;
-                    &lt;br /&gt;
-                &lt;/td&gt;
-            &lt;/tr&gt;
-        &lt;/tbody&gt;
-    &lt;/table&gt;
+&lt;p&gt;&lt;code&gt;
+Enter passphrase (empty for no passphrase): 输入你在github上注册使用的密码 
+Enter same passphrase again: 再输入一次
+&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;然后会看到公钥和私钥分别被保存为&lt;code&gt;id_rsa&lt;/code&gt;和&lt;code&gt;id_rsa.pub&lt;/code&gt;，然后正是我们需要的。打开github网页，在账户设置&lt;code&gt;(Account settings)&lt;/code&gt;中找到&lt;em&gt;SSH keys&lt;/em&gt;项目，点击添加SSH key&lt;code&gt;(Add SSH key)&lt;/code&gt;，把&lt;code&gt;idrsa.pub&lt;/code&gt;中的内容复制到网页中的key里面。最后回到终端测试下：
+&lt;code&gt;   ssh -T git@github.com  &lt;/code&gt;
+&lt;span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;"&gt;The authenticity of host 'github.com (204.232.175.90)' can't be established.&lt;/span&gt;&lt;br /&gt;
 &lt;br /&gt;
-&lt;img src="http://kindeditor.net/ke4/plugins/emoticons/images/13.gif" border="0" alt="" /&gt;&lt;/span&gt;
-&lt;/p&gt;
-
-&lt;p&gt;
-    &lt;span style="color:#E56600;"&gt;
-&lt;pre class="prettyprint lang-cpp"&gt;#include&amp;lt;string&amp;gt;
-#include&amp;lt;iostream&amp;gt;
-
-using namespace std;
-
-int main()
-{
-test for;
-}&lt;/pre&gt;
+&lt;span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;"&gt;RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.&lt;/span&gt;&lt;br /&gt;
+&lt;span style="color:#E56600;background-color:#FFFFFF;"&gt;&lt;/span&gt;&lt;br /&gt;
+&lt;span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;"&gt;Are you sure you want to continue connecting (yes/no)?&lt;/span&gt;&lt;br /&gt;
 &lt;br /&gt;
-&lt;/span&gt;
-&lt;/p&gt;</summary><category term="git"></category><category term="github"></category></entry><entry><title>Reading papers</title><link href="http://blog.zzfan.info/reading-papers.html" rel="alternate"></link><updated>2015-04-30T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-30:reading-papers.html</id><summary type="html">&lt;h3&gt;一下是我所看的论文以及一些介绍稍后贴出&lt;/h3&gt;
+&lt;span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;"&gt;Hi&amp;nbsp;&lt;/span&gt;&lt;em&gt;&lt;span style="color:#E56600;background-color:#FFFFFF;"&gt;username&lt;/span&gt;&lt;/em&gt;&lt;span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;"&gt;! You've successfully authenticated, but GitHub does not provide shell access.&lt;/span&gt;&lt;/p&gt;</summary><category term="git"></category><category term="github"></category></entry><entry><title>Reading papers</title><link href="http://blog.zzfan.info/reading-papers.html" rel="alternate"></link><updated>2015-04-30T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-30:reading-papers.html</id><summary type="html">&lt;h3&gt;一下是我所看的论文以及一些介绍稍后贴出&lt;/h3&gt;
 &lt;p&gt;test
 test
 test
