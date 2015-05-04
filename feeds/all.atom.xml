@@ -276,7 +276,7 @@ git chckout gh-pages&lt;br /&gt;
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="blog"></category><category term="markdown"></category><category term="pelican"></category><category term="python"></category></entry><entry><title>Blog编辑器-Markdown和Html</title><link href="http://blog.zzfan.info/blogbian-ji-qi-markdownhe-html.html" rel="alternate"></link><updated>2015-04-16T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-16:blogbian-ji-qi-markdownhe-html.html</id><summary type="html">&lt;p&gt;完成了github博客的搭建（稍后会介绍如何搭建），先学习一下Markdown。
 Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章,好处就是普通的可以写成文本但是同时兼容Html。
 (本文档仅在vim插件markdown中使用，其他的平台可能有一些偏差)&lt;/p&gt;
-&lt;h2&gt;1 标题&lt;/h2&gt;
+&lt;h2&gt;标题&lt;/h2&gt;
 &lt;p&gt;两种方法（Setex和Atx）：
 &lt;table style="width:80%;background-color:#CCCCCC;" cellpadding="2" cellspacing="0" border="1" bordercolor="#000000" align="center"&gt;
     &lt;tbody&gt;
@@ -342,11 +342,112 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
         &lt;/tr&gt;
     &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;br /&gt; &lt;/p&gt;
-&lt;h2&gt;2 制表&lt;/h2&gt;
-&lt;p&gt;Markdown的表格制作有点粗糙，你可以用Html来制作好一点。&lt;/p&gt;
-&lt;h2&gt;- 插入图像&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="test" src="/images/test.png" /&gt;&lt;/p&gt;
+&lt;br /&gt; 
+&lt;h2&gt;换行&lt;/h2&gt;&lt;/p&gt;
+&lt;p&gt;在文字的末尾使用两个或两个以上的空格来表示换行。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;引用&lt;/h2&gt;
+
+&lt;p&gt;行首使用&lt;code&gt;&amp;gt;&lt;/code&gt;加上一个空格表示引用段落，内部可以嵌套多个引用。   &lt;/p&gt;
+
+&lt;h4&gt;语法：&lt;/h4&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="text language-text" data-lang="text"&gt;&amp;gt; 这是一个引用，
+&amp;gt; 这里木有换行，   
+&amp;gt; 在这里换行了。
+&amp;gt; &amp;gt; 内部嵌套
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;效果：&lt;/h4&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;这是一个引用，
+这里木有换行，&lt;br&gt;
+在这里换行了。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;内部嵌套&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;列表&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;无序列表&lt;/strong&gt;使用&lt;code&gt;*&lt;/code&gt;、&lt;code&gt;+&lt;/code&gt;或&lt;code&gt;-&lt;/code&gt;后面加上空格来表示。  &lt;/p&gt;
+
+&lt;h4&gt;语法：&lt;/h4&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="text language-text" data-lang="text"&gt;* Item 1
+* Item 2
+* Item 3
+
++ Item 1
++ Item 2
++ Item 3
+
+- Item 1
+- Item 2
+- Item 3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;效果：&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Item 1&lt;/li&gt;
+&lt;li&gt;Item 2&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Item 3&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Item 1&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Item 2&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Item 3&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Item 1  &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Item 2&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Item 3&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;有序列表&lt;/strong&gt;使用数字加英文句号加空格表示。   &lt;/p&gt;
+
+&lt;h4&gt;语法：&lt;/h4&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="text language-text" data-lang="text"&gt;1. Item 1
+2. Item 2
+3. Item 3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;效果：&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Item 1&lt;/li&gt;
+&lt;li&gt;Item 2&lt;/li&gt;
+&lt;li&gt;Item 3&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;代码区域&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;行内代码&lt;/strong&gt;使用&lt;strong&gt;反斜杠&lt;/strong&gt;&lt;code&gt;`&lt;/code&gt;表示。&lt;br&gt;
+&lt;strong&gt;代码段落&lt;/strong&gt;则是在每行文字前加4个空格或者1个缩进符表示。&lt;/p&gt;
+
+&lt;h4&gt;语法：&lt;/h4&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="text language-text" data-lang="text"&gt;Bash中可以使用echo来进行输出。
+    $ echo &amp;#39;Something&amp;#39;
+    $ echo -e &amp;#39;\tSomething\n&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;效果：&lt;/h4&gt;
+
+&lt;p&gt;Bash中可以使用echo来进行输出。&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="text language-text" data-lang="text"&gt;$ echo &amp;#39;Something&amp;#39;
+$ echo -e &amp;#39;\tSomething\n&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;hr&gt;
+我自己常用的方式就是"``````"&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cm"&gt;/*************************************************************************&lt;/span&gt;
 &lt;span class="cm"&gt;    &amp;gt; File Name: flow-consumer1.h&lt;/span&gt;
 &lt;span class="cm"&gt;    &amp;gt; Author: zzfan&lt;/span&gt;
@@ -380,7 +481,103 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;代码模块的编程&lt;code&gt; ndn-app.h &lt;/code&gt;可以用这个来表示.&lt;/p&gt;</summary><category term="code"></category><category term="markdown"></category></entry><entry><title>My Super Begining</title><link href="http://blog.zzfan.info/my-super-begining.html" rel="alternate"></link><updated>2015-04-15T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-15:my-super-begining.html</id><summary type="html">&lt;p&gt;从现在开始记录自己追求梦想的脚步，其实也是为了能够使自己的每一步都能够走的扎实。&lt;/p&gt;
+&lt;p&gt;代码模块的编程&lt;code&gt; ndn-app.h &lt;/code&gt;可以用这个来表示.&lt;/p&gt;
+&lt;h2&gt;强调&lt;/h2&gt;
+
+&lt;p&gt;Markdown使用&lt;code&gt;\*&lt;/code&gt;或&lt;code&gt;\_&lt;/code&gt;表示强调。&lt;/p&gt;
+
+&lt;h4&gt;语法：&lt;/h4&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="text language-text" data-lang="text"&gt;单星号 = *斜体*
+单下划线 = _斜体_
+双星号 = **加粗**
+双下划线 = __加粗__
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;效果：&lt;/h4&gt;
+
+&lt;p&gt;单星号 = &lt;em&gt;斜体&lt;/em&gt;&lt;br&gt;
+单下划线 = &lt;em&gt;斜体&lt;/em&gt;&lt;br&gt;
+双星号 = &lt;strong&gt;加粗&lt;/strong&gt;&lt;br&gt;
+双下划线 = &lt;strong&gt;加粗&lt;/strong&gt;  &lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;链接&lt;/h2&gt;
+
+&lt;p&gt;Markdown支持两种风格的链接：&lt;em&gt;Inline&lt;/em&gt;和&lt;em&gt;Reference&lt;/em&gt;。 &lt;/p&gt;
+
+&lt;h4&gt;语法：&lt;/h4&gt;
+
+&lt;p&gt;&lt;em&gt;Inline&lt;/em&gt;：以中括号标记显示的链接文本，后面紧跟用小括号包围的链接。如果链接有title属性，则在链接中使用&lt;strong&gt;空格&lt;/strong&gt;加&lt;strong&gt;&amp;quot;title属性&amp;quot;&lt;/strong&gt;。&lt;br&gt;
+&lt;em&gt;Reference&lt;/em&gt;：一般应用于多个不同位置使用相同链接。通常分为两个部分，调用部分为&lt;code&gt;[链接文本][ref]&lt;/code&gt;；定义部分可以出现在文本中的其他位置，格式为&lt;code&gt;[ref]: http://some/link/address (可选的标题)&lt;/code&gt;。&lt;br&gt;
+&lt;em&gt;注：ref中不区分大小写。&lt;/em&gt;   &lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="text language-text" data-lang="text"&gt;这是一个Inline[示例](http://equation85.github.com &amp;quot;可选的title&amp;quot;)。
+这是一个Reference[示例][ref]。
+[ref]: http://equation85.github.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;效果：&lt;/h4&gt;
+
+&lt;p&gt;这是一个&lt;em&gt;Inline&lt;/em&gt;&lt;a href="http://equation85.github.com" title="可选的title"&gt;示例&lt;/a&gt;。&lt;br&gt;
+这是一个&lt;em&gt;Reference&lt;/em&gt;&lt;a href="http://equation85.github.com"&gt;示例&lt;/a&gt;。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;图片&lt;/h2&gt;
+
+&lt;p&gt;图片的使用方法基本上和链接类似，只是在中括号前加&lt;strong&gt;叹号&lt;/strong&gt;。&lt;br&gt;
+&lt;em&gt;注：Markdown不能设置图片大小，如果必须设置则应使用HTML标记&amp;lt;img&amp;gt;。&lt;/em&gt;   &lt;/p&gt;
+
+&lt;h4&gt;语法：&lt;/h4&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="text language-text" data-lang="text"&gt;Inline示例：![替代文本](/images/test.png &amp;quot;可选的title&amp;quot;)
+Reference示例：![替代文本][pic]
+[pic]: /images/test.png &amp;quot;可选的title&amp;quot;
+HTML示例：&amp;lt;img src=&amp;quot;/images/test.png&amp;quot; alt=&amp;quot;替代文本&amp;quot; title=&amp;quot;标题文本&amp;quot; width=&amp;quot;200&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;效果：&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src="/images/test.png" alt="替代文本" title="标题文本" width="200" /&gt;&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;其他&lt;/h2&gt;
+
+&lt;h4&gt;自动链接&lt;/h4&gt;
+
+&lt;p&gt;使用&lt;strong&gt;尖括号&lt;/strong&gt;，可以为输入的URL或者邮箱自动创建链接。如&lt;a href="mailto:test@domain.com"&gt;test@domain.com&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h4&gt;分隔线&lt;/h4&gt;
+
+&lt;p&gt;在一行中使用三个或三个以上的&lt;code&gt;*&lt;/code&gt;、&lt;code&gt;-&lt;/code&gt;或&lt;code&gt;_&lt;/code&gt;可以添加分隔线，其中可以有空白，但是不能有其他字符。&lt;/p&gt;
+
+&lt;h4&gt;转义字符&lt;/h4&gt;
+
+&lt;p&gt;Markdown中的转义字符为&lt;code&gt;\&lt;/code&gt;，可以转义的有：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;\\ 反斜杠&lt;/li&gt;
+&lt;li&gt;\` 反引号&lt;/li&gt;
+&lt;li&gt;\* 星号&lt;/li&gt;
+&lt;li&gt;\_ 下划线&lt;/li&gt;
+&lt;li&gt;\{\} 大括号&lt;/li&gt;
+&lt;li&gt;\[\] 中括号&lt;/li&gt;
+&lt;li&gt;\(\) 小括号&lt;/li&gt;
+&lt;li&gt;\# 井号&lt;/li&gt;
+&lt;li&gt;\+ 加号&lt;/li&gt;
+&lt;li&gt;\- 减号&lt;/li&gt;
+&lt;li&gt;\. 英文句号&lt;/li&gt;
+&lt;li&gt;\! 感叹号&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;结语&lt;/h2&gt;
+
+&lt;p&gt;Markdown语法很大程度上减少了编辑的成本，但是在写作这篇文章的时候也发现某些标记对中文的支持似乎并不完美，虽然这些缺陷可以通过直接插入HTML代码解决（但这么做一点都不漂亮）。总的来说，能够在离线状态下使用命令行模式进行写作还是很爽的，相比在线写作模式精力可以更专注。&lt;/p&gt;</summary><category term="code"></category><category term="markdown"></category></entry><entry><title>My Super Begining</title><link href="http://blog.zzfan.info/my-super-begining.html" rel="alternate"></link><updated>2015-04-15T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-15:my-super-begining.html</id><summary type="html">&lt;p&gt;从现在开始记录自己追求梦想的脚步，其实也是为了能够使自己的每一步都能够走的扎实。&lt;/p&gt;
 &lt;p&gt;总是在想自己到底能够得到怎样的结果，老是在调整自己的步伐，忘记了自己最初的梦想。&lt;/p&gt;
 &lt;p&gt;不要担心梦想能否实现，我要做的就是，从现在开始真正的坚持下去。&lt;/p&gt;
 &lt;p&gt;试过一些方式摸索自己的Blog、主页，其中很长一段时间跟着璧哥学了很多东西，最终选择github

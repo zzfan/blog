@@ -141,7 +141,7 @@ sudo apt-get install pelican ...</p></blockquote></div>
   <div class="entry-content"><p>完成了github博客的搭建（稍后会介绍如何搭建），先学习一下Markdown。
 Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章,好处就是普通的可以写成文本但是同时兼容Html。
 (本文档仅在vim插件markdown中使用，其他的平台可能有一些偏差)</p>
-<h2>1 标题</h2>
+<h2>标题</h2>
 <p>两种方法（Setex和Atx）：
 <table style="width:80%;background-color:#CCCCCC;" cellpadding="2" cellspacing="0" border="1" bordercolor="#000000" align="center">
     <tbody>
@@ -207,16 +207,46 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
         </tr>
     </tbody>
 </table>
-<br /> </p>
-<h2>2 制表</h2>
-<p>Markdown的表格制作有点粗糙，你可以用Html来制作好一点。</p>
-<h2>- 插入图像</h2>
-<p><img alt="test" src="/images/test.png" /></p>
-<div class="highlight"><pre><span class="cm">/*************************************************************************</span>
-<span class="cm">    &gt; File Name: flow-consumer1.h</span>
-<span class="cm">    &gt; Author: zzfan</span>
-<span class="cm">    &gt; Mail: zzfan@mail.ustc.edu.cn </span>
-<span class="cm">    &gt; Created Time: Thu 04 Sep 2014 03 ...</span></pre></div></div>
+<br /> 
+<h2>换行</h2></p>
+<p>在文字的末尾使用两个或两个以上的空格来表示换行。</p>
+
+<hr>
+
+<h2>引用</h2>
+
+<p>行首使用<code>&gt;</code>加上一个空格表示引用段落，内部可以嵌套多个引用。   </p>
+
+<h4>语法：</h4>
+
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&gt; 这是一个引用，
+&gt; 这里木有换行，   
+&gt; 在这里换行了。
+&gt; &gt; 内部嵌套
+</code></pre></div>
+
+<h4>效果：</h4>
+
+<blockquote>
+<p>这是一个引用，
+这里木有换行，<br>
+在这里换行了。</p>
+
+<blockquote>
+<p>内部嵌套</p>
+</blockquote>
+</blockquote>
+
+<hr>
+
+<h2>列表</h2>
+
+<p><strong>无序列表</strong>使用<code>*</code>、<code>+</code>或<code>-</code>后面加上空格来表示。  </p>
+
+<h4>语法：</h4>
+
+<div class="highlight"><pre><code class="text language-text" data-lang="text">* Item 1
+* Item ...</code></pre></div></div>
   <footer>
     <a rel="full-article" href="http://blog.zzfan.info/blogbian-ji-qi-markdownhe-html.html">Read On &crarr;</a>
   </footer>
