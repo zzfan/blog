@@ -80,7 +80,24 @@ git commit -m "你更改的描述" <br />
 git push <br />
 </code></p>
 <p>其实配置好了后就是这么简单，有时候在不同机器上会用到<em>git pull、git add --all</em>...,但是百度一下你就会了，而且git的提示功能是很Bug的一个存在，任何错误都会提醒你用什么命令，所以不用担心出现错误了。</p>
-<p><font size=4 color="#FF0000"> 有一点需要注意的是，有时候可能需要在git前面加<strong>sudo</strong>，这个你懂的。</font></p>
+<p><font size=4 color="#FF0000"> 有一点需要注意的是，有时候可能需要在git前面加<strong>sudo</strong>，这个你懂的。</font>
+<p>
+    <span style="background-color:#CCCCCC;">错误处理（碰到了就更新），</span><span style="line-height:1.5;background-color:#CCCCCC;">&nbsp;由于以前碰到的都忘了，现在有一条说一条吧：</span> 
+</p>
+<p>
+    <span style="line-height:1.5;background-color:#CCCCCC;">&nbsp; &nbsp; 1.&nbsp;fatal: the remote end hung up unexpectedly</span><span style="line-height:1.5;"></span> 
+</p>
+<p>
+    <span style="line-height:1.5;"><span style="background-color:#CCCCCC;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 经常用git的这个错误可能会经常出现，其实可以永久解决的，但是有了简单的方法后我也酒懒得去看了。</span><br />
+</span> 
+</p>
+<p>
+    <span style="line-height:1.5;"><span style="background-color:#CCCCCC;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; git config&nbsp;http.postBuffer 524288000</span><br />
+</span> 
+</p>
+<p>
+    <br />
+</p></p>
 <h3>具体步骤</h3>
 <h3>初始配置</h3>
 <ul>
