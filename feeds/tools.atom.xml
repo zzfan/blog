@@ -66,7 +66,7 @@ Enter same passphrase again: 再输入一次
     创建分支并且切换到创建的分支： git branch -b 分支名&lt;br /&gt;
     删除分支： git branch -D 分支名&lt;br /&gt;
     列出本地git库中的所有分支： git branch&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="git"></category><category term="github"></category></entry><entry><title>利用Pelican和Markdown搭建自己的github静态Blog</title><link href="http://blog.zzfan.info/li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html" rel="alternate"></link><updated>2015-04-29T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-29:li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html</id><summary type="html">&lt;h2&gt;概述&lt;/h2&gt;
+&lt;/ul&gt;</summary><category term="git"></category><category term="github"></category></entry><entry><title>在Github上搭建自己的Blog：Octopress+Python+Markdown和Html</title><link href="http://blog.zzfan.info/zai-githubshang-da-jian-zi-ji-de-blogoctopresspythonmarkdownhe-html.html" rel="alternate"></link><updated>2015-04-29T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-29:zai-githubshang-da-jian-zi-ji-de-blogoctopresspythonmarkdownhe-html.html</id><summary type="html">&lt;h2&gt;概述&lt;/h2&gt;
 &lt;p&gt;从自己搭建Blog有一段时间了，其实为了方便我的Blog大部分都是从&lt;a href="http://github.com"&gt;Github&lt;/a&gt;上荡下来的，有些地方没有著名版权，敬请谅解。&lt;/p&gt;
 &lt;p&gt;动态的Blog我也弄过一段时间，是用&lt;strong&gt;node.js&lt;/strong&gt;开发的，当时也是由于没有找到合适的免费&lt;strong&gt;VPS&lt;/strong&gt;（用过一段时间的&lt;a href="https://www.digitalocean.com/"&gt;DigitalOcean&lt;/a&gt;，也就没有继续下去了（对于学生来说还是有点贵的）。如果有需要，可以关注我的&lt;a href="http://github.com/zzfan"&gt;Github&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;经过一段时间的摸索，完成了我的Github Page: &lt;a href="http://blog.zzfan.info"&gt;http://blog.zzfan.info&lt;/a&gt;。&lt;/p&gt;
@@ -263,15 +263,121 @@ git chckout gh-pages&lt;br /&gt;
     &lt;/ol&gt;
 &lt;/p&gt;&lt;/p&gt;
 &lt;h4&gt;- 更改主题&lt;/h4&gt;
-&lt;h4&gt;- 使用插件&lt;/h4&gt;
-&lt;h4&gt;- 开始写Blog&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="vi"&gt;#include&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="kt"&gt;string&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="vi"&gt;#include&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;iostream&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="nx"&gt;using&lt;/span&gt; &lt;span class="nx"&gt;namespace&lt;/span&gt; &lt;span class="nx"&gt;std&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;p&gt;这里就不过多的描述了，我自己的主题是用Octopress生成的，具体的自己去摸索很简单。&lt;br /&gt;
+然后最简单的方法就是去下载了，很负责的说github上有上百个不同的&lt;a href="https://github.com/getpelican/pelican-themes"&gt;Pelican-theme&lt;/a&gt;供你选择.&lt;/p&gt;
+&lt;h2&gt;后续：&lt;/h2&gt;
 
-&lt;span class="nx"&gt;int&lt;/span&gt; &lt;span class="nx"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="nx"&gt;int&lt;/span&gt; 
+&lt;h3&gt;更改主题&lt;/h3&gt;
+
+&lt;p&gt;Pelican本身提供了不少主题，同时也支持自己制作主题，你可以直接把github上pelican的主题全都clone下来&lt;/p&gt;
+
+&lt;figure class="figure-code code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;git clone git://github.com/getpelican/pelican-themes.git
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;在里面找到一个你喜欢的主题，假如这个主题的目录是 &lt;code&gt;~/pelican-themes/bootstrap2&lt;/code&gt; ，使用pelican-themes安装这个主题&lt;/p&gt;
+
+&lt;figure class="figure-code code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;sudo pelican-themes -i  ~/pelican-themes/bootstrap2
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;随后就可以用&lt;code&gt;pelican-themes&lt;/code&gt;查看已安装的主题&lt;/p&gt;
+
+&lt;figure class="figure-code code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;pelican-themes --list --verbose
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;/usr/lib/python2.7/site-packages/pelican/themes/bootstrap2&lt;br&gt;&lt;br&gt;
+/usr/lib/python2.7/site-packages/pelican/themes/notmyidea&lt;br&gt;&lt;br&gt;
+/usr/lib/python2.7/site-packages/pelican/themes/simple  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;要在你的博客中使用安装好的主题，直接在pelicanconf.py文件中修改或者添加&lt;code&gt;THEME&lt;/code&gt;项为想要的主题名,例如&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;THEME = "bootstrap2"&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;然后执行&lt;/p&gt;
+
+&lt;figure class="figure-code code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;make html
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;重新生成的页面现在使用的就是新指定的主题了&lt;/p&gt;
+
+&lt;h3&gt;使用插件&lt;/h3&gt;
+
+&lt;p&gt;Pelican 一开始是将插件内置的, 但是新版本 Pelican将插件隔离了出来, 所以我们要到github上 克隆一份新的插件, 在博客目录执行&lt;/p&gt;
+
+&lt;figure class="figure-code code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;git clone git://github.com/getpelican/pelican-plugins.git 
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;现在我们博客目录就新添了一个 pelican-plugins目录, 我们以配置sitemap插件为例,sitemap插件可以生成 sitemap.xml 供搜索引擎使用&lt;/p&gt;
+
+&lt;p&gt;在pelicanconf.py配置文件里加上如下项:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;PLUGIN_PATH = u"pelican-plugins"&lt;br&gt;&lt;br&gt;
+PLUGINS = ["sitemap"]&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;配置sitemap 插件&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;SITEMAP = { "format": "xml", "priorities": { "articles": 0.7, "indexes": 0.5, "pages": 0.3, }, "changefreqs": { "articles": "monthly", "indexes": "daily", "pages": "monthly", }}&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;然后再执行&lt;/p&gt;
+
+&lt;figure class="figure-code code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;make html
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;就搞定了&lt;/p&gt;
+
+&lt;h3&gt;添加评论支持&lt;/h3&gt;
+
+&lt;p&gt;Pelican 使用Disqus评论, 可以在Disqus上申请一个站点, 然后在pelicanconf.py里添加或修改"DISQUS_SITENAME"项的内容为你的Disqus ID :&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;DISQUS_SITENAME = u"frantic1048"&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;然后执行&lt;/p&gt;
+
+&lt;figure class="figure-code code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;make html
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/figure&gt;
+
+&lt;h3&gt;拷贝静态文件&lt;/h3&gt;
+
+&lt;p&gt;如果我们定义静态的文件, 该如何将它在每次生成的时候拷贝到 output 目录呢, 我们以robots.txt 为例, 在我们的 content/extra 下面我们放了一个定义好的 robots.txt文件, 在pelicanconf.py更改或添加&lt;code&gt;FILES_TO_COPY&lt;/code&gt;项:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;FILES_TO_COPY = ( ("extra/robots.txt", "robots.txt"),)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这样在每次生成html的时候都会把 content/extra下的 robots.txt 拷贝到 output目录下。&lt;/p&gt;
+
+&lt;h3&gt;拷贝静态目录&lt;/h3&gt;
+
+&lt;p&gt;如果是一个静态目录呢?比如有个名为&lt;code&gt;img&lt;/code&gt;的目录用来放文章所使用的图片，我们可以在pelicanconf.py里添加或修改&lt;code&gt;STATIC_PATHS&lt;/code&gt;项：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;STATIC_PATHS = [u"img"]&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;然后执行&lt;/p&gt;
+
+&lt;figure class="figure-code code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;make html
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;然后 Pelican 就会将&lt;code&gt;img&lt;/code&gt;目录拷贝到&lt;code&gt;output/static/&lt;/code&gt;下就大功告成了。&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;    &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="blog"></category><category term="markdown"></category><category term="pelican"></category><category term="python"></category></entry><entry><title>Blog编辑器-Markdown和Html</title><link href="http://blog.zzfan.info/blogbian-ji-qi-markdownhe-html.html" rel="alternate"></link><updated>2015-04-16T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-16:blogbian-ji-qi-markdownhe-html.html</id><summary type="html">&lt;p&gt;完成了github博客的搭建（稍后会介绍如何搭建），先学习一下Markdown。
 Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章,好处就是普通的可以写成文本但是同时兼容Html。
 (本文档仅在vim插件markdown中使用，其他的平台可能有一些偏差)&lt;/p&gt;
