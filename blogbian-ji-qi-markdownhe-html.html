@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Git的用法和遇到的问题 &mdash; 赵志凡'Blog</title>
+  <title>Blog编辑器-Markdown和Html &mdash; 赵志凡'Blog</title>
   <meta name="author" content="zzfan">
 
   <link href="http://blog.zzfan.info/rss.xml" type="application/rss+xml" rel="alternate"
@@ -65,79 +65,119 @@
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">Git的用法和遇到的问题</h1>
+      <h1 class="entry-title">Blog编辑器-Markdown和Html</h1>
     <p class="meta">
-<time datetime="2015-05-02T00:00:00" pubdate>2015-05-02</time>    </p>
+<time datetime="2015-04-16T00:00:00" pubdate>2015-04-16</time>    </p>
 </header>
 
-  <div class="entry-content"><p>Git的用法其实很简单，首先你得注册一个Github的账户，一般要在你的Github上创建一个repo。
-那么git就有用武之地了，下面我们来介绍下具体的步骤以及注意的事项。</p>
-<h3>经验之谈</h3>
-<p>就我经常用到的git步骤如下：</p>
-<p><code>
-git add .<br />
-git commit -m "你更改的描述" <br />
-git push <br />
-</code></p>
-<p>其实配置好了后就是这么简单，有时候在不同机器上会用到<em>git pull、git add --all</em>...,但是百度一下你就会了，而且git的提示功能是很Bug的一个存在，任何错误都会提醒你用什么命令，所以不用担心出现错误了。</p>
-<p><font size=4 color="#FF0000"> 有一点需要注意的是，有时候可能需要在git前面加<strong>sudo</strong>，这个你懂的。</font></p>
-<h3>具体步骤</h3>
-<h3>初始配置</h3>
-<ul>
-<li><strong>配置git</strong>: 刚申请git的时候，必须按如下设置配置<em>username</em>和<em>useremail</em></li>
-</ul>
-<p><code>
-git config --global user.name "you name"<br />
-git config --global user.email you@yourdomain.example.com <br />
-git config --global push.default simple(可以有其他选项) <br />
-</code></p>
-<ul>
-<li><strong>安装ssh公钥</strong>: 用你在注册github时用的Email生成一个ssh公钥对</li>
-</ul>
-<p><code>
-ssh-keygen -t rsa -C "your_email@example.com"
-</code></p>
-<p><code>
-Enter passphrase (empty for no passphrase): 输入你在github上注册使用的密码     <br />
-Enter same passphrase again: 再输入一次
-</code></p>
-<p>然后会看到公钥和私钥分别被保存为<code>id_rsa</code>和<code>id_rsa.pub</code>，然后正是我们需要的。打开github网页，在账户设置<code>(Account settings)</code>中找到<em>SSH keys</em>项目，点击添加SSH key<code>(Add SSH key)</code>，把<code>idrsa.pub</code>中的内容复制到网页中的key里面。最后回到终端测试下：  </p>
-<div class="highlight"><pre><span class="o">~</span><span class="err">$</span> <span class="n">ssh</span> <span class="o">-</span><span class="n">T</span> <span class="n">git</span><span class="err">@</span><span class="n">github</span><span class="p">.</span><span class="n">com</span>
+  <div class="entry-content"><p>完成了github博客的搭建（稍后会介绍如何搭建），先学习一下Markdown。
+Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章,好处就是普通的可以写成文本但是同时兼容Html。
+(本文档仅在vim插件markdown中使用，其他的平台可能有一些偏差)</p>
+<h2>1 标题</h2>
+<p>两种方法（Setex和Atx）：
+<table style="width:80%;background-color:#CCCCCC;" cellpadding="2" cellspacing="0" border="1" bordercolor="#000000" align="center">
+    <tbody>
+        <tr>
+            <td style="text-align:center;">
+                方式一<br />
+            </td>
+            <td>
+                方式二
+            </td>
+            <td style="text-align:center;">
+                效果<br />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>
+                    标题一
+                </p>
+                <p>
+                    -------------------
+                </p>
+                <p>
+                    标题一
+                </p>
+                <p>
+                    ========
+                </p>
+            </td>
+            <td>
+                <p>
+                    #标题一
+                </p>
+                <p>
+                    ##标题二
+                </p>
+                <p>
+                    ###标题三
+                </p>
+            </td>
+            <td>
+                <h1>
+                    标题一
+                </h1>
+                <h2>
+                    标题二
+                </h2>
+                <h3>
+                    标题三
+                </h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                setex方式
+            </td>
+            <td>
+                atx方式
+            </td>
+            <td>
+                ok
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br /> </p>
+<h2>2 制表</h2>
+<p>Markdown的表格制作有点粗糙，你可以用Html来制作好一点。</p>
+<h2>- 插入图像</h2>
+<p><img alt="test" src="/images/test.png" /></p>
+<div class="highlight"><pre><span class="cm">/*************************************************************************</span>
+<span class="cm">    &gt; File Name: flow-consumer1.h</span>
+<span class="cm">    &gt; Author: zzfan</span>
+<span class="cm">    &gt; Mail: zzfan@mail.ustc.edu.cn </span>
+<span class="cm">    &gt; Created Time: Thu 04 Sep 2014 03:52:53 PM HKT</span>
+<span class="cm"> ************************************************************************/</span>
+
+<span class="p">#</span><span class="k">include</span> <span class="s">&quot;ns3/ndn-app.h&quot;</span>
+
+<span class="p">#</span><span class="k">include</span> <span class="s">&quot;ns3/ndn-app-face.h&quot;</span>
+<span class="p">#</span><span class="k">include</span> <span class="s">&quot;ns3/random-variable.h&quot;</span>
+
+<span class="n">namespace</span> <span class="n">ns3</span> <span class="p">{</span>
+    <span class="k">class</span> <span class="n">FlowConsumer</span> <span class="o">:</span> <span class="n">public</span> <span class="n">ndn</span><span class="o">::</span> <span class="n">App</span>
+    <span class="p">{</span>
+        <span class="nl">public:</span>
+        <span class="k">static</span> <span class="n">TypeId</span> <span class="n">GetTypeId</span><span class="p">();</span>
+        <span class="k">void</span> <span class="n">StartApplication</span><span class="p">();</span>
+        <span class="k">void</span> <span class="n">StopApplication</span><span class="p">();</span>
+        <span class="k">void</span> <span class="n">OnInterest</span><span class="p">(</span><span class="n">Ptr</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">ndn</span><span class="o">::</span><span class="n">Interest</span><span class="o">&gt;</span> <span class="n">interest</span><span class="p">);</span>
+        <span class="k">void</span> <span class="n">OnData</span><span class="p">(</span><span class="n">Ptr</span><span class="o">&lt;</span><span class="k">const</span> <span class="n">ndn</span><span class="o">::</span><span class="n">Data</span><span class="o">&gt;</span> <span class="n">contentObject</span><span class="p">);</span>
+        <span class="k">void</span> <span class="n">Period</span><span class="p">();</span>
+        <span class="k">void</span> <span class="n">SendInterest</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="k">string</span> <span class="o">&amp;</span><span class="n">name</span><span class="p">);</span>
+        <span class="k">void</span> <span class="n">SendInterest</span><span class="p">(</span><span class="k">const</span> <span class="n">ndn</span><span class="o">::</span><span class="n">Name</span> <span class="o">&amp;</span><span class="n">name</span><span class="p">);</span>
+
+    <span class="p">};</span>
+
+<span class="p">}</span>  <span class="c1">//end namespace ns3</span>
+
+ <span class="c1">// #endif </span>
 </pre></div>
 
 
-<p>看到这个内容的时候，就说明成功了，git配置完毕:<br />
-<span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;">The authenticity of host 'github.com (204.232.175.90)' can't be established.</span><br />
-<br />
-<span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;">RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.</span><br />
-<span style="color:#E56600;background-color:#FFFFFF;"></span><br />
-<span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;">Are you sure you want to continue connecting (yes/no)?</span><br />
-<br />
-<span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;">Hi&nbsp;</span><em><span style="color:#E56600;background-color:#FFFFFF;">username</span></em><span style="color:#E56600;font-family:'Open Sans', HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;line-height:19.9999809265137px;background-color:#FFFFFF;">! You've successfully authenticated, but GitHub does not provide shell access.</span></p>
-<h3>Git命令</h3>
-<ul>
-<li>git init </li>
-<li>git add </li>
-<li>git rm </li>
-<li>git commit<br />
-    git commit -m ""  </li>
-<li>git status<br />
-    查看版本库的状态。</li>
-<li>git log<br />
-    查看历史日志，包含每次版本变化。每次版本变化对应一个commit id。</li>
-<li>git merge<br />
-    把服务器上下载来的代码和本地代码合并，或者进行分支合并：<br />
-    git merge repo/git-pages (是将服务器git库的git-pages分支合并到本地分支上)</li>
-<li>git diff<br />
-    比较两个分支：git diff 分支1 分支2 </li>
-<li>git checkout<br />
-    切换分支： git checkout 分支名</li>
-<li>git branch<br />
-    创建分支： git branch 分支名<br />
-    创建分支并且切换到创建的分支： git branch -b 分支名<br />
-    删除分支： git branch -D 分支名<br />
-    列出本地git库中的所有分支： git branch</li>
-</ul></div>
+<p>代码模块的编程<code> ndn-app.h </code>可以用这个来表示.</p></div>
     <footer>
 <p class="meta">
   <span class="byline author vcard">
@@ -145,11 +185,11 @@ Enter same passphrase again: 再输入一次
         zzfan
     </span>
   </span>
-<time datetime="2015-05-02T00:00:00" pubdate>2015-05-02</time>  <span class="categories">
+<time datetime="2015-04-16T00:00:00" pubdate>2015-04-16</time>  <span class="categories">
     <a class='category' href='http://blog.zzfan.info/category/tools.html'>Tools</a>
   </span>
   <span class="categories">
-    <a class="category" href="http://blog.zzfan.info/tag/git.html">git</a>,    <a class="category" href="http://blog.zzfan.info/tag/github.html">github</a>  </span>
+    <a class="category" href="http://blog.zzfan.info/tag/code.html">code</a>,    <a class="category" href="http://blog.zzfan.info/tag/markdown.html">markdown</a>  </span>
 </p><div class="sharing">
 </div>    </footer>
   </article>
@@ -237,9 +277,9 @@ Enter same passphrase again: 再输入一次
   <script src="http://blog.zzfan.info/theme/js/octopress.js" type="text/javascript"></script>
   <script type="text/javascript">
     var disqus_shortname = 'zzfanhero';
-    var disqus_identifier = '/gitde-yong-fa-he-yu-dao-de-wen-ti.html';
-    var disqus_url = 'http://blog.zzfan.info/gitde-yong-fa-he-yu-dao-de-wen-ti.html';
-    var disqus_title = 'Git的用法和遇到的问题';
+    var disqus_identifier = '/blogbian-ji-qi-markdownhe-html.html';
+    var disqus_url = 'http://blog.zzfan.info/blogbian-ji-qi-markdownhe-html.html';
+    var disqus_title = 'Blog编辑器-Markdown和Html';
     (function() {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
       dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';

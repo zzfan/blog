@@ -102,11 +102,7 @@ git config --global user.email ...</code></p></div>
 <time datetime="2015-04-30T00:00:00" pubdate>2015-04-30</time>    </p>
 </header>
 
-  <div class="entry-content"><h3>一下是我所看的论文以及一些介绍稍后贴出</h3>
-<p>test
-test
-test
-test</p>
+  <div class="entry-content"><h3>未来网络论文</h3>
 <p><a href="/wendang/1.pdf">Optimal Congestion Control and Request Routing in Information-Centric Networking</a></p></div>
   		</article>
   		<article>
@@ -136,60 +132,93 @@ sudo apt-get install pelican ...</p></blockquote></div>
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="http://blog.zzfan.info/markdownyu-fa-zong-jie.html">Markdown语法总结</a>
+        <a href="http://blog.zzfan.info/blogbian-ji-qi-markdownhe-html.html">Blog编辑器-Markdown和Html</a>
       </h1>
     <p class="meta">
 <time datetime="2015-04-16T00:00:00" pubdate>2015-04-16</time>    </p>
 </header>
 
   <div class="entry-content"><p>完成了github博客的搭建（稍后会介绍如何搭建），先学习一下Markdown。
-Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章。
+Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章,好处就是普通的可以写成文本但是同时兼容Html。
 (本文档仅在vim插件markdown中使用，其他的平台可能有一些偏差)</p>
-<h1>1 标题</h1>
-<p>两种方法（Setex和Atx）：</p>
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>效果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Setext方式</td>
-<td></td>
-</tr>
-<tr>
-<td>标题一</td>
-<td></td>
-</tr>
-<tr>
-<td>===================</td>
-<td>#标题一</td>
-</tr>
-</tbody>
+<h2>1 标题</h2>
+<p>两种方法（Setex和Atx）：
+<table style="width:80%;background-color:#CCCCCC;" cellpadding="2" cellspacing="0" border="1" bordercolor="#000000" align="center">
+    <tbody>
+        <tr>
+            <td style="text-align:center;">
+                方式一<br />
+            </td>
+            <td>
+                方式二
+            </td>
+            <td style="text-align:center;">
+                效果<br />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>
+                    标题一
+                </p>
+                <p>
+                    -------------------
+                </p>
+                <p>
+                    标题一
+                </p>
+                <p>
+                    ========
+                </p>
+            </td>
+            <td>
+                <p>
+                    #标题一
+                </p>
+                <p>
+                    ##标题二
+                </p>
+                <p>
+                    ###标题三
+                </p>
+            </td>
+            <td>
+                <h1>
+                    标题一
+                </h1>
+                <h2>
+                    标题二
+                </h2>
+                <h3>
+                    标题三
+                </h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                setex方式
+            </td>
+            <td>
+                atx方式
+            </td>
+            <td>
+                ok
+            </td>
+        </tr>
+    </tbody>
 </table>
-<p>标题二 
- ------------------- </p>
-<p>Atx方式 </p>
-<blockquote>
-<p>#标题一 <br />
-##标题二 <br />
-###标题三   </p>
-</blockquote>
-<h1>2 制表</h1>
-<div class="highlight"><pre><span class="nt">&lt;table</span> <span class="na">class =</span> <span class="s">&quot;table table-bordered bable-striped table-condensed&quot;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;tr&gt;</span>
-<span class="nt">&lt;td&gt;</span> 时间 <span class="nt">&lt;/td&gt;</span>
-<span class="nt">&lt;td&gt;</span> 地点 <span class="nt">&lt;/td&gt;</span>
-<span class="nt">&lt;td&gt;</span> 人物 <span class="nt">&lt;/td&gt;</span>
-<span class="nt">&lt;/tr&gt;</span>
-<span class="nt">&lt;tr&gt;</span>
-<span class="nt">&lt;td&gt;</span> 3.5 <span class="nt">&lt;/td&gt;</span>
-<span class="nt">&lt;td&gt;</span> 北京 <span class="nt">&lt;/td&gt;</span>
-<span class="nt">&lt;td&gt;</span> 姚明 ...</pre></div></div>
+<br /> </p>
+<h2>2 制表</h2>
+<p>Markdown的表格制作有点粗糙，你可以用Html来制作好一点。</p>
+<h2>- 插入图像</h2>
+<p><img alt="test" src="/images/test.png" /></p>
+<div class="highlight"><pre><span class="cm">/*************************************************************************</span>
+<span class="cm">    &gt; File Name: flow-consumer1.h</span>
+<span class="cm">    &gt; Author: zzfan</span>
+<span class="cm">    &gt; Mail: zzfan@mail.ustc.edu.cn </span>
+<span class="cm">    &gt; Created Time: Thu 04 Sep 2014 03 ...</span></pre></div></div>
   <footer>
-    <a rel="full-article" href="http://blog.zzfan.info/markdownyu-fa-zong-jie.html">Read On &crarr;</a>
+    <a rel="full-article" href="http://blog.zzfan.info/blogbian-ji-qi-markdownhe-html.html">Read On &crarr;</a>
   </footer>
   		</article>
   		<article>
@@ -257,7 +286,7 @@ Python、Javascript、html，接着又看了一些开源代码写了一些应用
           <a href="http://blog.zzfan.info/li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html">利用Pelican和Markdown搭建自己的github静态Blog</a>
       </li>
       <li class="post">
-          <a href="http://blog.zzfan.info/markdownyu-fa-zong-jie.html">Markdown语法总结</a>
+          <a href="http://blog.zzfan.info/blogbian-ji-qi-markdownhe-html.html">Blog编辑器-Markdown和Html</a>
       </li>
       <li class="post">
           <a href="http://blog.zzfan.info/my-super-begining.html">My Super Begining</a>
@@ -277,7 +306,7 @@ Python、Javascript、html，接着又看了一些开源代码写了一些应用
 
   <section>
   <h1>Tags</h1>
-    <a href="http://blog.zzfan.info/tag/code.html">code</a>,    <a href="http://blog.zzfan.info/tag/pelican.html">pelican</a>,    <a href="http://blog.zzfan.info/tag/life.html">Life</a>,    <a href="http://blog.zzfan.info/tag/git.html">git</a>,    <a href="http://blog.zzfan.info/tag/ndn.html">NDN</a>,    <a href="http://blog.zzfan.info/tag/python.html">python</a>,    <a href="http://blog.zzfan.info/tag/github.html">github</a>,    <a href="http://blog.zzfan.info/tag/blog.html">blog</a>,    <a href="http://blog.zzfan.info/tag/markdown.html">markdown</a>,    <a href="http://blog.zzfan.info/tag/papers.html">papers</a>,    <a href="http://blog.zzfan.info/tag/writing.html">Writing</a>  </section>
+    <a href="http://blog.zzfan.info/tag/code.html">code</a>,    <a href="http://blog.zzfan.info/tag/pelican.html">pelican</a>,    <a href="http://blog.zzfan.info/tag/life.html">Life</a>,    <a href="http://blog.zzfan.info/tag/markdown.html">markdown</a>,    <a href="http://blog.zzfan.info/tag/ndn.html">NDN</a>,    <a href="http://blog.zzfan.info/tag/python.html">python</a>,    <a href="http://blog.zzfan.info/tag/github.html">github</a>,    <a href="http://blog.zzfan.info/tag/blog.html">blog</a>,    <a href="http://blog.zzfan.info/tag/git.html">git</a>,    <a href="http://blog.zzfan.info/tag/papers.html">papers</a>,    <a href="http://blog.zzfan.info/tag/writing.html">Writing</a>  </section>
 
 
     <section>

@@ -272,86 +272,78 @@ git chckout gh-pages&lt;br /&gt;
 &lt;span class="nx"&gt;int&lt;/span&gt; &lt;span class="nx"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="nx"&gt;int&lt;/span&gt; 
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="blog"></category><category term="markdown"></category><category term="pelican"></category><category term="python"></category></entry><entry><title>Markdown语法总结</title><link href="http://blog.zzfan.info/markdownyu-fa-zong-jie.html" rel="alternate"></link><updated>2015-04-16T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-16:markdownyu-fa-zong-jie.html</id><summary type="html">&lt;p&gt;完成了github博客的搭建（稍后会介绍如何搭建），先学习一下Markdown。
-Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章。
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="blog"></category><category term="markdown"></category><category term="pelican"></category><category term="python"></category></entry><entry><title>Blog编辑器-Markdown和Html</title><link href="http://blog.zzfan.info/blogbian-ji-qi-markdownhe-html.html" rel="alternate"></link><updated>2015-04-16T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfan.info,2015-04-16:blogbian-ji-qi-markdownhe-html.html</id><summary type="html">&lt;p&gt;完成了github博客的搭建（稍后会介绍如何搭建），先学习一下Markdown。
+Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章,好处就是普通的可以写成文本但是同时兼容Html。
 (本文档仅在vim插件markdown中使用，其他的平台可能有一些偏差)&lt;/p&gt;
-&lt;h1&gt;1 标题&lt;/h1&gt;
-&lt;p&gt;两种方法（Setex和Atx）：&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;语法&lt;/th&gt;
-&lt;th&gt;效果&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Setext方式&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;标题一&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;===================&lt;/td&gt;
-&lt;td&gt;#标题一&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+&lt;h2&gt;1 标题&lt;/h2&gt;
+&lt;p&gt;两种方法（Setex和Atx）：
+&lt;table style="width:80%;background-color:#CCCCCC;" cellpadding="2" cellspacing="0" border="1" bordercolor="#000000" align="center"&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td style="text-align:center;"&gt;
+                方式一&lt;br /&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+                方式二
+            &lt;/td&gt;
+            &lt;td style="text-align:center;"&gt;
+                效果&lt;br /&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                &lt;p&gt;
+                    标题一
+                &lt;/p&gt;
+                &lt;p&gt;
+                    -------------------
+                &lt;/p&gt;
+                &lt;p&gt;
+                    标题一
+                &lt;/p&gt;
+                &lt;p&gt;
+                    ========
+                &lt;/p&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+                &lt;p&gt;
+                    #标题一
+                &lt;/p&gt;
+                &lt;p&gt;
+                    ##标题二
+                &lt;/p&gt;
+                &lt;p&gt;
+                    ###标题三
+                &lt;/p&gt;
+            &lt;/td&gt;
+            &lt;td&gt;
+                &lt;h1&gt;
+                    标题一
+                &lt;/h1&gt;
+                &lt;h2&gt;
+                    标题二
+                &lt;/h2&gt;
+                &lt;h3&gt;
+                    标题三
+                &lt;/h3&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                setex方式
+            &lt;/td&gt;
+            &lt;td&gt;
+                atx方式
+            &lt;/td&gt;
+            &lt;td&gt;
+                ok
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;标题二 
- ------------------- &lt;/p&gt;
-&lt;p&gt;Atx方式 &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;#标题一 &lt;br /&gt;
-##标题二 &lt;br /&gt;
-###标题三   &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1&gt;2 制表&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;table&lt;/span&gt; &lt;span class="na"&gt;class =&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;table table-bordered bable-striped table-condensed&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt; 时间 &lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt; 地点 &lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt; 人物 &lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt; 3.5 &lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt; 北京 &lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt; 姚明 &lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt; 3.7 &lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt; 上海 &lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt; 韩寒 &lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/table&amp;gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h1&gt;- 插入图像、表格、代码&lt;/h1&gt;
-&lt;h2&gt;- 插入表格&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;vim&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;markdown&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="err"&gt;表格&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;
-&lt;span class="o"&gt;|---------|-----------|----------|&lt;/span&gt;
-&lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;linux&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="err"&gt;插件&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="err"&gt;图表&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;vim&lt;/th&gt;
-&lt;th&gt;markdown&lt;/th&gt;
-&lt;th&gt;表格&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;linux&lt;/td&gt;
-&lt;td&gt;插件&lt;/td&gt;
-&lt;td&gt;图表&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+&lt;br /&gt; &lt;/p&gt;
+&lt;h2&gt;2 制表&lt;/h2&gt;
+&lt;p&gt;Markdown的表格制作有点粗糙，你可以用Html来制作好一点。&lt;/p&gt;
 &lt;h2&gt;- 插入图像&lt;/h2&gt;
 &lt;p&gt;&lt;img alt="test" src="/images/test.png" /&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cm"&gt;/*************************************************************************&lt;/span&gt;

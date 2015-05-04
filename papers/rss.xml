@@ -1,7 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfan.info/</link><description>我是要成为海贼王的男人~~</description><atom:link href="http://blog.zzfan.info/papers/rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 30 Apr 2015 00:00:00 +0800</lastBuildDate><item><title>Reading papers</title><link>http://blog.zzfan.info/reading-papers.html</link><description>&lt;h3&gt;一下是我所看的论文以及一些介绍稍后贴出&lt;/h3&gt;
-&lt;p&gt;test
-test
-test
-test&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfan.info/</link><description>我是要成为海贼王的男人~~</description><atom:link href="http://blog.zzfan.info/papers/rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 30 Apr 2015 00:00:00 +0800</lastBuildDate><item><title>Reading papers</title><link>http://blog.zzfan.info/reading-papers.html</link><description>&lt;h3&gt;未来网络论文&lt;/h3&gt;
 &lt;p&gt;&lt;a href="/wendang/1.pdf"&gt;Optimal Congestion Control and Request Routing in Information-Centric Networking&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 30 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfan.info,2015-04-30:reading-papers.html</guid><category>papers</category><category>NDN</category></item></channel></rss>
