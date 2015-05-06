@@ -389,9 +389,11 @@ sudo chown quagga:quagga quagga-state
 sudo chmod g+w quagga-state
 cd $workspace
 cd OSPFN2.0
-chmod +x ./configure
-./configure --enable-opaque-lsa --disable-ipv6 --disable-ripd --disable-ripngd --disable-ospf6d --disable-bgpd --disable-bgp-announce --sysconfdir=/usr/local/etc/quagga --localstatedir=/usr/local/etc/quagga-state
-make
+chmod +x ./configure&lt;/p&gt;
+&lt;p&gt;./configure --enable-opaque-lsa --disable-ipv6 --disable-ripd --disable-ripngd --disable-ospf6d --
+disable-bgpd --disable-bgp-announce --sysconfdir=/usr/local/etc/quagga --localstatedir=/usr/local/etc
+/quagga-state&lt;/p&gt;
+&lt;p&gt;make
 sudo make install
 &lt;/code&gt;&lt;/p&gt;
 &lt;h3&gt;- 网络端口的配置&lt;/h3&gt;
