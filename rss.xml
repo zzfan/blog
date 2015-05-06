@@ -1,5 +1,553 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfan.info/</link><description>我是要成为海贼王的男人~~</description><atom:link href="http://blog.zzfan.info/rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 02 May 2015 00:00:00 +0800</lastBuildDate><item><title>Git的用法和遇到的问题</title><link>http://blog.zzfan.info/gitde-yong-fa-he-yu-dao-de-wen-ti.html</link><description>&lt;p&gt;Git的用法其实很简单，首先你得注册一个Github的账户，一般要在你的Github上创建一个repo。
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfan.info/</link><description>我是要成为海贼王的男人~~</description><atom:link href="http://blog.zzfan.info/rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 06 May 2015 00:00:00 +0800</lastBuildDate><item><title>ndnd与ndnpeek关系</title><link>http://blog.zzfan.info/ndndyu-ndnpeekguan-xi.html</link><description>&lt;h1 id="ndnd执行流程"&gt;ndnd执行流程&lt;/h1&gt;
+
+&lt;h3 id="ndnd_main.c"&gt;ndnd_main.c&lt;/h3&gt;
+
+&lt;p&gt;主函数代码如下&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-text" data-lang="text"&gt;int
+main(int argc, char **argv)
+{
+    struct ndnd_handle *h;
+
+    if (argc &amp;gt; 1) {
+        fprintf(stderr, &amp;quot;%s&amp;quot;, ndnd_usage_message);
+        exit(1);
+    }
+    signal(SIGPIPE, SIG_IGN);
+    h = ndnd_create(argv[0], stdiologger, stderr);
+    if (h == NULL)
+        exit(1);
+    ndnd_run(h);
+    ndnd_msg(h, &amp;quot;exiting.&amp;quot;);
+    ndnd_destroy(&amp;amp;h);
+    ERR_remove_state(0);
+    EVP_cleanup();
+    exit(0);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;使用ndnd_create创建了一个ndnd_handle.
+运行ndnd_run.&lt;/p&gt;
+
+&lt;h3 id="ndnd_run()"&gt;ndnd_run()&lt;/h3&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-text" data-lang="text"&gt;for (h-&amp;gt;running = 1; h-&amp;gt;running;) {
+
+  process_internal_client_buffer(h);
+  usec = ndn_schedule_run(h-&amp;gt;sched);
+  timeout_ms = (usec &amp;lt; 0) ? -1 : ((usec + 960) / 1000);
+  if (timeout_ms == 0 &amp;amp;&amp;amp; prev_timeout_ms == 0)
+  timeout_ms = 1;
+  process_internal_client_buffer(h);
+
+  prepare_poll_fds(h);
+  res = poll(h-&amp;gt;fds, h-&amp;gt;nfds, timeout_ms);
+  for (i = 0; res &amp;gt; 0 &amp;amp;&amp;amp; i &amp;lt; h-&amp;gt;nfds; i++) {
+    if (h-&amp;gt;fds[i].revents != 0) {
+      res--;
+      // 可写
+      if (h-&amp;gt;fds[i].revents &amp;amp; (POLLOUT))
+        do_deferred_write(h, h-&amp;gt;fds[i].fd);
+      // 可读
+      else if (h-&amp;gt;fds[i].revents &amp;amp; (POLLIN))
+        process_input(h, h-&amp;gt;fds[i].fd);
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;分为两部分&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;process_internal&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;poll&lt;/code&gt;遍历准备好的IO&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;内部的client连接本地&lt;code&gt;socket&lt;/code&gt;后,发送的&lt;code&gt;interest&lt;/code&gt;和接收&lt;code&gt;data&lt;/code&gt;都是走&lt;code&gt;poll&lt;/code&gt;这条路.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;process_internal&lt;/code&gt;应该是为了&lt;code&gt;ndndc&lt;/code&gt;等路由控制命令准备的.&lt;/p&gt;
+
+&lt;p&gt;所以,内部和外部client没有本质的区别,直接往远程&lt;code&gt;IP:PORT&lt;/code&gt;发包就行.&lt;/p&gt;
+
+&lt;h1 id="mypeek-代码"&gt;mypeek 代码&lt;/h1&gt;
+
+&lt;p&gt;&lt;code&gt;mypeek&lt;/code&gt;是简版的&lt;code&gt;ndnpeek&lt;/code&gt;,为了达到完全脱离ndnd进行编译执行,我把相关文件集中到一个目录下.&lt;/p&gt;
+
+&lt;h3 id="目录结构."&gt;目录结构.&lt;/h3&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-text" data-lang="text"&gt;mypeek
+├── Makefile
+├── hashtb.c
+├── mypeek.c
+├── ndn_bloom.c
+├── ndn_buf_decoder.c
+├── ndn_buf_encoder.c
+├── ndn_charbuf.c
+├── ndn_client.c
+├── ndn_coding.c
+├── ndn_digest.c
+├── ndn_indexbuf.c
+├── ndn_interest.c
+├── ndn_keystore.c
+├── ndn_match.c
+├── ndn_name_util.c
+├── ndn_reg_mgmt.c
+├── ndn_schedule.c
+├── ndn_setup_sockaddr_un.c
+├── ndn_signing.c
+├── ndn_sockaddrutil.c
+├── ndn_uri.c
+└── ndn_versioning.c
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id="makefile"&gt;makefile&lt;/h3&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-text" data-lang="text"&gt;CC=gcc
+CFLAGS=-Wall
+LDFLAGS=-lcrypto
+
+EXECUTABLE=mypeek
+OBJ = mypeek.o hashtb.o ndn_bloom.o ndn_buf_decoder.o ndn_buf_encoder.o ndn_charbuf.o ndn_client.o ndn_coding.o ndn_digest.o\
+    ndn_indexbuf.o ndn_interest.o ndn_keystore.o ndn_match.o ndn_name_util.o ndn_reg_mgmt.o\
+    ndn_schedule.o ndn_setup_sockaddr_un.o ndn_signing.o ndn_sockaddrutil.o ndn_uri.o ndn_versioning.o
+
+%.o: %.c
+    $(CC) -c -o $@ $&amp;lt; $(CFLAGS)
+
+$(EXECUTABLE): $(OBJ)
+    $(CC) -o $(EXECUTABLE) $(OBJ) $(CFLAGS) $(LDFLAGS)
+
+clean:
+    rm -rf $(OBJ) $(EXECUTABLE)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;在ubuntu下编译时,可能会出错,说要使用c99.但有的文件使用c99又不行.&lt;/p&gt;
+
+&lt;p&gt;解决办法:
+使用此文件make一下,再修改一行后make:&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-text" data-lang="text"&gt;CFLAGS=-std=c99 -lcrypto
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id="mypeek.c"&gt;mypeek.c&lt;/h3&gt;
+
+&lt;p&gt;ndn_connect时第二个参数写&lt;code&gt;&amp;quot;tcp&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-text" data-lang="text"&gt;int main(int argc, char** argv) {
+  // 变量定义
+  int res;
+  struct ndn *h = NULL;
+  struct ndn_charbuf *name = NULL;
+  struct ndn_charbuf *resultbuf = NULL;
+  struct ndn_charbuf *templ = NULL;
+  int timeout_ms = 3000;
+  struct ndn_parsed_ContentObject pcobuf = { 0 };
+  int get_flags = 0;
+  const unsigned char *ptr;
+  size_t length;
+
+  // 从传入的第一个参数&amp;quot;/xxx/xxx&amp;quot;转换为ndn名字
+  name = ndn_charbuf_create();
+  ndn_name_from_uri(name, argv[1]);
+  // 创建ndn实体,并连接远程socket
+  h = ndn_create();
+  res = ndn_connect(h, &amp;quot;tcp&amp;quot;); // 这里要使用tcp
+  // 构造name对应的Interest,并取得内容放到resultbuf里
+  resultbuf = ndn_charbuf_create();
+  res = ndn_get(h, name, templ, timeout_ms, resultbuf, &amp;amp;pcobuf, NULL, get_flags);
+  ptr = resultbuf-&amp;gt;buf;
+  length = resultbuf-&amp;gt;length;
+  // 从buf中获得内容
+  ndn_content_get_value(ptr, length, &amp;amp;pcobuf, &amp;amp;ptr, &amp;amp;length);
+  fwrite(ptr, length, 1, stdout) - 1;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;运行方式&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-text" data-lang="text"&gt;mypeek /test
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id="ndn_setup_sockaddr_in"&gt;ndn_setup_sockaddr_in&lt;/h3&gt;
+
+&lt;p&gt;这个函数写死了,&lt;code&gt;getaddrinfo&lt;/code&gt;函数的&lt;code&gt;hostname&lt;/code&gt;参数直接设成&lt;code&gt;null&lt;/code&gt;,所以只连接了本地&lt;code&gt;ndnd&lt;/code&gt;.
+同时也不提供输入参数来自定义.&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-text" data-lang="text"&gt;int
+ndn_setup_sockaddr_in(const char *name, struct sockaddr *result, int length)
+{
+    struct addrinfo hints = {0};
+    struct addrinfo *ai = NULL;
+    char *port;
+    char *nameonly = strdup(name);
+    int ans = -1;
+    int res;
+
+    port = strchr(nameonly, &amp;#39;:&amp;#39;);
+    if (port)
+        *port++ = 0;
+    if (port == NULL || port[0] == 0)
+        port = getenv(NDN_LOCAL_PORT_ENVNAME);
+    if (port == NULL || port[0] == 0)
+        port = NDN_DEFAULT_UNICAST_PORT;
+    memset(result, 0, length);
+    hints.ai_family = AF_UNSPEC;
+    if (strcasecmp(nameonly, &amp;quot;tcp6&amp;quot;) == 0) hints.ai_family = AF_INET6;
+    if (strcasecmp(nameonly, &amp;quot;tcp4&amp;quot;) == 0) hints.ai_family = AF_INET;
+    hints.ai_socktype = SOCK_STREAM;
+    hints.ai_flags = AI_ADDRCONFIG;
+    hints.ai_protocol = 0;
+    // 这一行需要修改
+    res = getaddrinfo(NULL, port, &amp;amp;hints, &amp;amp;ai);
+    if (res != 0 || ai-&amp;gt;ai_addrlen &amp;gt; length)
+        goto Bail;
+    memcpy(result, ai-&amp;gt;ai_addr, ai-&amp;gt;ai_addrlen);
+    ans = 0;
+Bail:
+    free(nameonly);
+    freeaddrinfo(ai);
+    return (ans);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;直接修改&lt;code&gt;getaddrinfo&lt;/code&gt;行为&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-text" data-lang="text"&gt;res = getaddrinfo(&amp;quot;192.168.16.8&amp;quot;, port, &amp;amp;hints, &amp;amp;ai);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;其中IP地址是运行ndnd的主机.&lt;/p&gt;
+
+&lt;h1 id="客户端分析"&gt;客户端分析&lt;/h1&gt;
+
+&lt;h3 id="ndn_get"&gt;ndn_get&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;发送interest&lt;/li&gt;
+&lt;li&gt;运行主循环,等待data&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-text" data-lang="text"&gt;res = ndn_express_interest(h, name, &amp;amp;md-&amp;gt;closure, interest_template);
+res = ndn_run(h, timeout_ms);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id="ndn_express_interest"&gt;ndn_express_interest&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;构造interest&lt;/li&gt;
+&lt;li&gt;换掉h的handle为传进来的函数指针&lt;/li&gt;
+&lt;li&gt;实际发送interest&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-text" data-lang="text"&gt;ndn_construct_interest(h, namebuf, interest_template, interest);
+ndn_replace_handler(h, &amp;amp;(interest-&amp;gt;action), action);
+ndn_refresh_interest(h, interest);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id="ndn_refresh_interest"&gt;ndn_refresh_interest&lt;/h3&gt;
+
+&lt;p&gt;把&lt;code&gt;msg&lt;/code&gt;打到已经建立的socket&lt;code&gt;h-&amp;gt;sock&lt;/code&gt;上&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-text" data-lang="text"&gt;res = ndn_put(h, interest-&amp;gt;interest_msg, interest-&amp;gt;size);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id="ndn_run"&gt;ndn_run&lt;/h3&gt;
+
+&lt;p&gt;对已经建立的socket&lt;code&gt;h-&amp;gt;sock&lt;/code&gt;做轮询&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-text" data-lang="text"&gt;for(;;) {
+  fds[0].fd = h-&amp;gt;sock;
+  fds[0].events = POLLIN;
+  res = poll(fds, 1, millisec);
+  if ((fds[0].revents | POLLOUT) != 0)
+    ndn_pushout(h);
+  if ((fds[0].revents | POLLIN) != 0)
+    ndn_process_input(h);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id="ndn_pushout"&gt;ndn_pushout&lt;/h3&gt;
+
+&lt;p&gt;往&lt;code&gt;h-&amp;gt;sock&lt;/code&gt;上写&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-text" data-lang="text"&gt;res = write(h-&amp;gt;sock, h-&amp;gt;outbuf-&amp;gt;buf + h-&amp;gt;outbufindex, size);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id="ndn_process_input"&gt;ndn_process_input&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;读&lt;code&gt;h-&amp;gt;sock&lt;/code&gt;数据,并解码,输出&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-text" data-lang="text"&gt;res = read(h-&amp;gt;sock, buf, inbuf-&amp;gt;limit - inbuf-&amp;gt;length);
+ndn_skeleton_decode(d, buf, res);
+while (d-&amp;gt;state == 0) {
+  ndn_dispatch_message(h, inbuf-&amp;gt;buf + msgstart, d-&amp;gt;index - msgstart);
+  msgstart = d-&amp;gt;index;
+  if (msgstart == inbuf-&amp;gt;length) {
+    inbuf-&amp;gt;length = 0;
+    return(0);
+  }
+  ndn_skeleton_decode(d, inbuf-&amp;gt;buf + d-&amp;gt;index, inbuf-&amp;gt;length - d-&amp;gt;index);
+}
+if (msgstart &amp;lt; inbuf-&amp;gt;length &amp;amp;&amp;amp; msgstart &amp;gt; 0) {
+  memmove(inbuf-&amp;gt;buf, inbuf-&amp;gt;buf + msgstart,
+    inbuf-&amp;gt;length - msgstart);
+    inbuf-&amp;gt;length -= msgstart;
+    d-&amp;gt;index -= msgstart;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Wed, 06 May 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfan.info,2015-05-06:ndndyu-ndnpeekguan-xi.html</guid><category>ndn</category><category>code</category><category>ccnx</category></item><item><title>未来网络(NDN)实验平台搭建</title><link>http://blog.zzfan.info/wei-lai-wang-luo-ndnshi-yan-ping-tai-da-jian.html</link><description>&lt;p&gt;具体的配置脚本如下，具体代码可以到我的&lt;a href="https://github.com/zzfan/NDNScript"&gt;github/NDNScript&lt;/a&gt;下载。
+如果运行过程中出现了问题，可能与本版有关，或者什么环节没有sudo。具体的自己重新装下，或者重装系统。&lt;/p&gt;
+&lt;h3&gt;- CCNX/NDN的安装&lt;/h3&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class="nv"&gt;workspace&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/home/zzfanhero/Documents/GitHub/ndn&amp;#39;&lt;/span&gt;
+&lt;span class="nv"&gt;depend&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;git libssl-dev libpcap-dev libxml2 libexpat-dev openjdk-7-jdk ant&amp;#39;&lt;/span&gt;
+sudo apt-get install &lt;span class="nv"&gt;$depend&lt;/span&gt;
+mkdir -p &lt;span class="nv"&gt;$workspace&lt;/span&gt;
+&lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$workspace&lt;/span&gt;
+git clone https://github.com/ProjectCCNx/ccnx
+&lt;span class="nb"&gt;cd &lt;/span&gt;ccnx
+chmod +x configure
+./configure
+make
+sudo make install
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;h3&gt;- Pyccn的安装&lt;/h3&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class="nv"&gt;workspace&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/home/zzfanhero/Documents/GitHub/ndn&amp;#39;&lt;/span&gt;
+mkdir -p &lt;span class="nv"&gt;$workspace&lt;/span&gt;
+&lt;span class="nv"&gt;depend&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;autoconf libtool openssl python-dev&amp;#39;&lt;/span&gt;
+sudo apt-get install &lt;span class="nv"&gt;$depend&lt;/span&gt;
+&lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$workspace&lt;/span&gt;
+git clone https://github.com/named-data/PyCCN
+&lt;span class="nb"&gt;cd &lt;/span&gt;PyCCN
+./bootstrap
+./configure
+make
+sudo make install
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;h3&gt;- ndnvideo的安装&lt;/h3&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class="nv"&gt;workspace&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/home/zzfanhero/Documents/GitHub/ndn&amp;#39;&lt;/span&gt;
+mkdir -p &lt;span class="nv"&gt;$workspace&lt;/span&gt;
+&lt;span class="nv"&gt;depend&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gstreamer0.10 python-gst0.10-dev&amp;#39;&lt;/span&gt;
+sudo apt-get install &lt;span class="nv"&gt;$depend&lt;/span&gt;
+&lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$workspace&lt;/span&gt;
+git clone https://github.com/named-data/ndnvideo
+gst-launch-0.10 videotestsrc ! ximagesink
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;h3&gt;- OSPFN的安装&lt;/h3&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/sh&lt;/span&gt;
+sudo apt-get install gawk
+&lt;span class="nv"&gt;workspace&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/home/zzfanhero/Documents/GitHub/ndn&amp;#39;&lt;/span&gt;
+mkdir -p &lt;span class="nv"&gt;$workspace&lt;/span&gt;
+&lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$workspace&lt;/span&gt;
+git clone https://github.com/named-data/OSPFN2.0
+sudo adduser quagga
+&lt;span class="nb"&gt;cd&lt;/span&gt; /usr/local/etc/
+sudo mkdir quagga
+sudo chown quagga:quagga quagga
+sudo chmod g+w quagga
+sudo mkdir quagga-state
+sudo chown quagga:quagga quagga-state
+sudo chmod g+w quagga-state
+&lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$workspace&lt;/span&gt;
+&lt;span class="nb"&gt;cd &lt;/span&gt;OSPFN2.0
+chmod +x ./configure
+./configure --enable-opaque-lsa --disable-ipv6 --disable-ripd --disable-ripngd --disable-ospf6d --disable-bgpd --disable-bgp-announce --sysconfdir&lt;span class="o"&gt;=&lt;/span&gt;/usr/local/etc/quagga --localstatedir&lt;span class="o"&gt;=&lt;/span&gt;/usr/local/etc/quagga-state
+make
+sudo make install
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;h3&gt;- 网络端口的配置&lt;/h3&gt;
+&lt;p&gt;interface_conf.sh&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/sh&lt;/span&gt;
+
+sudo modprobe ip_gre
+&lt;span class="nb"&gt;cd&lt;/span&gt; /etc/network
+sudo mv interfaces interfaces-bak
+&lt;span class="nb"&gt;read&lt;/span&gt; -p &lt;span class="s1"&gt;&amp;#39;enter interface name:&amp;gt;&amp;gt; &amp;#39;&lt;/span&gt; interface
+&lt;span class="nb"&gt;read&lt;/span&gt; -p &lt;span class="s1"&gt;&amp;#39;enter my private ip:&amp;gt;&amp;gt; &amp;#39;&lt;/span&gt; myprivateip
+&lt;span class="nb"&gt;read&lt;/span&gt; -p &lt;span class="s1"&gt;&amp;#39;enter your private ip:&amp;gt;&amp;gt; &amp;#39;&lt;/span&gt; yourprivateip
+&lt;span class="nb"&gt;read&lt;/span&gt; -p &lt;span class="s1"&gt;&amp;#39;enter my ip:&amp;gt;&amp;gt; &amp;#39;&lt;/span&gt; myip
+&lt;span class="nb"&gt;read&lt;/span&gt; -p &lt;span class="s1"&gt;&amp;#39;enter your ip:&amp;gt;&amp;gt; &amp;#39;&lt;/span&gt; yourip
+&lt;span class="nv"&gt;interface&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;hebi-interface
+&lt;span class="nv"&gt;myprivateip&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;10.0.1.9
+&lt;span class="nv"&gt;yourprivateip&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;10.0.1.10
+&lt;span class="nv"&gt;myip&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;192.168.1.108
+&lt;span class="nv"&gt;yourip&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;192.168.1.109
+&lt;span class="nb"&gt;cd&lt;/span&gt;
+cat &amp;gt; interfaces &lt;span class="s"&gt;&amp;lt;&amp;lt;EOF&lt;/span&gt;
+&lt;span class="s"&gt;auto lo&lt;/span&gt;
+&lt;span class="s"&gt;iface lo inet loopback&lt;/span&gt;
+
+&lt;span class="s"&gt;auto $interface&lt;/span&gt;
+&lt;span class="s"&gt;iface $interface inet static&lt;/span&gt;
+&lt;span class="s"&gt;address $myprivateip&lt;/span&gt;
+&lt;span class="s"&gt;netmask 255.255.255.252&lt;/span&gt;
+&lt;span class="s"&gt;pre-up iptunnel add $interface mode gre local $myip remote $yourip ttl 255&lt;/span&gt;
+&lt;span class="s"&gt;pointopoint $yourprivateip&lt;/span&gt;
+&lt;span class="s"&gt;up ifconfig $interface multicast&lt;/span&gt;
+&lt;span class="s"&gt;EOF&lt;/span&gt;
+sudo mv interfaces /etc/network/
+sudo /etc/init.d/networking restart
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;ospf_conf.sh&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class="nv"&gt;myhost&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;zzfan.host
+&lt;span class="nv"&gt;logfile&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/tmp/ospfd.log
+&lt;span class="nv"&gt;interface&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;zzfan-interface
+&lt;span class="nv"&gt;routerid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;192.168.0.2
+cat &amp;gt; ospfd.conf &lt;span class="s"&gt;&amp;lt;&amp;lt;EOF&lt;/span&gt;
+&lt;span class="s"&gt;hostname $myhost&lt;/span&gt;
+&lt;span class="s"&gt;password pwd&lt;/span&gt;
+&lt;span class="s"&gt;enable password pwd&lt;/span&gt;
+&lt;span class="s"&gt;log file $logfile&lt;/span&gt;
+&lt;span class="s"&gt;interface $interface&lt;/span&gt;
+&lt;span class="s"&gt;router ospf&lt;/span&gt;
+&lt;span class="s"&gt; ospf router-id $routerid&lt;/span&gt;
+&lt;span class="s"&gt; redistribute connected&lt;/span&gt;
+&lt;span class="s"&gt; distribute-list ospfn out connected&lt;/span&gt;
+&lt;span class="s"&gt; network 10.0.1.8/30 area 0.0.0.0&lt;/span&gt;
+&lt;span class="s"&gt; capability opaque&lt;/span&gt;
+&lt;span class="s"&gt;line vty&lt;/span&gt;
+&lt;span class="s"&gt;EOF&lt;/span&gt;
+sudo mv ospfd.conf /usr/local/etc/quagga/
+
+cat &amp;gt; ospfn.conf &lt;span class="s"&gt;&amp;lt;&amp;lt;EOF&lt;/span&gt;
+&lt;span class="s"&gt;ccnname /ndn/ustc.edu/zzfan/cs/ 1&lt;/span&gt;
+&lt;span class="s"&gt;ccnname /ndn/ustc.edu/zzfan/ee/ 2&lt;/span&gt;
+&lt;span class="s"&gt;logdir /tmp/&lt;/span&gt;
+&lt;span class="s"&gt;EOF&lt;/span&gt;
+sudo mv ospfn.conf /usr/local/etc/quagga/
+
+cat &amp;gt; zebra.conf &lt;span class="s"&gt;&amp;lt;&amp;lt;EOF&lt;/span&gt;
+&lt;span class="s"&gt;hostname $myhost&lt;/span&gt;
+&lt;span class="s"&gt;password zebra&lt;/span&gt;
+&lt;span class="s"&gt;enable password zebra&lt;/span&gt;
+&lt;span class="s"&gt;EOF&lt;/span&gt;
+sudo mv zebra.conf /usr/local/etc/quagga/
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Wed, 06 May 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfan.info,2015-05-06:wei-lai-wang-luo-ndnshi-yan-ping-tai-da-jian.html</guid><category>NDN</category><category>shell</category><category>ccnx</category><category>code</category></item><item><title>Git的用法和遇到的问题</title><link>http://blog.zzfan.info/gitde-yong-fa-he-yu-dao-de-wen-ti.html</link><description>&lt;p&gt;Git的用法其实很简单，首先你得注册一个Github的账户，一般要在你的Github上创建一个repo。
 那么git就有用武之地了，下面我们来介绍下具体的步骤以及注意的事项。&lt;/p&gt;
 &lt;h3&gt;经验之谈&lt;/h3&gt;
 &lt;p&gt;就我经常用到的git步骤如下：&lt;/p&gt;

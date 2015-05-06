@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ndnd与ndnpeek关系 &mdash; 赵志凡'Blog</title>
+  <meta name="author" content="zzfan">
+
+  <link href="http://blog.zzfan.info/rss.xml" type="application/rss+xml" rel="alternate"
+        title="赵志凡'Blog RSS Feed" />
+
+
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="http://blog.zzfan.info/favicon.png" rel="icon">
+
+  <link href="http://blog.zzfan.info/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+  <link href="http://blog.zzfan.info/theme/css/font-awesome.min.css" rel="stylesheet" />
+
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="http://blog.zzfan.info/">赵志凡'Blog</a></h1>
+    <h2>我是要成为海贼王的男人~~</h2>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://blog.zzfan.info/rss.xml" rel="subscribe-rss">RSS</a></li>
+</ul>
+
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="blog.zzfan.info">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+
+<ul class="main-navigation">
+    <li><a href="http://blog.zzfan.info/my-super-begining">Home</a></li>
+      <li >
+        <a href="http://blog.zzfan.info/category/life.html">Life</a>
+      </li>
+      <li class="active">
+        <a href="http://blog.zzfan.info/category/ndn.html">Ndn</a>
+      </li>
+      <li >
+        <a href="http://blog.zzfan.info/category/papers.html">Papers</a>
+      </li>
+      <li >
+        <a href="http://blog.zzfan.info/category/tools.html">Tools</a>
+      </li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">ndnd与ndnpeek关系</h1>
+    <p class="meta">
+<time datetime="2015-05-06T00:00:00" pubdate>2015-05-06</time>    </p>
+</header>
+
+  <div class="entry-content"><h1 id="ndnd执行流程">ndnd执行流程</h1>
+
+<h3 id="ndnd_main.c">ndnd_main.c</h3>
+
+<p>主函数代码如下</p>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">int
+main(int argc, char **argv)
+{
+    struct ndnd_handle *h;
+
+    if (argc &gt; 1) {
+        fprintf(stderr, &quot;%s&quot;, ndnd_usage_message);
+        exit(1);
+    }
+    signal(SIGPIPE, SIG_IGN);
+    h = ndnd_create(argv[0], stdiologger, stderr);
+    if (h == NULL)
+        exit(1);
+    ndnd_run(h);
+    ndnd_msg(h, &quot;exiting.&quot;);
+    ndnd_destroy(&amp;h);
+    ERR_remove_state(0);
+    EVP_cleanup();
+    exit(0);
+}
+</code></pre></div>
+
+<p>使用ndnd_create创建了一个ndnd_handle.
+运行ndnd_run.</p>
+
+<h3 id="ndnd_run()">ndnd_run()</h3>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">for (h-&gt;running = 1; h-&gt;running;) {
+
+  process_internal_client_buffer(h);
+  usec = ndn_schedule_run(h-&gt;sched);
+  timeout_ms = (usec &lt; 0) ? -1 : ((usec + 960) / 1000);
+  if (timeout_ms == 0 &amp;&amp; prev_timeout_ms == 0)
+  timeout_ms = 1;
+  process_internal_client_buffer(h);
+
+  prepare_poll_fds(h);
+  res = poll(h-&gt;fds, h-&gt;nfds, timeout_ms);
+  for (i = 0; res &gt; 0 &amp;&amp; i &lt; h-&gt;nfds; i++) {
+    if (h-&gt;fds[i].revents != 0) {
+      res--;
+      // 可写
+      if (h-&gt;fds[i].revents &amp; (POLLOUT))
+        do_deferred_write(h, h-&gt;fds[i].fd);
+      // 可读
+      else if (h-&gt;fds[i].revents &amp; (POLLIN))
+        process_input(h, h-&gt;fds[i].fd);
+    }
+  }
+}
+</code></pre></div>
+
+<p>分为两部分</p>
+
+<ul>
+<li>process_internal</li>
+<li><code>poll</code>遍历准备好的IO</li>
+</ul>
+
+<p>内部的client连接本地<code>socket</code>后,发送的<code>interest</code>和接收<code>data</code>都是走<code>poll</code>这条路.</p>
+
+<p><code>process_internal</code>应该是为了<code>ndndc</code>等路由控制命令准备的.</p>
+
+<p>所以,内部和外部client没有本质的区别,直接往远程<code>IP:PORT</code>发包就行.</p>
+
+<h1 id="mypeek-代码">mypeek 代码</h1>
+
+<p><code>mypeek</code>是简版的<code>ndnpeek</code>,为了达到完全脱离ndnd进行编译执行,我把相关文件集中到一个目录下.</p>
+
+<h3 id="目录结构.">目录结构.</h3>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">mypeek
+├── Makefile
+├── hashtb.c
+├── mypeek.c
+├── ndn_bloom.c
+├── ndn_buf_decoder.c
+├── ndn_buf_encoder.c
+├── ndn_charbuf.c
+├── ndn_client.c
+├── ndn_coding.c
+├── ndn_digest.c
+├── ndn_indexbuf.c
+├── ndn_interest.c
+├── ndn_keystore.c
+├── ndn_match.c
+├── ndn_name_util.c
+├── ndn_reg_mgmt.c
+├── ndn_schedule.c
+├── ndn_setup_sockaddr_un.c
+├── ndn_signing.c
+├── ndn_sockaddrutil.c
+├── ndn_uri.c
+└── ndn_versioning.c
+</code></pre></div>
+
+<h3 id="makefile">makefile</h3>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">CC=gcc
+CFLAGS=-Wall
+LDFLAGS=-lcrypto
+
+EXECUTABLE=mypeek
+OBJ = mypeek.o hashtb.o ndn_bloom.o ndn_buf_decoder.o ndn_buf_encoder.o ndn_charbuf.o ndn_client.o ndn_coding.o ndn_digest.o\
+    ndn_indexbuf.o ndn_interest.o ndn_keystore.o ndn_match.o ndn_name_util.o ndn_reg_mgmt.o\
+    ndn_schedule.o ndn_setup_sockaddr_un.o ndn_signing.o ndn_sockaddrutil.o ndn_uri.o ndn_versioning.o
+
+%.o: %.c
+    $(CC) -c -o $@ $&lt; $(CFLAGS)
+
+$(EXECUTABLE): $(OBJ)
+    $(CC) -o $(EXECUTABLE) $(OBJ) $(CFLAGS) $(LDFLAGS)
+
+clean:
+    rm -rf $(OBJ) $(EXECUTABLE)
+</code></pre></div>
+
+<p>在ubuntu下编译时,可能会出错,说要使用c99.但有的文件使用c99又不行.</p>
+
+<p>解决办法:
+使用此文件make一下,再修改一行后make:</p>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">CFLAGS=-std=c99 -lcrypto
+</code></pre></div>
+
+<h3 id="mypeek.c">mypeek.c</h3>
+
+<p>ndn_connect时第二个参数写<code>&quot;tcp&quot;</code>.</p>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">int main(int argc, char** argv) {
+  // 变量定义
+  int res;
+  struct ndn *h = NULL;
+  struct ndn_charbuf *name = NULL;
+  struct ndn_charbuf *resultbuf = NULL;
+  struct ndn_charbuf *templ = NULL;
+  int timeout_ms = 3000;
+  struct ndn_parsed_ContentObject pcobuf = { 0 };
+  int get_flags = 0;
+  const unsigned char *ptr;
+  size_t length;
+
+  // 从传入的第一个参数&quot;/xxx/xxx&quot;转换为ndn名字
+  name = ndn_charbuf_create();
+  ndn_name_from_uri(name, argv[1]);
+  // 创建ndn实体,并连接远程socket
+  h = ndn_create();
+  res = ndn_connect(h, &quot;tcp&quot;); // 这里要使用tcp
+  // 构造name对应的Interest,并取得内容放到resultbuf里
+  resultbuf = ndn_charbuf_create();
+  res = ndn_get(h, name, templ, timeout_ms, resultbuf, &amp;pcobuf, NULL, get_flags);
+  ptr = resultbuf-&gt;buf;
+  length = resultbuf-&gt;length;
+  // 从buf中获得内容
+  ndn_content_get_value(ptr, length, &amp;pcobuf, &amp;ptr, &amp;length);
+  fwrite(ptr, length, 1, stdout) - 1;
+}
+</code></pre></div>
+
+<p>运行方式</p>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">mypeek /test
+</code></pre></div>
+
+<h3 id="ndn_setup_sockaddr_in">ndn_setup_sockaddr_in</h3>
+
+<p>这个函数写死了,<code>getaddrinfo</code>函数的<code>hostname</code>参数直接设成<code>null</code>,所以只连接了本地<code>ndnd</code>.
+同时也不提供输入参数来自定义.</p>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">int
+ndn_setup_sockaddr_in(const char *name, struct sockaddr *result, int length)
+{
+    struct addrinfo hints = {0};
+    struct addrinfo *ai = NULL;
+    char *port;
+    char *nameonly = strdup(name);
+    int ans = -1;
+    int res;
+
+    port = strchr(nameonly, &#39;:&#39;);
+    if (port)
+        *port++ = 0;
+    if (port == NULL || port[0] == 0)
+        port = getenv(NDN_LOCAL_PORT_ENVNAME);
+    if (port == NULL || port[0] == 0)
+        port = NDN_DEFAULT_UNICAST_PORT;
+    memset(result, 0, length);
+    hints.ai_family = AF_UNSPEC;
+    if (strcasecmp(nameonly, &quot;tcp6&quot;) == 0) hints.ai_family = AF_INET6;
+    if (strcasecmp(nameonly, &quot;tcp4&quot;) == 0) hints.ai_family = AF_INET;
+    hints.ai_socktype = SOCK_STREAM;
+    hints.ai_flags = AI_ADDRCONFIG;
+    hints.ai_protocol = 0;
+    // 这一行需要修改
+    res = getaddrinfo(NULL, port, &amp;hints, &amp;ai);
+    if (res != 0 || ai-&gt;ai_addrlen &gt; length)
+        goto Bail;
+    memcpy(result, ai-&gt;ai_addr, ai-&gt;ai_addrlen);
+    ans = 0;
+Bail:
+    free(nameonly);
+    freeaddrinfo(ai);
+    return (ans);
+}
+</code></pre></div>
+
+<p>直接修改<code>getaddrinfo</code>行为</p>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">res = getaddrinfo(&quot;192.168.16.8&quot;, port, &amp;hints, &amp;ai);
+</code></pre></div>
+
+<p>其中IP地址是运行ndnd的主机.</p>
+
+<h1 id="客户端分析">客户端分析</h1>
+
+<h3 id="ndn_get">ndn_get</h3>
+
+<ul>
+<li>发送interest</li>
+<li>运行主循环,等待data</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">res = ndn_express_interest(h, name, &amp;md-&gt;closure, interest_template);
+res = ndn_run(h, timeout_ms);
+</code></pre></div>
+
+<h3 id="ndn_express_interest">ndn_express_interest</h3>
+
+<ul>
+<li>构造interest</li>
+<li>换掉h的handle为传进来的函数指针</li>
+<li>实际发送interest</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">ndn_construct_interest(h, namebuf, interest_template, interest);
+ndn_replace_handler(h, &amp;(interest-&gt;action), action);
+ndn_refresh_interest(h, interest);
+</code></pre></div>
+
+<h3 id="ndn_refresh_interest">ndn_refresh_interest</h3>
+
+<p>把<code>msg</code>打到已经建立的socket<code>h-&gt;sock</code>上</p>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">res = ndn_put(h, interest-&gt;interest_msg, interest-&gt;size);
+</code></pre></div>
+
+<h3 id="ndn_run">ndn_run</h3>
+
+<p>对已经建立的socket<code>h-&gt;sock</code>做轮询</p>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">for(;;) {
+  fds[0].fd = h-&gt;sock;
+  fds[0].events = POLLIN;
+  res = poll(fds, 1, millisec);
+  if ((fds[0].revents | POLLOUT) != 0)
+    ndn_pushout(h);
+  if ((fds[0].revents | POLLIN) != 0)
+    ndn_process_input(h);
+}
+</code></pre></div>
+
+<h3 id="ndn_pushout">ndn_pushout</h3>
+
+<p>往<code>h-&gt;sock</code>上写</p>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">res = write(h-&gt;sock, h-&gt;outbuf-&gt;buf + h-&gt;outbufindex, size);
+</code></pre></div>
+
+<h3 id="ndn_process_input">ndn_process_input</h3>
+
+<ul>
+<li>读<code>h-&gt;sock</code>数据,并解码,输出</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">res = read(h-&gt;sock, buf, inbuf-&gt;limit - inbuf-&gt;length);
+ndn_skeleton_decode(d, buf, res);
+while (d-&gt;state == 0) {
+  ndn_dispatch_message(h, inbuf-&gt;buf + msgstart, d-&gt;index - msgstart);
+  msgstart = d-&gt;index;
+  if (msgstart == inbuf-&gt;length) {
+    inbuf-&gt;length = 0;
+    return(0);
+  }
+  ndn_skeleton_decode(d, inbuf-&gt;buf + d-&gt;index, inbuf-&gt;length - d-&gt;index);
+}
+if (msgstart &lt; inbuf-&gt;length &amp;&amp; msgstart &gt; 0) {
+  memmove(inbuf-&gt;buf, inbuf-&gt;buf + msgstart,
+    inbuf-&gt;length - msgstart);
+    inbuf-&gt;length -= msgstart;
+    d-&gt;index -= msgstart;
+}
+</code></pre></div></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">
+        zzfan
+    </span>
+  </span>
+<time datetime="2015-05-06T00:00:00" pubdate>2015-05-06</time>  <span class="categories">
+    <a class='category' href='http://blog.zzfan.info/category/ndn.html'>NDN</a>
+  </span>
+  <span class="categories">
+    <a class="category" href="http://blog.zzfan.info/tag/ndn.html">ndn</a>,    <a class="category" href="http://blog.zzfan.info/tag/code.html">code</a>,    <a class="category" href="http://blog.zzfan.info/tag/ccnx.html">ccnx</a>  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
+<aside class="sidebar">
+  <section>
+      <h1>About Me</h1>
+<h3>
+    <img src="http://blog.zzfan.info/images/zzfan.jpg" align="left" height="100" width="100" /><span style="font-size:14px;">zzfanhero</span> 
+</h3>
+<p>
+    <span style="font-size:14px;">本科：中科大</span> 
+</p>
+<p>
+    <span style="font-size:14px;">研究生：中科大</span> 
+</p>
+<div class="vimiumReset vimiumHUD">
+</div>
+      <ul>
+          <li><a href="http://blog.zzfan.info/archives" target="_blank">CV</a></li>
+          <li><a href="http://wiki.zzfan.info/" target="_blank">My Wiki</a></li>
+          <li><a href="http://game.zzfan.info/" target="_blank">My Game</a></li>
+          <li><a href="http://music.zzfan.info" target="_blank">My music</a></li>
+      </ul>
+  </section>
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="http://blog.zzfan.info/ndndyu-ndnpeekguan-xi.html">ndnd与ndnpeek关系</a>
+      </li>
+      <li class="post">
+          <a href="http://blog.zzfan.info/wei-lai-wang-luo-ndnshi-yan-ping-tai-da-jian.html">未来网络(NDN)实验平台搭建</a>
+      </li>
+      <li class="post">
+          <a href="http://blog.zzfan.info/gitde-yong-fa-he-yu-dao-de-wen-ti.html">Git的用法和遇到的问题</a>
+      </li>
+      <li class="post">
+          <a href="http://blog.zzfan.info/reading-papers.html">Reading papers</a>
+      </li>
+      <li class="post">
+          <a href="http://blog.zzfan.info/zai-githubshang-da-jian-zi-ji-de-blogoctopresspythonmarkdownhe-html.html">在Github上搭建自己的Blog：Octopress+Python+Markdown和Html</a>
+      </li>
+    </ul>
+  </section>
+  <section>
+      
+    <h1>Categories</h1>
+    <ul id="recent_posts">
+        <li><a href="http://blog.zzfan.info/category/life.html">Life</a></li>
+        <li><a href="http://blog.zzfan.info/category/ndn.html">NDN</a></li>
+        <li><a href="http://blog.zzfan.info/category/papers.html">Papers</a></li>
+        <li><a href="http://blog.zzfan.info/category/tools.html">Tools</a></li>
+    </ul>
+  </section>
+ 
+
+  <section>
+  <h1>Tags</h1>
+    <a href="http://blog.zzfan.info/tag/code.html">code</a>,    <a href="http://blog.zzfan.info/tag/blog.html">blog</a>,    <a href="http://blog.zzfan.info/tag/life.html">Life</a>,    <a href="http://blog.zzfan.info/tag/markdown.html">markdown</a>,    <a href="http://blog.zzfan.info/tag/ndn.html">ndn</a>,    <a href="http://blog.zzfan.info/tag/python.html">python</a>,    <a href="http://blog.zzfan.info/tag/ccnx.html">ccnx</a>,    <a href="http://blog.zzfan.info/tag/writing.html">Writing</a>,    <a href="http://blog.zzfan.info/tag/github.html">github</a>,    <a href="http://blog.zzfan.info/tag/git.html">git</a>,    <a href="http://blog.zzfan.info/tag/papers.html">papers</a>,    <a href="http://blog.zzfan.info/tag/shell.html">shell</a>,    <a href="http://blog.zzfan.info/tag/pelican.html">pelican</a>  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><a href="http://blog.zzfan.info/rss.xml" type="application/rss+xml" rel="alternate">RSS</a></li>
+            <li><a href="http://github.com/zzfan/blog" target="_blank">Github</a></li>
+            <li><a href="http://twitter.com/zzfan" target="_blank">Twitter</a></li>
+        </ul>
+    </section>
+
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2015  zzfan &mdash;
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+  <script src="http://blog.zzfan.info/theme/js/modernizr-2.0.js"></script>
+  <script src="http://blog.zzfan.info/theme/js/ender.js"></script>
+  <script src="http://blog.zzfan.info/theme/js/octopress.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var disqus_shortname = 'zzfanhero';
+    var disqus_identifier = '/ndndyu-ndnpeekguan-xi.html';
+    var disqus_url = 'http://blog.zzfan.info/ndndyu-ndnpeekguan-xi.html';
+    var disqus_title = 'ndnd与ndnpeek关系';
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>未来网络(NDN)实验平台搭建 &mdash; 赵志凡'Blog</title>
+  <meta name="author" content="zzfan">
+
+  <link href="http://blog.zzfan.info/rss.xml" type="application/rss+xml" rel="alternate"
+        title="赵志凡'Blog RSS Feed" />
+
+
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="http://blog.zzfan.info/favicon.png" rel="icon">
+
+  <link href="http://blog.zzfan.info/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+  <link href="http://blog.zzfan.info/theme/css/font-awesome.min.css" rel="stylesheet" />
+
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="http://blog.zzfan.info/">赵志凡'Blog</a></h1>
+    <h2>我是要成为海贼王的男人~~</h2>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://blog.zzfan.info/rss.xml" rel="subscribe-rss">RSS</a></li>
+</ul>
+
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="blog.zzfan.info">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+
+<ul class="main-navigation">
+    <li><a href="http://blog.zzfan.info/my-super-begining">Home</a></li>
+      <li >
+        <a href="http://blog.zzfan.info/category/life.html">Life</a>
+      </li>
+      <li class="active">
+        <a href="http://blog.zzfan.info/category/ndn.html">Ndn</a>
+      </li>
+      <li >
+        <a href="http://blog.zzfan.info/category/papers.html">Papers</a>
+      </li>
+      <li >
+        <a href="http://blog.zzfan.info/category/tools.html">Tools</a>
+      </li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">未来网络(NDN)实验平台搭建</h1>
+    <p class="meta">
+<time datetime="2015-05-06T00:00:00" pubdate>2015-05-06</time>    </p>
+</header>
+
+  <div class="entry-content"><p>具体的配置脚本如下，具体代码可以到我的<a href="https://github.com/zzfan/NDNScript">github/NDNScript</a>下载。
+如果运行过程中出现了问题，可能与本版有关，或者什么环节没有sudo。具体的自己重新装下，或者重装系统。</p>
+<h3>- CCNX/NDN的安装</h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/bin/sh</span>
+<span class="nv">workspace</span><span class="o">=</span><span class="s1">&#39;/home/zzfanhero/Documents/GitHub/ndn&#39;</span>
+<span class="nv">depend</span><span class="o">=</span><span class="s1">&#39;git libssl-dev libpcap-dev libxml2 libexpat-dev openjdk-7-jdk ant&#39;</span>
+sudo apt-get install <span class="nv">$depend</span>
+mkdir -p <span class="nv">$workspace</span>
+<span class="nb">cd</span> <span class="nv">$workspace</span>
+git clone https://github.com/ProjectCCNx/ccnx
+<span class="nb">cd </span>ccnx
+chmod +x configure
+./configure
+make
+sudo make install
+</pre></div>
+</td></tr></table>
+
+<h3>- Pyccn的安装</h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/bin/sh</span>
+<span class="nv">workspace</span><span class="o">=</span><span class="s1">&#39;/home/zzfanhero/Documents/GitHub/ndn&#39;</span>
+mkdir -p <span class="nv">$workspace</span>
+<span class="nv">depend</span><span class="o">=</span><span class="s1">&#39;autoconf libtool openssl python-dev&#39;</span>
+sudo apt-get install <span class="nv">$depend</span>
+<span class="nb">cd</span> <span class="nv">$workspace</span>
+git clone https://github.com/named-data/PyCCN
+<span class="nb">cd </span>PyCCN
+./bootstrap
+./configure
+make
+sudo make install
+</pre></div>
+</td></tr></table>
+
+<h3>- ndnvideo的安装</h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/bin/sh</span>
+<span class="nv">workspace</span><span class="o">=</span><span class="s1">&#39;/home/zzfanhero/Documents/GitHub/ndn&#39;</span>
+mkdir -p <span class="nv">$workspace</span>
+<span class="nv">depend</span><span class="o">=</span><span class="s1">&#39;gstreamer0.10 python-gst0.10-dev&#39;</span>
+sudo apt-get install <span class="nv">$depend</span>
+<span class="nb">cd</span> <span class="nv">$workspace</span>
+git clone https://github.com/named-data/ndnvideo
+gst-launch-0.10 videotestsrc ! ximagesink
+</pre></div>
+</td></tr></table>
+
+<h3>- OSPFN的安装</h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/bin/sh</span>
+sudo apt-get install gawk
+<span class="nv">workspace</span><span class="o">=</span><span class="s1">&#39;/home/zzfanhero/Documents/GitHub/ndn&#39;</span>
+mkdir -p <span class="nv">$workspace</span>
+<span class="nb">cd</span> <span class="nv">$workspace</span>
+git clone https://github.com/named-data/OSPFN2.0
+sudo adduser quagga
+<span class="nb">cd</span> /usr/local/etc/
+sudo mkdir quagga
+sudo chown quagga:quagga quagga
+sudo chmod g+w quagga
+sudo mkdir quagga-state
+sudo chown quagga:quagga quagga-state
+sudo chmod g+w quagga-state
+<span class="nb">cd</span> <span class="nv">$workspace</span>
+<span class="nb">cd </span>OSPFN2.0
+chmod +x ./configure
+./configure --enable-opaque-lsa --disable-ipv6 --disable-ripd --disable-ripngd --disable-ospf6d --disable-bgpd --disable-bgp-announce --sysconfdir<span class="o">=</span>/usr/local/etc/quagga --localstatedir<span class="o">=</span>/usr/local/etc/quagga-state
+make
+sudo make install
+</pre></div>
+</td></tr></table>
+
+<h3>- 网络端口的配置</h3>
+<p>interface_conf.sh</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/bin/sh</span>
+
+sudo modprobe ip_gre
+<span class="nb">cd</span> /etc/network
+sudo mv interfaces interfaces-bak
+<span class="nb">read</span> -p <span class="s1">&#39;enter interface name:&gt;&gt; &#39;</span> interface
+<span class="nb">read</span> -p <span class="s1">&#39;enter my private ip:&gt;&gt; &#39;</span> myprivateip
+<span class="nb">read</span> -p <span class="s1">&#39;enter your private ip:&gt;&gt; &#39;</span> yourprivateip
+<span class="nb">read</span> -p <span class="s1">&#39;enter my ip:&gt;&gt; &#39;</span> myip
+<span class="nb">read</span> -p <span class="s1">&#39;enter your ip:&gt;&gt; &#39;</span> yourip
+<span class="nv">interface</span><span class="o">=</span>hebi-interface
+<span class="nv">myprivateip</span><span class="o">=</span>10.0.1.9
+<span class="nv">yourprivateip</span><span class="o">=</span>10.0.1.10
+<span class="nv">myip</span><span class="o">=</span>192.168.1.108
+<span class="nv">yourip</span><span class="o">=</span>192.168.1.109
+<span class="nb">cd</span>
+cat &gt; interfaces <span class="s">&lt;&lt;EOF</span>
+<span class="s">auto lo</span>
+<span class="s">iface lo inet loopback</span>
+
+<span class="s">auto $interface</span>
+<span class="s">iface $interface inet static</span>
+<span class="s">address $myprivateip</span>
+<span class="s">netmask 255.255.255.252</span>
+<span class="s">pre-up iptunnel add $interface mode gre local $myip remote $yourip ttl 255</span>
+<span class="s">pointopoint $yourprivateip</span>
+<span class="s">up ifconfig $interface multicast</span>
+<span class="s">EOF</span>
+sudo mv interfaces /etc/network/
+sudo /etc/init.d/networking restart
+</pre></div>
+</td></tr></table>
+
+<p>ospf_conf.sh</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/bin/sh</span>
+<span class="nv">myhost</span><span class="o">=</span>zzfan.host
+<span class="nv">logfile</span><span class="o">=</span>/tmp/ospfd.log
+<span class="nv">interface</span><span class="o">=</span>zzfan-interface
+<span class="nv">routerid</span><span class="o">=</span>192.168.0.2
+cat &gt; ospfd.conf <span class="s">&lt;&lt;EOF</span>
+<span class="s">hostname $myhost</span>
+<span class="s">password pwd</span>
+<span class="s">enable password pwd</span>
+<span class="s">log file $logfile</span>
+<span class="s">interface $interface</span>
+<span class="s">router ospf</span>
+<span class="s"> ospf router-id $routerid</span>
+<span class="s"> redistribute connected</span>
+<span class="s"> distribute-list ospfn out connected</span>
+<span class="s"> network 10.0.1.8/30 area 0.0.0.0</span>
+<span class="s"> capability opaque</span>
+<span class="s">line vty</span>
+<span class="s">EOF</span>
+sudo mv ospfd.conf /usr/local/etc/quagga/
+
+cat &gt; ospfn.conf <span class="s">&lt;&lt;EOF</span>
+<span class="s">ccnname /ndn/ustc.edu/zzfan/cs/ 1</span>
+<span class="s">ccnname /ndn/ustc.edu/zzfan/ee/ 2</span>
+<span class="s">logdir /tmp/</span>
+<span class="s">EOF</span>
+sudo mv ospfn.conf /usr/local/etc/quagga/
+
+cat &gt; zebra.conf <span class="s">&lt;&lt;EOF</span>
+<span class="s">hostname $myhost</span>
+<span class="s">password zebra</span>
+<span class="s">enable password zebra</span>
+<span class="s">EOF</span>
+sudo mv zebra.conf /usr/local/etc/quagga/
+</pre></div>
+</td></tr></table></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">
+        zzfan
+    </span>
+  </span>
+<time datetime="2015-05-06T00:00:00" pubdate>2015-05-06</time>  <span class="categories">
+    <a class='category' href='http://blog.zzfan.info/category/ndn.html'>NDN</a>
+  </span>
+  <span class="categories">
+    <a class="category" href="http://blog.zzfan.info/tag/ndn.html">NDN</a>,    <a class="category" href="http://blog.zzfan.info/tag/shell.html">shell</a>,    <a class="category" href="http://blog.zzfan.info/tag/ccnx.html">ccnx</a>,    <a class="category" href="http://blog.zzfan.info/tag/code.html">code</a>  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
+<aside class="sidebar">
+  <section>
+      <h1>About Me</h1>
+<h3>
+    <img src="http://blog.zzfan.info/images/zzfan.jpg" align="left" height="100" width="100" /><span style="font-size:14px;">zzfanhero</span> 
+</h3>
+<p>
+    <span style="font-size:14px;">本科：中科大</span> 
+</p>
+<p>
+    <span style="font-size:14px;">研究生：中科大</span> 
+</p>
+<div class="vimiumReset vimiumHUD">
+</div>
+      <ul>
+          <li><a href="http://blog.zzfan.info/archives" target="_blank">CV</a></li>
+          <li><a href="http://wiki.zzfan.info/" target="_blank">My Wiki</a></li>
+          <li><a href="http://game.zzfan.info/" target="_blank">My Game</a></li>
+          <li><a href="http://music.zzfan.info" target="_blank">My music</a></li>
+      </ul>
+  </section>
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="http://blog.zzfan.info/ndndyu-ndnpeekguan-xi.html">ndnd与ndnpeek关系</a>
+      </li>
+      <li class="post">
+          <a href="http://blog.zzfan.info/wei-lai-wang-luo-ndnshi-yan-ping-tai-da-jian.html">未来网络(NDN)实验平台搭建</a>
+      </li>
+      <li class="post">
+          <a href="http://blog.zzfan.info/gitde-yong-fa-he-yu-dao-de-wen-ti.html">Git的用法和遇到的问题</a>
+      </li>
+      <li class="post">
+          <a href="http://blog.zzfan.info/reading-papers.html">Reading papers</a>
+      </li>
+      <li class="post">
+          <a href="http://blog.zzfan.info/zai-githubshang-da-jian-zi-ji-de-blogoctopresspythonmarkdownhe-html.html">在Github上搭建自己的Blog：Octopress+Python+Markdown和Html</a>
+      </li>
+    </ul>
+  </section>
+  <section>
+      
+    <h1>Categories</h1>
+    <ul id="recent_posts">
+        <li><a href="http://blog.zzfan.info/category/life.html">Life</a></li>
+        <li><a href="http://blog.zzfan.info/category/ndn.html">NDN</a></li>
+        <li><a href="http://blog.zzfan.info/category/papers.html">Papers</a></li>
+        <li><a href="http://blog.zzfan.info/category/tools.html">Tools</a></li>
+    </ul>
+  </section>
+ 
+
+  <section>
+  <h1>Tags</h1>
+    <a href="http://blog.zzfan.info/tag/code.html">code</a>,    <a href="http://blog.zzfan.info/tag/blog.html">blog</a>,    <a href="http://blog.zzfan.info/tag/life.html">Life</a>,    <a href="http://blog.zzfan.info/tag/markdown.html">markdown</a>,    <a href="http://blog.zzfan.info/tag/ndn.html">ndn</a>,    <a href="http://blog.zzfan.info/tag/python.html">python</a>,    <a href="http://blog.zzfan.info/tag/ccnx.html">ccnx</a>,    <a href="http://blog.zzfan.info/tag/writing.html">Writing</a>,    <a href="http://blog.zzfan.info/tag/github.html">github</a>,    <a href="http://blog.zzfan.info/tag/git.html">git</a>,    <a href="http://blog.zzfan.info/tag/papers.html">papers</a>,    <a href="http://blog.zzfan.info/tag/shell.html">shell</a>,    <a href="http://blog.zzfan.info/tag/pelican.html">pelican</a>  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><a href="http://blog.zzfan.info/rss.xml" type="application/rss+xml" rel="alternate">RSS</a></li>
+            <li><a href="http://github.com/zzfan/blog" target="_blank">Github</a></li>
+            <li><a href="http://twitter.com/zzfan" target="_blank">Twitter</a></li>
+        </ul>
+    </section>
+
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2015  zzfan &mdash;
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+  <script src="http://blog.zzfan.info/theme/js/modernizr-2.0.js"></script>
+  <script src="http://blog.zzfan.info/theme/js/ender.js"></script>
+  <script src="http://blog.zzfan.info/theme/js/octopress.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var disqus_shortname = 'zzfanhero';
+    var disqus_identifier = '/wei-lai-wang-luo-ndnshi-yan-ping-tai-da-jian.html';
+    var disqus_url = 'http://blog.zzfan.info/wei-lai-wang-luo-ndnshi-yan-ping-tai-da-jian.html';
+    var disqus_title = '未来网络(NDN)实验平台搭建';
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+  </script>
+</body>
+</html>
