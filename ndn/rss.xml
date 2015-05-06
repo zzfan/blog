@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfan.info/</link><description>我是要成为海贼王的男人~~</description><atom:link href="http://blog.zzfan.info/ndn/rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 06 May 2015 00:00:00 +0800</lastBuildDate><item><title>ndnd与ndnpeek关系</title><link>http://blog.zzfan.info/ndndyu-ndnpeekguan-xi.html</link><description>&lt;h1 id="ndnd执行流程"&gt;ndnd执行流程&lt;/h1&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfan.info/</link><description>我是要成为海贼王的男人~~</description><atom:link href="http://blog.zzfan.info/ndn/rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 06 May 2015 00:00:00 +0800</lastBuildDate><item><title>ndnd与ndnpeek关系</title><link>http://blog.zzfan.info/ndndyu-ndnpeekguan-xi.html</link><description>&lt;h2 id="ndnd执行流程"&gt;ndnd执行流程&lt;/h2&gt;
 
 &lt;h3 id="ndnd_main.c"&gt;ndnd_main.c&lt;/h3&gt;
 
@@ -372,48 +372,28 @@ gst-launch-0.10 videotestsrc ! ximagesink
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;h3&gt;- OSPFN的安装&lt;/h3&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/sh&lt;/span&gt;
-sudo apt-get install gawk
-&lt;span class="nv"&gt;workspace&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/home/zzfanhero/Documents/GitHub/ndn&amp;#39;&lt;/span&gt;
-mkdir -p &lt;span class="nv"&gt;$workspace&lt;/span&gt;
-&lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$workspace&lt;/span&gt;
+&lt;p&gt;&lt;code&gt;&lt;/p&gt;
+&lt;h1&gt;!/bin/sh&lt;/h1&gt;
+&lt;p&gt;sudo apt-get install gawk
+workspace='/home/zzfanhero/Documents/GitHub/ndn'
+mkdir -p $workspace
+cd $workspace
 git clone https://github.com/named-data/OSPFN2.0
 sudo adduser quagga
-&lt;span class="nb"&gt;cd&lt;/span&gt; /usr/local/etc/
+cd /usr/local/etc/
 sudo mkdir quagga
 sudo chown quagga:quagga quagga
 sudo chmod g+w quagga
 sudo mkdir quagga-state
 sudo chown quagga:quagga quagga-state
 sudo chmod g+w quagga-state
-&lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$workspace&lt;/span&gt;
-&lt;span class="nb"&gt;cd &lt;/span&gt;OSPFN2.0
+cd $workspace
+cd OSPFN2.0
 chmod +x ./configure
-./configure --enable-opaque-lsa --disable-ipv6 --disable-ripd --disable-ripngd --disable-ospf6d --disable-bgpd --disable-bgp-announce --sysconfdir&lt;span class="o"&gt;=&lt;/span&gt;/usr/local/etc/quagga --localstatedir&lt;span class="o"&gt;=&lt;/span&gt;/usr/local/etc/quagga-state
+./configure --enable-opaque-lsa --disable-ipv6 --disable-ripd --disable-ripngd --disable-ospf6d --disable-bgpd --disable-bgp-announce --sysconfdir=/usr/local/etc/quagga --localstatedir=/usr/local/etc/quagga-state
 make
 sudo make install
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
+&lt;/code&gt;&lt;/p&gt;
 &lt;h3&gt;- 网络端口的配置&lt;/h3&gt;
 &lt;p&gt;interface_conf.sh&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1

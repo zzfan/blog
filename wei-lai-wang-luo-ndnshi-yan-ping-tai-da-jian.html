@@ -149,48 +149,28 @@ gst-launch-0.10 videotestsrc ! ximagesink
 </td></tr></table>
 
 <h3>- OSPFN的安装</h3>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/bin/sh</span>
-sudo apt-get install gawk
-<span class="nv">workspace</span><span class="o">=</span><span class="s1">&#39;/home/zzfanhero/Documents/GitHub/ndn&#39;</span>
-mkdir -p <span class="nv">$workspace</span>
-<span class="nb">cd</span> <span class="nv">$workspace</span>
+<p><code></p>
+<h1>!/bin/sh</h1>
+<p>sudo apt-get install gawk
+workspace='/home/zzfanhero/Documents/GitHub/ndn'
+mkdir -p $workspace
+cd $workspace
 git clone https://github.com/named-data/OSPFN2.0
 sudo adduser quagga
-<span class="nb">cd</span> /usr/local/etc/
+cd /usr/local/etc/
 sudo mkdir quagga
 sudo chown quagga:quagga quagga
 sudo chmod g+w quagga
 sudo mkdir quagga-state
 sudo chown quagga:quagga quagga-state
 sudo chmod g+w quagga-state
-<span class="nb">cd</span> <span class="nv">$workspace</span>
-<span class="nb">cd </span>OSPFN2.0
+cd $workspace
+cd OSPFN2.0
 chmod +x ./configure
-./configure --enable-opaque-lsa --disable-ipv6 --disable-ripd --disable-ripngd --disable-ospf6d --disable-bgpd --disable-bgp-announce --sysconfdir<span class="o">=</span>/usr/local/etc/quagga --localstatedir<span class="o">=</span>/usr/local/etc/quagga-state
+./configure --enable-opaque-lsa --disable-ipv6 --disable-ripd --disable-ripngd --disable-ospf6d --disable-bgpd --disable-bgp-announce --sysconfdir=/usr/local/etc/quagga --localstatedir=/usr/local/etc/quagga-state
 make
 sudo make install
-</pre></div>
-</td></tr></table>
-
+</code></p>
 <h3>- 网络端口的配置</h3>
 <p>interface_conf.sh</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
