@@ -372,30 +372,56 @@ gst-launch-0.10 videotestsrc ! ximagesink
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;h3&gt;- OSPFN的安装&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;&lt;/p&gt;
-&lt;h1&gt;!/bin/sh&lt;/h1&gt;
-&lt;p&gt;sudo apt-get install gawk
-workspace='/home/zzfanhero/Documents/GitHub/ndn'
-mkdir -p $workspace
-cd $workspace
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/sh&lt;/span&gt;
+sudo apt-get install gawk
+&lt;span class="nv"&gt;workspace&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/home/zzfanhero/Documents/GitHub/ndn&amp;#39;&lt;/span&gt;
+mkdir -p &lt;span class="nv"&gt;$workspace&lt;/span&gt;
+&lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$workspace&lt;/span&gt;
 git clone https://github.com/named-data/OSPFN2.0
 sudo adduser quagga
-cd /usr/local/etc/
+&lt;span class="nb"&gt;cd&lt;/span&gt; /usr/local/etc/
 sudo mkdir quagga
 sudo chown quagga:quagga quagga
 sudo chmod g+w quagga
 sudo mkdir quagga-state
 sudo chown quagga:quagga quagga-state
 sudo chmod g+w quagga-state
-cd $workspace
-cd OSPFN2.0
-chmod +x ./configure&lt;/p&gt;
-&lt;p&gt;./configure --enable-opaque-lsa --disable-ipv6 --disable-ripd --disable-ripngd --disable-ospf6d --
-disable-bgpd --disable-bgp-announce --sysconfdir=/usr/local/etc/quagga --localstatedir=/usr/local/etc
-/quagga-state&lt;/p&gt;
-&lt;p&gt;make
+&lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$workspace&lt;/span&gt;
+&lt;span class="nb"&gt;cd &lt;/span&gt;OSPFN2.0
+chmod +x ./configure
+
+./configure --enable-opaque-lsa --disable-ipv6 --disable-ripd --disable-ripngd --disable-ospf6d --
+disable-bgpd --disable-bgp-announce --sysconfdir&lt;span class="o"&gt;=&lt;/span&gt;/usr/local/etc/quagga --localstatedir&lt;span class="o"&gt;=&lt;/span&gt;/usr/local/etc
+/quagga-state
+
+make
 sudo make install
-&lt;/code&gt;&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 &lt;h3&gt;- 网络端口的配置&lt;/h3&gt;
 &lt;p&gt;interface_conf.sh&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
