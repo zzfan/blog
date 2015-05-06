@@ -190,9 +190,9 @@ sudo chmod g+w quagga-state
 <span class="nb">cd </span>OSPFN2.0
 chmod +x ./configure
 
-./configure --enable-opaque-lsa --disable-ipv6 --disable-ripd --disable-ripngd --disable-ospf6d --
-disable-bgpd --disable-bgp-announce --sysconfdir<span class="o">=</span>/usr/local/etc/quagga --localstatedir<span class="o">=</span>/usr/local/etc
-/quagga-state
+./configure --enable-opaque-lsa --disable-ipv6 --disable-ripd --disable-ripngd --disable-ospf6d 
+--disable-bgpd --disable-bgp-announce --sysconfdir<span class="o">=</span>/usr/local/etc/quagga
+--localstatedir<span class="o">=</span>/usr/local/etc/quagga-state
 
 make
 sudo make install
