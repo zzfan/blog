@@ -77,64 +77,62 @@
 
 <h3 id="ndnd_main.c">ndnd_main.c</h3>
 
-<p>主函数代码如下</p>
+<div class="highlight"><pre><span class="kt">int</span>
+<span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">struct</span> <span class="n">ndnd_handle</span> <span class="o">*</span><span class="n">h</span><span class="p">;</span>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">int
-main(int argc, char **argv)
-{
-    struct ndnd_handle *h;
+    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span><span class="o">%</span><span class="n">s</span><span class="o">&amp;</span><span class="n">quot</span><span class="p">;,</span> <span class="n">ndnd_usage_message</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">signal</span><span class="p">(</span><span class="n">SIGPIPE</span><span class="p">,</span> <span class="n">SIG_IGN</span><span class="p">);</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">ndnd_create</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">stdiologger</span><span class="p">,</span> <span class="n">stderr</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">h</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n">ndnd_run</span><span class="p">(</span><span class="n">h</span><span class="p">);</span>
+    <span class="n">ndnd_msg</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span><span class="n">exiting</span><span class="p">.</span><span class="o">&amp;</span><span class="n">quot</span><span class="p">;);</span>
+    <span class="n">ndnd_destroy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">h</span><span class="p">);</span>
+    <span class="n">ERR_remove_state</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+    <span class="n">EVP_cleanup</span><span class="p">();</span>
+    <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
 
-    if (argc &gt; 1) {
-        fprintf(stderr, &quot;%s&quot;, ndnd_usage_message);
-        exit(1);
-    }
-    signal(SIGPIPE, SIG_IGN);
-    h = ndnd_create(argv[0], stdiologger, stderr);
-    if (h == NULL)
-        exit(1);
-    ndnd_run(h);
-    ndnd_msg(h, &quot;exiting.&quot;);
-    ndnd_destroy(&amp;h);
-    ERR_remove_state(0);
-    EVP_cleanup();
-    exit(0);
-}
-</code></pre></div>
 
-<p>使用ndnd_create创建了一个ndnd_handle.
-运行ndnd_run.</p>
+<p>使用ndnd\_create创建了一个ndnd\_handle.
+运行ndnd\_run.</p>
 
-<h3 id="ndnd_run()">ndnd_run()</h3>
+<div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="n">h</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">running</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">h</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">running</span><span class="p">;)</span> <span class="p">{</span>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">for (h-&gt;running = 1; h-&gt;running;) {
+  <span class="n">process_internal_client_buffer</span><span class="p">(</span><span class="n">h</span><span class="p">);</span>
+  <span class="n">usec</span> <span class="o">=</span> <span class="n">ndn_schedule_run</span><span class="p">(</span><span class="n">h</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">sched</span><span class="p">);</span>
+  <span class="n">timeout_ms</span> <span class="o">=</span> <span class="p">(</span><span class="n">usec</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="p">((</span><span class="n">usec</span> <span class="o">+</span> <span class="mi">960</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">timeout_ms</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="n">prev_timeout_ms</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="n">timeout_ms</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="n">process_internal_client_buffer</span><span class="p">(</span><span class="n">h</span><span class="p">);</span>
 
-  process_internal_client_buffer(h);
-  usec = ndn_schedule_run(h-&gt;sched);
-  timeout_ms = (usec &lt; 0) ? -1 : ((usec + 960) / 1000);
-  if (timeout_ms == 0 &amp;&amp; prev_timeout_ms == 0)
-  timeout_ms = 1;
-  process_internal_client_buffer(h);
+  <span class="n">prepare_poll_fds</span><span class="p">(</span><span class="n">h</span><span class="p">);</span>
+  <span class="n">res</span> <span class="o">=</span> <span class="n">poll</span><span class="p">(</span><span class="n">h</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">fds</span><span class="p">,</span> <span class="n">h</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">nfds</span><span class="p">,</span> <span class="n">timeout_ms</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">res</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">0</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">h</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">nfds</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">h</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">fds</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">revents</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">res</span><span class="o">--</span><span class="p">;</span>
+      <span class="c1">// 可写</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">h</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">fds</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">revents</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="p">(</span><span class="n">POLLOUT</span><span class="p">))</span>
+        <span class="n">do_deferred_write</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">fds</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">fd</span><span class="p">);</span>
+      <span class="c1">// 可读</span>
+      <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">h</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">fds</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">revents</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="p">(</span><span class="n">POLLIN</span><span class="p">))</span>
+        <span class="n">process_input</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">h</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">fds</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">fd</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 
-  prepare_poll_fds(h);
-  res = poll(h-&gt;fds, h-&gt;nfds, timeout_ms);
-  for (i = 0; res &gt; 0 &amp;&amp; i &lt; h-&gt;nfds; i++) {
-    if (h-&gt;fds[i].revents != 0) {
-      res--;
-      // 可写
-      if (h-&gt;fds[i].revents &amp; (POLLOUT))
-        do_deferred_write(h, h-&gt;fds[i].fd);
-      // 可读
-      else if (h-&gt;fds[i].revents &amp; (POLLIN))
-        process_input(h, h-&gt;fds[i].fd);
-    }
-  }
-}
-</code></pre></div>
 
 <p>分为两部分</p>
 
 <ul>
-<li>process_internal</li>
+<li>process\_internal</li>
 <li><code>poll</code>遍历准备好的IO</li>
 </ul>
 
@@ -144,7 +142,7 @@ main(int argc, char **argv)
 
 <p>所以,内部和外部client没有本质的区别,直接往远程<code>IP:PORT</code>发包就行.</p>
 
-<h1 id="mypeek-代码">mypeek 代码</h1>
+<h2 id="mypeek-代码">mypeek 代码</h2>
 
 <p><code>mypeek</code>是简版的<code>ndnpeek</code>,为了达到完全脱离ndnd进行编译执行,我把相关文件集中到一个目录下.</p>
 
@@ -177,24 +175,25 @@ main(int argc, char **argv)
 
 <h3 id="makefile">makefile</h3>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">CC=gcc
-CFLAGS=-Wall
-LDFLAGS=-lcrypto
+<div class="highlight"><pre><span class="n">CC</span><span class="o">=</span><span class="n">gcc</span>
+<span class="n">CFLAGS</span><span class="o">=-</span><span class="n">Wall</span>
+<span class="n">LDFLAGS</span><span class="o">=-</span><span class="n">lcrypto</span>
 
-EXECUTABLE=mypeek
-OBJ = mypeek.o hashtb.o ndn_bloom.o ndn_buf_decoder.o ndn_buf_encoder.o ndn_charbuf.o ndn_client.o ndn_coding.o ndn_digest.o\
-    ndn_indexbuf.o ndn_interest.o ndn_keystore.o ndn_match.o ndn_name_util.o ndn_reg_mgmt.o\
-    ndn_schedule.o ndn_setup_sockaddr_un.o ndn_signing.o ndn_sockaddrutil.o ndn_uri.o ndn_versioning.o
+<span class="n">EXECUTABLE</span><span class="o">=</span><span class="n">mypeek</span>
+<span class="n">OBJ</span> <span class="o">=</span> <span class="n">mypeek</span><span class="p">.</span><span class="n">o</span> <span class="n">hashtb</span><span class="p">.</span><span class="n">o</span> <span class="n">ndn_bloom</span><span class="p">.</span><span class="n">o</span> <span class="n">ndn_buf_decoder</span><span class="p">.</span><span class="n">o</span> <span class="n">ndn_buf_encoder</span><span class="p">.</span><span class="n">o</span> <span class="n">ndn_charbuf</span><span class="p">.</span><span class="n">o</span> <span class="n">ndn_client</span><span class="p">.</span><span class="n">o</span> <span class="n">ndn_coding</span><span class="p">.</span><span class="n">o</span> <span class="n">ndn_digest</span><span class="p">.</span><span class="n">o</span>\
+    <span class="n">ndn_indexbuf</span><span class="p">.</span><span class="n">o</span> <span class="n">ndn_interest</span><span class="p">.</span><span class="n">o</span> <span class="n">ndn_keystore</span><span class="p">.</span><span class="n">o</span> <span class="n">ndn_match</span><span class="p">.</span><span class="n">o</span> <span class="n">ndn_name_util</span><span class="p">.</span><span class="n">o</span> <span class="n">ndn_reg_mgmt</span><span class="p">.</span><span class="n">o</span>\
+    <span class="n">ndn_schedule</span><span class="p">.</span><span class="n">o</span> <span class="n">ndn_setup_sockaddr_un</span><span class="p">.</span><span class="n">o</span> <span class="n">ndn_signing</span><span class="p">.</span><span class="n">o</span> <span class="n">ndn_sockaddrutil</span><span class="p">.</span><span class="n">o</span> <span class="n">ndn_uri</span><span class="p">.</span><span class="n">o</span> <span class="n">ndn_versioning</span><span class="p">.</span><span class="n">o</span>
 
-%.o: %.c
-    $(CC) -c -o $@ $&lt; $(CFLAGS)
+<span class="o">%</span><span class="p">.</span><span class="n">o</span><span class="o">:</span> <span class="o">%</span><span class="p">.</span><span class="n">c</span>
+    <span class="err">$</span><span class="p">(</span><span class="n">CC</span><span class="p">)</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="n">o</span> <span class="err">$@</span> <span class="err">$</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="err">$</span><span class="p">(</span><span class="n">CFLAGS</span><span class="p">)</span>
 
-$(EXECUTABLE): $(OBJ)
-    $(CC) -o $(EXECUTABLE) $(OBJ) $(CFLAGS) $(LDFLAGS)
+<span class="err">$</span><span class="p">(</span><span class="n">EXECUTABLE</span><span class="p">)</span><span class="o">:</span> <span class="err">$</span><span class="p">(</span><span class="n">OBJ</span><span class="p">)</span>
+    <span class="err">$</span><span class="p">(</span><span class="n">CC</span><span class="p">)</span> <span class="o">-</span><span class="n">o</span> <span class="err">$</span><span class="p">(</span><span class="n">EXECUTABLE</span><span class="p">)</span> <span class="err">$</span><span class="p">(</span><span class="n">OBJ</span><span class="p">)</span> <span class="err">$</span><span class="p">(</span><span class="n">CFLAGS</span><span class="p">)</span> <span class="err">$</span><span class="p">(</span><span class="n">LDFLAGS</span><span class="p">)</span>
 
-clean:
-    rm -rf $(OBJ) $(EXECUTABLE)
-</code></pre></div>
+<span class="nl">clean:</span>
+    <span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="err">$</span><span class="p">(</span><span class="n">OBJ</span><span class="p">)</span> <span class="err">$</span><span class="p">(</span><span class="n">EXECUTABLE</span><span class="p">)</span>
+</pre></div>
+
 
 <p>在ubuntu下编译时,可能会出错,说要使用c99.但有的文件使用c99又不行.</p>
 
@@ -206,37 +205,39 @@ clean:
 
 <h3 id="mypeek.c">mypeek.c</h3>
 
-<p>ndn_connect时第二个参数写<code>&quot;tcp&quot;</code>.</p>
+<p>ndn\_connect时第二个参数写<code>&quot;tcp&quot;</code>.</p>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">int main(int argc, char** argv) {
-  // 变量定义
-  int res;
-  struct ndn *h = NULL;
-  struct ndn_charbuf *name = NULL;
-  struct ndn_charbuf *resultbuf = NULL;
-  struct ndn_charbuf *templ = NULL;
-  int timeout_ms = 3000;
-  struct ndn_parsed_ContentObject pcobuf = { 0 };
-  int get_flags = 0;
-  const unsigned char *ptr;
-  size_t length;
+<div class="highlight"><pre><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 变量定义</span>
+  <span class="kt">int</span> <span class="n">res</span><span class="p">;</span>
+  <span class="k">struct</span> <span class="n">ndn</span> <span class="o">*</span><span class="n">h</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+  <span class="k">struct</span> <span class="n">ndn_charbuf</span> <span class="o">*</span><span class="n">name</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+  <span class="k">struct</span> <span class="n">ndn_charbuf</span> <span class="o">*</span><span class="n">resultbuf</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+  <span class="k">struct</span> <span class="n">ndn_charbuf</span> <span class="o">*</span><span class="n">templ</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">timeout_ms</span> <span class="o">=</span> <span class="mi">3000</span><span class="p">;</span>
+  <span class="k">struct</span> <span class="n">ndn_parsed_ContentObject</span> <span class="n">pcobuf</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+  <span class="kt">int</span> <span class="n">get_flags</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
+  <span class="kt">size_t</span> <span class="n">length</span><span class="p">;</span>
 
-  // 从传入的第一个参数&quot;/xxx/xxx&quot;转换为ndn名字
-  name = ndn_charbuf_create();
-  ndn_name_from_uri(name, argv[1]);
-  // 创建ndn实体,并连接远程socket
-  h = ndn_create();
-  res = ndn_connect(h, &quot;tcp&quot;); // 这里要使用tcp
-  // 构造name对应的Interest,并取得内容放到resultbuf里
-  resultbuf = ndn_charbuf_create();
-  res = ndn_get(h, name, templ, timeout_ms, resultbuf, &amp;pcobuf, NULL, get_flags);
-  ptr = resultbuf-&gt;buf;
-  length = resultbuf-&gt;length;
-  // 从buf中获得内容
-  ndn_content_get_value(ptr, length, &amp;pcobuf, &amp;ptr, &amp;length);
-  fwrite(ptr, length, 1, stdout) - 1;
-}
-</code></pre></div>
+
+  <span class="c1">// 从传入的第一个参数&amp;quot;/xxx/xxx&amp;quot;转换为ndn名字</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="n">ndn_charbuf_create</span><span class="p">();</span>
+  <span class="n">ndn_name_from_uri</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+  <span class="c1">// 创建ndn实体,并连接远程socket</span>
+  <span class="n">h</span> <span class="o">=</span> <span class="n">ndn_create</span><span class="p">();</span>
+  <span class="n">res</span> <span class="o">=</span> <span class="n">ndn_connect</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span><span class="n">tcp</span><span class="o">&amp;</span><span class="n">quot</span><span class="p">;);</span> <span class="c1">// 这里要使用tcp</span>
+  <span class="c1">// 构造name对应的Interest,并取得内容放到resultbuf里</span>
+  <span class="n">resultbuf</span> <span class="o">=</span> <span class="n">ndn_charbuf_create</span><span class="p">();</span>
+  <span class="n">res</span> <span class="o">=</span> <span class="n">ndn_get</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">templ</span><span class="p">,</span> <span class="n">timeout_ms</span><span class="p">,</span> <span class="n">resultbuf</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">pcobuf</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="n">get_flags</span><span class="p">);</span>
+  <span class="n">ptr</span> <span class="o">=</span> <span class="n">resultbuf</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">buf</span><span class="p">;</span>
+  <span class="n">length</span> <span class="o">=</span> <span class="n">resultbuf</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">length</span><span class="p">;</span>
+  <span class="c1">// 从buf中获得内容</span>
+  <span class="n">ndn_content_get_value</span><span class="p">(</span><span class="n">ptr</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">pcobuf</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">ptr</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">length</span><span class="p">);</span>
+  <span class="n">fwrite</span><span class="p">(</span><span class="n">ptr</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">stdout</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>运行方式</p>
 
@@ -248,42 +249,43 @@ clean:
 <p>这个函数写死了,<code>getaddrinfo</code>函数的<code>hostname</code>参数直接设成<code>null</code>,所以只连接了本地<code>ndnd</code>.
 同时也不提供输入参数来自定义.</p>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">int
-ndn_setup_sockaddr_in(const char *name, struct sockaddr *result, int length)
-{
-    struct addrinfo hints = {0};
-    struct addrinfo *ai = NULL;
-    char *port;
-    char *nameonly = strdup(name);
-    int ans = -1;
-    int res;
+<div class="highlight"><pre><span class="kt">int</span>
+<span class="nf">ndn_setup_sockaddr_in</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="k">struct</span> <span class="n">sockaddr</span> <span class="o">*</span><span class="n">result</span><span class="p">,</span> <span class="kt">int</span> <span class="n">length</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">struct</span> <span class="n">addrinfo</span> <span class="n">hints</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+    <span class="k">struct</span> <span class="n">addrinfo</span> <span class="o">*</span><span class="n">ai</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">port</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">nameonly</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">res</span><span class="p">;</span>
 
-    port = strchr(nameonly, &#39;:&#39;);
-    if (port)
-        *port++ = 0;
-    if (port == NULL || port[0] == 0)
-        port = getenv(NDN_LOCAL_PORT_ENVNAME);
-    if (port == NULL || port[0] == 0)
-        port = NDN_DEFAULT_UNICAST_PORT;
-    memset(result, 0, length);
-    hints.ai_family = AF_UNSPEC;
-    if (strcasecmp(nameonly, &quot;tcp6&quot;) == 0) hints.ai_family = AF_INET6;
-    if (strcasecmp(nameonly, &quot;tcp4&quot;) == 0) hints.ai_family = AF_INET;
-    hints.ai_socktype = SOCK_STREAM;
-    hints.ai_flags = AI_ADDRCONFIG;
-    hints.ai_protocol = 0;
-    // 这一行需要修改
-    res = getaddrinfo(NULL, port, &amp;hints, &amp;ai);
-    if (res != 0 || ai-&gt;ai_addrlen &gt; length)
-        goto Bail;
-    memcpy(result, ai-&gt;ai_addr, ai-&gt;ai_addrlen);
-    ans = 0;
-Bail:
-    free(nameonly);
-    freeaddrinfo(ai);
-    return (ans);
-}
-</code></pre></div>
+    <span class="n">port</span> <span class="o">=</span> <span class="n">strchr</span><span class="p">(</span><span class="n">nameonly</span><span class="p">,</span> <span class="o">&amp;</span><span class="err">#</span><span class="mi">39</span><span class="p">;</span><span class="o">:&amp;</span><span class="err">#</span><span class="mi">39</span><span class="p">;);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">port</span><span class="p">)</span>
+        <span class="o">*</span><span class="n">port</span><span class="o">++</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">port</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">||</span> <span class="n">port</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">port</span> <span class="o">=</span> <span class="n">getenv</span><span class="p">(</span><span class="n">NDN_LOCAL_PORT_ENVNAME</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">port</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">||</span> <span class="n">port</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">port</span> <span class="o">=</span> <span class="n">NDN_DEFAULT_UNICAST_PORT</span><span class="p">;</span>
+    <span class="n">memset</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">length</span><span class="p">);</span>
+    <span class="n">hints</span><span class="p">.</span><span class="n">ai_family</span> <span class="o">=</span> <span class="n">AF_UNSPEC</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">strcasecmp</span><span class="p">(</span><span class="n">nameonly</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span><span class="n">tcp6</span><span class="o">&amp;</span><span class="n">quot</span><span class="p">;)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">hints</span><span class="p">.</span><span class="n">ai_family</span> <span class="o">=</span> <span class="n">AF_INET6</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">strcasecmp</span><span class="p">(</span><span class="n">nameonly</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span><span class="n">tcp4</span><span class="o">&amp;</span><span class="n">quot</span><span class="p">;)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">hints</span><span class="p">.</span><span class="n">ai_family</span> <span class="o">=</span> <span class="n">AF_INET</span><span class="p">;</span>
+    <span class="n">hints</span><span class="p">.</span><span class="n">ai_socktype</span> <span class="o">=</span> <span class="n">SOCK_STREAM</span><span class="p">;</span>
+    <span class="n">hints</span><span class="p">.</span><span class="n">ai_flags</span> <span class="o">=</span> <span class="n">AI_ADDRCONFIG</span><span class="p">;</span>
+    <span class="n">hints</span><span class="p">.</span><span class="n">ai_protocol</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="c1">// 这一行需要修改</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">getaddrinfo</span><span class="p">(</span><span class="nb">NULL</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">hints</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">ai</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">ai</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">ai_addrlen</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">length</span><span class="p">)</span>
+        <span class="k">goto</span> <span class="n">Bail</span><span class="p">;</span>
+    <span class="n">memcpy</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">ai</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">ai_addr</span><span class="p">,</span> <span class="n">ai</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">ai_addrlen</span><span class="p">);</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nl">Bail:</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">nameonly</span><span class="p">);</span>
+    <span class="n">freeaddrinfo</span><span class="p">(</span><span class="n">ai</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">ans</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <p>直接修改<code>getaddrinfo</code>行为</p>
 
@@ -292,7 +294,7 @@ Bail:
 
 <p>其中IP地址是运行ndnd的主机.</p>
 
-<h1 id="客户端分析">客户端分析</h1>
+<h2 id="客户端分析">客户端分析</h2>
 
 <h3 id="ndn_get">ndn_get</h3>
 
@@ -301,9 +303,10 @@ Bail:
 <li>运行主循环,等待data</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">res = ndn_express_interest(h, name, &amp;md-&gt;closure, interest_template);
-res = ndn_run(h, timeout_ms);
-</code></pre></div>
+<div class="highlight"><pre><span class="n">res</span> <span class="o">=</span> <span class="n">ndn_express_interest</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">md</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">closure</span><span class="p">,</span> <span class="n">interest_template</span><span class="p">);</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">ndn_run</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">timeout_ms</span><span class="p">);</span>
+</pre></div>
+
 
 <h3 id="ndn_express_interest">ndn_express_interest</h3>
 
@@ -313,39 +316,43 @@ res = ndn_run(h, timeout_ms);
 <li>实际发送interest</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">ndn_construct_interest(h, namebuf, interest_template, interest);
-ndn_replace_handler(h, &amp;(interest-&gt;action), action);
-ndn_refresh_interest(h, interest);
-</code></pre></div>
+<div class="highlight"><pre><span class="n">ndn_construct_interest</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">namebuf</span><span class="p">,</span> <span class="n">interest_template</span><span class="p">,</span> <span class="n">interest</span><span class="p">);</span>
+<span class="n">ndn_replace_handler</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;(</span><span class="n">interest</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">action</span><span class="p">),</span> <span class="n">action</span><span class="p">);</span>
+<span class="n">ndn_refresh_interest</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">interest</span><span class="p">);</span>
+</pre></div>
+
 
 <h3 id="ndn_refresh_interest">ndn_refresh_interest</h3>
 
 <p>把<code>msg</code>打到已经建立的socket<code>h-&gt;sock</code>上</p>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">res = ndn_put(h, interest-&gt;interest_msg, interest-&gt;size);
-</code></pre></div>
+<div class="highlight"><pre><span class="n">res</span> <span class="o">=</span> <span class="n">ndn_put</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">interest</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">interest_msg</span><span class="p">,</span> <span class="n">interest</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">size</span><span class="p">);</span>
+</pre></div>
+
 
 <h3 id="ndn_run">ndn_run</h3>
 
 <p>对已经建立的socket<code>h-&gt;sock</code>做轮询</p>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">for(;;) {
-  fds[0].fd = h-&gt;sock;
-  fds[0].events = POLLIN;
-  res = poll(fds, 1, millisec);
-  if ((fds[0].revents | POLLOUT) != 0)
-    ndn_pushout(h);
-  if ((fds[0].revents | POLLIN) != 0)
-    ndn_process_input(h);
-}
-</code></pre></div>
+<div class="highlight"><pre><span class="k">for</span><span class="p">(;;)</span> <span class="p">{</span>
+  <span class="n">fds</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">fd</span> <span class="o">=</span> <span class="n">h</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">sock</span><span class="p">;</span>
+  <span class="n">fds</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">events</span> <span class="o">=</span> <span class="n">POLLIN</span><span class="p">;</span>
+  <span class="n">res</span> <span class="o">=</span> <span class="n">poll</span><span class="p">(</span><span class="n">fds</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">millisec</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">((</span><span class="n">fds</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">revents</span> <span class="o">|</span> <span class="n">POLLOUT</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">ndn_pushout</span><span class="p">(</span><span class="n">h</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">((</span><span class="n">fds</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">revents</span> <span class="o">|</span> <span class="n">POLLIN</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">ndn_process_input</span><span class="p">(</span><span class="n">h</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
 
 <h3 id="ndn_pushout">ndn_pushout</h3>
 
 <p>往<code>h-&gt;sock</code>上写</p>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">res = write(h-&gt;sock, h-&gt;outbuf-&gt;buf + h-&gt;outbufindex, size);
-</code></pre></div>
+<div class="highlight"><pre><span class="n">res</span> <span class="o">=</span> <span class="n">write</span><span class="p">(</span><span class="n">h</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">sock</span><span class="p">,</span> <span class="n">h</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">outbuf</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">buf</span> <span class="o">+</span> <span class="n">h</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">outbufindex</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+</pre></div>
+
 
 <h3 id="ndn_process_input">ndn_process_input</h3>
 
@@ -353,24 +360,24 @@ ndn_refresh_interest(h, interest);
 <li>读<code>h-&gt;sock</code>数据,并解码,输出</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">res = read(h-&gt;sock, buf, inbuf-&gt;limit - inbuf-&gt;length);
-ndn_skeleton_decode(d, buf, res);
-while (d-&gt;state == 0) {
-  ndn_dispatch_message(h, inbuf-&gt;buf + msgstart, d-&gt;index - msgstart);
-  msgstart = d-&gt;index;
-  if (msgstart == inbuf-&gt;length) {
-    inbuf-&gt;length = 0;
-    return(0);
-  }
-  ndn_skeleton_decode(d, inbuf-&gt;buf + d-&gt;index, inbuf-&gt;length - d-&gt;index);
-}
-if (msgstart &lt; inbuf-&gt;length &amp;&amp; msgstart &gt; 0) {
-  memmove(inbuf-&gt;buf, inbuf-&gt;buf + msgstart,
-    inbuf-&gt;length - msgstart);
-    inbuf-&gt;length -= msgstart;
-    d-&gt;index -= msgstart;
-}
-</code></pre></div></div>
+<div class="highlight"><pre><span class="n">res</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">h</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">sock</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">inbuf</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">limit</span> <span class="o">-</span> <span class="n">inbuf</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">length</span><span class="p">);</span>
+<span class="n">ndn_skeleton_decode</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">res</span><span class="p">);</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">d</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">state</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">ndn_dispatch_message</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">inbuf</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">buf</span> <span class="o">+</span> <span class="n">msgstart</span><span class="p">,</span> <span class="n">d</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">index</span> <span class="o">-</span> <span class="n">msgstart</span><span class="p">);</span>
+  <span class="n">msgstart</span> <span class="o">=</span> <span class="n">d</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">index</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">msgstart</span> <span class="o">==</span> <span class="n">inbuf</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">inbuf</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">return</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="n">ndn_skeleton_decode</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">inbuf</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">buf</span> <span class="o">+</span> <span class="n">d</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">index</span><span class="p">,</span> <span class="n">inbuf</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">length</span> <span class="o">-</span> <span class="n">d</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">index</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">msgstart</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">inbuf</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">length</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="n">msgstart</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">memmove</span><span class="p">(</span><span class="n">inbuf</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">buf</span><span class="p">,</span> <span class="n">inbuf</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">buf</span> <span class="o">+</span> <span class="n">msgstart</span><span class="p">,</span>
+    <span class="n">inbuf</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">length</span> <span class="o">-</span> <span class="n">msgstart</span><span class="p">);</span>
+    <span class="n">inbuf</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">length</span> <span class="o">-=</span> <span class="n">msgstart</span><span class="p">;</span>
+    <span class="n">d</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">index</span> <span class="o">-=</span> <span class="n">msgstart</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div>
     <footer>
 <p class="meta">
   <span class="byline author vcard">
