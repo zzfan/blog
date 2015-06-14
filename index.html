@@ -77,23 +77,23 @@
 
 <h3 id="ndnd_main.c">ndnd_main.c</h3>
 
-<div class="highlight"><pre><span class="kt">int</span>
-<span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">struct</span> <span class="n">ndnd_handle</span> <span class="o">*</span><span class="n">h</span><span class="p">;</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span><span class="o">%</span><span class="n">s</span><span class="o">&amp;</span><span class="n">quot</span><span class="p">;,</span> <span class="n">ndnd_usage_message</span><span class="p">);</span>
-        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="n">signal</span><span class="p">(</span><span class="n">SIGPIPE</span><span class="p">,</span> <span class="n">SIG_IGN</span><span class="p">);</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="n">ndnd_create</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">stdiologger</span><span class="p">,</span> <span class="n">stderr</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">h</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
-        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-    <span class="n">ndnd_run</span><span class="p">(</span><span class="n">h</span><span class="p">);</span>
-    <span class="n">ndnd_msg</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span><span class="n">exiting</span><span class="p">.</span><span class="o">&amp;</span><span class="n">quot</span><span class="p">;);</span>
-    <span class="n">ndnd_destroy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">h</span><span class="p">);</span>
-    <span class="n">ERR_remove_state</span><span class="p">(</span><span class="mi">0 ...</span></pre></div></div>
+<p><code>
+int
+main(int argc, char *<em>argv)
+{
+    struct ndnd_handle </em>h;</p>
+<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span><span class="o">%</span><span class="n">s</span><span class="o">&amp;</span><span class="n">quot</span><span class="p">;,</span> <span class="n">ndnd_usage_message</span><span class="p">);</span>
+    <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">signal</span><span class="p">(</span><span class="n">SIGPIPE</span><span class="p">,</span> <span class="n">SIG_IGN</span><span class="p">);</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">ndnd_create</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">stdiologger</span><span class="p">,</span> <span class="n">stderr</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">h</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+    <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">ndnd_run</span><span class="p">(</span><span class="n">h</span><span class="p">);</span>
+<span class="n">ndnd_msg</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span><span class="n">exiting</span><span class="p">.</span><span class="o">&amp;</span><span class="n">quot</span><span class="p">;);</span>
+<span class="n">ndnd_destroy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">h</span><span class="p">);</span>
+<span class="n">ERR_remove_state</span><span class="p">(</span><span class="mi">0 ...</span></pre></div></div>
   <footer>
     <a rel="full-article" href="http://blog.zzfan.info/ndndyu-ndnpeekguan-xi.html">Read On &crarr;</a>
   </footer>
