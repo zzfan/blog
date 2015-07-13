@@ -67,40 +67,6 @@
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="http://blog.zzfan.info/ndndyu-ndnpeekguan-xi.html">ndnd与ndnpeek关系</a>
-      </h1>
-    <p class="meta">
-<time datetime="2015-05-06T00:00:00" pubdate>2015-05-06</time>    </p>
-</header>
-
-  <div class="entry-content"><h2 id="ndnd执行流程">ndnd执行流程</h2>
-
-<h3 id="ndnd_main.c">ndnd_main.c</h3>
-
-<p><code>
-int
-main(int argc, char *<em>argv)
-{
-    struct ndnd_handle </em>h;</p>
-<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span><span class="o">%</span><span class="n">s</span><span class="o">&amp;</span><span class="n">quot</span><span class="p">;,</span> <span class="n">ndnd_usage_message</span><span class="p">);</span>
-    <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="n">signal</span><span class="p">(</span><span class="n">SIGPIPE</span><span class="p">,</span> <span class="n">SIG_IGN</span><span class="p">);</span>
-<span class="n">h</span> <span class="o">=</span> <span class="n">ndnd_create</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">stdiologger</span><span class="p">,</span> <span class="n">stderr</span><span class="p">);</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">h</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
-    <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="n">ndnd_run</span><span class="p">(</span><span class="n">h</span><span class="p">);</span>
-<span class="n">ndnd_msg</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span><span class="n">exiting</span><span class="p">.</span><span class="o">&amp;</span><span class="n">quot</span><span class="p">;);</span>
-<span class="n">ndnd_destroy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">h</span><span class="p">);</span>
-<span class="n">ERR_remove_state</span><span class="p">(</span><span class="mi">0 ...</span></pre></div></div>
-  <footer>
-    <a rel="full-article" href="http://blog.zzfan.info/ndndyu-ndnpeekguan-xi.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
         <a href="http://blog.zzfan.info/wei-lai-wang-luo-ndnshi-yan-ping-tai-da-jian.html">未来网络(NDN)实验平台搭建</a>
       </h1>
     <p class="meta">
@@ -388,9 +354,6 @@ Python、Javascript、html，接着又看了一些开源代码写了一些应用
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="http://blog.zzfan.info/ndndyu-ndnpeekguan-xi.html">ndnd与ndnpeek关系</a>
-      </li>
-      <li class="post">
           <a href="http://blog.zzfan.info/wei-lai-wang-luo-ndnshi-yan-ping-tai-da-jian.html">未来网络(NDN)实验平台搭建</a>
       </li>
       <li class="post">
@@ -401,6 +364,9 @@ Python、Javascript、html，接着又看了一些开源代码写了一些应用
       </li>
       <li class="post">
           <a href="http://blog.zzfan.info/zai-githubshang-da-jian-zi-ji-de-blogoctopresspythonmarkdownhe-html.html">在Github上搭建自己的Blog：Octopress+Python+Markdown和Html</a>
+      </li>
+      <li class="post">
+          <a href="http://blog.zzfan.info/blogbian-ji-qi-markdownhe-html.html">Blog编辑器-Markdown和Html</a>
       </li>
     </ul>
   </section>
@@ -418,7 +384,7 @@ Python、Javascript、html，接着又看了一些开源代码写了一些应用
 
   <section>
   <h1>Tags</h1>
-    <a href="http://blog.zzfan.info/tag/code.html">code</a>,    <a href="http://blog.zzfan.info/tag/blog.html">blog</a>,    <a href="http://blog.zzfan.info/tag/life.html">Life</a>,    <a href="http://blog.zzfan.info/tag/markdown.html">markdown</a>,    <a href="http://blog.zzfan.info/tag/ndn.html">ndn</a>,    <a href="http://blog.zzfan.info/tag/python.html">python</a>,    <a href="http://blog.zzfan.info/tag/ccnx.html">ccnx</a>,    <a href="http://blog.zzfan.info/tag/writing.html">Writing</a>,    <a href="http://blog.zzfan.info/tag/github.html">github</a>,    <a href="http://blog.zzfan.info/tag/git.html">git</a>,    <a href="http://blog.zzfan.info/tag/papers.html">papers</a>,    <a href="http://blog.zzfan.info/tag/shell.html">shell</a>,    <a href="http://blog.zzfan.info/tag/pelican.html">pelican</a>  </section>
+    <a href="http://blog.zzfan.info/tag/code.html">code</a>,    <a href="http://blog.zzfan.info/tag/blog.html">blog</a>,    <a href="http://blog.zzfan.info/tag/life.html">Life</a>,    <a href="http://blog.zzfan.info/tag/markdown.html">markdown</a>,    <a href="http://blog.zzfan.info/tag/ndn.html">NDN</a>,    <a href="http://blog.zzfan.info/tag/python.html">python</a>,    <a href="http://blog.zzfan.info/tag/ccnx.html">ccnx</a>,    <a href="http://blog.zzfan.info/tag/writing.html">Writing</a>,    <a href="http://blog.zzfan.info/tag/github.html">github</a>,    <a href="http://blog.zzfan.info/tag/git.html">git</a>,    <a href="http://blog.zzfan.info/tag/papers.html">papers</a>,    <a href="http://blog.zzfan.info/tag/shell.html">shell</a>,    <a href="http://blog.zzfan.info/tag/pelican.html">pelican</a>  </section>
 
 
     <section>
