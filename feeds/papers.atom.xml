@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>赵志凡'Blog</title><link href="http://blog.zzfanhero.info/" rel="alternate"></link><link href="http://blog.zzfanhero.info/feeds/papers.atom.xml" rel="self"></link><id>http://blog.zzfanhero.info/</id><updated>2015-04-30T00:00:00+08:00</updated><entry><title>Reading papers</title><link href="http://blog.zzfanhero.info/articles/reading-papers.html" rel="alternate"></link><updated>2015-04-30T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2015-04-30:articles/reading-papers.html</id><summary type="html">&lt;h3&gt;一下是我所看的论文以及一些介绍稍后贴出&lt;/h3&gt;
+&lt;p&gt;test
+test
+test
+test&lt;/p&gt;
+&lt;p&gt;&lt;a href="../wendang/1.pdf"&gt;Optimal Congestion Control and Request Routing in Information-Centric Networking&lt;/a&gt;&lt;/p&gt;</summary><category term="papers"></category><category term="NDN"></category></entry></feed>

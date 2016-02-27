@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>利用Pelican和Markdown搭建自己的github静态Blog &mdash; 赵志凡'Blog</title>
+  <meta name="author" content="zzfan">
+
+  <link href="http://blog.zzfanhero.info/rss.xml" type="application/rss+xml" rel="alternate"
+        title="赵志凡'Blog RSS Feed" />
+
+
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="http://blog.zzfanhero.info/favicon.png" rel="icon">
+
+  <link href="http://blog.zzfanhero.info/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="http://blog.zzfanhero.info/">赵志凡'Blog</a></h1>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://blog.zzfanhero.info/rss.xml" rel="subscribe-rss">RSS</a></li>
+</ul>
+
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="blog.zzfanhero.info">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+
+<ul class="main-navigation">
+    <li><a href="http://blog.zzfanhero.info/my-super-begining">Home</a></li>
+      <li >
+        <a href="http://blog.zzfanhero.info/category/life.html">Life</a>
+      </li>
+      <li >
+        <a href="http://blog.zzfanhero.info/category/papers.html">Papers</a>
+      </li>
+      <li class="active">
+        <a href="http://blog.zzfanhero.info/category/tools.html">Tools</a>
+      </li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">利用Pelican和Markdown搭建自己的github静态Blog</h1>
+    <p class="meta">
+<time datetime="2015-04-29T00:00:00+08:00" pubdate>2015-04-29</time>    </p>
+</header>
+
+  <div class="entry-content"><h2>概述</h2>
+<p>从自己搭建Blog有一段时间了，其实为了方便我的Blog大部分都是从<a href="http://github.com">Github</a>上荡下来的，有些地方没有著名版权，敬请谅解。</p>
+<p>动态的Blog我也弄过一段时间，是用<strong>node.js</strong>开发的，当时也是由于没有找到合适的免费<strong>VPS</strong>（用过一段时间的<a href="https://www.digitalocean.com/">DigitalOcean</a>，也就没有继续下去了（对于学生来说还是有点贵的）。如果有需要，可以关注我的<a href="http://github.com/zzfan">Github</a>。</p>
+<p>经过一段时间的摸索，完成了我的Github Page: <a href="http://blog.zzfan.info">http://blog.zzfan.info</a>。</p>
+<p>其实这个<a href="http://www.xuanfengge.com">轩枫阁</a>才是我一直想要搭建的Blog（很喜欢那种自己开发的可以不断自己的完善，而且有无限大的开发空间），但是我的方向不再网页开发，只能忍痛不去想那绚丽的让人眼花缭乱的Blog了\~\~</p>
+<h2>具体搭建</h2>
+<p>这里我就不很详细的列举出其中的细节了，直接上命令，是在Linux上搭建的。</p>
+<ul>
+<li>安装软件<blockquote>
+<p>sudo apt-get install </p>
+</blockquote>
+</li>
+</ul>
+<div class="highlight"><pre><span class="vi">#include</span> <span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span>
+<span class="vi">#include</span> <span class="o">&lt;</span><span class="nx">iostream</span><span class="o">&gt;</span>
+<span class="nx">using</span> <span class="nx">namespace</span> <span class="nx">std</span><span class="p">;</span>
+
+<span class="nx">int</span> <span class="nx">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nx">int</span> 
+</pre></div></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">
+        zzfan
+    </span>
+  </span>
+<time datetime="2015-04-29T00:00:00+08:00" pubdate>2015-04-29</time>  <span class="categories">
+    <a class='category' href='http://blog.zzfanhero.info/category/tools.html'>Tools</a>
+  </span>
+  <span class="categories">
+    <a class="category" href="http://blog.zzfanhero.info/tag/blog.html">blog</a>,    <a class="category" href="http://blog.zzfanhero.info/tag/markdown.html">markdown</a>,    <a class="category" href="http://blog.zzfanhero.info/tag/pelican.html">pelican</a>,    <a class="category" href="http://blog.zzfanhero.info/tag/python.html">python</a>  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
+<aside class="sidebar">
+  <section>
+      <h1>About Me</h1>
+      <p>本科: 中国科学技术大学</p>
+      <p>研究生: 中国科学技术大学</p>
+      <ul>
+          <li><a href="http://blog.zzfan.info/archives" target="_blank">CV</a></li>
+          <li><a href="http://wiki.zzfan.info/" target="_blank">My Wiki</a></li>
+          <li><a href="http://game.zzfan.info/" target="_blank">My Game</a></li>
+          <li><a href="http://music.zzfan.info" target="_blank">My music</a></li>
+      </ul>
+  </section>
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="http://blog.zzfanhero.info/articles/reading-papers.html">Reading papers</a>
+      </li>
+      <li class="post">
+          <a href="http://blog.zzfanhero.info/articles/li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html">利用Pelican和Markdown搭建自己的github静态Blog</a>
+      </li>
+      <li class="post">
+          <a href="http://blog.zzfanhero.info/articles/markdownyu-fa-zong-jie.html">Markdown语法总结</a>
+      </li>
+      <li class="post">
+          <a href="http://blog.zzfanhero.info/articles/my-super-begining.html">My Super Begining</a>
+      </li>
+    </ul>
+  </section>
+  <section>
+      
+    <h1>Categories</h1>
+    <ul id="recent_posts">
+        <li><a href="http://blog.zzfanhero.info/category/life.html">Life</a></li>
+        <li><a href="http://blog.zzfanhero.info/category/papers.html">Papers</a></li>
+        <li><a href="http://blog.zzfanhero.info/category/tools.html">Tools</a></li>
+    </ul>
+  </section>
+ 
+
+  <section>
+  <h1>Tags</h1>
+    <a href="http://blog.zzfanhero.info/tag/pelican.html">pelican</a>,    <a href="http://blog.zzfanhero.info/tag/life.html">Life</a>,    <a href="http://blog.zzfanhero.info/tag/code.html">code</a>,    <a href="http://blog.zzfanhero.info/tag/ndn.html">NDN</a>,    <a href="http://blog.zzfanhero.info/tag/python.html">python</a>,    <a href="http://blog.zzfanhero.info/tag/writing.html">Writing</a>,    <a href="http://blog.zzfanhero.info/tag/blog.html">blog</a>,    <a href="http://blog.zzfanhero.info/tag/markdown.html">markdown</a>,    <a href="http://blog.zzfanhero.info/tag/papers.html">papers</a>  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><a href="http://blog.zzfanhero.info/rss.xml" type="application/rss+xml" rel="alternate">RSS</a></li>
+            <li><a href="http://github.com/zzfan/blog" target="_blank">Github</a></li>
+            <li><a href="http://twitter.com/zzfan" target="_blank">Twitter</a></li>
+        </ul>
+    </section>
+
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2015  zzfan &mdash;
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+  <script src="http://blog.zzfanhero.info/theme/js/modernizr-2.0.js"></script>
+  <script src="http://blog.zzfanhero.info/theme/js/ender.js"></script>
+  <script src="http://blog.zzfanhero.info/theme/js/octopress.js" type="text/javascript"></script>
+  <script src="http://blog.zzfanhero.info/theme/js/bootstrap.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var disqus_shortname = 'zzfanhero';
+    var disqus_identifier = '/articles/li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html';
+    var disqus_url = 'http://blog.zzfanhero.info/articles/li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html';
+    var disqus_title = '利用Pelican和Markdown搭建自己的github静态Blog';
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+  </script>
+</body>
+</html>
