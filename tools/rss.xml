@@ -24,8 +24,8 @@
  cd blog&lt;br /&gt;
  pelican-quickstart: 指定域名（xxx.github.io）&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;这时你会看到&lt;code&gt;blog&lt;/code&gt;目录下生成了一些配置文件，主要要更改的就是&lt;code&gt;pelicanconf.py&lt;/code&gt;
-- 开始写blog&lt;/p&gt;
+&lt;p&gt;这时你会看到&lt;code&gt;blog&lt;/code&gt;目录下生成了一些配置文件，主要要更改的就是&lt;code&gt;pelicanconf.py&lt;/code&gt;&lt;/p&gt;
+&lt;h4&gt;开始写blog&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Date: xxx-xx-xx&lt;br /&gt;
  Title: ...&lt;br /&gt;
@@ -44,10 +44,8 @@
 &lt;/blockquote&gt;
 &lt;p&gt;过一会访问xxx.github.com就行了．（xxx就是你的github用户名）
 如果你有域名的话，比如你在&lt;strong&gt;&lt;em&gt;Godady&lt;/em&gt;&lt;/strong&gt;上买了域名，可以在Godaddy上配置主机为&lt;code&gt;blog.域名&lt;/code&gt;指定&lt;code&gt;xxx.github.io&lt;/code&gt;,然后在你的项目根目录下创建"CNAME"文件，写入你的域名．&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;其他
-　1. 主题的更改&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h4&gt;其他&lt;/h4&gt;
+&lt;p&gt;1. 主题的更改&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/getpelican/pelican-themes.git&lt;/span&gt;
 &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;themes&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;blogpath&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;themes&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bootstrap2&lt;/span&gt;
 &lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;themes&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;verbose&lt;/span&gt;
@@ -56,8 +54,8 @@
 
 
 &lt;ol&gt;
-&lt;li&gt;插件的添加
-  &lt;code&gt;git clone git://github.com/getpelican/pelican-plugins.git&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;插件的添加&lt;br /&gt;
+&lt;code&gt;git clone git://github.com/getpelican/pelican-plugins.git&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;添加评论的支持
   见配置文件&lt;/p&gt;
@@ -66,11 +64,9 @@
 &lt;p&gt;拷贝静态文件
   见配置文件&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;配置文件
-　1. pelicanconf.py&lt;/p&gt;
-&lt;/li&gt;
 &lt;/ol&gt;
+&lt;h4&gt;配置文件&lt;/h4&gt;
+&lt;p&gt;1. pelicanconf.py&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
