@@ -45,18 +45,22 @@
 &lt;p&gt;过一会访问xxx.github.com就行了．（xxx就是你的github用户名）
 如果你有域名的话，比如你在&lt;strong&gt;&lt;em&gt;Godady&lt;/em&gt;&lt;/strong&gt;上买了域名，可以在Godaddy上配置主机为&lt;code&gt;blog.域名&lt;/code&gt;指定&lt;code&gt;xxx.github.io&lt;/code&gt;,然后在你的项目根目录下创建"CNAME"文件，写入你的域名．&lt;/p&gt;
 &lt;h4&gt;其他&lt;/h4&gt;
-&lt;p&gt;1. 主题的更改
-  &lt;code&gt;git clone git://github.com/getpelican/pelican-themes.git
-  sudo pelican-themes -i $(blogpath)/pelican-themes/bootstrap2
-  pelican-themes --list --verbose
-  make html&lt;/code&gt;
-  2. 插件的添加&lt;br /&gt;
-&lt;code&gt;git clone git://github.com/getpelican/pelican-plugins.git&lt;/code&gt;
-  3. 添加评论的支持
-  见配置文件&lt;/p&gt;
+&lt;p&gt;1. 主题的更改&lt;br /&gt;
+&lt;code&gt;git clone git://github.com/getpelican/pelican-themes.git  
+  sudo pelican-themes -i $(blogpath)/pelican-themes/bootstrap2  
+  pelican-themes --list --verbose  
+  make html&lt;/code&gt;&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;拷贝静态文件
-  见配置文件&lt;/li&gt;
+&lt;li&gt;插件的添加 
+  &lt;code&gt;git clone git://github.com/getpelican/pelican-plugins.git&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;添加评论的支持&lt;br /&gt;
+  见配置文件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;拷贝静态文件
+  见配置文件&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h4&gt;配置文件&lt;/h4&gt;
 &lt;p&gt;1. pelicanconf.py&lt;/p&gt;
