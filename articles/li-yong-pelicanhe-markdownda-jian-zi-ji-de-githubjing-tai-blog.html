@@ -108,54 +108,48 @@
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <h2>概述</h2>
+                <h3>概述</h3>
 <p>从自己搭建Blog有一段时间了，其实为了方便我的Blog大部分都是从<a href="http://github.com">Github</a>上荡下来的，有些地方没有著名版权，敬请谅解。</p>
 <p>动态的Blog我也弄过一段时间，是用<strong>node.js</strong>开发的，当时也是由于没有找到合适的免费<strong>VPS</strong>（用过一段时间的 <a href="https://www.digitalocean.com/">DigitalOcean</a>，也就没有继续下去了（对于学生来说还是有点贵的）。如果有需要，可以关注我的 <a href="http://github.com/zzfan">Github</a>。</p>
 <p>经过一段时间的摸索，完成了我的Github Page: <a href="http://blog.zzfanhero.info">http://blog.zzfanhero.info</a>。</p>
 <p>其实这个 <a href="http://www.xuanfengge.com">轩枫阁</a>才是我一直想要搭建的Blog（很喜欢那种自己开发的可以不断自己的完善，而且有无限大的开发空间），但是我的方向不再网页开发，只能忍痛不去想那绚丽的让人眼花缭乱的Blog了\~\~</p>
-<h2>具体搭建</h2>
+<h3>具体搭建</h3>
 <p>这里我就不很详细的列举出其中的细节了，直接上命令，是在Linux上搭建的。</p>
-<ul>
-<li>准备工作</li>
+<h4>准备工作</h4>
+<ol>
 <li>github: 首先你得会用github</li>
 <li>markdown:　用这个写blog比较舒服</li>
 <li>linux:　我的所有工作都是再linux下完成的</li>
-<li>
-<p>js:　所有的编程语言都是想通的，对于模板的一些更改来适应自己的风格</p>
-</li>
-<li>
-<p>安装软件</p>
-</li>
+<li>js:　所有的编程语言都是想通的，对于模板的一些更改来适应自己的风格</li>
+</ol>
+<h4>安装软件</h4>
+<ol>
 <li>pelican: 自己去百度</li>
-<li>
-<p>git: 自己去配置</p>
-</li>
-<li>
-<p>Let't go</p>
+<li>git: 自己去配置</li>
+</ol>
+<h4>Let't go</h4>
 <blockquote>
-<p>mkdir blog
- cd blog
+<p>mkdir blog<br />
+ cd blog<br />
  pelican-quickstart: 指定域名（xxx.github.io）</p>
 </blockquote>
-</li>
-</ul>
 <p>这时你会看到<code>blog</code>目录下生成了一些配置文件，主要要更改的就是<code>pelicanconf.py</code>
 - 开始写blog</p>
 <blockquote>
-<p>Date: xxx-xx-xx
- Title: ...
- Tags: life,code
- Gategory: Code
- ....Content....</p>
-<p>cd blog
+<p>Date: xxx-xx-xx<br />
+ Title: ...<br />
+ Tags: life,code<br />
+ Gategory: Code<br />
+ ....Content....  </p>
+<p>cd blog<br />
  sudo make html</p>
 </blockquote>
 <p>然后你就可以再你的github上新建一个blog工程了，git到本地，然后把<code>output</code>中的内容拷到blog里面就可以了!</p>
 <blockquote>
-<p>cd blog/blog
- git add --all
- git commit -m ""
- git push</p>
+<p>cd blog/blog<br />
+ git add --all<br />
+ git commit -m ""<br />
+ git push  </p>
 </blockquote>
 <p>过一会访问xxx.github.com就行了．（xxx就是你的github用户名）
 如果你有域名的话，比如你在<strong><em>Godady</em></strong>上买了域名，可以在Godaddy上配置主机为<code>blog.域名</code>指定<code>xxx.github.io</code>,然后在你的项目根目录下创建"CNAME"文件，写入你的域名．</p>
@@ -416,13 +410,13 @@
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/ndn.html">
-                            NDN
+                        <a href="http://blog.zzfanhero.info/tag/code.html">
+                            code
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -431,18 +425,18 @@
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/writing.html">
                             writing
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/life.html">
-                            life
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/code.html">
-                            code
+                        <a href="http://blog.zzfanhero.info/tag/ndn.html">
+                            NDN
                         </a>
                     </li>
                 </ul>

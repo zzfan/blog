@@ -4,54 +4,48 @@
 test
 test
 test&lt;/p&gt;
-&lt;p&gt;&lt;a href="../wendang/1.pdf"&gt;Optimal Congestion Control and Request Routing in Information-Centric Networking&lt;/a&gt;&lt;/p&gt;</summary><category term="papers"></category><category term="NDN"></category></entry><entry><title>利用Pelican和Markdown搭建自己的github静态Blog</title><link href="http://blog.zzfanhero.info/articles/li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html" rel="alternate"></link><updated>2015-04-29T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2015-04-29:articles/li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html</id><summary type="html">&lt;h2&gt;概述&lt;/h2&gt;
+&lt;p&gt;&lt;a href="../wendang/1.pdf"&gt;Optimal Congestion Control and Request Routing in Information-Centric Networking&lt;/a&gt;&lt;/p&gt;</summary><category term="papers"></category><category term="NDN"></category></entry><entry><title>利用Pelican和Markdown搭建自己的github静态Blog</title><link href="http://blog.zzfanhero.info/articles/li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html" rel="alternate"></link><updated>2015-04-29T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2015-04-29:articles/li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html</id><summary type="html">&lt;h3&gt;概述&lt;/h3&gt;
 &lt;p&gt;从自己搭建Blog有一段时间了，其实为了方便我的Blog大部分都是从&lt;a href="http://github.com"&gt;Github&lt;/a&gt;上荡下来的，有些地方没有著名版权，敬请谅解。&lt;/p&gt;
 &lt;p&gt;动态的Blog我也弄过一段时间，是用&lt;strong&gt;node.js&lt;/strong&gt;开发的，当时也是由于没有找到合适的免费&lt;strong&gt;VPS&lt;/strong&gt;（用过一段时间的 &lt;a href="https://www.digitalocean.com/"&gt;DigitalOcean&lt;/a&gt;，也就没有继续下去了（对于学生来说还是有点贵的）。如果有需要，可以关注我的 &lt;a href="http://github.com/zzfan"&gt;Github&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;经过一段时间的摸索，完成了我的Github Page: &lt;a href="http://blog.zzfanhero.info"&gt;http://blog.zzfanhero.info&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;其实这个 &lt;a href="http://www.xuanfengge.com"&gt;轩枫阁&lt;/a&gt;才是我一直想要搭建的Blog（很喜欢那种自己开发的可以不断自己的完善，而且有无限大的开发空间），但是我的方向不再网页开发，只能忍痛不去想那绚丽的让人眼花缭乱的Blog了\~\~&lt;/p&gt;
-&lt;h2&gt;具体搭建&lt;/h2&gt;
+&lt;h3&gt;具体搭建&lt;/h3&gt;
 &lt;p&gt;这里我就不很详细的列举出其中的细节了，直接上命令，是在Linux上搭建的。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;准备工作&lt;/li&gt;
+&lt;h4&gt;准备工作&lt;/h4&gt;
+&lt;ol&gt;
 &lt;li&gt;github: 首先你得会用github&lt;/li&gt;
 &lt;li&gt;markdown:　用这个写blog比较舒服&lt;/li&gt;
 &lt;li&gt;linux:　我的所有工作都是再linux下完成的&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;js:　所有的编程语言都是想通的，对于模板的一些更改来适应自己的风格&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;安装软件&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;js:　所有的编程语言都是想通的，对于模板的一些更改来适应自己的风格&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;安装软件&lt;/h4&gt;
+&lt;ol&gt;
 &lt;li&gt;pelican: 自己去百度&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;git: 自己去配置&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Let't go&lt;/p&gt;
+&lt;li&gt;git: 自己去配置&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Let't go&lt;/h4&gt;
 &lt;blockquote&gt;
-&lt;p&gt;mkdir blog
- cd blog
+&lt;p&gt;mkdir blog&lt;br /&gt;
+ cd blog&lt;br /&gt;
  pelican-quickstart: 指定域名（xxx.github.io）&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 &lt;p&gt;这时你会看到&lt;code&gt;blog&lt;/code&gt;目录下生成了一些配置文件，主要要更改的就是&lt;code&gt;pelicanconf.py&lt;/code&gt;
 - 开始写blog&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Date: xxx-xx-xx
- Title: ...
- Tags: life,code
- Gategory: Code
- ....Content....&lt;/p&gt;
-&lt;p&gt;cd blog
+&lt;p&gt;Date: xxx-xx-xx&lt;br /&gt;
+ Title: ...&lt;br /&gt;
+ Tags: life,code&lt;br /&gt;
+ Gategory: Code&lt;br /&gt;
+ ....Content....  &lt;/p&gt;
+&lt;p&gt;cd blog&lt;br /&gt;
  sudo make html&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;然后你就可以再你的github上新建一个blog工程了，git到本地，然后把&lt;code&gt;output&lt;/code&gt;中的内容拷到blog里面就可以了!&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;cd blog/blog
- git add --all
- git commit -m ""
- git push&lt;/p&gt;
+&lt;p&gt;cd blog/blog&lt;br /&gt;
+ git add --all&lt;br /&gt;
+ git commit -m ""&lt;br /&gt;
+ git push  &lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;过一会访问xxx.github.com就行了．（xxx就是你的github用户名）
 如果你有域名的话，比如你在&lt;strong&gt;&lt;em&gt;Godady&lt;/em&gt;&lt;/strong&gt;上买了域名，可以在Godaddy上配置主机为&lt;code&gt;blog.域名&lt;/code&gt;指定&lt;code&gt;xxx.github.io&lt;/code&gt;,然后在你的项目根目录下创建"CNAME"文件，写入你的域名．&lt;/p&gt;
