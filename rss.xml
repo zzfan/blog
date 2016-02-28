@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfanhero.info/</link><description></description><atom:link href="http://blog.zzfanhero.info/rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 30 Apr 2015 00:00:00 +0800</lastBuildDate><item><title>Reading papers</title><link>http://blog.zzfanhero.info/articles/reading-papers.html</link><description>&lt;h3&gt;一下是我所看的论文以及一些介绍稍后贴出&lt;/h3&gt;
-&lt;p&gt;test
-test
-test
-test&lt;/p&gt;
-&lt;p&gt;&lt;a href="../wendang/1.pdf"&gt;Optimal Congestion Control and Request Routing in Information-Centric Networking&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 30 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2015-04-30:articles/reading-papers.html</guid><category>papers</category><category>NDN</category></item><item><title>利用Pelican和Markdown搭建自己的github静态Blog</title><link>http://blog.zzfanhero.info/articles/li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html</link><description>&lt;h3&gt;概述&lt;/h3&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfanhero.info/</link><description></description><atom:link href="http://blog.zzfanhero.info/rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 28 Feb 2016 00:00:00 +0800</lastBuildDate><item><title>开始</title><link>http://blog.zzfanhero.info/articles/kai-shi.html</link><description>&lt;p&gt;距离我弄blog已经过去一年了，从当初的一腔热血到现在的内敛．以前的我以为懂的多就是厉害，啥都学，啥都去弄一下，喜欢炫耀，喜欢冲动．由于是读研所以一些事情是不能完全按照自己的想法去做的，老板的任务要去做．本来完成老板的任务很简单，我有充足的时间去Coding,去学习．但是，由于一些原因，我暂时放弃积累自己的Blog了，而是把这个时间拿去写论文和陪女朋友了（其实也花了很长时间去健身和锻炼）．再这里解释下陪女朋友，两个人相处是要话费时间去磨合的．&lt;/p&gt;
+&lt;p&gt;现在，木木夕比以前要善解人意了，不会像以前一样动不动就闹矛盾了．我也比以前更成熟了，也不会像以前那么幼稚的去想一些事，不会因为这个去闹僵我们之间的关系了．&lt;/p&gt;
+&lt;p&gt;现在，我发表了一篇高水平的论文以及一篇CCC，自己想想暑假将近一个月的魔鬼式论文写作都有点心有余悸．为了心中的那股傲气，我选择了去做一些我不喜欢做的事，我是真的不喜欢写论文．不过那种全方位的诠释自己的想法的感觉还是让我受益很多的．&lt;/p&gt;
+&lt;p&gt;现在，乘着春节期间去讯飞实习了３个月也快结束了，感觉这段期间是我学习到最多的时候，不管是在代码见识上还是对以后工作的理解上，真的太感谢我的那些导师们，谢谢．大大组长的一次年初大会让我了解到以后的工作要怎么去做，大组长的深厚代码功底让我见识提升了无数个档次而且好几次耐心的给我解释真的是让我受宠若惊，小组长解决问题的思路让我惊叹自己的弱小．不过经过三个月的磨练我也成长了很多，我相信我会变得和他们一样厉害的．&lt;/p&gt;
+&lt;p&gt;现在，爸妈也很支持我，新的一年挑战也很多，是时候开始把我学的积累起来了，那就是Coding.&lt;/p&gt;
+&lt;p&gt;开始学习了！&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Sun, 28 Feb 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-02-28:articles/kai-shi.html</guid><category>writing</category><category>code</category></item><item><title>Reading papers</title><link>http://blog.zzfanhero.info/articles/reading-papers.html</link><description>&lt;h4&gt;所发表的论文&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;IEEE ICC'2016(二区)&lt;br /&gt;
+&lt;a href=""&gt;Flow-based NDN Architecture&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;CCC'2016 (三区)&lt;br /&gt;
+&lt;a href=""&gt;Flow Contorl Mechanism via Netwrok Coding in NDN&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 30 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2015-04-30:articles/reading-papers.html</guid><category>papers</category><category>NDN</category></item><item><title>利用Pelican和Markdown搭建自己的github静态Blog</title><link>http://blog.zzfanhero.info/articles/li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html</link><description>&lt;h3&gt;概述&lt;/h3&gt;
 &lt;p&gt;从自己搭建Blog有一段时间了，其实为了方便我的Blog大部分都是从&lt;a href="http://github.com"&gt;Github&lt;/a&gt;上荡下来的，有些地方没有著名版权，敬请谅解。&lt;/p&gt;
 &lt;p&gt;动态的Blog我也弄过一段时间，是用&lt;strong&gt;node.js&lt;/strong&gt;开发的，当时也是由于没有找到合适的免费&lt;strong&gt;VPS&lt;/strong&gt;（用过一段时间的 &lt;a href="https://www.digitalocean.com/"&gt;DigitalOcean&lt;/a&gt;，也就没有继续下去了（对于学生来说还是有点贵的）。如果有需要，可以关注我的 &lt;a href="http://github.com/zzfan"&gt;Github&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;经过一段时间的摸索，完成了我的Github Page: &lt;a href="http://blog.zzfanhero.info"&gt;http://blog.zzfanhero.info&lt;/a&gt;。&lt;/p&gt;
@@ -50,22 +60,22 @@ test&lt;/p&gt;
 &lt;p&gt;过一会访问xxx.github.com就行了．（xxx就是你的github用户名）
 如果你有域名的话，比如你在&lt;strong&gt;&lt;em&gt;Godady&lt;/em&gt;&lt;/strong&gt;上买了域名，可以在Godaddy上配置主机为&lt;code&gt;blog.域名&lt;/code&gt;指定&lt;code&gt;xxx.github.io&lt;/code&gt;,然后在你的项目根目录下创建"CNAME"文件，写入你的域名．&lt;/p&gt;
 &lt;h4&gt;其他&lt;/h4&gt;
-&lt;ol&gt;
+&lt;ul&gt;
 &lt;li&gt;主题的更改  &lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;git clone git://github.com/getpelican/pelican-themes.git&lt;br /&gt;
   sudo pelican-themes -i $(blogpath)/pelican-themes/bootstrap2&lt;br /&gt;
   pelican-themes --list --verbose&lt;br /&gt;
   make html  &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;ol&gt;
+&lt;ul&gt;
 &lt;li&gt;插件的添加   &lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;git clone git://github.com/getpelican/pelican-plugins.git &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;ol&gt;
+&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;添加评论的支持&lt;br /&gt;
   见配置文件&lt;/p&gt;
@@ -74,7 +84,7 @@ test&lt;/p&gt;
 &lt;p&gt;拷贝静态文件&lt;br /&gt;
   见配置文件&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 &lt;h4&gt;配置文件&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;pelicanconf.py&lt;/li&gt;
@@ -242,119 +252,20 @@ test&lt;/p&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Wed, 29 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2015-04-29:articles/li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html</guid><category>blog</category><category>markdown</category></item><item><title>Markdown语法总结</title><link>http://blog.zzfanhero.info/articles/markdownyu-fa-zong-jie.html</link><description>&lt;p&gt;完成了github博客的搭建（稍后会介绍如何搭建），先学习一下Markdown。
 Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章。
 (本文档仅在vim插件markdown中使用，其他的平台可能有一些偏差)&lt;/p&gt;
-&lt;h1&gt;* 标题&lt;/h1&gt;
-&lt;p&gt;两种方法（Setex和Atx）：&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;语法&lt;/th&gt;
-&lt;th&gt;效果&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Setext方式&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;标题一&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;===================&lt;/td&gt;
-&lt;td&gt;#标题一&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;标题二 
- ------------------- &lt;/p&gt;
-&lt;p&gt;Atx方式 &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;#标题一 &lt;br /&gt;
-##标题二 &lt;br /&gt;
-###标题三   &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1&gt;+ 制表&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;table&lt;/span&gt; &lt;span class="na"&gt;class =&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;table table-bordered bable-striped table-condensed&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt; 时间 &lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt; 地点 &lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt; 人物 &lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt; 3.5 &lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt; 北京 &lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt; 姚明 &lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt; 3.7 &lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt; 上海 &lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;td&amp;gt;&lt;/span&gt; 韩寒 &lt;span class="nt"&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/table&amp;gt;&lt;/span&gt;
+&lt;h4&gt;常用的一些符号&lt;/h4&gt;
+&lt;p&gt;在这里我就不详细介绍了，主要是写一些符号以免忘记．　　&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;标题&lt;/span&gt;
+&lt;span class="err"&gt;＂&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;#39;&amp;#39;&amp;quot; 代码块  &lt;/span&gt;
+&lt;span class="s1"&gt;&amp;quot;*&amp;quot; &amp;quot;+&amp;quot; 符号  &lt;/span&gt;
+&lt;span class="s1"&gt;&amp;quot;*&amp;quot; 加重&lt;/span&gt;
+&lt;span class="s1"&gt;&amp;quot;&amp;lt;code&amp;gt;&amp;quot; 代码  &lt;/span&gt;
+&lt;span class="s1"&gt;&amp;quot;![]()&amp;quot; 添加图片  &lt;/span&gt;
+&lt;span class="s1"&gt;&amp;quot;[]()&amp;quot; 添加链接  &lt;/span&gt;
+&lt;span class="s1"&gt;&amp;quot;|&amp;quot; &amp;quot;|------|&amp;quot; 制表  &lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h1&gt;- 插入图像、表格、代码&lt;/h1&gt;
-&lt;h2&gt;- 插入表格&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;vim&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;markdown&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="err"&gt;表格&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;
-&lt;span class="o"&gt;|---------|-----------|----------|&lt;/span&gt;
-&lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;linux&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="err"&gt;插件&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="err"&gt;图表&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;vim&lt;/th&gt;
-&lt;th&gt;markdown&lt;/th&gt;
-&lt;th&gt;表格&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;linux&lt;/td&gt;
-&lt;td&gt;插件&lt;/td&gt;
-&lt;td&gt;图表&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2&gt;- 插入图像&lt;/h2&gt;
-&lt;p&gt;&lt;img alt="test" src="/images/test.png" /&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cm"&gt;/*************************************************************************&lt;/span&gt;
-&lt;span class="cm"&gt;    &amp;gt; File Name: flow-consumer1.h&lt;/span&gt;
-&lt;span class="cm"&gt;    &amp;gt; Author: zzfan&lt;/span&gt;
-&lt;span class="cm"&gt;    &amp;gt; Mail: zzfan@mail.ustc.edu.cn &lt;/span&gt;
-&lt;span class="cm"&gt;    &amp;gt; Created Time: Thu 04 Sep 2014 03:52:53 PM HKT&lt;/span&gt;
-&lt;span class="cm"&gt; ************************************************************************/&lt;/span&gt;
-
-&lt;span class="p"&gt;#&lt;/span&gt;&lt;span class="k"&gt;include&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;ns3/ndn-app.h&amp;quot;&lt;/span&gt;
-
-&lt;span class="p"&gt;#&lt;/span&gt;&lt;span class="k"&gt;include&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;ns3/ndn-app-face.h&amp;quot;&lt;/span&gt;
-&lt;span class="p"&gt;#&lt;/span&gt;&lt;span class="k"&gt;include&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;ns3/random-variable.h&amp;quot;&lt;/span&gt;
-
-&lt;span class="n"&gt;namespace&lt;/span&gt; &lt;span class="n"&gt;ns3&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;FlowConsumer&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="n"&gt;ndn&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt; &lt;span class="n"&gt;App&lt;/span&gt;
-    &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="nl"&gt;public:&lt;/span&gt;
-        &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="n"&gt;TypeId&lt;/span&gt; &lt;span class="n"&gt;GetTypeId&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-        &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="n"&gt;StartApplication&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-        &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="n"&gt;StopApplication&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-        &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="n"&gt;OnInterest&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Ptr&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;ndn&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Interest&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;interest&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="n"&gt;OnData&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Ptr&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;ndn&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Data&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;contentObject&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="n"&gt;Period&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-        &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="n"&gt;SendInterest&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="k"&gt;string&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="n"&gt;SendInterest&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;ndn&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Name&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-
-    &lt;span class="p"&gt;};&lt;/span&gt;
-
-&lt;span class="p"&gt;}&lt;/span&gt;  &lt;span class="c1"&gt;//end namespace ns3&lt;/span&gt;
-
- &lt;span class="c1"&gt;// #endif &lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;代码模块的编程&lt;code&gt; ndn-app.h &lt;/code&gt;可以用这个来表示.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 16 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2015-04-16:articles/markdownyu-fa-zong-jie.html</guid><category>code</category><category>markdown</category></item><item><title>My Super Begining</title><link>http://blog.zzfanhero.info/articles/my-super-begining.html</link><description>&lt;p&gt;从现在开始记录自己追求梦想的脚步，其实也是为了能够使自己的每一步都能够走的扎实。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="test" src="/images/test.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 16 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2015-04-16:articles/markdownyu-fa-zong-jie.html</guid><category>code</category><category>markdown</category></item><item><title>My Super Begining</title><link>http://blog.zzfanhero.info/articles/my-super-begining.html</link><description>&lt;p&gt;从现在开始记录自己追求梦想的脚步，其实也是为了能够使自己的每一步都能够走的扎实。&lt;/p&gt;
 &lt;p&gt;总是在想自己到底能够得到怎样的结果，老是在调整自己的步伐，忘记了自己最初的梦想。&lt;/p&gt;
 &lt;p&gt;不要担心梦想能否实现，我要做的就是，从现在开始真正的坚持下去。&lt;/p&gt;
 &lt;p&gt;试过一些方式摸索自己的Blog、主页，其中很长一段时间跟着璧哥学了很多东西，最终选择github
