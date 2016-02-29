@@ -1,2 +1,2 @@
 # blog
-![blog.zzfanhero.info](blog.zzfanhero.info)
+[blog.zzfanhero.info](http://blog.zzfanhero.info)
