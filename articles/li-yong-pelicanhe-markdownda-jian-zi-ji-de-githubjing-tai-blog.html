@@ -265,86 +265,86 @@
 77
 78
 79
-80</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
-<span class="c1"># -*- coding: utf-8 -*- #</span>
+80</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+<span class="c"># -*- coding: utf-8 -*- #</span>
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
 
-<span class="n">AUTHOR</span> <span class="o">=</span> <span class="s1">u&#39;zzfan&#39;</span>
-<span class="n">AUTHOR_EMAIL</span> <span class="o">=</span> <span class="s1">u&#39;zzfan@mail.ustc.edu.cn&#39;</span>
-<span class="n">SITENAME</span> <span class="o">=</span> <span class="s2">u&quot;</span><span class="se">\u8d75\u5fd7\u51e1</span><span class="s2">&#39;Blog&quot;</span>
-<span class="n">SITEURL</span> <span class="o">=</span> <span class="s1">&#39;http://blog.zzfanhero.info&#39;</span>
-<span class="n">DEFAULT_DATE_FORMAT</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">AUTHOR</span> <span class="o">=</span> <span class="s">u&#39;zzfan&#39;</span>
+<span class="n">AUTHOR_EMAIL</span> <span class="o">=</span> <span class="s">u&#39;zzfan@mail.ustc.edu.cn&#39;</span>
+<span class="n">SITENAME</span> <span class="o">=</span> <span class="s">u&quot;</span><span class="se">\u8d75\u5fd7\u51e1</span><span class="s">&#39;Blog&quot;</span>
+<span class="n">SITEURL</span> <span class="o">=</span> <span class="s">&#39;http://blog.zzfanhero.info&#39;</span>
+<span class="n">DEFAULT_DATE_FORMAT</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">)</span>
 
-<span class="n">TIMEZONE</span> <span class="o">=</span> <span class="s1">&#39;Asia/Shanghai&#39;</span>
+<span class="n">TIMEZONE</span> <span class="o">=</span> <span class="s">&#39;Asia/Shanghai&#39;</span>
 
-<span class="n">DEFAULT_LANG</span> <span class="o">=</span> <span class="s1">u&#39;zh&#39;</span>
+<span class="n">DEFAULT_LANG</span> <span class="o">=</span> <span class="s">u&#39;zh&#39;</span>
 
 <span class="n">SEARCH_BOX</span> <span class="o">=</span> <span class="bp">True</span>
 
-<span class="c1"># Content path</span>
-<span class="n">PATH</span> <span class="o">=</span> <span class="s1">&#39;content&#39;</span>
-<span class="n">PAGE_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;pages&#39;</span><span class="p">]</span>
-<span class="n">ARTICLE_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;articles&#39;</span><span class="p">]</span>
-<span class="n">STATIC_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">,</span> <span class="s1">&#39;wendang&#39;</span><span class="p">]</span>
+<span class="c"># Content path</span>
+<span class="n">PATH</span> <span class="o">=</span> <span class="s">&#39;content&#39;</span>
+<span class="n">PAGE_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;pages&#39;</span><span class="p">]</span>
+<span class="n">ARTICLE_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;articles&#39;</span><span class="p">]</span>
+<span class="n">STATIC_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;images&#39;</span><span class="p">,</span> <span class="s">&#39;wendang&#39;</span><span class="p">]</span>
 <span class="n">EXTRA_PATH_METADATA</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;files/robots.txt&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;path&#39;</span><span class="p">:</span> <span class="s1">&#39;robots.txt&#39;</span><span class="p">},</span>
-        <span class="s1">&#39;images/favicon.ico&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;path&#39;</span><span class="p">:</span> <span class="s1">&#39;favicon.ico&#39;</span><span class="p">},</span>
+        <span class="s">&#39;files/robots.txt&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;path&#39;</span><span class="p">:</span> <span class="s">&#39;robots.txt&#39;</span><span class="p">},</span>
+        <span class="s">&#39;images/favicon.ico&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;path&#39;</span><span class="p">:</span> <span class="s">&#39;favicon.ico&#39;</span><span class="p">},</span>
 
 <span class="p">}</span>
-<span class="n">ARTICLE_URL</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;articles/{slug}.html&#39;</span><span class="p">)</span>
-<span class="n">ARTICLE_SAVE_AS</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;articles/{slug}.html&#39;</span><span class="p">)</span>
+<span class="n">ARTICLE_URL</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;articles/{slug}.html&#39;</span><span class="p">)</span>
+<span class="n">ARTICLE_SAVE_AS</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;articles/{slug}.html&#39;</span><span class="p">)</span>
 <span class="n">PAGE_LANG_SAVE_AS</span> <span class="o">=</span> <span class="bp">False</span>
 
 
-<span class="c1"># Feed generation is usually not desired when developing</span>
-<span class="c1">#FEED_DOMAIN = SITEURL</span>
-<span class="c1">#FEED_ALL_ATOM = &#39;feeds/all.atom.xml&#39;</span>
-<span class="c1">#CATEGORY_FEED_ATOM = &#39;feeds/%s.atom.xml&#39;</span>
+<span class="c"># Feed generation is usually not desired when developing</span>
+<span class="c">#FEED_DOMAIN = SITEURL</span>
+<span class="c">#FEED_ALL_ATOM = &#39;feeds/all.atom.xml&#39;</span>
+<span class="c">#CATEGORY_FEED_ATOM = &#39;feeds/%s.atom.xml&#39;</span>
 
-<span class="c1">#FEED_ALL_RSS = &#39;feeds/all.rss.xml&#39;</span>
-<span class="n">FEED_RSS</span> <span class="o">=</span> <span class="s1">&#39;rss.xml&#39;</span>
-<span class="n">CATEGORY_FEED_RSS</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/rss.xml&#39;</span>
+<span class="c">#FEED_ALL_RSS = &#39;feeds/all.rss.xml&#39;</span>
+<span class="n">FEED_RSS</span> <span class="o">=</span> <span class="s">&#39;rss.xml&#39;</span>
+<span class="n">CATEGORY_FEED_RSS</span> <span class="o">=</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">/rss.xml&#39;</span>
 <span class="n">TRANSLATION_FEED_ATOM</span> <span class="o">=</span> <span class="bp">None</span>
 
-<span class="c1">#Menu item</span>
-<span class="n">MENUITEMS</span> <span class="o">=</span> <span class="p">((</span><span class="s2">&quot;Home&quot;</span><span class="p">,</span> <span class="s2">&quot;http://blog.zzfanhero.info/my-super-begining&quot;</span><span class="p">),)</span>
+<span class="c">#Menu item</span>
+<span class="n">MENUITEMS</span> <span class="o">=</span> <span class="p">((</span><span class="s">&quot;Home&quot;</span><span class="p">,</span> <span class="s">&quot;http://blog.zzfanhero.info/my-super-begining&quot;</span><span class="p">),)</span>
 
-<span class="c1"># Blogroll</span>
-<span class="c1"># Social widget</span>
-<span class="n">SOCIAL</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;Github&#39;</span><span class="p">,</span> <span class="s1">&#39;http://github.com/zzfan/blog&#39;</span><span class="p">),</span>
-                   <span class="p">(</span><span class="s1">&#39;Twitter&#39;</span><span class="p">,</span> <span class="s1">&#39;http://twitter.com/zzfan&#39;</span><span class="p">),)</span>
+<span class="c"># Blogroll</span>
+<span class="c"># Social widget</span>
+<span class="n">SOCIAL</span> <span class="o">=</span> <span class="p">((</span><span class="s">&#39;Github&#39;</span><span class="p">,</span> <span class="s">&#39;http://github.com/zzfan/blog&#39;</span><span class="p">),</span>
+                   <span class="p">(</span><span class="s">&#39;Twitter&#39;</span><span class="p">,</span> <span class="s">&#39;http://twitter.com/zzfan&#39;</span><span class="p">),)</span>
 
-<span class="c1"># Plugin</span>
-<span class="n">PLUGIN_PATH</span> <span class="o">=</span> <span class="s2">u&quot;pelican-plugins&quot;</span>
-<span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sitemap&#39;</span><span class="p">,</span> <span class="s1">&#39;gravatar&#39;</span><span class="p">,</span> <span class="s1">&#39;gzip_cache&#39;</span><span class="p">]</span>
+<span class="c"># Plugin</span>
+<span class="n">PLUGIN_PATH</span> <span class="o">=</span> <span class="s">u&quot;pelican-plugins&quot;</span>
+<span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;sitemap&#39;</span><span class="p">,</span> <span class="s">&#39;gravatar&#39;</span><span class="p">,</span> <span class="s">&#39;gzip_cache&#39;</span><span class="p">]</span>
 
-<span class="c1"># Sitemap</span>
+<span class="c"># Sitemap</span>
 <span class="n">SITEMAP</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;format&quot;</span><span class="p">:</span><span class="s2">&quot;xml&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;priorities&quot;</span><span class="p">:{</span>
-                <span class="s2">&quot;articles&quot;</span><span class="p">:</span><span class="mf">0.7</span><span class="p">,</span>
-                <span class="s2">&quot;indexes&quot;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span>
-                <span class="s2">&quot;pages&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span>
+        <span class="s">&quot;format&quot;</span><span class="p">:</span><span class="s">&quot;xml&quot;</span><span class="p">,</span>
+    <span class="s">&quot;priorities&quot;</span><span class="p">:{</span>
+                <span class="s">&quot;articles&quot;</span><span class="p">:</span><span class="mf">0.7</span><span class="p">,</span>
+                <span class="s">&quot;indexes&quot;</span><span class="p">:</span><span class="mf">0.5</span><span class="p">,</span>
+                <span class="s">&quot;pages&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span>
 
     <span class="p">},</span>
-    <span class="s2">&quot;changefreqs&quot;</span><span class="p">:{</span>
-                <span class="s2">&quot;articles&quot;</span><span class="p">:</span><span class="s2">&quot;monthly&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;indexes&quot;</span><span class="p">:</span><span class="s2">&quot;daily&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;pages&quot;</span><span class="p">:</span><span class="s2">&quot;monthly&quot;</span><span class="p">,</span>
+    <span class="s">&quot;changefreqs&quot;</span><span class="p">:{</span>
+                <span class="s">&quot;articles&quot;</span><span class="p">:</span><span class="s">&quot;monthly&quot;</span><span class="p">,</span>
+                <span class="s">&quot;indexes&quot;</span><span class="p">:</span><span class="s">&quot;daily&quot;</span><span class="p">,</span>
+                <span class="s">&quot;pages&quot;</span><span class="p">:</span><span class="s">&quot;monthly&quot;</span><span class="p">,</span>
 
     <span class="p">}</span>
 
 <span class="p">}</span>
 
-<span class="c1"># Theme</span>
+<span class="c"># Theme</span>
 <span class="n">DEFAULT_PAGINATION</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">THEME</span> <span class="o">=</span> <span class="s2">&quot;pelican-bootstrap3&quot;</span>
+<span class="n">THEME</span> <span class="o">=</span> <span class="s">&quot;pelican-bootstrap3&quot;</span>
 
-<span class="c1"># Disqus</span>
-<span class="n">DISQUS_SITENAME</span> <span class="o">=</span> <span class="s2">u&quot;zzfanhero&quot;</span>
+<span class="c"># Disqus</span>
+<span class="n">DISQUS_SITENAME</span> <span class="o">=</span> <span class="s">u&quot;zzfanhero&quot;</span>
 
-<span class="c1"># Uncomment following line if you want document-relative URLs when developing</span>
-<span class="c1">#RELATIVE_URLS = True</span>
+<span class="c"># Uncomment following line if you want document-relative URLs when developing</span>
+<span class="c">#RELATIVE_URLS = True</span>
 </pre></div>
 </td></tr></table>
             </div>
@@ -370,7 +370,7 @@
                 var dsq = document.createElement('script');
                 dsq.type = 'text/javascript';
                 dsq.async = true;
-                dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
             })();
         </script>
@@ -410,6 +410,41 @@
 
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
+                    <li class="list-group-item tag-1">
+                        <a href="http://blog.zzfanhero.info/tag/code.html">
+                            code
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://blog.zzfanhero.info/tag/markdown.html">
+                            markdown
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/ndn.html">
+                            NDN
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/papers.html">
+                            papers
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
+                        </a>
+                    </li>
                 </ul>
             </li>
     </ul>
