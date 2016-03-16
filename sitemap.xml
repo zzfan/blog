@@ -5,30 +5,37 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://blog.zzfanhero.info/</loc>
-<lastmod>2016-03-08T22:35:37-00:00</lastmod>
+<lastmod>2016-03-16T15:33:55-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://blog.zzfanhero.info/archives.html</loc>
-<lastmod>2016-03-08T22:35:37-00:00</lastmod>
+<lastmod>2016-03-16T15:33:55-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://blog.zzfanhero.info/tags.html</loc>
-<lastmod>2016-03-08T22:35:37-00:00</lastmod>
+<lastmod>2016-03-16T15:33:55-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://blog.zzfanhero.info/categories.html</loc>
-<lastmod>2016-03-08T22:35:37-00:00</lastmod>
+<lastmod>2016-03-16T15:33:55-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://blog.zzfanhero.info/articles/jin-cheng-he-xian-cheng.html</loc>
+<lastmod>2016-03-16T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
 </url>
 
 <url>
@@ -82,7 +89,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://blog.zzfanhero.info/category/coding.html</loc>
-<lastmod>2016-03-08T00:00:00+08:06</lastmod>
+<lastmod>2016-03-16T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -130,6 +137,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://blog.zzfanhero.info/tag/system.html</loc>
+<lastmod>2016-03-16T00:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://blog.zzfanhero.info/tag/writing.html</loc>
 <lastmod>2016-02-28T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -159,7 +173,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://blog.zzfanhero.info/author/zzfan.html</loc>
-<lastmod>2016-03-08T00:00:00+08:06</lastmod>
+<lastmod>2016-03-16T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
