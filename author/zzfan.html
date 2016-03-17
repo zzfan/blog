@@ -97,7 +97,26 @@
             <hr/>
             <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/dui-zhan-yi-ji-da-xiao-duan-jie-xi.html">堆栈以及大小端解析</a></h2>
-                <div class="summary">
+                <div class="summary"><h3>简介</h3>
+<p>在程序的设计中，都会设计堆栈的使用，其中堆使通过用户来调用的内存空间，需要用户主动分配和释放，如果只分配而不立即释放，则可能出现内存泄露的问题，其结果是难以估量的；
+栈使系统自动调用的内存空间，系统也会根据实际情况自动去释放该空间．</p>
+<p>在平时的使用当中，我们需要注意堆栈的增长方向，一般来说，当堆栈指针（栈顶）由高地址向低地址增长时，我们称为向下增长；当堆栈指针（栈顶）由低地址向高地址增长时，我们称为向上增长．</p>
+<p>当然在程序设计中我们还需要注意的就是数据存储的方式：<font color=OrangeRed>大端存储／小端存储 </font>．</p>
+<blockquote>
+<p>大端存储--数据的高位字节保存再内存的低地址中，而数据的低位字节保在内存的高地址中　　
+小端存储--
+数据的高位字节保存再内存的高地址中，而数据的低位字节保存在内存的低地址中</p>
+</blockquote>
+<h3>大小端测试方法</h3>
+<ol>
+<li>这是一个面试题  </li>
+</ol>
+<div class="highlight"><pre><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">long</span> <span class="kt">long</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+    <span class="kt">long</span> <span class="kt">long</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span>
+    <span class="kt">long</span> <span class="kt">long</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d,%d,%d&quot;</span><span class="p">,</span><span class="n">a ...</span></pre></div>
                     <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/dui-zhan-yi-ji-da-xiao-duan-jie-xi.html">more ...</a>
                 </div>
             </article>
@@ -247,16 +266,6 @@ Python、Javascript、html，接着又看了一些开源代码写了一些应用
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/ndn.html">
-                            NDN
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/papers.html">
-                            papers
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/blog.html">
                             blog
                         </a>
@@ -264,6 +273,16 @@ Python、Javascript、html，接着又看了一些开源代码写了一些应用
                     <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/life.html">
                             life
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/ndn.html">
+                            NDN
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/papers.html">
+                            papers
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
