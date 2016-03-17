@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfanhero.info/</link><description></description><atom:link href="http://blog.zzfanhero.info/rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 16 Mar 2016 00:00:00 +0800</lastBuildDate><item><title>进程和线程</title><link>http://blog.zzfanhero.info/articles/jin-cheng-he-xian-cheng.html</link><description>&lt;p&gt;进程，是并发执行的程序再执行过程中分配和管理资源的基本单位，是一个动态概念，竞争计算机系统资源的基本单位．每一个基础南横都有一个自己的地址空间，即进程空间或需空间．进程空间的大小只与处理机的位数有关．进程至少有５种状态，他们是：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;初始态，执行态，等待状态，终止状态&lt;/p&gt;
+&lt;p&gt;初始态，执行态，等待状态，就绪状态，终止状态&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;线程，再网络或多用户环境下，一个服务器通常需要接收大量且不确定数量用户的并发请求，为每一个请求都创建一个进程显然使行不通的．因此操作系统中线程的概念便被引进了．线程，是进程的一部分，一个没有线程的进程可以被看做是单线程的．线程有时又被称为轻权进程或轻量级进程，也是ＣＰＵ调度的一个基本单位．&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;进程的执行过程是线状的&lt;/em&gt;&lt;/strong&gt;,尽管中间会发生终端或暂停，但该进程所拥有的资源只为该线状执行过程服务．一旦发生进程上下文切换，这些资源都是要被保护起来的．这是宏观上的执行过程．而进程又可有单线程进程与多鲜橙进程两种．&lt;strong&gt;&lt;em&gt;线程的改变只代表了cpu执行过程的改变而没有发生进程所拥有的资源变化，进程拥有一个完整的虚拟地址空间，布衣赖域线程而独立存在；反之，线程是进程的一部分，没有自己的地址空间，域进程内的其他线程一起共享分配该进程的所有资源&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
@@ -37,10 +37,6 @@
 &lt;p&gt;大端存储--数据的高位字节保存再内存的低地址中，而数据的低位字节保存在内存的高地址中，这样的存储模式有点类似于把数据当作字符串顺序处理：地址由小向大增加，而数据从高位往低位放;&lt;br /&gt;
   小端存储--数据的高位字节保存再内存的高地址中，而数据的低位字节保存在内存的低地址中，和我们的逻辑方式一致．  &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;font color=OrageRed&gt;&lt;em&gt;小端模式&lt;/em&gt; &lt;/font&gt;下的内存分配格局：
-&lt;img alt="test" src="/images/cpp_stack_da.gif" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;font color=OrageRed&gt;&lt;em&gt;大端模式&lt;/em&gt; &lt;/font&gt;下的内存分配格局：
-&lt;img alt="test" src="/images/cpp_stack_xiao.jpg" /&gt;&lt;/p&gt;
 &lt;h3&gt;大小端测试方法&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;这是一个面试题  &lt;/li&gt;
@@ -69,7 +65,11 @@
 &lt;p&gt;在32位大端模式处理器上变量b=?&lt;br /&gt;
 &lt;font color=Orange&gt;大端存储，从低地址到高地址存储的为0x34、0x12，b指针指向a的第一个字节即0x34，0x34转换为ascii为0，所以输出结果为0.&lt;/font&gt;&lt;/p&gt;
 &lt;h3&gt;分析&lt;/h3&gt;
-&lt;p&gt;&lt;font color=Orange&gt;小端模式下，因为高地址再上，所以栈往低地址处延伸．所以先把先来者往低地址处压栈，再把后来者往高地址处压栈. 大端模式，因为低地址在上，所以栈往高低脂外延伸．所以先把先来者往高地址处压栈，再把后来者往低地址处压栈 &lt;/font&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Tue, 08 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-08:articles/dui-zhan-yi-ji-da-xiao-duan-jie-xi.html</guid><category>code</category></item><item><title>虚函数</title><link>http://blog.zzfanhero.info/articles/xu-han-shu.html</link><description></description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Mon, 07 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-07:articles/xu-han-shu.html</guid><category>code</category></item><item><title>开始</title><link>http://blog.zzfanhero.info/articles/kai-shi.html</link><description>&lt;p&gt;距离我弄blog已经过去一年了，从当初的一腔热血到现在的内敛．以前的我以为懂的多就是厉害，啥都学，啥都去弄一下，喜欢炫耀，喜欢冲动．由于是读研所以一些事情是不能完全按照自己的想法去做的，老板的任务要去做．本来完成老板的任务很简单，我有充足的时间去Coding,去学习．但是，由于一些原因，我暂时放弃积累自己的Blog了，而是把这个时间拿去写论文和陪女朋友了（其实也花了很长时间去健身和锻炼）．再这里解释下陪女朋友，两个人相处是要话费时间去磨合的．&lt;/p&gt;
+&lt;p&gt;&lt;font color=Orange&gt;小端模式下，因为高地址再上，所以栈往低地址处延伸．所以先把先来者往低地址处压栈，再把后来者往高地址处压栈. 大端模式，因为低地址在上，所以栈往高低脂外延伸．所以先把先来者往高地址处压栈，再把后来者往低地址处压栈 &lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;&lt;font color=OrageRed&gt;&lt;em&gt;小端模式&lt;/em&gt; &lt;/font&gt;下的内存分配格局：
+&lt;img alt="test" src="/images/cpp_stack_da.gif" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;font color=OrageRed&gt;&lt;em&gt;大端模式&lt;/em&gt; &lt;/font&gt;下的内存分配格局：
+&lt;img alt="test" src="/images/cpp_stack_xiao.jpg" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Tue, 08 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-08:articles/dui-zhan-yi-ji-da-xiao-duan-jie-xi.html</guid><category>code</category></item><item><title>虚函数</title><link>http://blog.zzfanhero.info/articles/xu-han-shu.html</link><description></description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Mon, 07 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-07:articles/xu-han-shu.html</guid><category>code</category></item><item><title>开始</title><link>http://blog.zzfanhero.info/articles/kai-shi.html</link><description>&lt;p&gt;距离我弄blog已经过去一年了，从当初的一腔热血到现在的内敛．以前的我以为懂的多就是厉害，啥都学，啥都去弄一下，喜欢炫耀，喜欢冲动．由于是读研所以一些事情是不能完全按照自己的想法去做的，老板的任务要去做．本来完成老板的任务很简单，我有充足的时间去Coding,去学习．但是，由于一些原因，我暂时放弃积累自己的Blog了，而是把这个时间拿去写论文和陪女朋友了（其实也花了很长时间去健身和锻炼）．再这里解释下陪女朋友，两个人相处是要话费时间去磨合的．&lt;/p&gt;
 &lt;p&gt;现在，木木夕比以前要善解人意了，不会像以前一样动不动就闹矛盾了．我也比以前更成熟了，也不会像以前那么幼稚的去想一些事，不会因为这个去闹僵我们之间的关系了．&lt;/p&gt;
 &lt;p&gt;现在，我发表了一篇高水平的论文以及一篇CCC，自己想想暑假将近一个月的魔鬼式论文写作都有点心有余悸．为了心中的那股傲气，我选择了去做一些我不喜欢做的事，我是真的不喜欢写论文．不过那种全方位的诠释自己的想法的感觉还是让我受益很多的．&lt;/p&gt;
 &lt;p&gt;现在，乘着春节期间去讯飞实习了３个月也快结束了，感觉这段期间是我学习到最多的时候，不管是在代码见识上还是对以后工作的理解上，真的太感谢我的那些导师们，谢谢．大大组长的一次年初大会让我了解到以后的工作要怎么去做，大组长的深厚代码功底让我见识提升了无数个档次而且好几次耐心的给我解释真的是让我受宠若惊，小组长解决问题的思路让我惊叹自己的弱小．不过经过三个月的磨练我也成长了很多，我相信我会变得和他们一样厉害的．&lt;/p&gt;
