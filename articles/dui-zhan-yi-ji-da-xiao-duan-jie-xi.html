@@ -114,7 +114,7 @@
 <p>在平时的使用当中，我们需要注意堆栈的增长方向，一般来说，当堆栈指针（栈顶）由高地址向低地址增长时，我们称为向下增长；当堆栈指针（栈顶）由低地址向高地址增长时，我们称为向上增长．</p>
 <p>当然在程序设计中我们还需要注意的就是数据存储的方式：<font color=OrangeRed>大端存储／小端存储 </font>．</p>
 <blockquote>
-<p>大端存储--数据的高位字节保存再内存的低地址中，而数据的低位字节保在内存的高地址中　　
+<p>大端存储--数据的高位字节保存再内存的低地址中，而数据的低位字节保在内存的高地址中  　
 小端存储--
 数据的高位字节保存再内存的高地址中，而数据的低位字节保存在内存的低地址中</p>
 </blockquote>
@@ -140,11 +140,11 @@
 </ol>
 <div class="highlight"><pre><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mh">0x1234</span><span class="p">;</span>
 <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">b</span><span class="o">=*</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
-<span class="err">在</span><span class="mi">32</span><span class="err">位大端模式处理器上变量</span><span class="n">b</span><span class="o">=?</span>
 </pre></div>
 
 
-<p><font color=Orange>大端存储，从低地址到高地址存储的为0x34、0x12，b指针指向a的第一个字节即0x34，0x34转换为ascii为0，所以输出结果为0.</font></p>
+<p>在32位大端模式处理器上变量b=?<br />
+<font color=Orange>大端存储，从低地址到高地址存储的为0x34、0x12，b指针指向a的第一个字节即0x34，0x34转换为ascii为0，所以输出结果为0.</font></p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -214,13 +214,28 @@
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
+                        <a href="http://blog.zzfanhero.info/tag/markdown.html">
+                            markdown
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
                         <a href="http://blog.zzfanhero.info/tag/writing.html">
                             writing
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://blog.zzfanhero.info/tag/markdown.html">
-                            markdown
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/ndn.html">
+                            NDN
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/papers.html">
+                            papers
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -231,21 +246,6 @@
                     <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/life.html">
                             life
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/ndn.html">
-                            NDN
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/papers.html">
-                            papers
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
                         </a>
                     </li>
                 </ul>
