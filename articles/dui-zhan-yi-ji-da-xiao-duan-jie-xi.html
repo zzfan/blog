@@ -14,13 +14,13 @@
 
         <meta name="author" content="zzfan" />
         <meta name="keywords" content="code" />
-        <meta name="description" content="简介 在程序的设计中，都会设计堆栈的使用，其中堆使通过用户来调用的内存空间，需要用户主动分配和释放，如果只分配而不立即释放，则可能出现内存泄露的问题，其结果是难以估量的； 栈使系统自动调用的内存空间，系统也会根据实际情况自动去释放该空间． 在平时的使用当中，我们需要注意堆栈的增长方向，一般来说，当堆栈指针（栈顶）由高地址向低地址增长时，我们称为向下增长；当堆栈指针（栈顶）由低地址向高地址增长时，我们称为向上增长． 当然在程序设计中我们还需要注意的就是数据存储的方式：大端存储／小端存储 ． 大端存储--数据的高位字节保存再内存的低地址中，而数据的低位字节保存在内存的高地址中 小端存储--数据的高位字节保存再内存的高地址中，而数据的低位字节保存在内存的低地址中 大小端测试方法 这是一个面试题 int main() { long long a=1; long long b=2; long long c=3; printf(&#34;%d,%d,%d&#34;,a,b ..." />
+        <meta name="description" content="简介 在程序的设计中，都会设计堆栈的使用，其中堆使通过用户来调用的内存空间，需要用户主动分配和释放，如果只分配而不立即释放，则可能出现内存泄露的问题，其结果是难以估量的； 栈使系统自动调用的内存空间，系统也会根据实际情况自动去释放该空间． 在平时的使用当中，我们需要注意堆栈的增长方向，一般来说，当堆栈指针（栈顶）由高地址向低地址增长时，我们称为向下增长；当堆栈指针（栈顶）由低地址向高地址增长时，我们称为向上增长． 当然在程序设计中我们还需要注意的就是数据存储的方式：大端存储／小端存储 ． 大端存储--数据的高位字节保存再内存的低地址中，而数据的低位字节保存在内存的高地址中，这样的存储模式有点类似于把数据当作字符串顺序处理：地址由小向大增加，而数据从高位往低位放; 小端存储--数据的高位字节保存再内存的高地址中，而数据的低位字节保存在内存的低地址中，和我们的逻辑方式一致． 小端模式 下的内存分配格局： 大端模式 下的内存分配格局： 大小端测试方法 这是一个面试题 int main() { long long a=1; long long b=2; long long ..." />
 
         <meta property="og:site_name" content="赵志凡'Blog" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="堆栈以及大小端解析"/>
         <meta property="og:url" content="http://blog.zzfanhero.info/articles/dui-zhan-yi-ji-da-xiao-duan-jie-xi.html"/>
-        <meta property="og:description" content="简介 在程序的设计中，都会设计堆栈的使用，其中堆使通过用户来调用的内存空间，需要用户主动分配和释放，如果只分配而不立即释放，则可能出现内存泄露的问题，其结果是难以估量的； 栈使系统自动调用的内存空间，系统也会根据实际情况自动去释放该空间． 在平时的使用当中，我们需要注意堆栈的增长方向，一般来说，当堆栈指针（栈顶）由高地址向低地址增长时，我们称为向下增长；当堆栈指针（栈顶）由低地址向高地址增长时，我们称为向上增长． 当然在程序设计中我们还需要注意的就是数据存储的方式：大端存储／小端存储 ． 大端存储--数据的高位字节保存再内存的低地址中，而数据的低位字节保存在内存的高地址中 小端存储--数据的高位字节保存再内存的高地址中，而数据的低位字节保存在内存的低地址中 大小端测试方法 这是一个面试题 int main() { long long a=1; long long b=2; long long c=3; printf(&#34;%d,%d,%d&#34;,a,b ..."/>
+        <meta property="og:description" content="简介 在程序的设计中，都会设计堆栈的使用，其中堆使通过用户来调用的内存空间，需要用户主动分配和释放，如果只分配而不立即释放，则可能出现内存泄露的问题，其结果是难以估量的； 栈使系统自动调用的内存空间，系统也会根据实际情况自动去释放该空间． 在平时的使用当中，我们需要注意堆栈的增长方向，一般来说，当堆栈指针（栈顶）由高地址向低地址增长时，我们称为向下增长；当堆栈指针（栈顶）由低地址向高地址增长时，我们称为向上增长． 当然在程序设计中我们还需要注意的就是数据存储的方式：大端存储／小端存储 ． 大端存储--数据的高位字节保存再内存的低地址中，而数据的低位字节保存在内存的高地址中，这样的存储模式有点类似于把数据当作字符串顺序处理：地址由小向大增加，而数据从高位往低位放; 小端存储--数据的高位字节保存再内存的高地址中，而数据的低位字节保存在内存的低地址中，和我们的逻辑方式一致． 小端模式 下的内存分配格局： 大端模式 下的内存分配格局： 大小端测试方法 这是一个面试题 int main() { long long a=1; long long b=2; long long ..."/>
         <meta property="article:published_time" content="2016-03-08" />
             <meta property="article:section" content="Coding" />
             <meta property="article:tag" content="code" />
@@ -114,9 +114,13 @@
 <p>在平时的使用当中，我们需要注意堆栈的增长方向，一般来说，当堆栈指针（栈顶）由高地址向低地址增长时，我们称为向下增长；当堆栈指针（栈顶）由低地址向高地址增长时，我们称为向上增长．</p>
 <p>当然在程序设计中我们还需要注意的就是数据存储的方式：<font color=OrangeRed>大端存储／小端存储 </font>．</p>
 <blockquote>
-<p>大端存储--数据的高位字节保存再内存的低地址中，而数据的低位字节保存在内存的高地址中<br />
-小端存储--数据的高位字节保存再内存的高地址中，而数据的低位字节保存在内存的低地址中</p>
+<p>大端存储--数据的高位字节保存再内存的低地址中，而数据的低位字节保存在内存的高地址中，这样的存储模式有点类似于把数据当作字符串顺序处理：地址由小向大增加，而数据从高位往低位放;<br />
+  小端存储--数据的高位字节保存再内存的高地址中，而数据的低位字节保存在内存的低地址中，和我们的逻辑方式一致．  </p>
 </blockquote>
+<p><font color=OrageRed><em>小端模式</em> </font>下的内存分配格局：
+<img alt="test" src="/images/cpp_stack_da.gif" /></p>
+<p><font color=OrageRed><em>大端模式</em> </font>下的内存分配格局：
+<img alt="test" src="/images/cpp_stack_xiao.jpg" /></p>
 <h3>大小端测试方法</h3>
 <ol>
 <li>这是一个面试题  </li>
@@ -144,6 +148,8 @@
 
 <p>在32位大端模式处理器上变量b=?<br />
 <font color=Orange>大端存储，从低地址到高地址存储的为0x34、0x12，b指针指向a的第一个字节即0x34，0x34转换为ascii为0，所以输出结果为0.</font></p>
+<h3>分析</h3>
+<p><font color=Orange>小端模式下，因为高地址再上，所以栈往低地址处延伸．所以先把先来者往低地址处压栈，再把后来者往高地址处压栈. 大端模式，因为低地址在上，所以栈往高低脂外延伸．所以先把先来者往高地址处压栈，再把后来者往低地址处压栈 </font></p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -223,6 +229,16 @@
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/papers.html">
+                            papers
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/blog.html">
                             blog
                         </a>
@@ -235,16 +251,6 @@
                     <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/life.html">
                             life
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/system.html">
-                            system
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/papers.html">
-                            papers
                         </a>
                     </li>
                 </ul>
