@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>赵志凡'Blog</title><link href="http://blog.zzfanhero.info/" rel="alternate"></link><link href="http://blog.zzfanhero.info/feeds/others.atom.xml" rel="self"></link><id>http://blog.zzfanhero.info/</id><updated>2016-02-28T00:00:00+08:00</updated><entry><title>开始</title><link href="http://blog.zzfanhero.info/articles/kai-shi.html" rel="alternate"></link><updated>2016-02-28T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-02-28:articles/kai-shi.html</id><summary type="html">&lt;p&gt;距离我弄blog已经过去一年了，从当初的一腔热血到现在的内敛．以前的我以为懂的多就是厉害，啥都学，啥都去弄一下，喜欢炫耀，喜欢冲动．由于是读研所以一些事情是不能完全按照自己的想法去做的，老板的任务要去做．本来完成老板的任务很简单，我有充足的时间去Coding,去学习．但是，由于一些原因，我暂时放弃积累自己的Blog了，而是把这个时间拿去写论文和陪女朋友了（其实也花了很长时间去健身和锻炼）．再这里解释下陪女朋友，两个人相处是要话费时间去磨合的．&lt;/p&gt;
+&lt;p&gt;现在，木木夕比以前要善解人意了，不会像以前一样动不动就闹矛盾了．我也比以前更成熟了，也不会像以前那么幼稚的去想一些事，不会因为这个去闹僵我们之间的关系了．&lt;/p&gt;
+&lt;p&gt;现在，我发表了一篇高水平的论文以及一篇CCC，自己想想暑假将近一个月的魔鬼式论文写作都有点心有余悸．为了心中的那股傲气，我选择了去做一些我不喜欢做的事，我是真的不喜欢写论文．不过那种全方位的诠释自己的想法的感觉还是让我受益很多的．&lt;/p&gt;
+&lt;p&gt;现在，乘着春节期间去讯飞实习了３个月也快结束了，感觉这段期间是我学习到最多的时候，不管是在代码见识上还是对以后工作的理解上，真的太感谢我的那些导师们，谢谢．大大组长的一次年初大会让我了解到以后的工作要怎么去做，大组长的深厚代码功底让我见识提升了无数个档次而且好几次耐心的给我解释真的是让我受宠若惊，小组长解决问题的思路让我惊叹自己的弱小．不过经过三个月的磨练我也成长了很多，我相信我会变得和他们一样厉害的．&lt;/p&gt;
+&lt;p&gt;现在，爸妈也很支持我，新的一年挑战也很多，是时候开始把我学的积累起来了，那就是Coding.&lt;/p&gt;
+&lt;p&gt;开始学习了！&lt;/p&gt;</summary><category term="writing"></category></entry><entry><title>Reading papers</title><link href="http://blog.zzfanhero.info/articles/reading-papers.html" rel="alternate"></link><updated>2015-04-30T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2015-04-30:articles/reading-papers.html</id><summary type="html">&lt;h4&gt;所发表的论文&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;IEEE ICC'2016(二区)&lt;br /&gt;
+&lt;a href="../wendang/1.pdf"&gt;Flow-based NDN Architecture&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;CCC'2016 (三区)&lt;br /&gt;
+&lt;a href="../wendang/2.pdf"&gt;Flow Contorl Mechanism via Netwrok Coding in NDN&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="papers"></category></entry><entry><title>利用Pelican和Markdown搭建自己的github静态Blog</title><link href="http://blog.zzfanhero.info/articles/li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html" rel="alternate"></link><updated>2015-04-29T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2015-04-29:articles/li-yong-pelicanhe-markdownda-jian-zi-ji-de-githubjing-tai-blog.html</id><summary type="html">&lt;h3&gt;概述&lt;/h3&gt;
+&lt;p&gt;从自己搭建Blog有一段时间了，其实为了方便我的Blog大部分都是从&lt;a href="http://github.com"&gt;Github&lt;/a&gt;上荡下来的，有些地方没有著名版权，敬请谅解。&lt;/p&gt;
+&lt;p&gt;动态的Blog我也弄过一段时间，是用&lt;strong&gt;node.js&lt;/strong&gt;开发的，当时也是由于没有找到合适的免费&lt;strong&gt;VPS&lt;/strong&gt;（用过一段时间的 &lt;a href="https://www.digitalocean.com/"&gt;DigitalOcean&lt;/a&gt;，也就没有继续下去了（对于学生来说还是有点贵的）。如果有需要，可以关注我的 &lt;a href="http://github.com/zzfan"&gt;Github&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;经过一段时间的摸索，完成了我的Github Page: &lt;a href="http://blog.zzfanhero.info"&gt;http://blog.zzfanhero.info&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;其实这个 &lt;a href="http://www.xuanfengge.com"&gt;轩枫阁&lt;/a&gt;才是我一直想要搭建的Blog（很喜欢那种自己开发的可以不断自己的完善，而且有无限大的开发空间），但是我的方向不再网页开发，只能忍痛不去想那绚丽的让人眼花缭乱的Blog了\~\~&lt;/p&gt;
+&lt;h3&gt;具体搭建&lt;/h3&gt;
+&lt;p&gt;这里我就不很详细的列举出其中的细节了，直接上命令，是在Linux上搭建的。&lt;/p&gt;
+&lt;h4&gt;准备工作&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;github: 首先你得会用github&lt;/li&gt;
+&lt;li&gt;markdown:　用这个写blog比较舒服&lt;/li&gt;
+&lt;li&gt;linux:　我的所有工作都是再linux下完成的&lt;/li&gt;
+&lt;li&gt;js:　所有的编程语言都是想通的，对于模板的一些更改来适应自己的风格&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;安装软件&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;pelican: 自己去百度&lt;/li&gt;
+&lt;li&gt;git: 自己去配置&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Let't go&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;mkdir blog&lt;br /&gt;
+ cd blog&lt;br /&gt;
+ pelican-quickstart: 指定域名（xxx.github.io）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这时你会看到&lt;code&gt;blog&lt;/code&gt;目录下生成了一些配置文件，主要要更改的就是&lt;code&gt;pelicanconf.py&lt;/code&gt;&lt;/p&gt;
+&lt;h4&gt;开始写blog&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Date: xxx-xx-xx&lt;br /&gt;
+ Title: ...&lt;br /&gt;
+ Tags: life,code&lt;br /&gt;
+ Gategory: Code&lt;br /&gt;
+ ....Content....  &lt;/p&gt;
+&lt;p&gt;cd blog&lt;br /&gt;
+ sudo make html&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;然后你就可以再你的github上新建一个blog工程了，git到本地，然后把&lt;code&gt;output&lt;/code&gt;中的内容拷到blog里面就可以了!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;cd blog/blog&lt;br /&gt;
+ git add --all&lt;br /&gt;
+ git commit -m ""&lt;br /&gt;
+ git push  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;过一会访问xxx.github.com就行了．（xxx就是你的github用户名）
+如果你有域名的话，比如你在&lt;strong&gt;&lt;em&gt;Godady&lt;/em&gt;&lt;/strong&gt;上买了域名，可以在Godaddy上配置主机为&lt;code&gt;blog.域名&lt;/code&gt;指定&lt;code&gt;xxx.github.io&lt;/code&gt;,然后在你的项目根目录下创建"CNAME"文件，写入你的域名．&lt;/p&gt;
+&lt;h4&gt;其他&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;主题的更改  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git clone git://github.com/getpelican/pelican-themes.git&lt;br /&gt;
+  sudo pelican-themes -i $(blogpath)/pelican-themes/bootstrap2&lt;br /&gt;
+  pelican-themes --list --verbose&lt;br /&gt;
+  make html  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;插件的添加   &lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;git clone git://github.com/getpelican/pelican-plugins.git &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;添加评论的支持&lt;br /&gt;
+  见配置文件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;拷贝静态文件&lt;br /&gt;
+  见配置文件&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;配置文件&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;pelicanconf.py&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/env python&lt;/span&gt;
+&lt;span class="c"&gt;# -*- coding: utf-8 -*- #&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;__future__&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;unicode_literals&lt;/span&gt;
+
+&lt;span class="n"&gt;AUTHOR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;u&amp;#39;zzfan&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;AUTHOR_EMAIL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;u&amp;#39;zzfan@mail.ustc.edu.cn&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;SITENAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;u&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\u8d75\u5fd7\u51e1&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Blog&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;SITEURL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://blog.zzfanhero.info&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;DEFAULT_DATE_FORMAT&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;%Y-%m-&lt;/span&gt;&lt;span class="si"&gt;%d&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;TIMEZONE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Asia/Shanghai&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;DEFAULT_LANG&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;u&amp;#39;zh&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;SEARCH_BOX&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;
+
+&lt;span class="c"&gt;# Content path&lt;/span&gt;
+&lt;span class="n"&gt;PATH&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;content&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;PAGE_PATHS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;pages&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;ARTICLE_PATHS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;articles&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;STATIC_PATHS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;images&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;wendang&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;EXTRA_PATH_METADATA&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;#39;files/robots.txt&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;path&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;robots.txt&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;#39;images/favicon.ico&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;path&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;favicon.ico&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="n"&gt;ARTICLE_URL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;articles/{slug}.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ARTICLE_SAVE_AS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;articles/{slug}.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;PAGE_LANG_SAVE_AS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;False&lt;/span&gt;
+
+
+&lt;span class="c"&gt;# Feed generation is usually not desired when developing&lt;/span&gt;
+&lt;span class="c"&gt;#FEED_DOMAIN = SITEURL&lt;/span&gt;
+&lt;span class="c"&gt;#FEED_ALL_ATOM = &amp;#39;feeds/all.atom.xml&amp;#39;&lt;/span&gt;
+&lt;span class="c"&gt;#CATEGORY_FEED_ATOM = &amp;#39;feeds/%s.atom.xml&amp;#39;&lt;/span&gt;
+
+&lt;span class="c"&gt;#FEED_ALL_RSS = &amp;#39;feeds/all.rss.xml&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;FEED_RSS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;rss.xml&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;CATEGORY_FEED_RSS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;/rss.xml&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;TRANSLATION_FEED_ATOM&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;
+
+&lt;span class="c"&gt;#Menu item&lt;/span&gt;
+&lt;span class="n"&gt;MENUITEMS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Home&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;http://blog.zzfanhero.info/my-super-begining&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),)&lt;/span&gt;
+
+&lt;span class="c"&gt;# Blogroll&lt;/span&gt;
+&lt;span class="c"&gt;# Social widget&lt;/span&gt;
+&lt;span class="n"&gt;SOCIAL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Github&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://github.com/zzfan/blog&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+                   &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Twitter&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://twitter.com/zzfan&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),)&lt;/span&gt;
+
+&lt;span class="c"&gt;# Plugin&lt;/span&gt;
+&lt;span class="n"&gt;PLUGIN_PATH&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;u&amp;quot;pelican-plugins&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;PLUGINS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;sitemap&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;gravatar&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;gzip_cache&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="c"&gt;# Sitemap&lt;/span&gt;
+&lt;span class="n"&gt;SITEMAP&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;quot;format&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;xml&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;quot;priorities&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:{&lt;/span&gt;
+                &lt;span class="s"&gt;&amp;quot;articles&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mf"&gt;0.7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="s"&gt;&amp;quot;indexes&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="s"&gt;&amp;quot;pages&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mf"&gt;0.3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+
+    &lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;quot;changefreqs&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:{&lt;/span&gt;
+                &lt;span class="s"&gt;&amp;quot;articles&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;monthly&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="s"&gt;&amp;quot;indexes&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;daily&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="s"&gt;&amp;quot;pages&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;monthly&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="c"&gt;# Theme&lt;/span&gt;
+&lt;span class="n"&gt;DEFAULT_PAGINATION&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;
+&lt;span class="n"&gt;THEME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;pelican-bootstrap3&amp;quot;&lt;/span&gt;
+
+&lt;span class="c"&gt;# Disqus&lt;/span&gt;
+&lt;span class="n"&gt;DISQUS_SITENAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;u&amp;quot;zzfanhero&amp;quot;&lt;/span&gt;
+
+&lt;span class="c"&gt;# Uncomment following line if you want document-relative URLs when developing&lt;/span&gt;
+&lt;span class="c"&gt;#RELATIVE_URLS = True&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><category term="blog"></category><category term="markdown"></category></entry><entry><title>My Super Begining</title><link href="http://blog.zzfanhero.info/articles/my-super-begining.html" rel="alternate"></link><updated>2015-04-15T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2015-04-15:articles/my-super-begining.html</id><summary type="html">&lt;p&gt;从现在开始记录自己追求梦想的脚步，其实也是为了能够使自己的每一步都能够走的扎实。&lt;/p&gt;
+&lt;p&gt;总是在想自己到底能够得到怎样的结果，老是在调整自己的步伐，忘记了自己最初的梦想。&lt;/p&gt;
+&lt;p&gt;不要担心梦想能否实现，我要做的就是，从现在开始真正的坚持下去。&lt;/p&gt;
+&lt;p&gt;试过一些方式摸索自己的Blog、主页，其中很长一段时间跟着璧哥学了很多东西，最终选择github
+是因为熟悉了吧，或者说是因为github是免费的~~&lt;/p&gt;
+&lt;p&gt;也许是两年吧，接触了很多的东西。从开始只会C语言到经过C++的洗礼，然后摸索Linux、github、
+Python、Javascript、html，接着又看了一些开源代码写了一些应用，迷上了github上各种神奇的
+代码。感觉自己会很多，但是突然发现自己不知道干什么了，然后就慢慢的失去了方向。新东西太
+多了，当我熟悉完一样东西之后又有无数个其他的新东西觉得很神奇，想一步一步的去探索，就这
+样感觉自己实在浪费时间。从今天开始才下定决心的吧，我得自己创造出一些新东西，一直用别人
+做好的东西感觉很不自在。也许要走很长的路，但是我已经走出了第一步，专心一点，找准一个方
+向。&lt;/p&gt;
+&lt;p&gt;在读研的我，首先面对的是好好读书培养出更成熟的想法，有更成熟的Design，其实research是一
+种很好的锻炼。也许以后对公司的选择会有不同的想法吧，但是只要自己努力了就行。&lt;/p&gt;
+&lt;p&gt;还有就是，遇到她是我一生最大的幸运，我所有的一切都和你分不开，黎梦我们一起加油！&lt;/p&gt;</summary><category term="life"></category></entry></feed>

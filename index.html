@@ -53,13 +53,13 @@
                             <a href="http://blog.zzfanhero.info/category/coding.html">Coding</a>
                         </li>
                         <li >
-                            <a href="http://blog.zzfanhero.info/category/life.html">Life</a>
-                        </li>
-                        <li >
-                            <a href="http://blog.zzfanhero.info/category/papers.html">Papers</a>
+                            <a href="http://blog.zzfanhero.info/category/others.html">Others</a>
                         </li>
                         <li >
                             <a href="http://blog.zzfanhero.info/category/tools.html">Tools</a>
+                        </li>
+                        <li >
+                            <a href="http://blog.zzfanhero.info/category/work.html">Work</a>
                         </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -75,6 +75,48 @@
     <div class="row">
         <div class="col-sm-9">
 
+            <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/shu-zu-de-fan-zhuan-he-dan-lian-biao-de-fan-zhuan.html">数组的翻转和单链表的翻转</a></h2>
+                <div class="summary"><p>摘要：从最简单的开始，刚被网易的笔试给虐了</p>
+<h3>数组的翻转</h3>
+<p>这里用string的翻转为例：</p>
+<div class="highlight"><pre><span class="cm">/*************************************************************************</span>
+<span class="cm">    &gt; File Name: test.cpp</span>
+<span class="cm">    &gt; Author: zzfan</span>
+<span class="cm">    &gt; Mail: zzfan@mail.ustc.edu.cn </span>
+<span class="cm">    &gt; Created Time: 2016年03月19日 星期六 20时20分04秒</span>
+<span class="cm"> ************************************************************************/</span>
+
+<span class="p">#</span><span class="k">include</span><span class="o">&lt;</span><span class="n">iostream</span><span class="o">&gt;</span>
+<span class="p">#</span><span class="k">include</span> <span class="o">&lt;</span><span class="n">algorithm</span><span class="o">&gt;</span>
+<span class="p">#</span><span class="k">include</span> <span class="o">&lt;</span><span class="n">stack</span><span class="o">&gt;</span>
+<span class="p">#</span><span class="k">include</span> <span class="o">&lt;</span><span class="k">string</span><span class="o">&gt;</span>
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="c1">//c style</span>
+<span class="k">void</span> <span class="n">c_rever</span><span class="p">(</span><span class="k">string</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="k">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">char</span> <span class="n">temp</span><span class="p">;</span>
+    <span class="k">int</span> <span class="n">j</span><span class="p">,</span><span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mh">1</span><span class="p">)</span><span class="o">/</span><span class="mh">2</span><span class="p">;</span>
+    <span class="k">for ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/shu-zu-de-fan-zhuan-he-dan-lian-biao-de-fan-zhuan.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/xian-cheng-chi.html">线程池</a></h2>
+                <div class="summary">
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/xian-cheng-chi.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/shu-bb-bb.html">树（B,B-,B+,B\*）</a></h2>
+                <div class="summary">
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/shu-bb-bb.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
             <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/jin-cheng-he-xian-cheng.html">进程和线程</a></h2>
                 <div class="summary"><p>进程，是并发执行的程序再执行过程中分配和管理资源的基本单位，是一个动态概念，竞争计算机系统资源的基本单位．每一个基础南横都有一个自己的地址空间，即进程空间或需空间．进程空间的大小只与处理机的位数有关．进程至少有５种状态，他们是：</p>
@@ -198,27 +240,16 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/my-super-begining.html">My Super Begining</a></h2>
-                <div class="summary"><p>从现在开始记录自己追求梦想的脚步，其实也是为了能够使自己的每一步都能够走的扎实。</p>
-<p>总是在想自己到底能够得到怎样的结果，老是在调整自己的步伐，忘记了自己最初的梦想。</p>
-<p>不要担心梦想能否实现，我要做的就是，从现在开始真正的坚持下去。</p>
-<p>试过一些方式摸索自己的Blog、主页，其中很长一段时间跟着璧哥学了很多东西，最终选择github
-是因为熟悉了吧，或者说是因为github是免费的~~</p>
-<p>也许是两年吧，接触了很多的东西。从开始只会C语言到经过C++的洗礼，然后摸索Linux、github、
-Python、Javascript、html，接着又看了一些开源代码写了一些应用，迷上了github上各种神奇的
-代码。感觉自己会很多，但是突然发现自己不知道干什么了，然后就慢慢的失去了方向。新东西太
-多了，当我熟悉完一样东西之后又有无数个其他的新东西觉得很神奇，想一步一步的去探索，就这
-样感觉自己实在浪费时间。从今天开始才下定决心的吧，我得自己创造出一些新东西，一直用别人
-做好的东西感觉很不自在。也许要走很长的路，但是我已经走出了第一步，专心一点，找准一个方
-向。</p>
-<p>在读研的我，首先面对的是好好读书培养出更成熟的想法，有更成熟的Design，其实research是一
-种很好的锻炼。也许以后对公司的选择会有不同的想法吧 ...</p>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/my-super-begining.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
+        <ul class="pagination">
+                <li class="prev disabled"><a href="#">&laquo;</a></li>
+                    <li class="active"><a
+                            href="http://blog.zzfanhero.info/index.html">1</a></li>
+                    <li class=""><a
+                            href="http://blog.zzfanhero.info/index2.html">2</a></li>
+                <li class="next"><a
+                        href="http://blog.zzfanhero.info/index2.html">&raquo;</a></li>
+        </ul>
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
@@ -257,14 +288,14 @@ Python、Javascript、html，接着又看了一些开源代码写了一些应用
                             markdown
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
+                            数据结构
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/ndn.html">
-                            NDN
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -273,18 +304,23 @@ Python、Javascript、html，接着又看了一些开源代码写了一些应用
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/papers.html">
                             papers
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/life.html">
-                            life
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
+                            面试
                         </a>
                     </li>
                 </ul>
