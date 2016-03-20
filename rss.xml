@@ -70,7 +70,24 @@
     &lt;span class="p"&gt;}&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Sat, 19 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-19:articles/shu-zu-de-fan-zhuan-he-dan-lian-biao-de-fan-zhuan.html</guid><category>面试</category></item><item><title>线程池</title><link>http://blog.zzfanhero.info/articles/xian-cheng-chi.html</link><description></description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Sat, 19 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-19:articles/xian-cheng-chi.html</guid><category>code</category></item><item><title>树（B,B-,B+,B\*）</title><link>http://blog.zzfanhero.info/articles/shu-bb-bb.html</link><description></description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 17 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-17:articles/shu-bb-bb.html</guid><category>数据结构</category></item><item><title>进程和线程</title><link>http://blog.zzfanhero.info/articles/jin-cheng-he-xian-cheng.html</link><description>&lt;p&gt;进程，是并发执行的程序再执行过程中分配和管理资源的基本单位，是一个动态概念，竞争计算机系统资源的基本单位．每一个基础南横都有一个自己的地址空间，即进程空间或需空间．进程空间的大小只与处理机的位数有关．进程至少有５种状态，他们是：&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Sat, 19 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-19:articles/shu-zu-de-fan-zhuan-he-dan-lian-biao-de-fan-zhuan.html</guid><category>面试</category></item><item><title>无temp的Swap以及位运算加减法</title><link>http://blog.zzfanhero.info/articles/wu-tempde-swapyi-ji-wei-yun-suan-jia-jian-fa.html</link><description>&lt;p&gt;&lt;font color=Green&gt;摘要：以前听别人提起过，面试连这样的题都有，也就花几分钟整理整理 &lt;/font&gt;&lt;/p&gt;
+&lt;h3&gt;* 不用中间变量的Swap&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;加减法&lt;br /&gt;
+//该方法可以狡猾整形和浮点型数值的变量，但是再处理浮点型的时候可能出现精度受损&lt;br /&gt;
+a = a + b;&lt;br /&gt;
+b = a - b;&lt;br /&gt;
+a = a - b;  &lt;/li&gt;
+&lt;li&gt;已获法：对浮点型无法交换&lt;br /&gt;
+a = a^b;&lt;br /&gt;
+b = a^b;&lt;br /&gt;
+a = a^b;  &lt;/li&gt;
+&lt;li&gt;乘除法&lt;br /&gt;
+a = a*b&lt;br /&gt;
+b = a/b&lt;br /&gt;
+a = a/b  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;* 位运算实现加减乘除&lt;/h3&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Sat, 19 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-19:articles/wu-tempde-swapyi-ji-wei-yun-suan-jia-jian-fa.html</guid><category>面试</category></item><item><title>线程池</title><link>http://blog.zzfanhero.info/articles/xian-cheng-chi.html</link><description></description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Sat, 19 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-19:articles/xian-cheng-chi.html</guid><category>code</category></item><item><title>树（B,B-,B+,B\*）</title><link>http://blog.zzfanhero.info/articles/shu-bb-bb.html</link><description></description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 17 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-17:articles/shu-bb-bb.html</guid><category>数据结构</category></item><item><title>进程和线程</title><link>http://blog.zzfanhero.info/articles/jin-cheng-he-xian-cheng.html</link><description>&lt;p&gt;进程，是并发执行的程序再执行过程中分配和管理资源的基本单位，是一个动态概念，竞争计算机系统资源的基本单位．每一个基础南横都有一个自己的地址空间，即进程空间或需空间．进程空间的大小只与处理机的位数有关．进程至少有５种状态，他们是：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;初始态，执行态，等待状态，就绪状态，终止状态&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -83,14 +100,16 @@
 &lt;li&gt;
 &lt;p&gt;进程通信  &lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;主从式：终端控制进程和终端进程
-会话式：用户进程域磁盘管理进程之间的通信
-管道
-共享内存
-两个进程职位的内存快，两个进程均可以访问
-锁机制
-套接字
-信号&lt;/p&gt;
+&lt;p&gt;主从式：终端控制进程和终端进程&lt;br /&gt;
+会话式：用户进程域磁盘管理进程之间的通信&lt;br /&gt;
+管道: A.管道是半双工的，数据只能向一个方向流动；双方通信需要建立起两个管道&lt;br /&gt;
+B.只能用于父子进程或者兄弟进程之间&lt;br /&gt;
+C.是在内存中单独构成一种文件系统，只存在于内存中.&lt;br /&gt;
+共享内存&lt;br /&gt;
+两个进程职位的内存快，两个进程均可以访问&lt;br /&gt;
+锁机制&lt;br /&gt;
+套接字&lt;br /&gt;
+信号  &lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -403,10 +422,8 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
 &lt;span class="s1"&gt;&amp;quot;![]()&amp;quot; 添加图片  &lt;/span&gt;
 &lt;span class="s1"&gt;&amp;quot;[]()&amp;quot; 添加链接  &lt;/span&gt;
 &lt;span class="s1"&gt;&amp;quot;|&amp;quot; &amp;quot;|------|&amp;quot; 制表  &lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;img alt="test" src="/images/test.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 16 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2015-04-16:articles/markdownyu-fa-zong-jie.html</guid><category>code</category><category>markdown</category></item><item><title>My Super Begining</title><link>http://blog.zzfanhero.info/articles/my-super-begining.html</link><description>&lt;p&gt;从现在开始记录自己追求梦想的脚步，其实也是为了能够使自己的每一步都能够走的扎实。&lt;/p&gt;
+&lt;span class="s1"&gt;![test](/images/test.png)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 16 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2015-04-16:articles/markdownyu-fa-zong-jie.html</guid><category>code</category><category>markdown</category></item><item><title>My Super Begining</title><link>http://blog.zzfanhero.info/articles/my-super-begining.html</link><description>&lt;p&gt;从现在开始记录自己追求梦想的脚步，其实也是为了能够使自己的每一步都能够走的扎实。&lt;/p&gt;
 &lt;p&gt;总是在想自己到底能够得到怎样的结果，老是在调整自己的步伐，忘记了自己最初的梦想。&lt;/p&gt;
 &lt;p&gt;不要担心梦想能否实现，我要做的就是，从现在开始真正的坚持下去。&lt;/p&gt;
 &lt;p&gt;试过一些方式摸索自己的Blog、主页，其中很长一段时间跟着璧哥学了很多东西，最终选择github

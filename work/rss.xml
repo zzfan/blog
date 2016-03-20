@@ -70,4 +70,21 @@
     &lt;span class="p"&gt;}&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Sat, 19 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-19:articles/shu-zu-de-fan-zhuan-he-dan-lian-biao-de-fan-zhuan.html</guid><category>面试</category></item></channel></rss>
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Sat, 19 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-19:articles/shu-zu-de-fan-zhuan-he-dan-lian-biao-de-fan-zhuan.html</guid><category>面试</category></item><item><title>无temp的Swap以及位运算加减法</title><link>http://blog.zzfanhero.info/articles/wu-tempde-swapyi-ji-wei-yun-suan-jia-jian-fa.html</link><description>&lt;p&gt;&lt;font color=Green&gt;摘要：以前听别人提起过，面试连这样的题都有，也就花几分钟整理整理 &lt;/font&gt;&lt;/p&gt;
+&lt;h3&gt;* 不用中间变量的Swap&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;加减法&lt;br /&gt;
+//该方法可以狡猾整形和浮点型数值的变量，但是再处理浮点型的时候可能出现精度受损&lt;br /&gt;
+a = a + b;&lt;br /&gt;
+b = a - b;&lt;br /&gt;
+a = a - b;  &lt;/li&gt;
+&lt;li&gt;已获法：对浮点型无法交换&lt;br /&gt;
+a = a^b;&lt;br /&gt;
+b = a^b;&lt;br /&gt;
+a = a^b;  &lt;/li&gt;
+&lt;li&gt;乘除法&lt;br /&gt;
+a = a*b&lt;br /&gt;
+b = a/b&lt;br /&gt;
+a = a/b  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;* 位运算实现加减乘除&lt;/h3&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Sat, 19 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-19:articles/wu-tempde-swapyi-ji-wei-yun-suan-jia-jian-fa.html</guid><category>面试</category></item></channel></rss>

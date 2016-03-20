@@ -104,6 +104,30 @@
             </article>
             <hr/>
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/wu-tempde-swapyi-ji-wei-yun-suan-jia-jian-fa.html">无temp的Swap以及位运算加减法</a></h2>
+                <div class="summary"><p><font color=Green>摘要：以前听别人提起过，面试连这样的题都有，也就花几分钟整理整理 </font></p>
+<h3>* 不用中间变量的Swap</h3>
+<ol>
+<li>加减法<br />
+//该方法可以狡猾整形和浮点型数值的变量，但是再处理浮点型的时候可能出现精度受损<br />
+a = a + b;<br />
+b = a - b;<br />
+a = a - b;  </li>
+<li>已获法：对浮点型无法交换<br />
+a = a^b;<br />
+b = a^b;<br />
+a = a^b;  </li>
+<li>乘除法<br />
+a = a*b<br />
+b = a/b<br />
+a = a/b  </li>
+</ol>
+<h3>* 位运算实现加减乘除</h3>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/wu-tempde-swapyi-ji-wei-yun-suan-jia-jian-fa.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/xian-cheng-chi.html">线程池</a></h2>
                 <div class="summary">
                     <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/xian-cheng-chi.html">more ...</a>
@@ -217,29 +241,6 @@
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/markdownyu-fa-zong-jie.html">Markdown语法总结</a></h2>
-                <div class="summary"><p>完成了github博客的搭建（稍后会介绍如何搭建），先学习一下Markdown。
-Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章。
-(本文档仅在vim插件markdown中使用，其他的平台可能有一些偏差)</p>
-<h4>常用的一些符号</h4>
-<p>在这里我就不详细介绍了，主要是写一些符号以免忘记．　　</p>
-<div class="highlight"><pre><span class="err">#</span> <span class="err">标题</span>
-<span class="err">＂</span><span class="s1">&#39;&#39;&#39;&quot; 代码块  </span>
-<span class="s1">&quot;*&quot; &quot;+&quot; 符号  </span>
-<span class="s1">&quot;*&quot; 加重</span>
-<span class="s1">&quot;&lt;code&gt;&quot; 代码  </span>
-<span class="s1">&quot;![]()&quot; 添加图片  </span>
-<span class="s1">&quot;[]()&quot; 添加链接  </span>
-<span class="s1">&quot;|&quot; &quot;|------|&quot; 制表  </span>
-</pre></div>
-
-
-<p><img alt="test" src="/images/test.png" /></p>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/markdownyu-fa-zong-jie.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev disabled"><a href="#">&laquo;</a></li>
@@ -288,19 +289,19 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
                             markdown
                         </a>
                     </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
+                            面试
+                        </a>
+                    </li>
                     <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/blog.html">
                             blog
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
-                            数据结构
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -309,8 +310,8 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
-                            面试
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -319,8 +320,8 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/system.html">
-                            system
+                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
+                            数据结构
                         </a>
                     </li>
                 </ul>

@@ -12,7 +12,5 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
 &lt;span class="s1"&gt;&amp;quot;![]()&amp;quot; 添加图片  &lt;/span&gt;
 &lt;span class="s1"&gt;&amp;quot;[]()&amp;quot; 添加链接  &lt;/span&gt;
 &lt;span class="s1"&gt;&amp;quot;|&amp;quot; &amp;quot;|------|&amp;quot; 制表  &lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;img alt="test" src="/images/test.png" /&gt;&lt;/p&gt;</summary><category term="code"></category><category term="markdown"></category></entry></feed>
+&lt;span class="s1"&gt;![test](/images/test.png)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="code"></category><category term="markdown"></category></entry></feed>
