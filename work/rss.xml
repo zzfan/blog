@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfanhero.info/</link><description></description><atom:link href="http://blog.zzfanhero.info/work/rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 19 Mar 2016 00:00:00 +0800</lastBuildDate><item><title>笔试题－格雷码和微信红包</title><link>http://blog.zzfanhero.info/articles/bi-shi-ti-ge-lei-ma-he-wei-xin-hong-bao.html</link><description>&lt;p&gt;&lt;font color=Green&gt;腾讯的两道笔试题，挺灵活的，觉得很有必要分析下，就写下来．另外我还分析了一下字符串的输入等．&lt;/font&gt;&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfanhero.info/</link><description></description><atom:link href="http://blog.zzfanhero.info/work/rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 20 Mar 2016 00:00:00 +0800</lastBuildDate><item><title>笔试题－格雷码和微信红包</title><link>http://blog.zzfanhero.info/articles/bi-shi-ti-ge-lei-ma-he-wei-xin-hong-bao.html</link><description>&lt;p&gt;&lt;font color=Green&gt;腾讯的两道笔试题，挺灵活的，觉得很有必要分析下，就写下来．另外我还分析了一下字符串的输入等．&lt;/font&gt;&lt;/p&gt;
 &lt;h3&gt;* 关于字符串题目的输入的一些需要注意的地方&lt;/h3&gt;
 &lt;p&gt;+论&lt;code&gt;cin.get()&lt;/code&gt;的重要行,看如下代码，第一行输入数组的个数，第二行输入数组．  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="vi"&gt;#include&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;iostream&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
@@ -145,7 +145,7 @@
         &lt;span class="p"&gt;}&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Sat, 19 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-19:articles/bi-shi-ti-ge-lei-ma-he-wei-xin-hong-bao.html</guid><category>笔试</category></item><item><title>数组的翻转和单链表的翻转</title><link>http://blog.zzfanhero.info/articles/shu-zu-de-fan-zhuan-he-dan-lian-biao-de-fan-zhuan.html</link><description>&lt;p&gt;摘要：从最简单的开始，刚被网易的笔试给虐了&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Sun, 20 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-20:articles/bi-shi-ti-ge-lei-ma-he-wei-xin-hong-bao.html</guid><category>笔试</category></item><item><title>数组的翻转和单链表的翻转</title><link>http://blog.zzfanhero.info/articles/shu-zu-de-fan-zhuan-he-dan-lian-biao-de-fan-zhuan.html</link><description>&lt;p&gt;摘要：从最简单的开始，刚被网易的笔试给虐了&lt;/p&gt;
 &lt;h3&gt;* 数组的翻转&lt;/h3&gt;
 &lt;p&gt;这里用string的翻转为例：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cm"&gt;/*************************************************************************&lt;/span&gt;
