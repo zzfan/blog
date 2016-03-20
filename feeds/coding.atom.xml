@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>赵志凡'Blog</title><link href="http://blog.zzfanhero.info/" rel="alternate"></link><link href="http://blog.zzfanhero.info/feeds/coding.atom.xml" rel="self"></link><id>http://blog.zzfanhero.info/</id><updated>2016-03-19T00:00:00+08:00</updated><entry><title>线程池</title><link href="http://blog.zzfanhero.info/articles/xian-cheng-chi.html" rel="alternate"></link><updated>2016-03-19T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-03-19:articles/xian-cheng-chi.html</id><summary type="html"></summary><category term="code"></category></entry><entry><title>树（B,B-,B+,B\*）</title><link href="http://blog.zzfanhero.info/articles/shu-bb-bb.html" rel="alternate"></link><updated>2016-03-17T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-03-17:articles/shu-bb-bb.html</id><summary type="html"></summary><category term="数据结构"></category></entry><entry><title>进程和线程</title><link href="http://blog.zzfanhero.info/articles/jin-cheng-he-xian-cheng.html" rel="alternate"></link><updated>2016-03-16T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-03-16:articles/jin-cheng-he-xian-cheng.html</id><summary type="html">&lt;p&gt;进程，是并发执行的程序再执行过程中分配和管理资源的基本单位，是一个动态概念，竞争计算机系统资源的基本单位．每一个基础南横都有一个自己的地址空间，即进程空间或需空间．进程空间的大小只与处理机的位数有关．进程至少有５种状态，他们是：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;初始态，执行态，等待状态，就绪状态，终止状态&lt;/p&gt;
-&lt;/blockquote&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>赵志凡'Blog</title><link href="http://blog.zzfanhero.info/" rel="alternate"></link><link href="http://blog.zzfanhero.info/feeds/coding.atom.xml" rel="self"></link><id>http://blog.zzfanhero.info/</id><updated>2016-03-19T00:00:00+08:00</updated><entry><title>线程池</title><link href="http://blog.zzfanhero.info/articles/xian-cheng-chi.html" rel="alternate"></link><updated>2016-03-19T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-03-19:articles/xian-cheng-chi.html</id><summary type="html"></summary><category term="code"></category></entry><entry><title>树（B,B-,B+,B\*）</title><link href="http://blog.zzfanhero.info/articles/shu-bb-bb.html" rel="alternate"></link><updated>2016-03-17T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-03-17:articles/shu-bb-bb.html</id><summary type="html"></summary><category term="数据结构"></category></entry><entry><title>进程和线程</title><link href="http://blog.zzfanhero.info/articles/jin-cheng-he-xian-cheng.html" rel="alternate"></link><updated>2016-03-16T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-03-16:articles/jin-cheng-he-xian-cheng.html</id><summary type="html">&lt;p&gt;&lt;font color=Green&gt;概述：操作系统看的不是很详细，突然看到&lt;code&gt;volatile&lt;/code&gt;这个关键字，然后就想总结下． &lt;/font&gt;&lt;/p&gt;
+&lt;h3&gt;*volatile&lt;/h3&gt;
+&lt;p&gt;使用volatile关键字声明的变量或对象通常具有与优化/多线程相关的特殊属性．通常volatile关键字用来阻止编译器认为的无法＂被代码本身＂改变的代码（变量／对象）进行优化．在C/C++中，volatile关键字可以用来提醒编译器它后面所定义的变量随时有可能改变，因此编译后的程序每次需要存储或读取这个变量的时候，都会直接从变量地址中读取数据．如果没有volatile关键字，则编译器可能优化读取和存储，可能暂时使用寄存器中的值，如果这个变量由别的程序更新了的话，讲出现不一致的现象．&lt;/p&gt;
+&lt;h3&gt;*概念介绍&lt;/h3&gt;
+&lt;p&gt;进程，是并发执行的程序再执行过程中分配和管理资源的基本单位，是一个动态概念，竞争计算机系统资源的基本单位．每一个基础南横都有一个自己的地址空间，即进程空间或需空间．进程空间的大小只与处理机的位数有关．进程至少有５种状态，他们是：初始，执行，阻塞，就绪，结束&lt;/p&gt;
 &lt;p&gt;线程，再网络或多用户环境下，一个服务器通常需要接收大量且不确定数量用户的并发请求，为每一个请求都创建一个进程显然使行不通的．因此操作系统中线程的概念便被引进了．线程，是进程的一部分，一个没有线程的进程可以被看做是单线程的．线程有时又被称为轻权进程或轻量级进程，也是ＣＰＵ调度的一个基本单位．&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;进程的执行过程是线状的&lt;/em&gt;&lt;/strong&gt;,尽管中间会发生终端或暂停，但该进程所拥有的资源只为该线状执行过程服务．一旦发生进程上下文切换，这些资源都是要被保护起来的．这是宏观上的执行过程．而进程又可有单线程进程与多鲜橙进程两种．&lt;strong&gt;&lt;em&gt;线程的改变只代表了cpu执行过程的改变而没有发生进程所拥有的资源变化，进程拥有一个完整的虚拟地址空间，布衣赖域线程而独立存在；反之，线程是进程的一部分，没有自己的地址空间，域进程内的其他线程一起共享分配该进程的所有资源&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
 &lt;ol&gt;
@@ -10,19 +11,18 @@
 　线程只有３个基本状态：就绪，执行，阻塞．&lt;br /&gt;
 　线程存在５种基本操作来切换线程的状态：派生，阻塞，激活，调度，结束．  &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;进程通信  &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;主从式：终端控制进程和终端进程&lt;br /&gt;
+&lt;p&gt;进程通信&lt;br /&gt;
+主从式：终端控制进程和终端进程&lt;br /&gt;
 会话式：用户进程域磁盘管理进程之间的通信&lt;br /&gt;
-管道: A.管道是半双工的，数据只能向一个方向流动；双方通信需要建立起两个管道&lt;br /&gt;
-B.只能用于父子进程或者兄弟进程之间&lt;br /&gt;
-C.是在内存中单独构成一种文件系统，只存在于内存中.&lt;br /&gt;
+管道: 
+　A.管道是半双工的，数据只能向一个方向流动；双方通信需要建立起两个管道&lt;br /&gt;
+　B.只能用于父子进程或者兄弟进程之间&lt;br /&gt;
+　C.是在内存中单独构成一种文件系统，只存在于内存中.&lt;br /&gt;
 共享内存&lt;br /&gt;
 两个进程职位的内存快，两个进程均可以访问&lt;br /&gt;
 锁机制&lt;br /&gt;
 套接字&lt;br /&gt;
 信号  &lt;/p&gt;
-&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;线程间通信&lt;br /&gt;
