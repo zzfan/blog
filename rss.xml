@@ -40,7 +40,7 @@
 
 &lt;p&gt;&lt;font color=OrangeRed&gt;如果没有cin.get(),那么换行符没有被读掉，也就是说geline()将读不到下一行&lt;/font&gt;  &lt;/p&gt;
 &lt;h3&gt;* Gifts问题&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="gifts" src="/images/gift.png" /&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="gifts" src="/images/gifts.png" /&gt;  &lt;/p&gt;
 &lt;p&gt;+需要注意的是题目中超过一半这个提示～～，很关键，是编程之美中的寻找水王的一道变样题．  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cm"&gt;/*************************************************************************&lt;/span&gt;
 &lt;span class="cm"&gt;    &amp;gt; File Name: gifts.cpp&lt;/span&gt;
