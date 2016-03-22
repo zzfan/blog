@@ -4,13 +4,13 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
 (本文档仅在vim插件markdown中使用，其他的平台可能有一些偏差)&lt;/p&gt;
 &lt;h4&gt;常用的一些符号&lt;/h4&gt;
 &lt;p&gt;在这里我就不详细介绍了，主要是写一些符号以免忘记．　　&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;标题&lt;/span&gt;
-&lt;span class="err"&gt;＂&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;#39;&amp;#39;&amp;quot; 代码块  &lt;/span&gt;
-&lt;span class="s1"&gt;&amp;quot;*&amp;quot; &amp;quot;+&amp;quot; 符号  &lt;/span&gt;
-&lt;span class="s1"&gt;&amp;quot;*&amp;quot; 加重&lt;/span&gt;
-&lt;span class="s1"&gt;&amp;quot;&amp;lt;code&amp;gt;&amp;quot; 代码  &lt;/span&gt;
-&lt;span class="s1"&gt;&amp;quot;![]()&amp;quot; 添加图片  &lt;/span&gt;
-&lt;span class="s1"&gt;&amp;quot;[]()&amp;quot; 添加链接  &lt;/span&gt;
-&lt;span class="s1"&gt;&amp;quot;|&amp;quot; &amp;quot;|------|&amp;quot; 制表  &lt;/span&gt;
-&lt;span class="s1"&gt;![test](/images/test.png)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# 标题
+＂&amp;#39;&amp;#39;&amp;#39;&amp;quot; 代码块  
+&amp;quot;*&amp;quot; &amp;quot;+&amp;quot; 符号  
+&amp;quot;*&amp;quot; 加重
+&amp;quot;&amp;lt;code&amp;gt;&amp;quot; 代码  
+&amp;quot;![]()&amp;quot; 添加图片  
+&amp;quot;[]()&amp;quot; 添加链接  
+&amp;quot;|&amp;quot; &amp;quot;|------|&amp;quot; 制表  
+![test](/images/test.png)
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="code"></category><category term="markdown"></category></entry></feed>
