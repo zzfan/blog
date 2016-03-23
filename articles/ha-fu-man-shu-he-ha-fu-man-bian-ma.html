@@ -2,7 +2,7 @@
 <html lang="zh"
 >
 <head>
-    <title>进程和线程 - 赵志凡'Blog</title>
+    <title>哈夫曼树和哈夫曼编码 - 赵志凡'Blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,20 +10,20 @@
 
 
 
-<link rel="canonical" href="http://blog.zzfanhero.info/articles/jin-cheng-he-xian-cheng.html">
+<link rel="canonical" href="http://blog.zzfanhero.info/articles/ha-fu-man-shu-he-ha-fu-man-bian-ma.html">
 
         <meta name="author" content="zzfan" />
-        <meta name="keywords" content="system" />
-        <meta name="description" content="概述：操作系统看的不是很详细，突然看到volatile这个关键字，然后就想总结下． *volatile 使用volatile关键字声明的变量或对象通常具有与优化/多线程相关的特殊属性．通常volatile关键字用来阻止编译器认为的无法＂被代码本身＂改变的代码（变量／对象）进行优化．在C/C++中，volatile关键字可以用来提醒编译器它后面所定义的变量随时有可能改变，因此编译后的程序每次需要存储或读取这个变量的时候，都会直接从变量地址中读取数据．如果没有volatile关键字，则编译器可能优化读取和存储，可能暂时使用寄存器中的值，如果这个变量由别的程序更新了的话，讲出现不一致的现象． *概念介绍 进程，是并发执行的程序再执行过程中分配和管理资源的基本单位，是一个动态概念，竞争计算机系统资源的基本单位．每一个基础南横都有一个自己的地址空间，即进程空间或需空间．进程空间的大小只与处理机的位数有关．进程至少有５种状态，他们是：初始，执行，阻塞，就绪，结束 线程，再网络或多用户环境下，一个服务器通常需要接收大量且不确定数量用户的并发请求，为每一个请求都创建一个进程显然使行不通的．因此操作系统中线程的概念便被引进了．线程，是进程的一部分，一个没有线程的进程可以被看做是单线程的．线程有时又被称为轻权进程或轻量级进程 ..." />
+        <meta name="keywords" content="面试" />
+        <meta name="description" content="摘要：哈夫曼树（Huffman），又称为最有二叉树，在通信/数据压缩/决策和算法设计等方面有着广泛的应用。之前看到一个比较有意思的题目，刚好用到哈夫曼树，觉得哈夫曼算法真的很有用。 * 哈夫曼树 +概念：路径和路径的长度，树的路径长度（树根到每个节点的路径长度之和），节点的权值（除节点数据的元素值之外，在赋予节点的一个有意义的数值），节点的带权路径长度（树根节点到某个节点的路径长度与该节点权值的乘积）。 树的带权路径长度：树中所有叶子节点的带权路径产度之和，通常记作： +哈夫曼树的构造： 关于哈夫曼树的注意点： * 哈夫曼编码" />
 
         <meta property="og:site_name" content="赵志凡'Blog" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="进程和线程"/>
-        <meta property="og:url" content="http://blog.zzfanhero.info/articles/jin-cheng-he-xian-cheng.html"/>
-        <meta property="og:description" content="概述：操作系统看的不是很详细，突然看到volatile这个关键字，然后就想总结下． *volatile 使用volatile关键字声明的变量或对象通常具有与优化/多线程相关的特殊属性．通常volatile关键字用来阻止编译器认为的无法＂被代码本身＂改变的代码（变量／对象）进行优化．在C/C++中，volatile关键字可以用来提醒编译器它后面所定义的变量随时有可能改变，因此编译后的程序每次需要存储或读取这个变量的时候，都会直接从变量地址中读取数据．如果没有volatile关键字，则编译器可能优化读取和存储，可能暂时使用寄存器中的值，如果这个变量由别的程序更新了的话，讲出现不一致的现象． *概念介绍 进程，是并发执行的程序再执行过程中分配和管理资源的基本单位，是一个动态概念，竞争计算机系统资源的基本单位．每一个基础南横都有一个自己的地址空间，即进程空间或需空间．进程空间的大小只与处理机的位数有关．进程至少有５种状态，他们是：初始，执行，阻塞，就绪，结束 线程，再网络或多用户环境下，一个服务器通常需要接收大量且不确定数量用户的并发请求，为每一个请求都创建一个进程显然使行不通的．因此操作系统中线程的概念便被引进了．线程，是进程的一部分，一个没有线程的进程可以被看做是单线程的．线程有时又被称为轻权进程或轻量级进程 ..."/>
-        <meta property="article:published_time" content="2016-03-16" />
-            <meta property="article:section" content="Coding" />
-            <meta property="article:tag" content="system" />
+        <meta property="og:title" content="哈夫曼树和哈夫曼编码"/>
+        <meta property="og:url" content="http://blog.zzfanhero.info/articles/ha-fu-man-shu-he-ha-fu-man-bian-ma.html"/>
+        <meta property="og:description" content="摘要：哈夫曼树（Huffman），又称为最有二叉树，在通信/数据压缩/决策和算法设计等方面有着广泛的应用。之前看到一个比较有意思的题目，刚好用到哈夫曼树，觉得哈夫曼算法真的很有用。 * 哈夫曼树 +概念：路径和路径的长度，树的路径长度（树根到每个节点的路径长度之和），节点的权值（除节点数据的元素值之外，在赋予节点的一个有意义的数值），节点的带权路径长度（树根节点到某个节点的路径长度与该节点权值的乘积）。 树的带权路径长度：树中所有叶子节点的带权路径产度之和，通常记作： +哈夫曼树的构造： 关于哈夫曼树的注意点： * 哈夫曼编码"/>
+        <meta property="article:published_time" content="2016-03-22" />
+            <meta property="article:section" content="Work" />
+            <meta property="article:tag" content="面试" />
             <meta property="article:author" content="zzfan" />
 
 
@@ -55,7 +55,7 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                     <li><a href="http://blog.zzfanhero.info">Home</a></li>
-                        <li class="active">
+                        <li >
                             <a href="http://blog.zzfanhero.info/category/coding.html">Coding</a>
                         </li>
                         <li >
@@ -64,7 +64,7 @@
                         <li >
                             <a href="http://blog.zzfanhero.info/category/tools.html">Tools</a>
                         </li>
-                        <li >
+                        <li class="active">
                             <a href="http://blog.zzfanhero.info/category/work.html">Work</a>
                         </li>
             </ul>
@@ -85,10 +85,10 @@
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="http://blog.zzfanhero.info/articles/jin-cheng-he-xian-cheng.html"
+                    <a href="http://blog.zzfanhero.info/articles/ha-fu-man-shu-he-ha-fu-man-bian-ma.html"
                        rel="bookmark"
-                       title="Permalink to 进程和线程">
-                        进程和线程
+                       title="Permalink to 哈夫曼树和哈夫曼编码">
+                        哈夫曼树和哈夫曼编码
                     </a>
                 </h1>
             </header>
@@ -98,48 +98,25 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-03-16T00:00:00+08:00"> 2016-03-16</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-03-22T00:00:00+08:00"> 2016-03-22</time>
     </span>
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://blog.zzfanhero.info/tag/system.html">system</a>
+	<a href="http://blog.zzfanhero.info/tag/mian-shi.html">面试</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p><font color=Green>概述：操作系统看的不是很详细，突然看到<code>volatile</code>这个关键字，然后就想总结下． </font></p>
-<h3>*volatile</h3>
-<p>使用volatile关键字声明的变量或对象通常具有与优化/多线程相关的特殊属性．通常volatile关键字用来阻止编译器认为的无法＂被代码本身＂改变的代码（变量／对象）进行优化．在C/C++中，volatile关键字可以用来提醒编译器它后面所定义的变量随时有可能改变，因此编译后的程序每次需要存储或读取这个变量的时候，都会直接从变量地址中读取数据．如果没有volatile关键字，则编译器可能优化读取和存储，可能暂时使用寄存器中的值，如果这个变量由别的程序更新了的话，讲出现不一致的现象．</p>
-<h3>*概念介绍</h3>
-<p>进程，是并发执行的程序再执行过程中分配和管理资源的基本单位，是一个动态概念，竞争计算机系统资源的基本单位．每一个基础南横都有一个自己的地址空间，即进程空间或需空间．进程空间的大小只与处理机的位数有关．进程至少有５种状态，他们是：初始，执行，阻塞，就绪，结束</p>
-<p>线程，再网络或多用户环境下，一个服务器通常需要接收大量且不确定数量用户的并发请求，为每一个请求都创建一个进程显然使行不通的．因此操作系统中线程的概念便被引进了．线程，是进程的一部分，一个没有线程的进程可以被看做是单线程的．线程有时又被称为轻权进程或轻量级进程，也是ＣＰＵ调度的一个基本单位．</p>
-<p><strong><em>进程的执行过程是线状的</em></strong>,尽管中间会发生终端或暂停，但该进程所拥有的资源只为该线状执行过程服务．一旦发生进程上下文切换，这些资源都是要被保护起来的．这是宏观上的执行过程．而进程又可有单线程进程与多鲜橙进程两种．<strong><em>线程的改变只代表了cpu执行过程的改变而没有发生进程所拥有的资源变化，进程拥有一个完整的虚拟地址空间，布衣赖域线程而独立存在；反之，线程是进程的一部分，没有自己的地址空间，域进程内的其他线程一起共享分配该进程的所有资源</em></strong>.</p>
-<ol>
-<li>线程的执行特性<br />
-　线程只有３个基本状态：就绪，执行，阻塞．<br />
-　线程存在５种基本操作来切换线程的状态：派生，阻塞，激活，调度，结束．  </li>
-<li>
-<p>进程通信<br />
-主从式：终端控制进程和终端进程<br />
-会话式：用户进程域磁盘管理进程之间的通信<br />
-管道: 
-　A.管道是半双工的，数据只能向一个方向流动；双方通信需要建立起两个管道<br />
-　B.只能用于父子进程或者兄弟进程之间<br />
-　C.是在内存中单独构成一种文件系统，只存在于内存中.<br />
-共享内存<br />
-两个进程职位的内存快，两个进程均可以访问<br />
-锁机制<br />
-套接字<br />
-信号  </p>
-</li>
-<li>
-<p>线程间通信<br />
-锁机制：互斥锁／条件变量／读写锁<br />
-信号量<br />
-信号机制  </p>
-</li>
-</ol>
+                <p><font color=Green>摘要：哈夫曼树（Huffman），又称为最有二叉树，在通信/数据压缩/决策和算法设计等方面有着广泛的应用。之前看到一个比较有意思的题目，刚好用到哈夫曼树，觉得哈夫曼算法真的很有用。 </font></p>
+<h3>* 哈夫曼树</h3>
+<p>+概念：路径和路径的长度，树的路径长度（树根到每个节点的路径长度之和），节点的权值（除节点数据的元素值之外，在赋予节点的一个有意义的数值），节点的带权路径长度（树根节点到某个节点的路径长度与该节点权值的乘积）。<br />
+<font color=OrangeRed>树的带权路径长度：树中所有叶子节点的带权路径产度之和，通常记作：<img alt="wpl" src="/images/huffman/1" /></font>  </p>
+<p>+哈夫曼树的构造：<br />
+<img alt="create" src="/images/huffman/2" />  </p>
+<p><font color=OrangeRed>关于哈夫曼树的注意点：</font><br />
+<img alt="idea" src="/images/huffman/3" />  </p>
+<h3>* 哈夫曼编码</h3>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -151,8 +128,8 @@
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'zzfanhero'; // required: replace example with your forum shortname
 
-                    var disqus_identifier = 'jin-cheng-he-xian-cheng';
-                var disqus_url = 'http://blog.zzfanhero.info/articles/jin-cheng-he-xian-cheng.html';
+                    var disqus_identifier = 'ha-fu-man-shu-he-ha-fu-man-bian-ma';
+                var disqus_url = 'http://blog.zzfanhero.info/articles/ha-fu-man-shu-he-ha-fu-man-bian-ma.html';
 
             var disqus_config = function () {
                 this.language = "zh";

@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfanhero.info/</link><description></description><atom:link href="http://blog.zzfanhero.info/feeds/zzfan.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 22 Mar 2016 00:00:00 +0800</lastBuildDate><item><title>哈夫曼树及编码</title><link>http://blog.zzfanhero.info/articles/ha-fu-man-shu-ji-bian-ma.html</link><description></description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Tue, 22 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-22:articles/ha-fu-man-shu-ji-bian-ma.html</guid><category>面试</category></item><item><title>笔试题－格雷码和微信红包</title><link>http://blog.zzfanhero.info/articles/bi-shi-ti-ge-lei-ma-he-wei-xin-hong-bao.html</link><description>&lt;p&gt;&lt;font color=Green&gt;腾讯的两道笔试题，挺灵活的，觉得很有必要分析下，就写下来．另外我还分析了一下字符串的输入等．&lt;/font&gt;&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfanhero.info/</link><description></description><atom:link href="http://blog.zzfanhero.info/feeds/zzfan.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 22 Mar 2016 00:00:00 +0800</lastBuildDate><item><title>哈夫曼树和哈夫曼编码</title><link>http://blog.zzfanhero.info/articles/ha-fu-man-shu-he-ha-fu-man-bian-ma.html</link><description>&lt;p&gt;&lt;font color=Green&gt;摘要：哈夫曼树（Huffman），又称为最有二叉树，在通信/数据压缩/决策和算法设计等方面有着广泛的应用。之前看到一个比较有意思的题目，刚好用到哈夫曼树，觉得哈夫曼算法真的很有用。 &lt;/font&gt;&lt;/p&gt;
+&lt;h3&gt;* 哈夫曼树&lt;/h3&gt;
+&lt;p&gt;+概念：路径和路径的长度，树的路径长度（树根到每个节点的路径长度之和），节点的权值（除节点数据的元素值之外，在赋予节点的一个有意义的数值），节点的带权路径长度（树根节点到某个节点的路径长度与该节点权值的乘积）。&lt;br /&gt;
+&lt;font color=OrangeRed&gt;树的带权路径长度：树中所有叶子节点的带权路径产度之和，通常记作：&lt;img alt="wpl" src="/images/huffman/1" /&gt;&lt;/font&gt;  &lt;/p&gt;
+&lt;p&gt;+哈夫曼树的构造：&lt;br /&gt;
+&lt;img alt="create" src="/images/huffman/2" /&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;font color=OrangeRed&gt;关于哈夫曼树的注意点：&lt;/font&gt;&lt;br /&gt;
+&lt;img alt="idea" src="/images/huffman/3" /&gt;  &lt;/p&gt;
+&lt;h3&gt;* 哈夫曼编码&lt;/h3&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Tue, 22 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-22:articles/ha-fu-man-shu-he-ha-fu-man-bian-ma.html</guid><category>面试</category></item><item><title>笔试题－格雷码和微信红包</title><link>http://blog.zzfanhero.info/articles/bi-shi-ti-ge-lei-ma-he-wei-xin-hong-bao.html</link><description>&lt;p&gt;&lt;font color=Green&gt;腾讯的两道笔试题，挺灵活的，觉得很有必要分析下，就写下来．另外我还分析了一下字符串的输入等．&lt;/font&gt;&lt;/p&gt;
 &lt;h3&gt;* 关于字符串题目的输入的一些需要注意的地方&lt;/h3&gt;
 &lt;p&gt;+论&lt;code&gt;cin.get()&lt;/code&gt;的重要行,看如下代码，第一行输入数组的个数，第二行输入数组．  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt;&lt;span class="cpf"&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
