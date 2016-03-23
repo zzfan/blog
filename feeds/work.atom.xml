@@ -7,7 +7,13 @@
 &lt;img alt="create" src="/images/huffman/2.png" /&gt;  &lt;/p&gt;
 &lt;p&gt;&lt;font color=OrangeRed&gt;关于哈夫曼树的注意点：&lt;/font&gt;&lt;br /&gt;
 &lt;img alt="idea" src="/images/huffman/3.png" /&gt;  &lt;/p&gt;
-&lt;h3&gt;* 哈夫曼编码&lt;/h3&gt;</summary><category term="面试"></category></entry><entry><title>笔试题－格雷码和微信红包</title><link href="http://blog.zzfanhero.info/articles/bi-shi-ti-ge-lei-ma-he-wei-xin-hong-bao.html" rel="alternate"></link><updated>2016-03-20T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-03-20:articles/bi-shi-ti-ge-lei-ma-he-wei-xin-hong-bao.html</id><summary type="html">&lt;p&gt;&lt;font color=Green&gt;腾讯的两道笔试题，挺灵活的，觉得很有必要分析下，就写下来．另外我还分析了一下字符串的输入等．&lt;/font&gt;&lt;/p&gt;
+&lt;h3&gt;* 哈夫曼编码&lt;/h3&gt;
+&lt;p&gt;+概念：&lt;br /&gt;
+&lt;img alt="yima" src="/images/huffman/4.png" /&gt;&lt;/p&gt;
+&lt;p&gt;+编码：&lt;br /&gt;
+&lt;img alt="yima" src="/images/huffman/5.png" /&gt;&lt;/p&gt;
+&lt;p&gt;+译码：&lt;br /&gt;
+&lt;img alt="yima" src="/images/huffman/6.png" /&gt;&lt;/p&gt;</summary><category term="面试"></category></entry><entry><title>笔试题－格雷码和微信红包</title><link href="http://blog.zzfanhero.info/articles/bi-shi-ti-ge-lei-ma-he-wei-xin-hong-bao.html" rel="alternate"></link><updated>2016-03-20T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-03-20:articles/bi-shi-ti-ge-lei-ma-he-wei-xin-hong-bao.html</id><summary type="html">&lt;p&gt;&lt;font color=Green&gt;腾讯的两道笔试题，挺灵活的，觉得很有必要分析下，就写下来．另外我还分析了一下字符串的输入等．&lt;/font&gt;&lt;/p&gt;
 &lt;h3&gt;* 关于字符串题目的输入的一些需要注意的地方&lt;/h3&gt;
 &lt;p&gt;+论&lt;code&gt;cin.get()&lt;/code&gt;的重要行,看如下代码，第一行输入数组的个数，第二行输入数组．  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt;&lt;span class="cpf"&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
