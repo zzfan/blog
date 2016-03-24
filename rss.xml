@@ -1,6 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfanhero.info/</link><description></description><atom:link href="http://blog.zzfanhero.info/rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 24 Mar 2016 00:00:00 +0800</lastBuildDate><item><title>二叉树的遍历及应用</title><link>http://blog.zzfanhero.info/articles/er-cha-shu-de-bian-li-ji-ying-yong.html</link><description>&lt;p&gt;&lt;font color=Green&gt;摘要：先中后序遍历，深度广度，层次，路径，每层节点数。 &lt;/font&gt;&lt;/p&gt;
-&lt;h3&gt;*&lt;/h3&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 24 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-24:articles/er-cha-shu-de-bian-li-ji-ying-yong.html</guid><category>数据结构，面试</category></item><item><title>\[LeetCode]Shortest World Distance</title><link>http://blog.zzfanhero.info/articles/leetcodeshortest-world-distance.html</link><description></description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Wed, 23 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-23:articles/leetcodeshortest-world-distance.html</guid><category>LeetCode</category><category>笔试</category></item><item><title>哈夫曼树和哈夫曼编码</title><link>http://blog.zzfanhero.info/articles/ha-fu-man-shu-he-ha-fu-man-bian-ma.html</link><description>&lt;p&gt;&lt;font color=Green&gt;摘要：哈夫曼树（Huffman），又称为最有二叉树，在通信/数据压缩/决策和算法设计等方面有着广泛的应用。之前看到一个比较有意思的题目，刚好用到哈夫曼树，觉得哈夫曼算法真的很有用。 &lt;/font&gt;&lt;/p&gt;
+&lt;h3&gt;*&lt;/h3&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 24 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-24:articles/er-cha-shu-de-bian-li-ji-ying-yong.html</guid><category>数据结构，面试</category></item><item><title>进程的创建和销毁</title><link>http://blog.zzfanhero.info/articles/jin-cheng-de-chuang-jian-he-xiao-hui.html</link><description>&lt;p&gt;&lt;font color=Green&gt;刚在群里面看到有人问到这个问题，觉得自己用Libevent创建线程很熟悉，但是对于进程没有什么概念就总结下。 &lt;/font&gt;&lt;/p&gt;
+&lt;h3&gt;* 进程的创建fork()函数&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;sys/types.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;unistd.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+
+&lt;span class="n"&gt;pit_t&lt;/span&gt; &lt;span class="nf"&gt;fork&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;由fork创建的新进程被称为子进程(child process)。该函数被调用一次，但返回两次。两次返回的区别是子进程的返回值是0，而父进程的返回值则是 新子进程的进程ID。将子进程ID返回给父进程的理由是:因为一个进程的子进程可以多于一个，所有没有一个函数使一个进程可以获得其所有子进程的进程ID。fork使子进程得到返回值0的理由是:一个进程只会有一个父进程，所以子进程总是可以调用getppid以获得其父进程的进程ID(进程 ID  0总是由交换进程使用，所以一个子进程的进程ID不可能为0)。&lt;br /&gt;
+    子进程和父进程继续执行fork之后的指令。子进程是父进程的复制品。例如，子进程获得父进程数据空间、堆和栈的复制品。注意，这是子进程拥有的拷贝。父、子进程并共享这些存储部分。如果正文段是只读的，则父、子进程共享正文段。&lt;br /&gt;
+    现在很多的实现并不做一个父进程数据段和堆的完全拷贝，因为在fork之后经常跟随着exec。作为替代，使用了写时复制(copy-on-write,cow)的技术。这些区域由父、子进程共享，而且内核将他们的存取许可权改变位只读的。如果有进程试图修改这些区域，则内核包异常，典型的是虚存系统中的“页”，做一个拷贝。  &lt;/p&gt;
+&lt;p&gt;实例1：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int glob = 6;
+char buf[] = &amp;quot;a write to stdout\n&amp;quot;;
+
+int main()
+{
+    int var;
+    int pid;
+
+    var = 88;
+
+    if(write(STDOUT_FILENO,buf,sizeof(buf) -1) != sizeof(buf) -1)
+    {
+        perror(&amp;quot;fail to write&amp;quot;);
+        return -1;
+    }
+
+    printf(&amp;quot;before fork\n&amp;quot;);
+
+    if((pid = fork()) &amp;lt; 0)
+    {
+        perror(&amp;quot;fail to fork&amp;quot;);
+        return -1;
+    }else 
+        if(pid == 0)
+        {
+            glob ++;
+            var ++;
+        }else{
+            sleep(2);
+        }
+
+    printf(&amp;quot;pid = %d,glob = %d,var = %d\n&amp;quot;,getpid(),glob,var);
+    exit(0);
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;运行结果：
+&lt;img alt="jieguo1" src="/images/progress/1.png" /&gt;  &lt;/p&gt;
+&lt;p&gt;从上面可以看出，因为子进程和父进程拥有独立的物理内存空间，所以当子进程对拷贝来的数据做修改的时候，并没有影响到父进程。  &lt;/p&gt;
+&lt;p&gt;&lt;em&gt;注意:&lt;/em&gt;&lt;br /&gt;
+1. 一般来说，fork之后父进程先执行还是子进程先执行是不确定的。这取决于内核所使用的调度算法。&lt;br /&gt;
+2. 从上面可以看到两次的运行结果不一样。我们知道write函数是不带缓存的。因为在fork之前调用write，所以其数据写到标准输出一次。但是，标准 I/O库是带缓存的。如果标准输出连到终端设备，则它是行缓存的，否则它是全缓存的。当以交互方式运行该程序时，只得到printf输出的行一次，其原因是标准输出缓存由新行符刷新。但是当将标准输出重新定向到一个文件时，却得到printf输出行两次。其原因是，在fork之前调用了printf一次，当调用fork时，该行数据仍在缓存中，然后在父进程数据空间复制到子进程中时，该缓存数据也被复制到子进程中。于是那时父、子进程各自有了带该行内容的缓存。在exit之前的第二个printf将其数据添加到现存的缓存中。当每个进程终止时，其缓存中的内容被写到相应文件中。  &lt;/p&gt;
+&lt;h3&gt;* copy-on-write工作原理&lt;/h3&gt;
+&lt;p&gt;假设进程A创建子进程B,之后进程A和进程B共享A的地址空间，同时该地址空间中的页面全部被标识为写保护。此时B若写address的页面，由于写保护的原因会引起写异常，在异常处理中，内核将address所在的那个写保护页面复制为新的页面，让B的address页表项指向该新的页面，新页面可写。而A的address页表项依然指向那个写保护的页面。然后当B在访问address时就会直接访问新的页面了，不会在访问到哪个写保护的页面。当A试图写address所在的页面时，由于写保护的原因此时也会引起异常，在异常处理中，内核如果发现该页面只有一个拥有进程，此种情况下也就是A,则直接对该页面取消写保护，此后当A再访问address时不会在有写保护错误了。如果此时A又创建子进程C,则该address所在的页面又被设置为写保护，拥有进程A和C,同时其他页面例如PAGEX依然维持写保护，只是拥有进程A、B和C。如果此时A访问PAGEX，则异常处理会创建一个新页面并将PAGEX中的内容复制到该页面，同时A相应 的pte指向该新页面。如果此时C也访问PAGEX，也会复制新页面并且让C对应的pte指向新页面。如果B再访问PAGEX，则由于此时PAGEX只有一个拥有进程B，故不再复制新页面，而是直接取消该页面的写保护，由于B的pte本来就是直接指向该页面，所以无需要在做其它工作。  &lt;/p&gt;
+&lt;h3&gt;* exit和_exit&lt;/h3&gt;
+&lt;p&gt;(1)正常终止:&lt;br /&gt;
+    (a)在main函数内执行return语句。这等效于调用exit。&lt;br /&gt;
+    (b)调用exit函数&lt;br /&gt;
+    (c)调用_exit系统调用函数  &lt;/p&gt;
+&lt;p&gt;(2)异常终止:&lt;br /&gt;
+    (a)调用abort。它产生SIGABRT信号，所以是一种异常终止的一种特列。&lt;br /&gt;
+    (b)当进程接收到某个信号时。例如，进程越出其地址空间访问存储单元，或者除以0,内核就会为该进程产生相应的信号。  &lt;/p&gt;
+&lt;p&gt;注意:不管进程如何终止，最后都会执行内核中的同一段代码。这段代码为相应进程关闭所有打开描述符，释放它所使用的存储器等。  &lt;/p&gt;
+&lt;p&gt;exit和_exit的不同：&lt;br /&gt;
+&lt;img alt="images3" src="/images/progress/3.png" /&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;font color=OrangeRed&gt; exit()函数与_exit()函数最大的区别就在于exit()函数在调用exit系统调用之前要检查文件的打开情况，把文件缓冲区中的内容写回文件，就是"清理I/O"缓冲。&lt;/font&gt;  &lt;/p&gt;
+&lt;h3&gt;* 进程的创建函数vfork()函数&lt;/h3&gt;
+&lt;p&gt;vfork与fork一样都创建一个子进程，但是它并不将父进程的地址空完全复制到子进程中，因为子进程会立即调用exec(或exit)于是也就不会存、访该地址空间。不过在子进程调用exec或exit之前，它在父进程的空间中运行。  &lt;/p&gt;
+&lt;p&gt;vfork和fork之间的另一个区别是:vfork保证子进程先运行，在它调用exec或exit之后 父进程才可能被调度运行。(如果在调用这两个函数之前子进程依赖于父进程的进一步动作，则会导致死锁)  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="images4" src="/images/progress/4.png" /&gt;  &lt;/p&gt;
+&lt;p&gt;编译运行：  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="images5" src="/images/progress/5.png" /&gt;  &lt;/p&gt;
+&lt;p&gt;因为我们知道vfork保证子进程先运行，子进程运行结束后，父进程才开始运行。所以，第一次打印的是子进程的打印的信息，可以看到var值变成了89。子进程结束后，父进程运行，父进程首先打印fork调用返回给他pid的值（就是子进程pid）。以上我们可以看出，vfork创建的子进程和父进程运行的地址空间相同(子进程改变了var 值，父进程中的var值也进行了改变)。  &lt;/p&gt;
+&lt;p&gt;注意:如果子进程中执行的是exec函数，那就是典型的fork的copy-on-wirte  &lt;/p&gt;
+&lt;h3&gt;* 进程的监控&lt;/h3&gt;
+&lt;p&gt;这一部分讲的是父进程对子进程的监控操作。主要涉及到三个知识点：监控子进程的必要性（即其目的）；系统调用wait()及其相关调用；SIGCHLD信号的处理。后两个知识点是父进程对子进程的监控手段。  &lt;/p&gt;
+&lt;h4&gt;一. 监控的必要性&lt;/h4&gt;
+&lt;p&gt;很多时候父进程都需要监控子进程的状态，有以下几点值得声明：  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;父子进程之间的同步，以及检查子进程是否正常结束。比如父进程的某些操作需要等子进程结束才能执行，有时候父进程还需要获取子进程的退出状态等信息，这就需要对子进程进行监控。  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;避免僵尸进程大量产生。子进程结束后，内核会在父进程调用wait()或者waitpid()之类的函数之前，将结束的子进程转为僵尸进程（关于僵尸进程及其危害可自行查阅资料）。父进程调用wait()或者waitpid()之类的函数之后，内核会完全清除已经结束的子进程，否则在父进程结束之后就会残留下大量的僵尸进程。  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;避免孤儿进程出现，虽然不像僵尸进程那样对系统会带来较大影响，依然不建议父进程不管子进程状态擅自先结束执行。  &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;font color=OrangeRed&gt;僵尸进程以及孤儿进程&lt;/font&gt;  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include
+#include
+
+int main()
+{
+    int pid;
+
+    if((pid = fork()) &amp;lt; 0)
+    {
+        perror(&amp;quot;Fail  to fork&amp;quot;);
+        return -1;
+    }else if(pid == 0){
+        printf(&amp;quot;child exit now.\n&amp;quot;);
+        exit(0);
+    }else{
+        while(1);
+    }
+
+    exit(0);
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;运行结果：&lt;br /&gt;
+&lt;img alt="images5" src="/images/progress/5.png" /&gt;  &lt;/p&gt;
+&lt;p&gt;---从以上可以看出，子进程正常退出时，处于僵尸态。这个时候子进程的pid,以及内核栈资源并没有释放，这样是不合理的，我们应该避免僵尸进程。如果父进程先退出呢，子进程又会怎样？  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int main()
+{
+    int pid;
+
+    if((pid = fork()) &amp;lt; 0)
+    {
+        perror(&amp;quot;Fail  to fork&amp;quot;);
+        return -1;
+    }else if(pid == 0){
+        printf(&amp;quot;child runing now - pid : %d.\n&amp;quot;,getpid());
+        getchar();
+        printf(&amp;quot;child exiting now - pid : %d.\n&amp;quot;,getpid());
+        exit(0);
+    }else{
+        printf(&amp;quot;Father wait zombie now - pid : %d.\n&amp;quot;,getpid());
+        wait(NULL);
+        printf(&amp;quot;Father exiting now - pid : %d.\n&amp;quot;,getpid());
+        exit(0);
+    }
+
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;运行结果：&lt;br /&gt;
+&lt;img alt="images5" src="/images/progress/6.png" /&gt;  &lt;/p&gt;
+&lt;p&gt;---从上面可以看出，如果父进程先退出，则子进程的父进程的ID号变为1，也就是说当一个子进程的父进程退出时，这个子进程会被init进程自动收养。  &lt;/p&gt;
+&lt;h4&gt;二. wait()及其相关调用&lt;/h4&gt;
+&lt;p&gt;这一部分只谈 wait() 和 waitpid() 这两个系统调用，他们都可以用于监控子进程的状态。他们的定义如下：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   &lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;sys/types.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+   &lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;sys/wait.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+   &lt;span class="kt"&gt;pid_t&lt;/span&gt; &lt;span class="nf"&gt;wait&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+   &lt;span class="kt"&gt;pid_t&lt;/span&gt; &lt;span class="nf"&gt;waitpid&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;pid_t&lt;/span&gt; &lt;span class="n"&gt;pid&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;options&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="err"&gt;对于这两个调用的关系做以下几点说明：&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;二者都有一个status参数用于返回子进程终止状态。  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;二者都有一个pid_t类型的返回值，表示监控到的子进程的PID。  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;出错时都返回-1，如果errno被设置为ECHILD则表示没有子进程可以等待，也就是说父进程的所有子进程都已结束并被父进程获取过结束状态。  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;wait() 只能按顺序等待结束的子进程（例如，调用wait之前已有多个子进程结束，则wait一次只会返回一个子进程的终止状态，顺序和子进程的结束顺序一致。），而waitpid则可以通过参数pid选择等待方式（pid大于0 等待指定的子进程；pid=0 等待与调用进程同一进程组的所有子进程；pid=-1等待所有子进程；pid小于-1等待进程组标示符与pid绝对值相等的所有子进程）。  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;wait() 属于阻塞式等待，直到有子进程结束才返回，而waitpid() 可以通过参数options来指定等待方式（WUNTRACED：返回已经终止的子进程和因信号而停止的子进程信息；WCONTINUED：返回因SIGCONT信号恢复执行的已停止的子进程的状态信息；WNOHANG：如果指定等待的子进程的状态未发生改变则立即返回，不会阻塞）。  &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;不管是wait() 还是waitpid() ，他们返回的status都可以通过头文件&lt;code&gt;&lt;sys/wait.h&gt;&lt;/code&gt;中定义的一组标准宏来解析（这些宏的名字还是很好记的：WIFEXITED(status)；正常结束；WIFSIGNALED(status)：被信号杀死的；WIFSTOPPED(status)：被信号停止的；WIFCONTINUED(status)：被信号停止后有被信号SIGCONT恢复执行的）。每一个返回的status解析后只会有一个宏返回真值。   &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 24 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-24:articles/jin-cheng-de-chuang-jian-he-xiao-hui.html</guid><category>面试</category></item><item><title>一些我不知道的Linux命令</title><link>http://blog.zzfanhero.info/articles/yi-xie-wo-bu-zhi-dao-de-linuxming-ling.html</link><description>&lt;p&gt;&lt;font color=Green&gt;摘要：刚看到ps命令，觉得之前一直没怎么搞明白，以前碰到的Linux命令也没有总结，刚在写blog就写一篇，以后的都总结在这吧。&lt;/font&gt;  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ps -ef 和 ps aux
+ps aux 是用BSD的格式来显示 java这个进程&lt;br /&gt;
+显示的项目有：USER , PID , %CPU , %MEM , VSZ , RSS , TTY , STAT , START , TIME , COMMAND&lt;br /&gt;
+ps -ef 是用标准的格式显示java这个进程&lt;br /&gt;
+显示的项目有：UID , PID , PPID , C , STIME , TTY , TIME , CMD  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;font color=Orange&gt;注意：ps -ef比 ps aux好的一点就是可以查看父进程号&lt;/font&gt;  &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 24 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-24:articles/yi-xie-wo-bu-zhi-dao-de-linuxming-ling.html</guid><category>面试，笔试</category></item><item><title>\[LeetCode]Shortest World Distance</title><link>http://blog.zzfanhero.info/articles/leetcodeshortest-world-distance.html</link><description></description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Wed, 23 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-23:articles/leetcodeshortest-world-distance.html</guid><category>LeetCode</category><category>笔试</category></item><item><title>哈夫曼树和哈夫曼编码</title><link>http://blog.zzfanhero.info/articles/ha-fu-man-shu-he-ha-fu-man-bian-ma.html</link><description>&lt;p&gt;&lt;font color=Green&gt;摘要：哈夫曼树（Huffman），又称为最有二叉树，在通信/数据压缩/决策和算法设计等方面有着广泛的应用。之前看到一个比较有意思的题目，刚好用到哈夫曼树，觉得哈夫曼算法真的很有用。 &lt;/font&gt;&lt;/p&gt;
 &lt;h3&gt;* 哈夫曼树&lt;/h3&gt;
 &lt;p&gt;+概念：路径和路径的长度，树的路径长度（树根到每个节点的路径长度之和），节点的权值（除节点数据的元素值之外，在赋予节点的一个有意义的数值），节点的带权路径长度（树根节点到某个节点的路径长度与该节点权值的乘积）。&lt;br /&gt;
 &lt;font color=OrangeRed&gt;树的带权路径长度：树中所有叶子节点的带权路径产度之和，通常记作：&lt;img alt="wpl" src="/images/huffman/1.png" /&gt;&lt;/font&gt;  &lt;/p&gt;
