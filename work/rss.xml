@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfanhero.info/</link><description></description><atom:link href="http://blog.zzfanhero.info/work/rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 22 Mar 2016 00:00:00 +0800</lastBuildDate><item><title>哈夫曼树和哈夫曼编码</title><link>http://blog.zzfanhero.info/articles/ha-fu-man-shu-he-ha-fu-man-bian-ma.html</link><description>&lt;p&gt;&lt;font color=Green&gt;摘要：哈夫曼树（Huffman），又称为最有二叉树，在通信/数据压缩/决策和算法设计等方面有着广泛的应用。之前看到一个比较有意思的题目，刚好用到哈夫曼树，觉得哈夫曼算法真的很有用。 &lt;/font&gt;&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfanhero.info/archives.html/</link><description></description><atom:link href="http://blog.zzfanhero.info/archives.html/work/rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 24 Mar 2016 00:00:00 +0800</lastBuildDate><item><title>二叉树的遍历及应用</title><link>http://blog.zzfanhero.info/archives.html/articles/er-cha-shu-de-bian-li-ji-ying-yong.html</link><description>&lt;p&gt;&lt;font color=Green&gt;摘要：先中后序遍历，深度广度，层次，路径，每层节点数。 &lt;/font&gt;&lt;/p&gt;
+&lt;h3&gt;*&lt;/h3&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 24 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-24:archives.html/articles/er-cha-shu-de-bian-li-ji-ying-yong.html</guid><category>数据结构，面试</category></item><item><title>\[LeetCode]Shortest World Distance</title><link>http://blog.zzfanhero.info/archives.html/articles/leetcodeshortest-world-distance.html</link><description></description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Wed, 23 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-23:archives.html/articles/leetcodeshortest-world-distance.html</guid><category>LeetCode</category><category>笔试</category></item><item><title>哈夫曼树和哈夫曼编码</title><link>http://blog.zzfanhero.info/archives.html/articles/ha-fu-man-shu-he-ha-fu-man-bian-ma.html</link><description>&lt;p&gt;&lt;font color=Green&gt;摘要：哈夫曼树（Huffman），又称为最有二叉树，在通信/数据压缩/决策和算法设计等方面有着广泛的应用。之前看到一个比较有意思的题目，刚好用到哈夫曼树，觉得哈夫曼算法真的很有用。 &lt;/font&gt;&lt;/p&gt;
 &lt;h3&gt;* 哈夫曼树&lt;/h3&gt;
 &lt;p&gt;+概念：路径和路径的长度，树的路径长度（树根到每个节点的路径长度之和），节点的权值（除节点数据的元素值之外，在赋予节点的一个有意义的数值），节点的带权路径长度（树根节点到某个节点的路径长度与该节点权值的乘积）。&lt;br /&gt;
 &lt;font color=OrangeRed&gt;树的带权路径长度：树中所有叶子节点的带权路径产度之和，通常记作：&lt;img alt="wpl" src="/images/huffman/1.png" /&gt;&lt;/font&gt;  &lt;/p&gt;
@@ -13,7 +14,7 @@
 &lt;p&gt;+编码：&lt;br /&gt;
 &lt;img alt="yima" src="/images/huffman/5.png" /&gt;&lt;/p&gt;
 &lt;p&gt;+译码：&lt;br /&gt;
-&lt;img alt="yima" src="/images/huffman/6.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Tue, 22 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-22:articles/ha-fu-man-shu-he-ha-fu-man-bian-ma.html</guid><category>面试</category></item><item><title>笔试题－格雷码和微信红包</title><link>http://blog.zzfanhero.info/articles/bi-shi-ti-ge-lei-ma-he-wei-xin-hong-bao.html</link><description>&lt;p&gt;&lt;font color=Green&gt;腾讯的两道笔试题，挺灵活的，觉得很有必要分析下，就写下来．另外我还分析了一下字符串的输入等．&lt;/font&gt;&lt;/p&gt;
+&lt;img alt="yima" src="/images/huffman/6.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Tue, 22 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-22:archives.html/articles/ha-fu-man-shu-he-ha-fu-man-bian-ma.html</guid><category>面试</category></item><item><title>笔试题－格雷码和微信红包</title><link>http://blog.zzfanhero.info/archives.html/articles/bi-shi-ti-ge-lei-ma-he-wei-xin-hong-bao.html</link><description>&lt;p&gt;&lt;font color=Green&gt;腾讯的两道笔试题，挺灵活的，觉得很有必要分析下，就写下来．另外我还分析了一下字符串的输入等．&lt;/font&gt;&lt;/p&gt;
 &lt;h3&gt;* 关于字符串题目的输入的一些需要注意的地方&lt;/h3&gt;
 &lt;p&gt;+论&lt;code&gt;cin.get()&lt;/code&gt;的重要行,看如下代码，第一行输入数组的个数，第二行输入数组．  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt;&lt;span class="cpf"&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
@@ -159,7 +160,7 @@
         &lt;span class="p"&gt;}&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Sun, 20 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-20:articles/bi-shi-ti-ge-lei-ma-he-wei-xin-hong-bao.html</guid><category>笔试</category></item><item><title>数组的翻转和单链表的翻转</title><link>http://blog.zzfanhero.info/articles/shu-zu-de-fan-zhuan-he-dan-lian-biao-de-fan-zhuan.html</link><description>&lt;p&gt;摘要：从最简单的开始，刚被网易的笔试给虐了&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Sun, 20 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-20:archives.html/articles/bi-shi-ti-ge-lei-ma-he-wei-xin-hong-bao.html</guid><category>笔试</category></item><item><title>数组的翻转和单链表的翻转</title><link>http://blog.zzfanhero.info/archives.html/articles/shu-zu-de-fan-zhuan-he-dan-lian-biao-de-fan-zhuan.html</link><description>&lt;p&gt;摘要：从最简单的开始，刚被网易的笔试给虐了&lt;/p&gt;
 &lt;h3&gt;* 数组的翻转&lt;/h3&gt;
 &lt;p&gt;&lt;i class="icon-file"&gt;&lt;/i&gt;这里用string的翻转为例：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/*************************************************************************&lt;/span&gt;
@@ -230,7 +231,7 @@
     }
     return list;
 }
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Sat, 19 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-19:articles/shu-zu-de-fan-zhuan-he-dan-lian-biao-de-fan-zhuan.html</guid><category>面试</category></item><item><title>无temp的Swap以及位运算加减法</title><link>http://blog.zzfanhero.info/articles/wu-tempde-swapyi-ji-wei-yun-suan-jia-jian-fa.html</link><description>&lt;p&gt;&lt;font color=Green&gt;摘要：以前听别人提起过，面试连这样的题都有，也就花几分钟整理整理 &lt;/font&gt;&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Sat, 19 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-19:archives.html/articles/shu-zu-de-fan-zhuan-he-dan-lian-biao-de-fan-zhuan.html</guid><category>面试</category></item><item><title>无temp的Swap以及位运算加减法</title><link>http://blog.zzfanhero.info/archives.html/articles/wu-tempde-swapyi-ji-wei-yun-suan-jia-jian-fa.html</link><description>&lt;p&gt;&lt;font color=Green&gt;摘要：以前听别人提起过，面试连这样的题都有，也就花几分钟整理整理 &lt;/font&gt;&lt;/p&gt;
 &lt;h3&gt;* 不用中间变量的Swap&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;加减法&lt;br /&gt;
@@ -247,4 +248,4 @@ a = a*b&lt;br /&gt;
 b = a/b&lt;br /&gt;
 a = a/b  &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3&gt;* 位运算实现加减乘除&lt;/h3&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Sat, 19 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-19:articles/wu-tempde-swapyi-ji-wei-yun-suan-jia-jian-fa.html</guid><category>面试</category></item></channel></rss>
+&lt;h3&gt;* 位运算实现加减乘除&lt;/h3&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Sat, 19 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-19:archives.html/articles/wu-tempde-swapyi-ji-wei-yun-suan-jia-jian-fa.html</guid><category>面试</category></item></channel></rss>

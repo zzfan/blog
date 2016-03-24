@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfanhero.info/</link><description></description><atom:link href="http://blog.zzfanhero.info/tools/rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 16 Apr 2015 00:00:00 +0800</lastBuildDate><item><title>Markdown语法总结</title><link>http://blog.zzfanhero.info/articles/markdownyu-fa-zong-jie.html</link><description>&lt;p&gt;完成了github博客的搭建（稍后会介绍如何搭建），先学习一下Markdown。
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfanhero.info/archives.html/</link><description></description><atom:link href="http://blog.zzfanhero.info/archives.html/tools/rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 16 Apr 2015 00:00:00 +0800</lastBuildDate><item><title>Markdown语法总结</title><link>http://blog.zzfanhero.info/archives.html/articles/markdownyu-fa-zong-jie.html</link><description>&lt;p&gt;完成了github博客的搭建（稍后会介绍如何搭建），先学习一下Markdown。
 Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章。
 (本文档仅在vim插件markdown中使用，其他的平台可能有一些偏差)&lt;/p&gt;
 &lt;h4&gt;常用的一些符号&lt;/h4&gt;
@@ -13,4 +13,4 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
 &amp;quot;[]()&amp;quot; 添加链接  
 &amp;quot;|&amp;quot; &amp;quot;|------|&amp;quot; 制表  
 ![test](/images/test.png)
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 16 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2015-04-16:articles/markdownyu-fa-zong-jie.html</guid><category>code</category><category>markdown</category></item></channel></rss>
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 16 Apr 2015 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2015-04-16:archives.html/articles/markdownyu-fa-zong-jie.html</guid><category>code</category><category>markdown</category></item></channel></rss>
