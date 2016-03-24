@@ -118,7 +118,7 @@ int main()
 
 
 &lt;p&gt;运行结果：&lt;br /&gt;
-&lt;img alt="images5" src="/images/progress/5.png" /&gt;  &lt;/p&gt;
+&lt;img alt="images6" src="/images/progress/6.png" /&gt;  &lt;/p&gt;
 &lt;p&gt;---从以上可以看出，子进程正常退出时，处于僵尸态。这个时候子进程的pid,以及内核栈资源并没有释放，这样是不合理的，我们应该避免僵尸进程。如果父进程先退出呢，子进程又会怎样？  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int main()
 {
@@ -145,7 +145,7 @@ int main()
 
 
 &lt;p&gt;运行结果：&lt;br /&gt;
-&lt;img alt="images5" src="/images/progress/6.png" /&gt;  &lt;/p&gt;
+&lt;img alt="images7" src="/images/progress/7.png" /&gt;  &lt;/p&gt;
 &lt;p&gt;---从上面可以看出，如果父进程先退出，则子进程的父进程的ID号变为1，也就是说当一个子进程的父进程退出时，这个子进程会被init进程自动收养。  &lt;/p&gt;
 &lt;h4&gt;二. wait()及其相关调用&lt;/h4&gt;
 &lt;p&gt;这一部分只谈 wait() 和 waitpid() 这两个系统调用，他们都可以用于监控子进程的状态。他们的定义如下：  &lt;/p&gt;

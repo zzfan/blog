@@ -226,7 +226,7 @@ int main()
 
 
 <p>运行结果：<br />
-<img alt="images5" src="/images/progress/5.png" />  </p>
+<img alt="images6" src="/images/progress/6.png" />  </p>
 <p>---从以上可以看出，子进程正常退出时，处于僵尸态。这个时候子进程的pid,以及内核栈资源并没有释放，这样是不合理的，我们应该避免僵尸进程。如果父进程先退出呢，子进程又会怎样？  </p>
 <div class="highlight"><pre><span></span>int main()
 {
@@ -253,7 +253,7 @@ int main()
 
 
 <p>运行结果：<br />
-<img alt="images5" src="/images/progress/6.png" />  </p>
+<img alt="images7" src="/images/progress/7.png" />  </p>
 <p>---从上面可以看出，如果父进程先退出，则子进程的父进程的ID号变为1，也就是说当一个子进程的父进程退出时，这个子进程会被init进程自动收养。  </p>
 <h4>二. wait()及其相关调用</h4>
 <p>这一部分只谈 wait() 和 waitpid() 这两个系统调用，他们都可以用于监控子进程的状态。他们的定义如下：  </p>
@@ -347,13 +347,13 @@ int main()
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
-                            面试
+                        <a href="http://blog.zzfanhero.info/tag/code.html">
+                            code
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/code.html">
-                            code
+                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
+                            面试
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -364,6 +364,26 @@ int main()
                     <li class="list-group-item tag-2">
                         <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
                             笔试
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/mian-shi-bi-shi.html">
+                            面试，笔试
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
+                            数据结构
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou-mian-shi.html">
+                            数据结构，面试
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -382,33 +402,13 @@ int main()
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/life.html">
                             life
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/mian-shi-bi-shi.html">
-                            面试，笔试
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou-mian-shi.html">
-                            数据结构，面试
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
-                            数据结构
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
                         </a>
                     </li>
                 </ul>
