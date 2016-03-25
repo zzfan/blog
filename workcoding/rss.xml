@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfanhero.info/</link><description></description><atom:link href="http://blog.zzfanhero.info/workcoding/rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 25 Mar 2016 00:00:00 +0800</lastBuildDate><item><title>C++ STL--stack/queue的使用方法</title><link>http://blog.zzfanhero.info/articles/c-stl-stackqueuede-shi-yong-fang-fa.html</link><description>&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：之前队这两个容器不是很熟悉，有时候用起来还不是很确定，有点时间就总结下。&lt;/font&gt;&lt;/p&gt;
+&lt;h3&gt;1. stack&lt;/h3&gt;
+&lt;p&gt;stack 模板类的定义在&lt;stack&gt;头文件中。&lt;br /&gt;
+stack 模板类需要两个模板参数，一个是元素类型，一个容器类型，但只有元素类型是必要&lt;br /&gt;
+的，在不指定容器类型时，默认的容器类型为deque。&lt;br /&gt;
+定义stack 对象的示例代码如下：&lt;br /&gt;
+stack&lt;int&gt; s1;&lt;br /&gt;
+stack&lt;string&gt; s2;&lt;br /&gt;
+stack 的基本操作有：&lt;br /&gt;
+入栈，如例：s.push(x);&lt;br /&gt;
+出栈，如例：s.pop();注意，出栈操作只是删除栈顶元素，并不返回该元素。&lt;br /&gt;
+访问栈顶，如例：s.top()&lt;br /&gt;
+判断栈空，如例：s.empty()，当栈空时，返回true。&lt;br /&gt;
+访问栈中的元素个数，如例：s.size()。  &lt;/p&gt;
+&lt;h3&gt;2. queue&lt;/h3&gt;
+&lt;p&gt;queue 模板类的定义在&lt;queue&gt;头文件中。&lt;br /&gt;
+与stack 模板类很相似，queue 模板类也需要两个模板参数，一个是元素类型，一个容器类&lt;br /&gt;
+型，元素类型是必要的，容器类型是可选的，默认为deque 类型。&lt;br /&gt;
+定义queue 对象的示例代码如下：&lt;br /&gt;
+queue&lt;int&gt; q1;&lt;br /&gt;
+queue&lt;double&gt; q2;  &lt;/p&gt;
+&lt;p&gt;queue 的基本操作有：&lt;br /&gt;
+入队，如例：q.push(x); 将x 接到队列的末端。&lt;br /&gt;
+出队，如例：q.pop(); 弹出队列的第一个元素，注意，并不会返回被弹出元素的值。&lt;br /&gt;
+访问队首元素，如例：q.front()，即最早被压入队列的元素。&lt;br /&gt;
+访问队尾元素，如例：q.back()，即最后被压入队列的元素。&lt;br /&gt;
+判断队列空，如例：q.empty()，当队列空时，返回true。&lt;br /&gt;
+访问队列中的元素个数，如例：q.size()  &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Fri, 25 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-25:articles/c-stl-stackqueuede-shi-yong-fang-fa.html</guid><category>code</category><category>笔试</category></item></channel></rss>
