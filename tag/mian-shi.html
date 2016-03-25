@@ -77,9 +77,45 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/wang-yi-mian-shi-zong-jie.html">网易面试总结</a></h2>
+                <div class="summary"><p><font color=Green>摘要：今天室友参加了网易的电话面试，觉得里面的题很有意思，总共三道题，我之前只遇到过第二题，第一和第二题还是可以的。</font>  </p>
+<h3>* 数组中有一个元素出现了奇数次，其他元素出现了偶数次，找出这个元素</h3>
+<p>最简单的方法，用异或<code>^</code>，异或数组中所有的数，最后等于的数是出现为奇数的数，复杂度为O(n).  </p>
+<p><font size=4 color=Red>注意：如果要找出数组中两个元素出现了奇数次呢，其他元素出现了偶数次。</font><br />
+把原数组分为两个子数组。在每个子数组中，包含一个只出现一次的数字，而其他数字都出现两次。如果能够这样拆分原数组，按照前面的办法就是分别求出这两个只出现一次的数字了。  </p>
+<p>我们还是从头到尾依次异或数组中的每一个数字，那么最终得到的结果就是两个只出现一次的数字的异或结果。因为其他数字都出现了两次，在异或中全部抵消掉了。由于这两个数字肯定不一样，那么这个异或结果肯定不为0，也就是说在这个结果数字的二进制表示中至少就有一位为1。我们在结果数字中找到第一个为1的位的位置，记为第N位。现在我们以第N位是不是1为标准把原数组中的数字分成两个子数组，第一个子数组中每个数字的第N位都为1，而第二个子数组的每个数字的第N位都为0。  </p>
+<p>现在我们已经把原数组分成了两个子数组，每个子数组都包含一个只出现一次的数字，而其他数字都出现了两次。因此到此为止，所有的问题我们都已经解决。  </p>
+<div class="highlight"><pre><span></span><span class="cm">/*************************************************************************</span>
+<span class="cm">    &gt; File Name: test3.cpp</span>
+<span class="cm">    &gt; Author: zzfan</span>
+<span class="cm">    &gt; Mail: zzfan@mail ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/wang-yi-mian-shi-zong-jie.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/er-cha-shu-de-bian-li-ji-ying-yong.html">二叉树的遍历及应用</a></h2>
                 <div class="summary"><p><font color=Green>摘要：先中后序遍历，深度广度，层次，路径，每层节点数。 </font></p>
-<h3>*</h3>
+<h3>* 二叉树的遍历</h3>
+<p>由于二叉树是一种递归结构，所以我们很容易用递归方式实现其遍历操作。  </p>
+<h4>1. 先序遍历</h4>
+<p>（1）访问根节点；  （2）先序遍历左子树；  （3）先序遍历右子树；  </p>
+<div class="highlight"><pre><span></span>void PreOrder(Bitree T){
+    if(!T) return;
+    else{
+        visite(T-&gt;data);
+        PreOrder(T-&gt;lchild);
+        PreOrder(T-&gt;rchild);
+    }
+}
+</pre></div>
+
+
+<h4>2. 中序遍历</h4>
+<p>（1）先序遍历左子树； （1）访问根节点； （3）先序遍历右子树；  </p>
+<div class="highlight"><pre><span></span> void InOrder(Bitree T){
+     if(!T) return;
+     else ...</pre></div>
                     <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/er-cha-shu-de-bian-li-ji-ying-yong.html">more ...</a>
                 </div>
             </article>
@@ -217,7 +253,7 @@ a = a/b  </li>
 
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
-                    <li class="list-group-item tag-0">
+                    <li class="list-group-item tag-1">
                         <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
                             面试
                         </a>
@@ -233,23 +269,18 @@ a = a/b  </li>
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
-                            数据结构
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
                         <a href="http://blog.zzfanhero.info/tag/markdown.html">
                             markdown
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/papers.html">
-                            papers
+                    <li class="list-group-item tag-2">
+                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
+                            数据结构
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/system.html">
-                            system
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -263,13 +294,23 @@ a = a/b  </li>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
+                        <a href="http://blog.zzfanhero.info/tag/papers.html">
+                            papers
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/life.html">
                             life
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
                         </a>
                     </li>
                 </ul>

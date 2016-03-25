@@ -14,13 +14,13 @@
 
         <meta name="author" content="zzfan" />
         <meta name="keywords" content="数据结构,面试" />
-        <meta name="description" content="摘要：先中后序遍历，深度广度，层次，路径，每层节点数。 *" />
+        <meta name="description" content="摘要：先中后序遍历，深度广度，层次，路径，每层节点数。 * 二叉树的遍历 由于二叉树是一种递归结构，所以我们很容易用递归方式实现其遍历操作。 1. 先序遍历 （1）访问根节点； （2）先序遍历左子树； （3）先序遍历右子树； void PreOrder(Bitree T){ if(!T) return; else{ visite(T-&gt;data); PreOrder(T-&gt;lchild); PreOrder(T-&gt;rchild); } } 2. 中序遍历 （1）先序遍历左子树； （1）访问根节点； （3）先序遍历右子树； void InOrder(Bitree T){ if(!T) return; else ..." />
 
         <meta property="og:site_name" content="赵志凡'Blog" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="二叉树的遍历及应用"/>
         <meta property="og:url" content="http://blog.zzfanhero.info/articles/er-cha-shu-de-bian-li-ji-ying-yong.html"/>
-        <meta property="og:description" content="摘要：先中后序遍历，深度广度，层次，路径，每层节点数。 *"/>
+        <meta property="og:description" content="摘要：先中后序遍历，深度广度，层次，路径，每层节点数。 * 二叉树的遍历 由于二叉树是一种递归结构，所以我们很容易用递归方式实现其遍历操作。 1. 先序遍历 （1）访问根节点； （2）先序遍历左子树； （3）先序遍历右子树； void PreOrder(Bitree T){ if(!T) return; else{ visite(T-&gt;data); PreOrder(T-&gt;lchild); PreOrder(T-&gt;rchild); } } 2. 中序遍历 （1）先序遍历左子树； （1）访问根节点； （3）先序遍历右子树； void InOrder(Bitree T){ if(!T) return; else ..."/>
         <meta property="article:published_time" content="2016-03-24" />
             <meta property="article:section" content="Work" />
             <meta property="article:tag" content="数据结构" />
@@ -112,7 +112,69 @@
 </footer><!-- /.post-info -->                    </div>
                 </div>
                 <p><font color=Green>摘要：先中后序遍历，深度广度，层次，路径，每层节点数。 </font></p>
-<h3>*</h3>
+<h3>* 二叉树的遍历</h3>
+<p>由于二叉树是一种递归结构，所以我们很容易用递归方式实现其遍历操作。  </p>
+<h4>1. 先序遍历</h4>
+<p>（1）访问根节点；  （2）先序遍历左子树；  （3）先序遍历右子树；  </p>
+<div class="highlight"><pre><span></span>void PreOrder(Bitree T){
+    if(!T) return;
+    else{
+        visite(T-&gt;data);
+        PreOrder(T-&gt;lchild);
+        PreOrder(T-&gt;rchild);
+    }
+}
+</pre></div>
+
+
+<h4>2. 中序遍历</h4>
+<p>（1）先序遍历左子树； （1）访问根节点； （3）先序遍历右子树；  </p>
+<div class="highlight"><pre><span></span> void InOrder(Bitree T){
+     if(!T) return;
+     else{
+        InOrder(T-&gt;lchild);
+         visite(T-&gt;data);
+         InOrder(T-&gt;rchild);
+     }
+ }
+</pre></div>
+
+
+<h4>3. 后序遍历</h4>
+<p>（1）先序遍历左子树； （2）先序遍历右子树； （3）访问根节点；  </p>
+<div class="highlight"><pre><span></span>void PostOrder(Bitree T){
+    if(!T) return;
+    else{
+        PostOrder(T-&gt;lchild);
+        PostOrder(T-&gt;rchild);
+        visite(T-&gt;data);
+    }
+}
+</pre></div>
+
+
+<h4>4. 层序遍历二叉树</h4>
+<p>（1）初始化一个空队列；<br />
+（2）非空根指针入队。<br />
+     --队头元素出对，访问之；
+     --若被访节点有左孩子，则左孩子入队；
+     --若被访节点有右孩子，则右孩子入队；</p>
+<div class="highlight"><pre><span></span>void LayerTraversal(Bitree T){
+    InitQueue(Q);
+    if(T) EnQueue(Q, T));
+    while(!QueueEmpty(Q)){
+        DeQueue(Q, p);
+        visite(p-&gt;data);
+        if(p-&gt;lchild) EnQueue(Q, p-&gt;lchild);
+        if(p-&gt;rhicld) EnQueue(Q, p-&gt;rchild);
+    }
+}
+</pre></div>
+
+
+<p><font color=Blue>显然，对二叉树的各种算法中，基本操作是访问节点。不论按哪种次序遍历含有n个节点的二叉树，其时间复杂度均为O(n).</font>  </p>
+<h3>* 其他运算</h3>
+<p><font color=Red>记住：递归是二叉树的固有特性，采用递归的方式来实现二叉树的有很多操作或运算就非常自然而且简单。</font>  </p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -176,7 +238,7 @@
 
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
-                    <li class="list-group-item tag-0">
+                    <li class="list-group-item tag-1">
                         <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
                             面试
                         </a>
@@ -192,23 +254,18 @@
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
-                            数据结构
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
                         <a href="http://blog.zzfanhero.info/tag/markdown.html">
                             markdown
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/papers.html">
-                            papers
+                    <li class="list-group-item tag-2">
+                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
+                            数据结构
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/system.html">
-                            system
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -222,13 +279,23 @@
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
+                        <a href="http://blog.zzfanhero.info/tag/papers.html">
+                            papers
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/life.html">
                             life
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
                         </a>
                     </li>
                 </ul>

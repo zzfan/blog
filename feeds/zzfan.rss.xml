@@ -1,6 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfanhero.info/</link><description></description><atom:link href="http://blog.zzfanhero.info/feeds/zzfan.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 24 Mar 2016 00:00:00 +0800</lastBuildDate><item><title>二叉树的遍历及应用</title><link>http://blog.zzfanhero.info/articles/er-cha-shu-de-bian-li-ji-ying-yong.html</link><description>&lt;p&gt;&lt;font color=Green&gt;摘要：先中后序遍历，深度广度，层次，路径，每层节点数。 &lt;/font&gt;&lt;/p&gt;
-&lt;h3&gt;*&lt;/h3&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 24 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-24:articles/er-cha-shu-de-bian-li-ji-ying-yong.html</guid><category>数据结构</category><category>面试</category></item><item><title>进程的创建和销毁</title><link>http://blog.zzfanhero.info/articles/jin-cheng-de-chuang-jian-he-xiao-hui.html</link><description>&lt;p&gt;&lt;font color=Green&gt;刚在群里面看到有人问到这个问题，觉得自己用Libevent创建线程很熟悉，但是对于进程没有什么概念就总结下。 &lt;/font&gt;&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfanhero.info/</link><description></description><atom:link href="http://blog.zzfanhero.info/feeds/zzfan.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 25 Mar 2016 00:00:00 +0800</lastBuildDate><item><title>网易面试总结</title><link>http://blog.zzfanhero.info/articles/wang-yi-mian-shi-zong-jie.html</link><description>&lt;p&gt;&lt;font color=Green&gt;摘要：今天室友参加了网易的电话面试，觉得里面的题很有意思，总共三道题，我之前只遇到过第二题，第一和第二题还是可以的。&lt;/font&gt;  &lt;/p&gt;
+&lt;h3&gt;* 数组中有一个元素出现了奇数次，其他元素出现了偶数次，找出这个元素&lt;/h3&gt;
+&lt;p&gt;最简单的方法，用异或&lt;code&gt;^&lt;/code&gt;，异或数组中所有的数，最后等于的数是出现为奇数的数，复杂度为O(n).  &lt;/p&gt;
+&lt;p&gt;&lt;font size=4 color=Red&gt;注意：如果要找出数组中两个元素出现了奇数次呢，其他元素出现了偶数次。&lt;/font&gt;&lt;br /&gt;
+把原数组分为两个子数组。在每个子数组中，包含一个只出现一次的数字，而其他数字都出现两次。如果能够这样拆分原数组，按照前面的办法就是分别求出这两个只出现一次的数字了。  &lt;/p&gt;
+&lt;p&gt;我们还是从头到尾依次异或数组中的每一个数字，那么最终得到的结果就是两个只出现一次的数字的异或结果。因为其他数字都出现了两次，在异或中全部抵消掉了。由于这两个数字肯定不一样，那么这个异或结果肯定不为0，也就是说在这个结果数字的二进制表示中至少就有一位为1。我们在结果数字中找到第一个为1的位的位置，记为第N位。现在我们以第N位是不是1为标准把原数组中的数字分成两个子数组，第一个子数组中每个数字的第N位都为1，而第二个子数组的每个数字的第N位都为0。  &lt;/p&gt;
+&lt;p&gt;现在我们已经把原数组分成了两个子数组，每个子数组都包含一个只出现一次的数字，而其他数字都出现了两次。因此到此为止，所有的问题我们都已经解决。  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/*************************************************************************&lt;/span&gt;
+&lt;span class="cm"&gt;    &amp;gt; File Name: test3.cpp&lt;/span&gt;
+&lt;span class="cm"&gt;    &amp;gt; Author: zzfan&lt;/span&gt;
+&lt;span class="cm"&gt;    &amp;gt; Mail: zzfan@mail.ustc.edu.cn &lt;/span&gt;
+&lt;span class="cm"&gt;    &amp;gt; Created Time: Thu 24 Mar 2016 07:23:31 PM PDT&lt;/span&gt;
+&lt;span class="cm"&gt; ************************************************************************/&lt;/span&gt;
+
+&lt;span class="cp"&gt;#include&lt;/span&gt;&lt;span class="cpf"&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+
+&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="k"&gt;namespace&lt;/span&gt; &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="kt"&gt;bool&lt;/span&gt; &lt;span class="nf"&gt;IsBit1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;num&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;unsigned&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;indexBit&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;num&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;num&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;indexBit&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;num&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="kt"&gt;unsigned&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;FindFirstBitIs1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;num&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;indexBit&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="p"&gt;(((&lt;/span&gt;&lt;span class="n"&gt;num&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;indexBit&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;num&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;num&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="o"&gt;++&lt;/span&gt; &lt;span class="n"&gt;indexBit&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;indexBit&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;FindNumsAppearOnce&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[],&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;length&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;num1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;num2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;length&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;resultOR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;length&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+        &lt;span class="n"&gt;resultOR&lt;/span&gt; &lt;span class="o"&gt;^=&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="kt"&gt;unsigned&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;indexOf1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;FindFirstBitIs1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;resultOR&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;num1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;num2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;length&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;IsBit1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;indexOf1&lt;/span&gt;&lt;span class="p"&gt;)){&lt;/span&gt;
+            &lt;span class="n"&gt;num1&lt;/span&gt; &lt;span class="o"&gt;^=&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;num2&lt;/span&gt; &lt;span class="o"&gt;^=&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;n1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;n2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;FindNumsAppearOnce&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;sizeof&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;sizeof&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]),&lt;/span&gt;&lt;span class="n"&gt;n1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;n2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;cout&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;n1&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="sc"&gt;&amp;#39; &amp;#39;&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;n2&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;endl&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Fri, 25 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-25:articles/wang-yi-mian-shi-zong-jie.html</guid><category>面试</category><category>算法</category></item><item><title>二叉树的遍历及应用</title><link>http://blog.zzfanhero.info/articles/er-cha-shu-de-bian-li-ji-ying-yong.html</link><description>&lt;p&gt;&lt;font color=Green&gt;摘要：先中后序遍历，深度广度，层次，路径，每层节点数。 &lt;/font&gt;&lt;/p&gt;
+&lt;h3&gt;* 二叉树的遍历&lt;/h3&gt;
+&lt;p&gt;由于二叉树是一种递归结构，所以我们很容易用递归方式实现其遍历操作。  &lt;/p&gt;
+&lt;h4&gt;1. 先序遍历&lt;/h4&gt;
+&lt;p&gt;（1）访问根节点；  （2）先序遍历左子树；  （3）先序遍历右子树；  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;void PreOrder(Bitree T){
+    if(!T) return;
+    else{
+        visite(T-&amp;gt;data);
+        PreOrder(T-&amp;gt;lchild);
+        PreOrder(T-&amp;gt;rchild);
+    }
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;2. 中序遍历&lt;/h4&gt;
+&lt;p&gt;（1）先序遍历左子树； （1）访问根节点； （3）先序遍历右子树；  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; void InOrder(Bitree T){
+     if(!T) return;
+     else{
+        InOrder(T-&amp;gt;lchild);
+         visite(T-&amp;gt;data);
+         InOrder(T-&amp;gt;rchild);
+     }
+ }
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;3. 后序遍历&lt;/h4&gt;
+&lt;p&gt;（1）先序遍历左子树； （2）先序遍历右子树； （3）访问根节点；  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;void PostOrder(Bitree T){
+    if(!T) return;
+    else{
+        PostOrder(T-&amp;gt;lchild);
+        PostOrder(T-&amp;gt;rchild);
+        visite(T-&amp;gt;data);
+    }
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;4. 层序遍历二叉树&lt;/h4&gt;
+&lt;p&gt;（1）初始化一个空队列；&lt;br /&gt;
+（2）非空根指针入队。&lt;br /&gt;
+     --队头元素出对，访问之；
+     --若被访节点有左孩子，则左孩子入队；
+     --若被访节点有右孩子，则右孩子入队；&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;void LayerTraversal(Bitree T){
+    InitQueue(Q);
+    if(T) EnQueue(Q, T));
+    while(!QueueEmpty(Q)){
+        DeQueue(Q, p);
+        visite(p-&amp;gt;data);
+        if(p-&amp;gt;lchild) EnQueue(Q, p-&amp;gt;lchild);
+        if(p-&amp;gt;rhicld) EnQueue(Q, p-&amp;gt;rchild);
+    }
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;font color=Blue&gt;显然，对二叉树的各种算法中，基本操作是访问节点。不论按哪种次序遍历含有n个节点的二叉树，其时间复杂度均为O(n).&lt;/font&gt;  &lt;/p&gt;
+&lt;h3&gt;* 其他运算&lt;/h3&gt;
+&lt;p&gt;&lt;font color=Red&gt;记住：递归是二叉树的固有特性，采用递归的方式来实现二叉树的有很多操作或运算就非常自然而且简单。&lt;/font&gt;  &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Thu, 24 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-24:articles/er-cha-shu-de-bian-li-ji-ying-yong.html</guid><category>数据结构</category><category>面试</category></item><item><title>进程的创建和销毁</title><link>http://blog.zzfanhero.info/articles/jin-cheng-de-chuang-jian-he-xiao-hui.html</link><description>&lt;p&gt;&lt;font color=Green&gt;刚在群里面看到有人问到这个问题，觉得自己用Libevent创建线程很熟悉，但是对于进程没有什么概念就总结下。 &lt;/font&gt;&lt;/p&gt;
 &lt;h3&gt;* 进程的创建fork()函数&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;sys/types.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 &lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;unistd.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;

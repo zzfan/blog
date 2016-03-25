@@ -79,7 +79,26 @@
             <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/er-cha-shu-de-bian-li-ji-ying-yong.html">二叉树的遍历及应用</a></h2>
                 <div class="summary"><p><font color=Green>摘要：先中后序遍历，深度广度，层次，路径，每层节点数。 </font></p>
-<h3>*</h3>
+<h3>* 二叉树的遍历</h3>
+<p>由于二叉树是一种递归结构，所以我们很容易用递归方式实现其遍历操作。  </p>
+<h4>1. 先序遍历</h4>
+<p>（1）访问根节点；  （2）先序遍历左子树；  （3）先序遍历右子树；  </p>
+<div class="highlight"><pre><span></span>void PreOrder(Bitree T){
+    if(!T) return;
+    else{
+        visite(T-&gt;data);
+        PreOrder(T-&gt;lchild);
+        PreOrder(T-&gt;rchild);
+    }
+}
+</pre></div>
+
+
+<h4>2. 中序遍历</h4>
+<p>（1）先序遍历左子树； （1）访问根节点； （3）先序遍历右子树；  </p>
+<div class="highlight"><pre><span></span> void InOrder(Bitree T){
+     if(!T) return;
+     else ...</pre></div>
                     <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/er-cha-shu-de-bian-li-ji-ying-yong.html">more ...</a>
                 </div>
             </article>
@@ -120,7 +139,7 @@
 
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
-                    <li class="list-group-item tag-0">
+                    <li class="list-group-item tag-1">
                         <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
                             面试
                         </a>
@@ -136,23 +155,18 @@
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
-                            数据结构
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
                         <a href="http://blog.zzfanhero.info/tag/markdown.html">
                             markdown
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/papers.html">
-                            papers
+                    <li class="list-group-item tag-2">
+                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
+                            数据结构
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/system.html">
-                            system
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -166,13 +180,23 @@
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
+                        <a href="http://blog.zzfanhero.info/tag/papers.html">
+                            papers
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/life.html">
                             life
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
                         </a>
                     </li>
                 </ul>

@@ -2,7 +2,7 @@
 <html lang="zh"
 >
 <head>
-    <title>Tools - 赵志凡'Blog</title>
+    <title>算法 - 赵志凡'Blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
 
 
     <meta name="author" content="zzfan" />
-    <meta name="keywords" content="Tools" />
+    <meta name="keywords" content="算法" />
 
     <!-- Open Graph tags -->
         <meta property="og:site_name" content="赵志凡'Blog" />
@@ -56,7 +56,7 @@
                         <li >
                             <a href="http://blog.zzfanhero.info/category/others.html">Others</a>
                         </li>
-                        <li class="active">
+                        <li >
                             <a href="http://blog.zzfanhero.info/category/tools.html">Tools</a>
                         </li>
                         <li >
@@ -77,23 +77,19 @@
         <div class="col-sm-9">
 
             <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/markdownyu-fa-zong-jie.html">Markdown语法总结</a></h2>
-                <div class="summary"><p>完成了github博客的搭建（稍后会介绍如何搭建），先学习一下Markdown。
-Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章。
-(本文档仅在vim插件markdown中使用，其他的平台可能有一些偏差)</p>
-<h4>常用的一些符号</h4>
-<p>在这里我就不详细介绍了，主要是写一些符号以免忘记．　　</p>
-<div class="highlight"><pre><span></span># 标题
-＂&#39;&#39;&#39;&quot; 代码块  
-&quot;*&quot; &quot;+&quot; 符号  
-&quot;*&quot; 加重
-&quot;&lt;code&gt;&quot; 代码  
-&quot;![]()&quot; 添加图片  
-&quot;[]()&quot; 添加链接  
-&quot;|&quot; &quot;|------|&quot; 制表  
-![test](/images/test.png)
-</pre></div>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/markdownyu-fa-zong-jie.html">more ...</a>
+                <h2><a href="http://blog.zzfanhero.info/articles/wang-yi-mian-shi-zong-jie.html">网易面试总结</a></h2>
+                <div class="summary"><p><font color=Green>摘要：今天室友参加了网易的电话面试，觉得里面的题很有意思，总共三道题，我之前只遇到过第二题，第一和第二题还是可以的。</font>  </p>
+<h3>* 数组中有一个元素出现了奇数次，其他元素出现了偶数次，找出这个元素</h3>
+<p>最简单的方法，用异或<code>^</code>，异或数组中所有的数，最后等于的数是出现为奇数的数，复杂度为O(n).  </p>
+<p><font size=4 color=Red>注意：如果要找出数组中两个元素出现了奇数次呢，其他元素出现了偶数次。</font><br />
+把原数组分为两个子数组。在每个子数组中，包含一个只出现一次的数字，而其他数字都出现两次。如果能够这样拆分原数组，按照前面的办法就是分别求出这两个只出现一次的数字了。  </p>
+<p>我们还是从头到尾依次异或数组中的每一个数字，那么最终得到的结果就是两个只出现一次的数字的异或结果。因为其他数字都出现了两次，在异或中全部抵消掉了。由于这两个数字肯定不一样，那么这个异或结果肯定不为0，也就是说在这个结果数字的二进制表示中至少就有一位为1。我们在结果数字中找到第一个为1的位的位置，记为第N位。现在我们以第N位是不是1为标准把原数组中的数字分成两个子数组，第一个子数组中每个数字的第N位都为1，而第二个子数组的每个数字的第N位都为0。  </p>
+<p>现在我们已经把原数组分成了两个子数组，每个子数组都包含一个只出现一次的数字，而其他数字都出现了两次。因此到此为止，所有的问题我们都已经解决。  </p>
+<div class="highlight"><pre><span></span><span class="cm">/*************************************************************************</span>
+<span class="cm">    &gt; File Name: test3.cpp</span>
+<span class="cm">    &gt; Author: zzfan</span>
+<span class="cm">    &gt; Mail: zzfan@mail ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/wang-yi-mian-shi-zong-jie.html">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -198,7 +194,7 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2015 zzfan
+         <div class="col-xs-10">&copy; 2016 zzfan
             &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
