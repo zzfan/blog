@@ -126,7 +126,125 @@
 
 &lt;p&gt;&lt;font color=Blue&gt;显然，对二叉树的各种算法中，基本操作是访问节点。不论按哪种次序遍历含有n个节点的二叉树，其时间复杂度均为O(n).&lt;/font&gt;  &lt;/p&gt;
 &lt;h3&gt;* 其他运算&lt;/h3&gt;
-&lt;p&gt;&lt;font color=Red&gt;记住：递归是二叉树的固有特性，采用递归的方式来实现二叉树的有很多操作或运算就非常自然而且简单。&lt;/font&gt;  &lt;/p&gt;</summary><category term="数据结构"></category><category term="面试"></category></entry><entry><title>进程的创建和销毁</title><link href="http://blog.zzfanhero.info/articles/jin-cheng-de-chuang-jian-he-xiao-hui.html" rel="alternate"></link><updated>2016-03-24T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-03-24:articles/jin-cheng-de-chuang-jian-he-xiao-hui.html</id><summary type="html">&lt;p&gt;&lt;font color=Green&gt;刚在群里面看到有人问到这个问题，觉得自己用Libevent创建线程很熟悉，但是对于进程没有什么概念就总结下。 &lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;&lt;font color=Red&gt;记住：递归是二叉树的固有特性，采用递归的方式来实现二叉树的有很多操作或运算就非常自然而且简单。&lt;/font&gt;  &lt;/p&gt;
+&lt;h4&gt;1. 求二叉树的节点个数&lt;/h4&gt;
+&lt;p&gt;&lt;font color=Blue&gt;其实利用任何一种遍历方式都可以，下面我们先介绍两种方案。&lt;/font&gt;&lt;br /&gt;
+（1）利用二叉树的递归特性。若二叉树为空，则节点数为0；否则&lt;br /&gt;
+　　二叉树节点个数　＝　左子树节点个数　＋　右子树节点个数　＋　１个根节点&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int CountNodes1(Bitree T){
+    if(!T) return 0;
+    else{
+        n1 = CountNodes1(T-&amp;gt;lchild);
+        n2 = CountNodes2(T-&amp;gt;rchild);
+        return(1 + n1 + n2);
+    }
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;（２）利用先序遍历计数  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;void CountNode2(Bitree T){
+    if(!T) return 0;
+    else{
+        n++;
+        CountNodes2(T-&amp;gt;lchild, n);
+        CountNodes2(T-&amp;gt;rchild, n);
+    }
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;2. 输出二叉树每个节点的层次数&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;void Level(Bitree T){
+    if(!T) return;
+    else{
+        lev++;
+        printf(T-&amp;gt;data,lev);
+        Level(T-&amp;gt;lchild, lev);
+        Level(T-&amp;gt;rchild, lev);
+    }
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;3. 求二叉树深度和宽度&lt;/h4&gt;
+&lt;p&gt;（1）二叉树深度&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;int&lt;/span&gt; &lt;span class="nt"&gt;Depth&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;Bitree&lt;/span&gt; &lt;span class="nt"&gt;T&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;return&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;else&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;hl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Depth&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;lchild&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;hr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Depth&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;rchild&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;return&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hl&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;hr&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="n"&gt;hl&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;hr&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;（1）二叉树宽度  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;//求二叉树的宽度  
+int GetWidth(tagBiNode *pRoot)  
+{  
+    if (pRoot == NULL)  
+    {  
+        return 0;  
+    }  
+
+    int nLastLevelWidth = 0;//记录上一层的宽度  
+    int nTempLastLevelWidth = 0;  
+    int nCurLevelWidth = 0;//记录当前层的宽度  
+    int nWidth = 1;//二叉树的宽度  
+    queue&amp;lt;BiNode *&amp;gt; myQueue;  
+    myQueue.push(pRoot);//将根节点入队列  
+    nLastLevelWidth = 1;      
+    tagBiNode *pCur = NULL;  
+
+    while (!myQueue.empty())//队列不空  
+    {  
+        nTempLastLevelWidth = nLastLevelWidth;  
+        while (nTempLastLevelWidth != 0)  
+        {  
+            pCur = myQueue.front();//取出队列头元素  
+            myQueue.pop();//将队列头元素出对  
+
+            if (pCur-&amp;gt;left != NULL)  
+            {  
+                myQueue.push(pCur-&amp;gt;left);  
+            }  
+
+            if (pCur-&amp;gt;right != NULL)  
+            {  
+                myQueue.push(pCur-&amp;gt;right);  
+            }  
+
+            nTempLastLevelWidth--;  
+        }  
+
+        nCurLevelWidth = myQueue.size();  
+        nWidth = nCurLevelWidth &amp;gt; nWidth ? nCurLevelWidth : nWidth;  
+        nLastLevelWidth = nCurLevelWidth;  
+    }  
+
+    return nWidth;  
+}  
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;4. 输出二叉树根节点到所有叶子节点的路径&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;void OutPath(Bitree T, Stack &amp;amp;S){
+    if(T){
+        Push(S,T);
+        if(!T-&amp;gt;lchild &amp;amp;&amp;amp; !T-&amp;gt;rchild){
+            StackTraverse(S);
+        }
+        OutPath(T-&amp;gt;lchild,S);
+        OutPaht(T-&amp;gt;rchild,S);
+        Pop(S,e);
+    }
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;font size=4 color=Red&gt;总结：二叉树的操作大多是递归，层次遍历的用了一个队列，所以说还是比较简单的，求宽度的时候就是层次遍历的一个拓展&lt;/font&gt;  &lt;/p&gt;</summary><category term="数据结构"></category><category term="面试"></category></entry><entry><title>进程的创建和销毁</title><link href="http://blog.zzfanhero.info/articles/jin-cheng-de-chuang-jian-he-xiao-hui.html" rel="alternate"></link><updated>2016-03-24T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-03-24:articles/jin-cheng-de-chuang-jian-he-xiao-hui.html</id><summary type="html">&lt;p&gt;&lt;font color=Green&gt;刚在群里面看到有人问到这个问题，觉得自己用Libevent创建线程很熟悉，但是对于进程没有什么概念就总结下。 &lt;/font&gt;&lt;/p&gt;
 &lt;h3&gt;* 进程的创建fork()函数&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;sys/types.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 &lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;unistd.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;

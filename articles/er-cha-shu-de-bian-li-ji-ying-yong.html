@@ -175,6 +175,124 @@
 <p><font color=Blue>显然，对二叉树的各种算法中，基本操作是访问节点。不论按哪种次序遍历含有n个节点的二叉树，其时间复杂度均为O(n).</font>  </p>
 <h3>* 其他运算</h3>
 <p><font color=Red>记住：递归是二叉树的固有特性，采用递归的方式来实现二叉树的有很多操作或运算就非常自然而且简单。</font>  </p>
+<h4>1. 求二叉树的节点个数</h4>
+<p><font color=Blue>其实利用任何一种遍历方式都可以，下面我们先介绍两种方案。</font><br />
+（1）利用二叉树的递归特性。若二叉树为空，则节点数为0；否则<br />
+　　二叉树节点个数　＝　左子树节点个数　＋　右子树节点个数　＋　１个根节点</p>
+<div class="highlight"><pre><span></span>int CountNodes1(Bitree T){
+    if(!T) return 0;
+    else{
+        n1 = CountNodes1(T-&gt;lchild);
+        n2 = CountNodes2(T-&gt;rchild);
+        return(1 + n1 + n2);
+    }
+}
+</pre></div>
+
+
+<p>（２）利用先序遍历计数  </p>
+<div class="highlight"><pre><span></span>void CountNode2(Bitree T){
+    if(!T) return 0;
+    else{
+        n++;
+        CountNodes2(T-&gt;lchild, n);
+        CountNodes2(T-&gt;rchild, n);
+    }
+}
+</pre></div>
+
+
+<h4>2. 输出二叉树每个节点的层次数</h4>
+<div class="highlight"><pre><span></span>void Level(Bitree T){
+    if(!T) return;
+    else{
+        lev++;
+        printf(T-&gt;data,lev);
+        Level(T-&gt;lchild, lev);
+        Level(T-&gt;rchild, lev);
+    }
+}
+</pre></div>
+
+
+<h4>3. 求二叉树深度和宽度</h4>
+<p>（1）二叉树深度</p>
+<div class="highlight"><pre><span></span><span class="nt">int</span> <span class="nt">Depth</span><span class="o">(</span><span class="nt">Bitree</span> <span class="nt">T</span><span class="o">)</span><span class="p">{</span>
+    <span class="n">if</span> <span class="p">(</span><span class="o">!</span><span class="n">T</span><span class="p">)</span> <span class="n">return</span> <span class="m">0</span><span class="p">;</span>
+    <span class="n">else</span><span class="err">{</span>
+        <span class="n">hl</span> <span class="o">=</span> <span class="n">Depth</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">lchild</span><span class="p">);</span>
+        <span class="n">hr</span> <span class="o">=</span> <span class="n">Depth</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">rchild</span><span class="p">);</span>
+        <span class="n">return</span><span class="p">(</span><span class="n">hl</span><span class="o">&gt;</span><span class="n">hr</span> <span class="o">?</span> <span class="n">hl</span><span class="o">+</span><span class="m">1</span><span class="o">:</span><span class="n">hr</span><span class="o">+</span><span class="m">1</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>（1）二叉树宽度  </p>
+<div class="highlight"><pre><span></span>//求二叉树的宽度  
+int GetWidth(tagBiNode *pRoot)  
+{  
+    if (pRoot == NULL)  
+    {  
+        return 0;  
+    }  
+
+    int nLastLevelWidth = 0;//记录上一层的宽度  
+    int nTempLastLevelWidth = 0;  
+    int nCurLevelWidth = 0;//记录当前层的宽度  
+    int nWidth = 1;//二叉树的宽度  
+    queue&lt;BiNode *&gt; myQueue;  
+    myQueue.push(pRoot);//将根节点入队列  
+    nLastLevelWidth = 1;      
+    tagBiNode *pCur = NULL;  
+
+    while (!myQueue.empty())//队列不空  
+    {  
+        nTempLastLevelWidth = nLastLevelWidth;  
+        while (nTempLastLevelWidth != 0)  
+        {  
+            pCur = myQueue.front();//取出队列头元素  
+            myQueue.pop();//将队列头元素出对  
+
+            if (pCur-&gt;left != NULL)  
+            {  
+                myQueue.push(pCur-&gt;left);  
+            }  
+
+            if (pCur-&gt;right != NULL)  
+            {  
+                myQueue.push(pCur-&gt;right);  
+            }  
+
+            nTempLastLevelWidth--;  
+        }  
+
+        nCurLevelWidth = myQueue.size();  
+        nWidth = nCurLevelWidth &gt; nWidth ? nCurLevelWidth : nWidth;  
+        nLastLevelWidth = nCurLevelWidth;  
+    }  
+
+    return nWidth;  
+}  
+</pre></div>
+
+
+<h4>4. 输出二叉树根节点到所有叶子节点的路径</h4>
+<div class="highlight"><pre><span></span>void OutPath(Bitree T, Stack &amp;S){
+    if(T){
+        Push(S,T);
+        if(!T-&gt;lchild &amp;&amp; !T-&gt;rchild){
+            StackTraverse(S);
+        }
+        OutPath(T-&gt;lchild,S);
+        OutPaht(T-&gt;rchild,S);
+        Pop(S,e);
+    }
+}
+</pre></div>
+
+
+<p><font size=4 color=Red>总结：二叉树的操作大多是递归，层次遍历的用了一个队列，所以说还是比较简单的，求宽度的时候就是层次遍历的一个拓展</font>  </p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -239,6 +357,11 @@
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
+                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
+                            笔试
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
                         <a href="http://blog.zzfanhero.info/tag/code.html">
                             code
                         </a>
@@ -246,11 +369,6 @@
                     <li class="list-group-item tag-1">
                         <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
                             面试
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
-                            笔试
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -264,8 +382,18 @@
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/papers.html">
+                            papers
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/system.html">
                             system
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -279,11 +407,6 @@
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/life.html">
-                            life
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/writing.html">
                             writing
                         </a>
@@ -291,11 +414,6 @@
                     <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/leetcode.html">
                             LeetCode
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/papers.html">
-                            papers
                         </a>
                     </li>
                 </ul>
