@@ -14,13 +14,13 @@
 
         <meta name="author" content="zzfan" />
         <meta name="keywords" content="面试" />
-        <meta name="description" content="摘要：哈夫曼树（Huffman），又称为最有二叉树，在通信/数据压缩/决策和算法设计等方面有着广泛的应用。之前看到一个比较有意思的题目，刚好用到哈夫曼树，觉得哈夫曼算法真的很有用。 * 哈夫曼树 +概念：路径和路径的长度，树的路径长度（树根到每个节点的路径长度之和），节点的权值（除节点数据的元素值之外，在赋予节点的一个有意义的数值），节点的带权路径长度（树根节点到某个节点的路径长度与该节点权值的乘积）。 树的带权路径长度：树中所有叶子节点的带权路径产度之和，通常记作： +哈夫曼树的构造： 关于哈夫曼树的注意点： * 哈夫曼编码 +概念： +编码： +译码：" />
+        <meta name="description" content="摘要：哈夫曼树（Huffman），又称为最有二叉树，在通信/数据压缩/决策和算法设计等方面有着广泛的应用。之前看到一个比较有意思的题目，刚好用到哈夫曼树，觉得哈夫曼算法真的很有用。 * 哈夫曼树 +概念： 路径和路径的长度 树的路径长度（树根到每个节点的路径长度之和）， 节点的权值（除节点数据的元素值之外，在赋予节点的一个有意义的数值）， 节点的带权路径长度（树根节点到某个节点的路径长度与该节点权值的乘积）。 .......... .......... .......... .......... .......... 树的带权路径长度：树中所有叶子节点的带权路径产度之和，通常记作： +哈夫曼树的构造： 关于哈夫曼树的注意点： * 哈夫曼编码 +概念： +编码： +译码：" />
 
         <meta property="og:site_name" content="赵志凡'Blog" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="哈夫曼树和哈夫曼编码"/>
         <meta property="og:url" content="http://blog.zzfanhero.info/articles/ha-fu-man-shu-he-ha-fu-man-bian-ma.html"/>
-        <meta property="og:description" content="摘要：哈夫曼树（Huffman），又称为最有二叉树，在通信/数据压缩/决策和算法设计等方面有着广泛的应用。之前看到一个比较有意思的题目，刚好用到哈夫曼树，觉得哈夫曼算法真的很有用。 * 哈夫曼树 +概念：路径和路径的长度，树的路径长度（树根到每个节点的路径长度之和），节点的权值（除节点数据的元素值之外，在赋予节点的一个有意义的数值），节点的带权路径长度（树根节点到某个节点的路径长度与该节点权值的乘积）。 树的带权路径长度：树中所有叶子节点的带权路径产度之和，通常记作： +哈夫曼树的构造： 关于哈夫曼树的注意点： * 哈夫曼编码 +概念： +编码： +译码："/>
+        <meta property="og:description" content="摘要：哈夫曼树（Huffman），又称为最有二叉树，在通信/数据压缩/决策和算法设计等方面有着广泛的应用。之前看到一个比较有意思的题目，刚好用到哈夫曼树，觉得哈夫曼算法真的很有用。 * 哈夫曼树 +概念： 路径和路径的长度 树的路径长度（树根到每个节点的路径长度之和）， 节点的权值（除节点数据的元素值之外，在赋予节点的一个有意义的数值）， 节点的带权路径长度（树根节点到某个节点的路径长度与该节点权值的乘积）。 .......... .......... .......... .......... .......... 树的带权路径长度：树中所有叶子节点的带权路径产度之和，通常记作： +哈夫曼树的构造： 关于哈夫曼树的注意点： * 哈夫曼编码 +概念： +编码： +译码："/>
         <meta property="article:published_time" content="2016-03-22" />
             <meta property="article:section" content="Work" />
             <meta property="article:tag" content="面试" />
@@ -113,8 +113,18 @@
                 </div>
                 <p><font color=Green>摘要：哈夫曼树（Huffman），又称为最有二叉树，在通信/数据压缩/决策和算法设计等方面有着广泛的应用。之前看到一个比较有意思的题目，刚好用到哈夫曼树，觉得哈夫曼算法真的很有用。 </font></p>
 <h3>* 哈夫曼树</h3>
-<p>+概念：路径和路径的长度，树的路径长度（树根到每个节点的路径长度之和），节点的权值（除节点数据的元素值之外，在赋予节点的一个有意义的数值），节点的带权路径长度（树根节点到某个节点的路径长度与该节点权值的乘积）。<br />
-<font color=OrangeRed>树的带权路径长度：树中所有叶子节点的带权路径产度之和，通常记作：<img alt="wpl" src="/images/huffman/1.png" /></font>  </p>
+<p>+概念：
+路径和路径的长度<br />
+树的路径长度（树根到每个节点的路径长度之和），<br />
+节点的权值（除节点数据的元素值之外，在赋予节点的一个有意义的数值），<br />
+节点的带权路径长度（树根节点到某个节点的路径长度与该节点权值的乘积）。    </p>
+<p>..........
+..........
+..........
+..........
+..........
+<font color=OrangeRed>树的带权路径长度：树中所有叶子节点的带权路径产度之和，通常记作：<br />
+<img alt="wpl" src="/images/huffman/1.png" /></font>  </p>
 <p>+哈夫曼树的构造：<br />
 <img alt="create" src="/images/huffman/2.png" />  </p>
 <p><font color=OrangeRed>关于哈夫曼树的注意点：</font><br />
@@ -205,13 +215,13 @@
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
-                            数据结构
+                        <a href="http://blog.zzfanhero.info/tag/markdown.html">
+                            markdown
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://blog.zzfanhero.info/tag/markdown.html">
-                            markdown
+                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
+                            数据结构
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -220,18 +230,18 @@
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/papers.html">
                             papers
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -245,8 +255,8 @@
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
                         </a>
                     </li>
                 </ul>
