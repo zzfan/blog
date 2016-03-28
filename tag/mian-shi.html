@@ -77,6 +77,24 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/mian-shi-lian-biao-wen-ti-wang-yi-mian-shi-ti-zong-jie.html">面试链表问题(网易面试题总结)</a></h2>
+                <div class="summary"><p><font size=4 color=Green>摘要：(10)链表问题在面试过程中也是很重要的也很基础的一部分，链表本身很灵活，很考查编程工地，所以是很值得考的地方。我将复习过程中觉得比较号的链表问题整理了一下。</font>  </p>
+<h3>* 在O（1）时间删除链表节点</h3>
+<p><em>题目描述</em>: 给定链表的头指针和一个节点指针，在O（1）时间删除该节点。[Google面试题]  </p>
+<p><em>分析</em>: 本题与《编程之美》上的[从无头单链表中删除节点]类似。主要思想都是[狸猫换太子]，即用下一个节点数据覆盖要删除的节点，然后删除下一个节点。但是如果节点是尾节点时，该方法就行不通了。  </p>
+<p>代码如下：  </p>
+<div class="highlight"><pre><span></span>//O（1）时间删除链表节点，从屋头单链表中删除节点  
+void deleteRandomNode(Node *cur)
+{
+    assert(cur != NULL);
+    assert(cur-&gt;next != NULL); //不能是尾节点
+    Node* pNext = cur-&gt;next;
+    cur- ...</pre></div>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/mian-shi-lian-biao-wen-ti-wang-yi-mian-shi-ti-zong-jie.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/32wei-he-64wei-xia-nei-zhi-lei-xing-de-zi-jie-shu.html">32位和64位下内置类型的字节数</a></h2>
                 <div class="summary"><p><font size=4 color=Green>摘要：感觉很熟悉，但是有时候有点不确定，还是记一下吧，免得以后测试起来麻烦。</font>  </p>
 <h3>* 具体如下</h3>
@@ -260,30 +278,16 @@ a = a/b  </li>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/er-cha-shu-sou-suo-shu-he-dui.html">二叉树搜索树和堆</a></h2>
-                <div class="summary"><p><font size=4 color=Green>摘要：面试的时候以及笔试的时候都有很多关于树的问题，这篇文章把树的基本知识总结下。</font></p>
-<h3>* 二叉搜索树</h3>
-<p>二叉查找树（BinarySearch Tree，也叫二叉搜索树，或称二叉排序树Binary Sort Tree）或者是一棵空树，或者是具有下列性质的二叉树：  </p>
-<p>（1）、若它的左子树不为空，则左子树上所有结点的值均小于它的根结点的值；  </p>
-<p>（2）、若它的右子树不为空，则右子树上所有结点的值均大于它的根结点的值；  </p>
-<p>（3）、它的左、右子树也分别为二叉查找树。  </p>
-<p><font color=Red size=4>分析：除非小心行事，否则一颗n个元素的二叉查找树的高度可能位n。查找/插入/删除操作都是O（h），二叉查找树的平均高度位O（logn)。</font>  </p>
-<h3>* 堆</h3>
-<h4>+ 定义</h4>
-<p>二叉堆是完全二叉树或者是近似完全二叉树。  </p>
-<p>二叉堆满足二个特性：  </p>
-<p>1．父结点的键值总是大于或等于（小于或等于）任何一个子节点的键值。  </p>
-<p>2．每个结点的左子树和右子树都是一个二叉堆（都是最大堆或最小堆）。  </p>
-<p>当父结点的键值总是大于或等于任何一个子节点的键值时为最大堆。当父结点的键值总是小于或等于任何一个子节点的键值时为最小堆。下图展示一个最小堆：<br />
-<img alt="heap1" src="/images/heap/1.gif" />  </p>
-<h4>+ 堆的存储</h4>
-<p>一般都用数组来表示堆，i结点的父结点下标就为(i – 1 ...</p>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/er-cha-shu-sou-suo-shu-he-dui.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
+        <ul class="pagination">
+                <li class="prev disabled"><a href="#">&laquo;</a></li>
+                    <li class="active"><a
+                            href="http://blog.zzfanhero.info/tag/mian-shi.html">1</a></li>
+                    <li class=""><a
+                            href="http://blog.zzfanhero.info/tag/mian-shi2.html">2</a></li>
+                <li class="next"><a
+                        href="http://blog.zzfanhero.info/tag/mian-shi2.html">&raquo;</a></li>
+        </ul>
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
@@ -313,11 +317,6 @@ a = a/b  </li>
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
-                            面试
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
                         <a href="http://blog.zzfanhero.info/tag/code.html">
                             code
                         </a>
@@ -325,6 +324,11 @@ a = a/b  </li>
                     <li class="list-group-item tag-1">
                         <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
                             笔试
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
+                            面试
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -338,8 +342,8 @@ a = a/b  </li>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/papers.html">
-                            papers
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -348,18 +352,8 @@ a = a/b  </li>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/life.html">
-                            life
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
+                        <a href="http://blog.zzfanhero.info/tag/papers.html">
+                            papers
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -368,8 +362,18 @@ a = a/b  </li>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/blog.html">
                             blog
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
                         </a>
                     </li>
                 </ul>

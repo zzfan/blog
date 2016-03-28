@@ -1,5 +1,273 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>赵志凡'Blog</title><link href="http://blog.zzfanhero.info/" rel="alternate"></link><link href="http://blog.zzfanhero.info/feeds/work.atom.xml" rel="self"></link><id>http://blog.zzfanhero.info/</id><updated>2016-03-26T00:00:00+08:00</updated><entry><title>32位和64位下内置类型的字节数</title><link href="http://blog.zzfanhero.info/articles/32wei-he-64wei-xia-nei-zhi-lei-xing-de-zi-jie-shu.html" rel="alternate"></link><updated>2016-03-26T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-03-26:articles/32wei-he-64wei-xia-nei-zhi-lei-xing-de-zi-jie-shu.html</id><summary type="html">&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：感觉很熟悉，但是有时候有点不确定，还是记一下吧，免得以后测试起来麻烦。&lt;/font&gt;  &lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>赵志凡'Blog</title><link href="http://blog.zzfanhero.info/" rel="alternate"></link><link href="http://blog.zzfanhero.info/feeds/work.atom.xml" rel="self"></link><id>http://blog.zzfanhero.info/</id><updated>2016-03-28T00:00:00+08:00</updated><entry><title>面试链表问题(网易面试题总结)</title><link href="http://blog.zzfanhero.info/articles/mian-shi-lian-biao-wen-ti-wang-yi-mian-shi-ti-zong-jie.html" rel="alternate"></link><updated>2016-03-28T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-03-28:articles/mian-shi-lian-biao-wen-ti-wang-yi-mian-shi-ti-zong-jie.html</id><summary type="html">&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：(10)链表问题在面试过程中也是很重要的也很基础的一部分，链表本身很灵活，很考查编程工地，所以是很值得考的地方。我将复习过程中觉得比较号的链表问题整理了一下。&lt;/font&gt;  &lt;/p&gt;
+&lt;h3&gt;* 在O（1）时间删除链表节点&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;题目描述&lt;/em&gt;: 给定链表的头指针和一个节点指针，在O（1）时间删除该节点。[Google面试题]  &lt;/p&gt;
+&lt;p&gt;&lt;em&gt;分析&lt;/em&gt;: 本题与《编程之美》上的[从无头单链表中删除节点]类似。主要思想都是[狸猫换太子]，即用下一个节点数据覆盖要删除的节点，然后删除下一个节点。但是如果节点是尾节点时，该方法就行不通了。  &lt;/p&gt;
+&lt;p&gt;代码如下：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;//O（1）时间删除链表节点，从屋头单链表中删除节点  
+void deleteRandomNode(Node *cur)
+{
+    assert(cur != NULL);
+    assert(cur-&amp;gt;next != NULL); //不能是尾节点
+    Node* pNext = cur-&amp;gt;next;
+    cur-&amp;gt;data = pNext-&amp;gt;dat;
+    cur-&amp;gt;next = pNext-&amp;gt;next;
+    delete pNext;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;* 单链表的转置&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;题目描述&lt;/em&gt;: 输入一个单项链表，输出逆序反转后的链表  &lt;/p&gt;
+&lt;p&gt;&lt;em&gt;分析&lt;/em&gt;: 链表的转置事宜改革很常见的问题，费递归算法很简单，用三个临时指针pre/head/next在链表上循环一边即可。递归算法也是比较简单的，但是如果思路不清晰估计一时半会也写不出来把。  &lt;/p&gt;
+&lt;p&gt;线面是玄幻版本和递归版本的链表转置代码：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;//单链表的转置，循环方法  
+Node* reverseByLoop(Node *head)
+{
+    if(head == NULL || head-&amp;gt;next == NULL){
+        return head;
+    }
+
+    Node *pre = NULL;
+    Node *next = NULL;
+    while(head){
+        next = head-&amp;gt;next;
+        head-&amp;gt;next = pre;
+        pre = head;
+        head = next;
+    }
+    return pre;
+}
+
+//递归版本的单链表转置  
+Node* reverseByRecursion(Node *head)
+{
+    //主要的思想就是从后面翻转
+    if(head == NULL || head-&amp;gt;next == NULL){
+        return head;
+    }
+
+    Node *newHead = reverseByRecursion(head-&amp;gt;next);
+
+    head-&amp;gt;next-&amp;gt;next = head;
+    head-&amp;gt;next = NULL;
+
+    return newHead;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;* 求链表倒数第K个节点&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;题目描述&lt;/em&gt;: 输入一个单向链表，输出该链表中倒数第K个节点，链表的倒数第0个节点为链表的尾指针。  &lt;/p&gt;
+&lt;p&gt;&lt;em&gt;分析&lt;/em&gt;: 设置两个指针p1/p2，首先p1和p2都指向head，然后p2向前走k步，这样p1和p2之间就间隔k个节点，然后p1和p2同时向前移动，直到p2走到链表末尾。  &lt;/p&gt;
+&lt;p&gt;代码如下：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Node* theKthNode(Node *head, int k)
+{
+    if (k &amp;lt; 0) return NULL; //异常判断
+
+    Node *slow,*fast;
+    slow = fast = head;
+    for(int i = k; i&amp;gt;0 &amp;amp;&amp;amp; fast!=NULL; i--){
+        fast = fast-&amp;gt;next;
+    }
+
+    if(i &amp;gt; 0) return NULL; //k大于链表长度
+    while(fast != NULL)
+    {
+        slow = slow-&amp;gt;next;
+        fast = fast-&amp;gt;next;
+    }
+
+    return slow;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;*求链表中间节点&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;题目描述&lt;/em&gt;: 求链表的中间节点，如果链表的长度位偶数，返回中间两个节点任意一个，若为奇数，则返回中间节点。  &lt;/p&gt;
+&lt;p&gt;&lt;em&gt;分析&lt;/em&gt;: 此题的解决思路和第3题「求链表的倒数第 k 个节点」很相似。可以先求链表的长度，然后计算出中间节点所在链表顺序的位置。但是如果要求只能扫描一遍链表，如何解决呢？最高效的解法和第3题一样，通过两个指针来完成。用两个指针从链表头节点开始，一个指针每次向后移动两步，一个每次移动一步，直到快指针移到到尾节点，那么慢指针即是所求。   &lt;/p&gt;
+&lt;p&gt;代码如下：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Node* theMiddleNode(Node *head)
+{
+    if(head == NULL){
+        return NULL;
+    }
+    Node *slow,*fast;
+    slow = fast = head;
+    //如果要求链表长度位偶数的情况下，返回中间两个节点的第一个，可以用下面的循环条件  
+    //while(fast &amp;amp;&amp;amp; fast-&amp;gt;next != NULL &amp;amp;&amp;amp; fast-&amp;gt;next-&amp;gt;next != NULL)
+    while(fast != NULL &amp;amp;&amp;amp; fast-&amp;gt;next != NULL){
+        fast = fast-&amp;gt;next-&amp;gt;next;
+        slow = slow-&amp;gt;next;
+    }
+    return slow;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;* 判断单链表是否存在环&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;题目描述&lt;/em&gt;: 输入一个单项链表，判断链表是否有环。  &lt;/p&gt;
+&lt;p&gt;&lt;em&gt;分析&lt;/em&gt;: 通过两个指针 ，分别从链表的头节点出发，一个每次向后移动一步，另一个移动两步，两个指针移动速度不一样，如果存在环，那么两个指针一定会在环里相遇。  &lt;/p&gt;
+&lt;p&gt;代码如下：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;//判断链表是否有环  
+bool hasCircle(Node *head, Node *&amp;amp;circleNode)
+{
+    Node *slow, *fast;
+    slow = fast = head;
+    while(fast != NULL &amp;amp;&amp;amp; fast-&amp;gt;next != NULL)
+    {
+        fast = fast-&amp;gt;next-&amp;gt;next;
+        slow = slow-&amp;gt;next;
+        if(fast == slow)
+        {
+            circleNode = fast;
+            return ture;
+        }
+    }
+
+    return false;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;* 找到环的入口点&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;题目描述&lt;/em&gt;: 输入一个单项链表，判断表是否有环。如果存在环，如何找到环的入口点？  &lt;/p&gt;
+&lt;p&gt;&lt;em&gt;分析&lt;/em&gt;: 由上题可知，按照 p2 每次两步，p1 每次一步的方式走，发现 p2 和 p1 重合，确定了单向链表有环路了。接下来，让p2回到链表的头部，重新走，每次步长不是走2了，而是走1，那么当 p1 和 p2 再次相遇的时候，就是环路的入口了。  &lt;/p&gt;
+&lt;p&gt;&lt;em&gt;为什么？&lt;/em&gt;：假定起点到环入口点的距离为 a，p1 和 p2 的相交点M与环入口点的距离为b，环路的周长为L，当 p1 和 p2 第一次相遇的时候，假定 p1 走了 n 步。那么有：  &lt;/p&gt;
+&lt;p&gt;p1走的路径： &lt;code&gt;a+b ＝ n&lt;/code&gt;；&lt;br /&gt;
+p2走的路径： &lt;code&gt;a+b+k&lt;em&gt;L = 2&lt;/em&gt;n&lt;/code&gt;； p2 比 p1 多走了k圈环路，总路程是p1的2倍  &lt;/p&gt;
+&lt;p&gt;根据上述公式可以得到 &lt;code&gt;k*L=a+b=n&lt;/code&gt;显然，如果从相遇点M开始，p1 再走 n 步的话，还可以再回到相遇点，同时p2从头开始走的话，经过n步，也会达到相遇点M。  &lt;/p&gt;
+&lt;p&gt;显然在这个步骤当中 p1 和 p2 只有前 a 步走的路径不同，所以当 p1 和 p2 再次重合的时候，必然是在链表的环路入口点上。 &lt;/p&gt;
+&lt;p&gt;代码如下：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;//找环的入口点  
+Node* findLoopPort(Node *head)
+{
+    if(head == NULL || head-&amp;gt;next == NULL){
+        return NULL;
+    }
+
+    Node *slow, *fast;
+    slow = fast = head;
+
+    while(fast != NULL &amp;amp;&amp;amp; fast-&amp;gt;next != NULL){
+        fast = fast-&amp;gt;next-&amp;gt;next;
+        slow = slow-&amp;gt;next;
+        if(fast == slow){
+            break;
+        }
+    }
+
+    if(fast != slow) return NULL; //没有环
+
+    fast = head;
+    while(fast != slow){
+        fast = fast-&amp;gt;next;
+        slow = slow-&amp;gt;next;
+    }
+
+    return fast;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;* 判断两个链表是否相交&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;题目描述&lt;/em&gt;: 给出两个单向链表的头指针（如下如所示），&lt;br /&gt;
+&lt;img alt="images1" src="/images/list/1.jpg" /&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;em&gt;解题思路&lt;/em&gt;:&lt;br /&gt;
+1. 直接循环判断第一个链表的每个节点是否在第二个链表中。但，这种方法的时间复杂度为O(Length(h1) * Length(h2))。显然，我们得找到一种更为有效的方法，至少不能是O（N^2）的复杂度。  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;针对第一个链表直接构造hash表，然后查询hash表，判断第二个链表的每个节点是否在hash表出现，如果所有的第二个链表的节点都能在hash表中找到，即说明第二个链表与第一个链表有相同的节点。时间复杂度为为线性：O(Length(h1) + Length(h2))，同时为了存储第一个链表的所有节点，空间复杂度为O(Length(h1))。是否还有更好的方法呢，既能够以线性时间复杂度解决问题，又能减少存储空间？  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;转换为环的问题。把第二个链表接在第一个链表后面，如果得到的链表有环，则说明两个链表相交。如何判断有环的问题上面已经讨论过了，但这里有更简单的方法。因为如果有环，则第二个链表的表头一定也在环上，即第二个链表会构成一个循环链表，我们只需要遍历第二个链表，看是否会回到起始点就可以判断出来。这个方法的时间复杂度是线性的，空间是常熟。  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;进一步考虑“如果两个没有环的链表相交于某一节点，那么在这个节点之后的所有节点都是两个链表共有的”这个特点，我们可以知道，如果它们相交，则最后一个节点一定是共有的。而我们很容易能得到链表的最后一个节点，所以这成了我们简化解法的一个主要突破口。那么，我们只要判断两个链表的尾指针是否相等。相等，则链表相交；否则，链表不相交。&lt;br /&gt;
+所以，先遍历第一个链表，记住最后一个节点。然后遍历第二个链表，到最后一个节点时和第一个链表的最后一个节点做比较，如果相同，则相交，否则，不相交。这样我们就得到了一个时间复杂度，它为O((Length(h1) + Length(h2))，而且只用了一个额外的指针来存储最后一个节点。这个方法时间复杂度为线性O(N)，空间复杂度为O(1)，显然比解法三更胜一筹。  &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;解法四的代码如下：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;//判断两个链表是否相交
+bool isIntersect(Node *h1,Node *h2)
+{
+    if(h1 == NULL || h2 == NULL) return false;    //异常判断
+    while(h1-&amp;gt;next != NULL)
+    {
+        h1 = h1-&amp;gt;next;
+    }
+
+    while(h2-&amp;gt;next != NULL)
+    {
+        h2 = h2-&amp;gt;next;
+    }
+
+    if(h1 == h2) return true;        //尾节点是否相同
+    else return false;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;* 扩展：链表有环，如何判断相交&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;题目描述&lt;/em&gt;: 上面的问题都是针对链表无环的，那么如果现在，链表是有环的呢？上的方法还同样有效吗？  &lt;/p&gt;
+&lt;p&gt;&lt;em&gt;分析&lt;/em&gt;: 如果有环且两个链表相交，则两个链表都有共同一个环，即环上任意一个节点都存在于两个链表上。因此，就可以判断链表上两指针相遇的那个节点，在不在另一条链表上。  &lt;/p&gt;
+&lt;p&gt;代码如下：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;//判断两个带环链表是否相交  
+bool isIntersectWithLoop(Node *h1,Node *h2)
+{
+    Node *circleNode1,*circleNode2;
+    if(!hasCircle(h1,circleNode1))    //判断链表带不带环，并保存环内节点
+        return false;                //不带环，异常退出
+    if(!hasCircle(h2,circleNode2))
+        return false;
+
+    Node *temp = circleNode2-&amp;gt;next;
+    while(temp != circleNode2)
+    {
+        if(temp == circleNode1)
+            return true;
+        temp = temp-&amp;gt;next;
+    }
+    return false;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;* 扩展：连链表相交的第一个公共节点&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;题目描述&lt;/em&gt;: 如果两个五环单链表相交，怎么求出他们相交的第一个节点呢？  &lt;/p&gt;
+&lt;p&gt;&lt;em&gt;分析&lt;/em&gt;: 采用对齐的思想。计算两个链表的长度 L1 , L2，分别用两个指针 p1 , p2 指向两个链表的头，然后将较长链表的 p1（假设为 p1）向后移动&lt;code&gt;L2 - L1&lt;/code&gt;个节点，然后再同时向后移动p1 , p2，直到 &lt;code&gt;p1 = p2&lt;/code&gt;。相遇的点就是相交的第一个节点。  &lt;/p&gt;
+&lt;p&gt;代码如下：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;//求两链表相交的第一个公共点
+Node* findFirstInterNode(Node *l1, Node *l2)
+{
+    int len1 = listlength(l1);
+    int len2 = listlength(l2);
+    //两链表对齐
+    if(len1 &amp;gt; len2){
+        for(int i = 0; i&amp;lt;len1-len2; i++){
+            l1 = l1-&amp;gt;next;
+        }
+    }
+    else{
+        for (int i = 0; i&amp;lt;len2-len1; i++){
+            l2 = l2-&amp;gt;next;
+        }
+    }
+
+    while(l1 != NULL){
+        if(l1 == l2){
+            return l1;
+        }
+        l1 = l1-&amp;gt;next;
+        l2 = l2-&amp;gt;next;
+    }
+
+    return NULL;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;font size=4 color=OrangeRed&gt;总结：可以发现，在链表的问题中，通过两个指针来提高效率是很值得考虑的一个解决方案，所以一定要记住这种结题思路。记住集中典型的链表问题解决方案，很多类似的题目都可以转换到熟悉的问题再结局。&lt;/font&gt;  &lt;/p&gt;</summary><category term="面试"></category><category term="笔试"></category></entry><entry><title>32位和64位下内置类型的字节数</title><link href="http://blog.zzfanhero.info/articles/32wei-he-64wei-xia-nei-zhi-lei-xing-de-zi-jie-shu.html" rel="alternate"></link><updated>2016-03-26T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-03-26:articles/32wei-he-64wei-xia-nei-zhi-lei-xing-de-zi-jie-shu.html</id><summary type="html">&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：感觉很熟悉，但是有时候有点不确定，还是记一下吧，免得以后测试起来麻烦。&lt;/font&gt;  &lt;/p&gt;
 &lt;h3&gt;* 具体如下&lt;/h3&gt;
 &lt;h4&gt;+ 32位机器下&lt;/h4&gt;
 &lt;p&gt;char: 1&lt;br /&gt;
