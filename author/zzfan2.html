@@ -61,9 +61,6 @@
                         <li >
                             <a href="http://blog.zzfanhero.info/category/work.html">Work</a>
                         </li>
-                        <li >
-                            <a href="http://blog.zzfanhero.info/category/workcoding.html">Work,coding</a>
-                        </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="http://blog.zzfanhero.info/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
@@ -79,6 +76,58 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/shu-zu-de-fan-zhuan-he-dan-lian-biao-de-fan-zhuan.html">数组的翻转和单链表的翻转</a></h2>
+                <div class="summary"><p>摘要：从最简单的开始，刚被网易的笔试给虐了</p>
+<h3>* 数组的翻转</h3>
+<p><i class="icon-file"></i>这里用string的翻转为例：</p>
+<div class="highlight"><pre><span></span><span class="cm">/*************************************************************************</span>
+<span class="cm">    &gt; File Name: test.cpp</span>
+<span class="cm">    &gt; Author: zzfan</span>
+<span class="cm">    &gt; Mail: zzfan@mail.ustc.edu.cn </span>
+<span class="cm">    &gt; Created Time: 2016年03月19日 星期六 20时20分04秒</span>
+<span class="cm"> ************************************************************************/</span>
+
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stack&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="c1">//c style</span>
+<span class="kt">void</span> <span class="nf">c_rever</span><span class="p">(</span><span class="kt">string</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">temp</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">j</span><span class="p">,</span><span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+    <span class="k">for ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/shu-zu-de-fan-zhuan-he-dan-lian-biao-de-fan-zhuan.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/wu-tempde-swapyi-ji-wei-yun-suan-jia-jian-fa.html">无temp的Swap以及位运算加减法</a></h2>
+                <div class="summary"><p><font color=Green>摘要：以前听别人提起过，面试连这样的题都有，也就花几分钟整理整理 </font></p>
+<h3>* 不用中间变量的Swap</h3>
+<ol>
+<li>加减法<br />
+//该方法可以狡猾整形和浮点型数值的变量，但是再处理浮点型的时候可能出现精度受损<br />
+a = a + b;<br />
+b = a - b;<br />
+a = a - b;  </li>
+<li>已获法：对浮点型无法交换<br />
+a = a^b;<br />
+b = a^b;<br />
+a = a^b;  </li>
+<li>乘除法<br />
+a = a*b<br />
+b = a/b<br />
+a = a/b  </li>
+</ol>
+<h3>* 位运算实现加减乘除</h3>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/wu-tempde-swapyi-ji-wei-yun-suan-jia-jian-fa.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/xian-cheng-chi.html">线程池</a></h2>
                 <div class="summary">
                     <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/xian-cheng-chi.html">more ...</a>
@@ -86,9 +135,25 @@
             </article>
             <hr/>
             <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/shu-bb-bb.html">树（B,B-,B+,B\*）</a></h2>
-                <div class="summary">
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/shu-bb-bb.html">more ...</a>
+                <h2><a href="http://blog.zzfanhero.info/articles/er-cha-shu-sou-suo-shu-he-dui.html">二叉树搜索树和堆</a></h2>
+                <div class="summary"><p><font size=4 color=Green>摘要：面试的时候以及笔试的时候都有很多关于树的问题，这篇文章把树的基本知识总结下。</font></p>
+<h3>* 二叉搜索树</h3>
+<p>二叉查找树（BinarySearch Tree，也叫二叉搜索树，或称二叉排序树Binary Sort Tree）或者是一棵空树，或者是具有下列性质的二叉树：  </p>
+<p>（1）、若它的左子树不为空，则左子树上所有结点的值均小于它的根结点的值；  </p>
+<p>（2）、若它的右子树不为空，则右子树上所有结点的值均大于它的根结点的值；  </p>
+<p>（3）、它的左、右子树也分别为二叉查找树。  </p>
+<p><font color=Red size=4>分析：除非小心行事，否则一颗n个元素的二叉查找树的高度可能位n。查找/插入/删除操作都是O（h），二叉查找树的平均高度位O（logn)。</font>  </p>
+<h3>* 堆</h3>
+<h4>+ 定义</h4>
+<p>二叉堆是完全二叉树或者是近似完全二叉树。  </p>
+<p>二叉堆满足二个特性：  </p>
+<p>1．父结点的键值总是大于或等于（小于或等于）任何一个子节点的键值。  </p>
+<p>2．每个结点的左子树和右子树都是一个二叉堆（都是最大堆或最小堆）。  </p>
+<p>当父结点的键值总是大于或等于任何一个子节点的键值时为最大堆。当父结点的键值总是小于或等于任何一个子节点的键值时为最小堆。下图展示一个最小堆：<br />
+<img alt="heap1" src="/images/heap/1.gif" />  </p>
+<h4>+ 堆的存储</h4>
+<p>一般都用数组来表示堆，i结点的父结点下标就为(i – 1 ...</p>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/er-cha-shu-sou-suo-shu-he-dui.html">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -186,47 +251,6 @@
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/markdownyu-fa-zong-jie.html">Markdown语法总结</a></h2>
-                <div class="summary"><p>完成了github博客的搭建（稍后会介绍如何搭建），先学习一下Markdown。
-Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章。
-(本文档仅在vim插件markdown中使用，其他的平台可能有一些偏差)</p>
-<h4>常用的一些符号</h4>
-<p>在这里我就不详细介绍了，主要是写一些符号以免忘记．　　</p>
-<div class="highlight"><pre><span></span># 标题
-＂&#39;&#39;&#39;&quot; 代码块  
-&quot;*&quot; &quot;+&quot; 符号  
-&quot;*&quot; 加重
-&quot;&lt;code&gt;&quot; 代码  
-&quot;![]()&quot; 添加图片  
-&quot;[]()&quot; 添加链接  
-&quot;|&quot; &quot;|------|&quot; 制表  
-![test](/images/test.png)
-</pre></div>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/markdownyu-fa-zong-jie.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/my-super-begining.html">My Super Begining</a></h2>
-                <div class="summary"><p>从现在开始记录自己追求梦想的脚步，其实也是为了能够使自己的每一步都能够走的扎实。</p>
-<p>总是在想自己到底能够得到怎样的结果，老是在调整自己的步伐，忘记了自己最初的梦想。</p>
-<p>不要担心梦想能否实现，我要做的就是，从现在开始真正的坚持下去。</p>
-<p>试过一些方式摸索自己的Blog、主页，其中很长一段时间跟着璧哥学了很多东西，最终选择github
-是因为熟悉了吧，或者说是因为github是免费的~~</p>
-<p>也许是两年吧，接触了很多的东西。从开始只会C语言到经过C++的洗礼，然后摸索Linux、github、
-Python、Javascript、html，接着又看了一些开源代码写了一些应用，迷上了github上各种神奇的
-代码。感觉自己会很多，但是突然发现自己不知道干什么了，然后就慢慢的失去了方向。新东西太
-多了，当我熟悉完一样东西之后又有无数个其他的新东西觉得很神奇，想一步一步的去探索，就这
-样感觉自己实在浪费时间。从今天开始才下定决心的吧，我得自己创造出一些新东西，一直用别人
-做好的东西感觉很不自在。也许要走很长的路，但是我已经走出了第一步，专心一点，找准一个方
-向。</p>
-<p>在读研的我，首先面对的是好好读书培养出更成熟的想法，有更成熟的Design，其实research是一
-种很好的锻炼。也许以后对公司的选择会有不同的想法吧 ...</p>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/my-super-begining.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.zzfanhero.info/author/zzfan.html">&laquo;</a>
@@ -235,7 +259,10 @@ Python、Javascript、html，接着又看了一些开源代码写了一些应用
                             href="http://blog.zzfanhero.info/author/zzfan.html">1</a></li>
                     <li class="active"><a
                             href="http://blog.zzfanhero.info/author/zzfan2.html">2</a></li>
-                <li class="next disabled"><a href="#">&raquo;</a></li>
+                    <li class=""><a
+                            href="http://blog.zzfanhero.info/author/zzfan3.html">3</a></li>
+                <li class="next"><a
+                        href="http://blog.zzfanhero.info/author/zzfan3.html">&raquo;</a></li>
         </ul>
         </div>
         <div class="col-sm-3" id="sidebar">
@@ -266,13 +293,13 @@ Python、Javascript、html，接着又看了一些开源代码写了一些应用
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/code.html">
-                            code
+                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
+                            面试
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
-                            面试
+                        <a href="http://blog.zzfanhero.info/tag/code.html">
+                            code
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
@@ -285,7 +312,7 @@ Python、Javascript、html，接着又看了一些开源代码写了一些应用
                             数据结构
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
+                    <li class="list-group-item tag-3">
                         <a href="http://blog.zzfanhero.info/tag/markdown.html">
                             markdown
                         </a>
@@ -296,13 +323,8 @@ Python、Javascript、html，接着又看了一些开源代码写了一些应用
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/system.html">
-                            system
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -311,13 +333,18 @@ Python、Javascript、html，接着又看了一些开源代码写了一些应用
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
                         </a>
                     </li>
                     <li class="list-group-item tag-4">

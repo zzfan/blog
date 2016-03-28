@@ -5,30 +5,44 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://blog.zzfanhero.info/</loc>
-<lastmod>2016-03-26T12:50:31-00:00</lastmod>
+<lastmod>2016-03-28T09:21:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://blog.zzfanhero.info/archives.html</loc>
-<lastmod>2016-03-26T12:50:31-00:00</lastmod>
+<lastmod>2016-03-28T09:21:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://blog.zzfanhero.info/tags.html</loc>
-<lastmod>2016-03-26T12:50:31-00:00</lastmod>
+<lastmod>2016-03-28T09:21:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://blog.zzfanhero.info/categories.html</loc>
-<lastmod>2016-03-26T12:50:31-00:00</lastmod>
+<lastmod>2016-03-28T09:21:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://blog.zzfanhero.info/articles/32wei-he-64wei-xia-nei-zhi-lei-xing-de-zi-jie-shu.html</loc>
+<lastmod>2016-03-26T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+
+<url>
+<loc>http://blog.zzfanhero.info/articles/avlhe-hong-hei-shu.html</loc>
+<lastmod>2016-03-26T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
 </url>
 
 <url>
@@ -109,7 +123,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://blog.zzfanhero.info/articles/shu-bb-bb.html</loc>
+<loc>http://blog.zzfanhero.info/articles/er-cha-shu-sou-suo-shu-he-dui.html</loc>
 <lastmod>2016-03-17T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
@@ -173,7 +187,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://blog.zzfanhero.info/category/coding.html</loc>
-<lastmod>2016-03-19T00:00:00+08:06</lastmod>
+<lastmod>2016-03-26T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -194,14 +208,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://blog.zzfanhero.info/category/work.html</loc>
-<lastmod>2016-03-25T00:00:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://blog.zzfanhero.info/category/workcoding.html</loc>
-<lastmod>2016-03-25T00:00:00+08:06</lastmod>
+<lastmod>2016-03-26T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -222,7 +229,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html</loc>
-<lastmod>2016-03-24T00:00:00+08:06</lastmod>
+<lastmod>2016-03-26T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -257,7 +264,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://blog.zzfanhero.info/tag/mian-shi.html</loc>
-<lastmod>2016-03-25T00:00:00+08:06</lastmod>
+<lastmod>2016-03-26T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -278,7 +285,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://blog.zzfanhero.info/tag/bi-shi.html</loc>
-<lastmod>2016-03-25T00:00:00+08:06</lastmod>
+<lastmod>2016-03-26T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -292,7 +299,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://blog.zzfanhero.info/author/zzfan.html</loc>
-<lastmod>2016-03-25T00:00:00+08:06</lastmod>
+<lastmod>2016-03-26T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
