@@ -2,7 +2,7 @@
 <html lang="zh"
 >
 <head>
-    <title>数据结构 - 赵志凡'Blog</title>
+    <title>leetcode难度及面试频率表 - 赵志凡'Blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,16 +10,22 @@
 
 
 
+<link rel="canonical" href="http://blog.zzfanhero.info/articles/leetcodenan-du-ji-mian-shi-pin-lu-biao.html">
 
-    <meta name="author" content="zzfan" />
-    <meta name="keywords" content="数据结构" />
+        <meta name="author" content="zzfan" />
+        <meta name="keywords" content="面试,笔试" />
+        <meta name="description" content="摘要：不要问我为什么要看这个，我就是这么的俗.... blog" />
 
-    <!-- Open Graph tags -->
         <meta property="og:site_name" content="赵志凡'Blog" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="赵志凡'Blog"/>
-        <meta property="og:url" content="http://blog.zzfanhero.info"/>
-        <meta property="og:description" content="赵志凡'Blog"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="leetcode难度及面试频率表"/>
+        <meta property="og:url" content="http://blog.zzfanhero.info/articles/leetcodenan-du-ji-mian-shi-pin-lu-biao.html"/>
+        <meta property="og:description" content="摘要：不要问我为什么要看这个，我就是这么的俗.... blog"/>
+        <meta property="article:published_time" content="2016-03-29" />
+            <meta property="article:section" content="Work" />
+            <meta property="article:tag" content="面试" />
+            <meta property="article:tag" content="笔试" />
+            <meta property="article:author" content="zzfan" />
 
 
     <!-- Bootstrap -->
@@ -59,7 +65,7 @@
                         <li >
                             <a href="http://blog.zzfanhero.info/category/tools.html">Tools</a>
                         </li>
-                        <li >
+                        <li class="active">
                             <a href="http://blog.zzfanhero.info/category/work.html">Work</a>
                         </li>
             </ul>
@@ -76,63 +82,71 @@
     <div class="row">
         <div class="col-sm-9">
 
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/avlhe-hong-hei-shu.html">AVL和红黑树</a></h2>
-                <div class="summary"><p><font size=4 color=Green>摘要：刚看完二叉搜索树和堆，二叉搜索树的建立并没有平衡方面的考虑，AVL(平衡二叉树的算法很好的解决了这一点)，红黑树也是一个非常好的结构，这两个结构中插入的旋转操作有点麻烦，特别是红黑树。</font>  </p>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/avlhe-hong-hei-shu.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/er-cha-shu-de-bian-li-ji-ying-yong.html">二叉树的遍历及应用</a></h2>
-                <div class="summary"><p><font color=Green>摘要：先中后序遍历，深度广度，层次，路径，每层节点数。 </font></p>
-<h3>* 二叉树的遍历</h3>
-<p>由于二叉树是一种递归结构，所以我们很容易用递归方式实现其遍历操作。  </p>
-<h4>1. 先序遍历</h4>
-<p>（1）访问根节点；  （2）先序遍历左子树；  （3）先序遍历右子树；  </p>
-<div class="highlight"><pre><span></span>void PreOrder(Bitree T){
-    if(!T) return;
-    else{
-        visite(T-&gt;data);
-        PreOrder(T-&gt;lchild);
-        PreOrder(T-&gt;rchild);
-    }
-}
-</pre></div>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://blog.zzfanhero.info/articles/leetcodenan-du-ji-mian-shi-pin-lu-biao.html"
+                       rel="bookmark"
+                       title="Permalink to leetcode难度及面试频率表">
+                        leetcode难度及面试频率表
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-03-29T00:00:00+08:00"> 2016-03-29</time>
+    </span>
 
 
-<h4>2. 中序遍历</h4>
-<p>（1）先序遍历左子树； （1）访问根节点； （3）先序遍历右子树；  </p>
-<div class="highlight"><pre><span></span> void InOrder(Bitree T){
-     if(!T) return;
-     else ...</pre></div>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/er-cha-shu-de-bian-li-ji-ying-yong.html">more ...</a>
+
+<span class="label label-default">Tags</span>
+	<a href="http://blog.zzfanhero.info/tag/mian-shi.html">面试</a>
+        /
+	<a href="http://blog.zzfanhero.info/tag/bi-shi.html">笔试</a>
+    
+</footer><!-- /.post-info -->                    </div>
                 </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/er-cha-shu-sou-suo-shu-he-dui.html">二叉树搜索树和堆</a></h2>
-                <div class="summary"><p><font size=4 color=Green>摘要：面试的时候以及笔试的时候都有很多关于树的问题，这篇文章把树的基本知识总结下。</font></p>
-<h3>* 二叉搜索树</h3>
-<p>二叉查找树（BinarySearch Tree，也叫二叉搜索树，或称二叉排序树Binary Sort Tree）或者是一棵空树，或者是具有下列性质的二叉树：  </p>
-<p>（1）、若它的左子树不为空，则左子树上所有结点的值均小于它的根结点的值；  </p>
-<p>（2）、若它的右子树不为空，则右子树上所有结点的值均大于它的根结点的值；  </p>
-<p>（3）、它的左、右子树也分别为二叉查找树。  </p>
-<p><font color=Red size=4>分析：除非小心行事，否则一颗n个元素的二叉查找树的高度可能位n。查找/插入/删除操作都是O（h），二叉查找树的平均高度位O（logn)。</font>  </p>
-<h3>* 堆</h3>
-<h4>+ 定义</h4>
-<p>二叉堆是完全二叉树或者是近似完全二叉树。  </p>
-<p>二叉堆满足二个特性：  </p>
-<p>1．父结点的键值总是大于或等于（小于或等于）任何一个子节点的键值。  </p>
-<p>2．每个结点的左子树和右子树都是一个二叉堆（都是最大堆或最小堆）。  </p>
-<p>当父结点的键值总是大于或等于任何一个子节点的键值时为最大堆。当父结点的键值总是小于或等于任何一个子节点的键值时为最小堆。下图展示一个最小堆：<br />
-<img alt="heap1" src="/images/heap/1.gif" />  </p>
-<h4>+ 堆的存储</h4>
-<p>一般都用数组来表示堆，i结点的父结点下标就为(i – 1 ...</p>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/er-cha-shu-sou-suo-shu-he-dui.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
+                <p><font size=4 color=Green>摘要：不要问我为什么要看这个，我就是这么的俗....</font>  </p>
+<p><a href="http://blog.csdn.net/yutianzuijin/article/details/11477603">blog</a>  </p>
+            </div>
+            <!-- /.entry-content -->
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'zzfanhero'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = 'leetcodenan-du-ji-mian-shi-pin-lu-biao';
+                var disqus_url = 'http://blog.zzfanhero.info/articles/leetcodenan-du-ji-mian-shi-pin-lu-biao.html';
+
+            var disqus_config = function () {
+                this.language = "zh";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
 
         </div>
         <div class="col-sm-3" id="sidebar">

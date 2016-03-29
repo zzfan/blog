@@ -77,6 +77,33 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/bi-shi-ti-ge-lei-ma-he-wei-xin-hong-bao.html">笔试题－格雷码和微信红包</a></h2>
+                <div class="summary"><p><font color=Green>腾讯的两道笔试题，挺灵活的，觉得很有必要分析下，就写下来．另外我还分析了一下字符串的输入等．</font></p>
+<h3>* 关于字符串题目的输入的一些需要注意的地方</h3>
+<p>+论<code>cin.get()</code>的重要行,看如下代码，第一行输入数组的个数，第二行输入数组．  </p>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;sstream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+        <span class="kt">string</span> <span class="n">temp</span><span class="p">;</span>
+        <span class="kt">char</span> <span class="n">tab</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="nf">size</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="nf">size</span><span class="p">){</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">lay</span><span class="p">;</span>
+                <span class="n">cin</span><span class="p">.</span><span class="nf">get</span><span class="p">();</span>
+                <span class="n">getline</span><span class="p">(</span><span class="n">cin</span><span class="p">,</span><span class="n">temp</span><span class="p">);</span>
+                <span class="n">stringstream</span> <span class="n">sp</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0 ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/bi-shi-ti-ge-lei-ma-he-wei-xin-hong-bao.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/shu-zu-de-fan-zhuan-he-dan-lian-biao-de-fan-zhuan.html">数组的翻转和单链表的翻转</a></h2>
                 <div class="summary"><p>摘要：从最简单的开始，刚被网易的笔试给虐了</p>
 <h3>* 数组的翻转</h3>
@@ -167,11 +194,6 @@ a = a/b  </li>
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/code.html">
-                            code
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
                         <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
                             笔试
                         </a>
@@ -179,6 +201,11 @@ a = a/b  </li>
                     <li class="list-group-item tag-1">
                         <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
                             面试
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://blog.zzfanhero.info/tag/code.html">
+                            code
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -192,8 +219,8 @@ a = a/b  </li>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
+                        <a href="http://blog.zzfanhero.info/tag/papers.html">
+                            papers
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -202,18 +229,8 @@ a = a/b  </li>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/papers.html">
-                            papers
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/system.html">
-                            system
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/life.html">
-                            life
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -222,8 +239,18 @@ a = a/b  </li>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
                         </a>
                     </li>
                 </ul>

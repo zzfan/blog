@@ -77,6 +77,30 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/wu-tempde-swapyi-ji-wei-yun-suan-jia-jian-fa.html">无temp的Swap以及位运算加减法</a></h2>
+                <div class="summary"><p><font color=Green>摘要：以前听别人提起过，面试连这样的题都有，也就花几分钟整理整理 </font></p>
+<h3>* 不用中间变量的Swap</h3>
+<ol>
+<li>加减法<br />
+//该方法可以狡猾整形和浮点型数值的变量，但是再处理浮点型的时候可能出现精度受损<br />
+a = a + b;<br />
+b = a - b;<br />
+a = a - b;  </li>
+<li>已获法：对浮点型无法交换<br />
+a = a^b;<br />
+b = a^b;<br />
+a = a^b;  </li>
+<li>乘除法<br />
+a = a*b<br />
+b = a/b<br />
+a = a/b  </li>
+</ol>
+<h3>* 位运算实现加减乘除</h3>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/wu-tempde-swapyi-ji-wei-yun-suan-jia-jian-fa.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/er-cha-shu-sou-suo-shu-he-dui.html">二叉树搜索树和堆</a></h2>
                 <div class="summary"><p><font size=4 color=Green>摘要：面试的时候以及笔试的时候都有很多关于树的问题，这篇文章把树的基本知识总结下。</font></p>
 <h3>* 二叉搜索树</h3>
@@ -138,11 +162,6 @@
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/code.html">
-                            code
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
                         <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
                             笔试
                         </a>
@@ -150,6 +169,11 @@
                     <li class="list-group-item tag-1">
                         <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
                             面试
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://blog.zzfanhero.info/tag/code.html">
+                            code
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -163,8 +187,8 @@
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
+                        <a href="http://blog.zzfanhero.info/tag/papers.html">
+                            papers
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -173,18 +197,8 @@
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/papers.html">
-                            papers
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/system.html">
-                            system
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/life.html">
-                            life
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -193,8 +207,18 @@
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
                         </a>
                     </li>
                 </ul>
