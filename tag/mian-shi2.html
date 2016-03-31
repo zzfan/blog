@@ -77,6 +77,57 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/ha-fu-man-shu-he-ha-fu-man-bian-ma.html">哈夫曼树和哈夫曼编码</a></h2>
+                <div class="summary"><p><font color=Green>摘要：哈夫曼树（Huffman），又称为最有二叉树，在通信/数据压缩/决策和算法设计等方面有着广泛的应用。之前看到一个比较有意思的题目，刚好用到哈夫曼树，觉得哈夫曼算法真的很有用。 </font></p>
+<h3>* 哈夫曼树</h3>
+<p>+概念：
+路径和路径的长度,树的路径长度（树根到每个节点的路径长度之和），节点的权值（除节点数据的元素值之外，在赋予节点的一个有意义的数值），节点的带权路径长度（树根节点到某个节点的路径长度与该节点权值的乘积）。    </p>
+<p><font color=OrangeRed>树的带权路径长度：树中所有叶子节点的带权路径产度之和，通常记作：<br />
+<img alt="wpl" src="/images/huffman/1.png" /></font>  </p>
+<p>+哈夫曼树的构造：<br />
+<img alt="create" src="/images/huffman/2.png" />  </p>
+<p><font color=OrangeRed>关于哈夫曼树的注意点：</font><br />
+<img alt="idea" src="/images/huffman/3.png" />  </p>
+<h3>* 哈夫曼编码</h3>
+<p>+概念：<br />
+<img alt="yima" src="/images/huffman/4.png" /></p>
+<p>+编码：<br />
+<img alt="yima" src="/images/huffman/5.png" /></p>
+<p>+译码：<br />
+<img alt="yima" src="/images/huffman/6.png" /></p>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/ha-fu-man-shu-he-ha-fu-man-bian-ma.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/shu-zu-de-fan-zhuan-he-dan-lian-biao-de-fan-zhuan.html">数组的翻转和单链表的翻转</a></h2>
+                <div class="summary"><p>摘要：从最简单的开始，刚被网易的笔试给虐了</p>
+<h3>* 数组的翻转</h3>
+<p><i class="icon-file"></i>这里用string的翻转为例：</p>
+<div class="highlight"><pre><span></span><span class="cm">/*************************************************************************</span>
+<span class="cm">    &gt; File Name: test.cpp</span>
+<span class="cm">    &gt; Author: zzfan</span>
+<span class="cm">    &gt; Mail: zzfan@mail.ustc.edu.cn </span>
+<span class="cm">    &gt; Created Time: 2016年03月19日 星期六 20时20分04秒</span>
+<span class="cm"> ************************************************************************/</span>
+
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stack&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="c1">//c style</span>
+<span class="kt">void</span> <span class="nf">c_rever</span><span class="p">(</span><span class="kt">string</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="n">temp</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">j</span><span class="p">,</span><span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+    <span class="k">for ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/shu-zu-de-fan-zhuan-he-dan-lian-biao-de-fan-zhuan.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/wu-tempde-swapyi-ji-wei-yun-suan-jia-jian-fa.html">无temp的Swap以及位运算加减法</a></h2>
                 <div class="summary"><p><font color=Green>摘要：以前听别人提起过，面试连这样的题都有，也就花几分钟整理整理 </font></p>
 <h3>* 不用中间变量的Swap</h3>
@@ -162,13 +213,13 @@ a = a/b  </li>
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
-                            笔试
+                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
+                            面试
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
-                            面试
+                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
+                            笔试
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -187,13 +238,8 @@ a = a/b  </li>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/papers.html">
-                            papers
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/system.html">
-                            system
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -202,8 +248,8 @@ a = a/b  </li>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/life.html">
-                            life
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -212,8 +258,13 @@ a = a/b  </li>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/papers.html">
+                            papers
                         </a>
                     </li>
                     <li class="list-group-item tag-4">

@@ -1,5 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>赵志凡'Blog</title><link href="http://blog.zzfanhero.info/" rel="alternate"></link><link href="http://blog.zzfanhero.info/feeds/all.atom.xml" rel="self"></link><id>http://blog.zzfanhero.info/</id><updated>2016-03-29T00:00:00+08:00</updated><entry><title>leetcode难度及面试频率表</title><link href="http://blog.zzfanhero.info/articles/leetcodenan-du-ji-mian-shi-pin-lu-biao.html" rel="alternate"></link><updated>2016-03-29T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-03-29:articles/leetcodenan-du-ji-mian-shi-pin-lu-biao.html</id><summary type="html">&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：不要问我为什么要看这个，我就是这么的俗....&lt;/font&gt;  &lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>赵志凡'Blog</title><link href="http://blog.zzfanhero.info/" rel="alternate"></link><link href="http://blog.zzfanhero.info/feeds/all.atom.xml" rel="self"></link><id>http://blog.zzfanhero.info/</id><updated>2016-03-30T00:00:00+08:00</updated><entry><title>堆 栈 静态区 常量区</title><link href="http://blog.zzfanhero.info/articles/dui-zhan-jing-tai-qu-chang-liang-qu.html" rel="alternate"></link><updated>2016-03-30T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-03-30:articles/dui-zhan-jing-tai-qu-chang-liang-qu.html</id><summary type="html">&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：一个由c/C++编译的程序占用内存分为以下几个部分，刚才突然看到的。&lt;/font&gt;  &lt;/p&gt;
+&lt;p&gt;1、&lt;code&gt;栈区（stack）&lt;/code&gt;— 由编译器自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。  &lt;/p&gt;
+&lt;p&gt;2、&lt;code&gt;堆区（heap）&lt;/code&gt; — 一般由程序员分配释放 ， 若程序员不释放，程序结束时可能由OS回收 。注意它与数据结构中的堆是两回事，分配方式倒是类似于链表。   &lt;/p&gt;
+&lt;p&gt;3、&lt;code&gt;全局区（静态区）（static）&lt;/code&gt;—，全局变量和静态变量的存储是放在一块的，初始化的全局变量和静态变量在一块区域， 未初始化的全局变量和未初始化的静态变量在相邻的另一块区域(BSS)。 - 程序结束后由系统释放   &lt;/p&gt;
+&lt;p&gt;4、&lt;code&gt;文字常量区&lt;/code&gt; — 常量字符串就是放在这里的。 程序结束后由系统释放   &lt;/p&gt;
+&lt;p&gt;5、&lt;code&gt;程序代码区&lt;/code&gt; — 存放函数体的二进制代码。  &lt;/p&gt;</summary><category term="面试"></category><category term="笔试"></category></entry><entry><title>快速排序</title><link href="http://blog.zzfanhero.info/articles/kuai-su-pai-xu.html" rel="alternate"></link><updated>2016-03-30T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-03-30:articles/kuai-su-pai-xu.html</id><summary type="html">&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：本来以为快排很好写，写出来了但是花了较长的时间，还是总结下吧，免得以后措手不及。&lt;/font&gt;  &lt;/p&gt;
+&lt;h3&gt;* Typename和Class的区别&lt;/h3&gt;
+&lt;p&gt;刚看到关于这两个的区别，这两个用于内置数据类型是是没有区别的，也都可以用于类，但当T是一个类，而这个类又有子类时（假设名为&lt;code&gt;innerClass&lt;/code&gt;），应该用&lt;code&gt;template&lt;typename&gt;&lt;/code&gt;:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;typename&lt;/span&gt; &lt;span class="nt"&gt;T&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;:innerClass&lt;/span&gt; &lt;span class="nt"&gt;myInnerObject&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这里的&lt;code&gt;typename&lt;/code&gt;告诉编译器，&lt;code&gt;T::innerClass&lt;/code&gt; 是一个类，程序要声明一个 &lt;code&gt;T::innerClass&lt;/code&gt; 类的对象，而不是声明 T 的静态成员，而 typename 如果换成 class 则语法错误。  &lt;/p&gt;
+&lt;h3&gt;* 快速排序&lt;/h3&gt;
+&lt;p&gt;思想就不啰嗦了，快排的思想都不会就不要看这个了.....  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/*************************************************************************&lt;/span&gt;
+&lt;span class="cm"&gt;    &amp;gt; File Name: quickSort.cpp&lt;/span&gt;
+&lt;span class="cm"&gt;    &amp;gt; Author: zzfan&lt;/span&gt;
+&lt;span class="cm"&gt;    &amp;gt; Mail: zzfan@mail.ustc.edu.cn &lt;/span&gt;
+&lt;span class="cm"&gt;    &amp;gt; Created Time: Wed 30 Mar 2016 10:25:52 PM HKT&lt;/span&gt;
+&lt;span class="cm"&gt; ************************************************************************/&lt;/span&gt;
+
+&lt;span class="cp"&gt;#include&lt;/span&gt;&lt;span class="cpf"&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="k"&gt;namespace&lt;/span&gt; &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="c1"&gt;//方法一&lt;/span&gt;
+&lt;span class="k"&gt;template&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;partition&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[],&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="n"&gt;temp&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+        &lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;=&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;temp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+        &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+        &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;temp&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;template&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;T&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="n"&gt;quickSort&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;T&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[],&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+        &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;q&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;partition&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;quickSort&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;q&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;quickSort&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;q&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="c1"&gt;//方法二&lt;/span&gt;
+&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="n"&gt;Qsort&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[],&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;low&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;high&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;low&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="n"&gt;high&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;low&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;high&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+
+    &lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+        &lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+            &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+
+        &lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+            &lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;Qsort&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;low&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;first&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;Qsort&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;first&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;high&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;57&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;68&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;59&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;52&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;72&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;28&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;96&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;33&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt;
+
+    &lt;span class="n"&gt;quickSort&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;sizeof&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;sizeof&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+    &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="k"&gt;sizeof&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;sizeof&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+        &lt;span class="n"&gt;cout&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="s"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="n"&gt;cout&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;endl&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="笔试"></category><category term="面试"></category></entry><entry><title>leetcode难度及面试频率表</title><link href="http://blog.zzfanhero.info/articles/leetcodenan-du-ji-mian-shi-pin-lu-biao.html" rel="alternate"></link><updated>2016-03-29T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-03-29:articles/leetcodenan-du-ji-mian-shi-pin-lu-biao.html</id><summary type="html">&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：不要问我为什么要看这个，我就是这么的俗....&lt;/font&gt;  &lt;/p&gt;
 &lt;p&gt;&lt;a href="http://blog.csdn.net/yutianzuijin/article/details/11477603"&gt;leetcode难度及面试频率表&lt;/a&gt;  &lt;/p&gt;</summary><category term="面试"></category><category term="笔试"></category></entry><entry><title>面试链表问题(网易面试题总结)</title><link href="http://blog.zzfanhero.info/articles/mian-shi-lian-biao-wen-ti-wang-yi-mian-shi-ti-zong-jie.html" rel="alternate"></link><updated>2016-03-28T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-03-28:articles/mian-shi-lian-biao-wen-ti-wang-yi-mian-shi-ti-zong-jie.html</id><summary type="html">&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：(10)链表问题在面试过程中也是很重要的也很基础的一部分，链表本身很灵活，很考查编程工地，所以是很值得考的地方。我将复习过程中觉得比较号的链表问题整理了一下。&lt;/font&gt;  &lt;/p&gt;
 &lt;h3&gt;* 在O（1）时间删除链表节点&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;题目描述&lt;/em&gt;: 给定链表的头指针和一个节点指针，在O（1）时间删除该节点。[Google面试题]  &lt;/p&gt;
@@ -278,7 +372,9 @@ long: 4&lt;br /&gt;
 long long: 8 &lt;br /&gt;
 float: 4&lt;br /&gt;
 double: 8&lt;br /&gt;
-指针： 4  &lt;/p&gt;
+指针： 4&lt;br /&gt;
+short int: 2&lt;br /&gt;
+unsigned long: 4  &lt;/p&gt;
 &lt;h4&gt;+ 64位机器下&lt;/h4&gt;
 &lt;p&gt;char: 1&lt;br /&gt;
 int: 大多数是4&lt;br /&gt;
@@ -288,7 +384,9 @@ long long: 8&lt;br /&gt;
 float: 4&lt;br /&gt;
 double: 8&lt;br /&gt;
 指针： 8&lt;br /&gt;
-long double: 16  &lt;/p&gt;</summary><category term="笔试"></category><category term="面试"></category></entry><entry><title>AVL和红黑树</title><link href="http://blog.zzfanhero.info/articles/avlhe-hong-hei-shu.html" rel="alternate"></link><updated>2016-03-26T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-03-26:articles/avlhe-hong-hei-shu.html</id><summary type="html">&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：刚看完二叉搜索树和堆，二叉搜索树的建立并没有平衡方面的考虑，AVL(平衡二叉树的算法很好的解决了这一点)，红黑树也是一个非常好的结构，这两个结构中插入的旋转操作有点麻烦，特别是红黑树。&lt;/font&gt;  &lt;/p&gt;</summary><category term="数据结构"></category><category term="面试"></category><category term="笔试"></category></entry><entry><title>C++ STL--stack/queue的使用方法</title><link href="http://blog.zzfanhero.info/articles/c-stl-stackqueuede-shi-yong-fang-fa.html" rel="alternate"></link><updated>2016-03-25T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-03-25:articles/c-stl-stackqueuede-shi-yong-fang-fa.html</id><summary type="html">&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：之前队这两个容器不是很熟悉，有时候用起来还不是很确定，有点时间就总结下。&lt;/font&gt;&lt;/p&gt;
+long double: 16&lt;br /&gt;
+short int: 4&lt;br /&gt;
+unsigned long: 8  &lt;/p&gt;</summary><category term="笔试"></category><category term="面试"></category></entry><entry><title>AVL和红黑树</title><link href="http://blog.zzfanhero.info/articles/avlhe-hong-hei-shu.html" rel="alternate"></link><updated>2016-03-26T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-03-26:articles/avlhe-hong-hei-shu.html</id><summary type="html">&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：刚看完二叉搜索树和堆，二叉搜索树的建立并没有平衡方面的考虑，AVL(平衡二叉树的算法很好的解决了这一点)，红黑树也是一个非常好的结构，这两个结构中插入的旋转操作有点麻烦，特别是红黑树。&lt;/font&gt;  &lt;/p&gt;</summary><category term="数据结构"></category><category term="面试"></category><category term="笔试"></category></entry><entry><title>C++ STL--stack/queue的使用方法</title><link href="http://blog.zzfanhero.info/articles/c-stl-stackqueuede-shi-yong-fang-fa.html" rel="alternate"></link><updated>2016-03-25T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-03-25:articles/c-stl-stackqueuede-shi-yong-fang-fa.html</id><summary type="html">&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：之前队这两个容器不是很熟悉，有时候用起来还不是很确定，有点时间就总结下。&lt;/font&gt;&lt;/p&gt;
 &lt;h3&gt;1. stack&lt;/h3&gt;
 &lt;p&gt;stack 模板类的定义在&lt;stack&gt;头文件中。&lt;br /&gt;
 stack 模板类需要两个模板参数，一个是元素类型，一个容器类型，但只有元素类型是必要&lt;br /&gt;

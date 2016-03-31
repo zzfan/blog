@@ -14,13 +14,13 @@
 
         <meta name="author" content="zzfan" />
         <meta name="keywords" content="笔试,面试" />
-        <meta name="description" content="摘要：感觉很熟悉，但是有时候有点不确定，还是记一下吧，免得以后测试起来麻烦。 * 具体如下 + 32位机器下 char: 1 int: 4 unsigned int: 4 long: 4 long long: 8 float: 4 double: 8 指针： 4 + 64位机器下 char: 1 int: 大多数是4 unsigned int: 4 long: 8 long long: 8 float: 4 double: 8 指针： 8 long double: 16" />
+        <meta name="description" content="摘要：感觉很熟悉，但是有时候有点不确定，还是记一下吧，免得以后测试起来麻烦。 * 具体如下 + 32位机器下 char: 1 int: 4 unsigned int: 4 long: 4 long long: 8 float: 4 double: 8 指针： 4 short int: 2 unsigned long: 4 + 64位机器下 char: 1 int: 大多数是4 unsigned int: 4 long: 8 long long: 8 float: 4 double: 8 指针： 8 ..." />
 
         <meta property="og:site_name" content="赵志凡'Blog" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="32位和64位下内置类型的字节数"/>
         <meta property="og:url" content="http://blog.zzfanhero.info/articles/32wei-he-64wei-xia-nei-zhi-lei-xing-de-zi-jie-shu.html"/>
-        <meta property="og:description" content="摘要：感觉很熟悉，但是有时候有点不确定，还是记一下吧，免得以后测试起来麻烦。 * 具体如下 + 32位机器下 char: 1 int: 4 unsigned int: 4 long: 4 long long: 8 float: 4 double: 8 指针： 4 + 64位机器下 char: 1 int: 大多数是4 unsigned int: 4 long: 8 long long: 8 float: 4 double: 8 指针： 8 long double: 16"/>
+        <meta property="og:description" content="摘要：感觉很熟悉，但是有时候有点不确定，还是记一下吧，免得以后测试起来麻烦。 * 具体如下 + 32位机器下 char: 1 int: 4 unsigned int: 4 long: 4 long long: 8 float: 4 double: 8 指针： 4 short int: 2 unsigned long: 4 + 64位机器下 char: 1 int: 大多数是4 unsigned int: 4 long: 8 long long: 8 float: 4 double: 8 指针： 8 ..."/>
         <meta property="article:published_time" content="2016-03-26" />
             <meta property="article:section" content="Work" />
             <meta property="article:tag" content="笔试" />
@@ -121,7 +121,9 @@ long: 4<br />
 long long: 8 <br />
 float: 4<br />
 double: 8<br />
-指针： 4  </p>
+指针： 4<br />
+short int: 2<br />
+unsigned long: 4  </p>
 <h4>+ 64位机器下</h4>
 <p>char: 1<br />
 int: 大多数是4<br />
@@ -131,7 +133,9 @@ long long: 8<br />
 float: 4<br />
 double: 8<br />
 指针： 8<br />
-long double: 16  </p>
+long double: 16<br />
+short int: 4<br />
+unsigned long: 8  </p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -196,13 +200,13 @@ long double: 16  </p>
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
-                            笔试
+                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
+                            面试
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
-                            面试
+                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
+                            笔试
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -221,13 +225,8 @@ long double: 16  </p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/papers.html">
-                            papers
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/system.html">
-                            system
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -236,8 +235,8 @@ long double: 16  </p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/life.html">
-                            life
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -246,8 +245,13 @@ long double: 16  </p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/papers.html">
+                            papers
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
