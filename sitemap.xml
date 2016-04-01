@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://blog.zzfanhero.info/</loc>
-<lastmod>2016-03-31T10:35:09-00:00</lastmod>
+<lastmod>2016-04-01T14:49:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://blog.zzfanhero.info/archives.html</loc>
-<lastmod>2016-03-31T10:35:09-00:00</lastmod>
+<lastmod>2016-04-01T14:49:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://blog.zzfanhero.info/tags.html</loc>
-<lastmod>2016-03-31T10:35:09-00:00</lastmod>
+<lastmod>2016-04-01T14:49:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://blog.zzfanhero.info/categories.html</loc>
-<lastmod>2016-03-31T10:35:09-00:00</lastmod>
+<lastmod>2016-04-01T14:49:44-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -67,7 +67,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://blog.zzfanhero.info/articles/avlhe-hong-hei-shu.html</loc>
+<loc>http://blog.zzfanhero.info/articles/hong-hei-shu.html</loc>
 <lastmod>2016-03-26T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>

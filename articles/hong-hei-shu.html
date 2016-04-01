@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh"
+>
+<head>
+    <title>红黑树 - 赵志凡'Blog</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://blog.zzfanhero.info/articles/hong-hei-shu.html">
+
+        <meta name="author" content="zzfan" />
+        <meta name="keywords" content="数据结构,面试,笔试" />
+        <meta name="description" content="(tree-1)摘要：刚看完二叉搜索树和堆，二叉搜索树的建立并没有平衡方面的考虑，AVL(平衡二叉树的算法很好的解决了这一点)，红黑树也是一个非常好的结构，这两个结构中插入的旋转操作有点麻烦，特别是红黑树。在这里先介绍红黑树： * 用途和好处 是一种自平衡二叉查找树，是在计算机科学中用到的一种数据结构，典型的用途是实现关联数组。 红黑树和AVL树一样都对插入时间、删除时间和查找时间提供了最好可能的最坏情况担保。这不只是使它们在时间敏感的应用如实时应用（real time application）中有价值，而且使它们有在提供最坏情况担保的其他数据结构中作为建造板块的价值；例如，在计算几何中使用的很多数据结构都可以基于红黑树。 红黑树在函数式编程中也特别有用，在这里它们是最常用的持久数据结构（persistent data structure）之一，它们用来构造关联数组和集合，每次插入、删除之后它们能保持为以前的版本。除了O(log n)的时间之外，红黑树的持久版本对每次插入或删除需要O(log n)的空间。 红黑树是2-3-4树的一种等同。换句话说，对于每个2-3-4树，都存在至少一个数据元素是同样次序的红黑树。在2-3-4树上的插入和删除操作也等同于在红黑树中颜色翻转和旋转。这使得2-3-4树成为理解红黑树背后的逻辑的重要工具，这也是很多介绍算法的教科书在红黑树之前介绍2-3-4树的原因，尽管2-3-4树在实践中不经常使用。 * 性质 ..." />
+
+        <meta property="og:site_name" content="赵志凡'Blog" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="红黑树"/>
+        <meta property="og:url" content="http://blog.zzfanhero.info/articles/hong-hei-shu.html"/>
+        <meta property="og:description" content="(tree-1)摘要：刚看完二叉搜索树和堆，二叉搜索树的建立并没有平衡方面的考虑，AVL(平衡二叉树的算法很好的解决了这一点)，红黑树也是一个非常好的结构，这两个结构中插入的旋转操作有点麻烦，特别是红黑树。在这里先介绍红黑树： * 用途和好处 是一种自平衡二叉查找树，是在计算机科学中用到的一种数据结构，典型的用途是实现关联数组。 红黑树和AVL树一样都对插入时间、删除时间和查找时间提供了最好可能的最坏情况担保。这不只是使它们在时间敏感的应用如实时应用（real time application）中有价值，而且使它们有在提供最坏情况担保的其他数据结构中作为建造板块的价值；例如，在计算几何中使用的很多数据结构都可以基于红黑树。 红黑树在函数式编程中也特别有用，在这里它们是最常用的持久数据结构（persistent data structure）之一，它们用来构造关联数组和集合，每次插入、删除之后它们能保持为以前的版本。除了O(log n)的时间之外，红黑树的持久版本对每次插入或删除需要O(log n)的空间。 红黑树是2-3-4树的一种等同。换句话说，对于每个2-3-4树，都存在至少一个数据元素是同样次序的红黑树。在2-3-4树上的插入和删除操作也等同于在红黑树中颜色翻转和旋转。这使得2-3-4树成为理解红黑树背后的逻辑的重要工具，这也是很多介绍算法的教科书在红黑树之前介绍2-3-4树的原因，尽管2-3-4树在实践中不经常使用。 * 性质 ..."/>
+        <meta property="article:published_time" content="2016-03-26" />
+            <meta property="article:section" content="Coding" />
+            <meta property="article:tag" content="数据结构" />
+            <meta property="article:tag" content="面试" />
+            <meta property="article:tag" content="笔试" />
+            <meta property="article:author" content="zzfan" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://blog.zzfanhero.info/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="http://blog.zzfanhero.info/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://blog.zzfanhero.info/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.zzfanhero.info/theme/css/style.css" type="text/css"/>
+
+        <link href="http://blog.zzfanhero.info/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="赵志凡'Blog ATOM Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://blog.zzfanhero.info/" class="navbar-brand">
+赵志凡'Blog            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="http://blog.zzfanhero.info">Home</a></li>
+                        <li class="active">
+                            <a href="http://blog.zzfanhero.info/category/coding.html">Coding</a>
+                        </li>
+                        <li >
+                            <a href="http://blog.zzfanhero.info/category/others.html">Others</a>
+                        </li>
+                        <li >
+                            <a href="http://blog.zzfanhero.info/category/tools.html">Tools</a>
+                        </li>
+                        <li >
+                            <a href="http://blog.zzfanhero.info/category/work.html">Work</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://blog.zzfanhero.info/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://blog.zzfanhero.info/articles/hong-hei-shu.html"
+                       rel="bookmark"
+                       title="Permalink to 红黑树">
+                        红黑树
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-03-26T00:00:00+08:00"> 2016-03-26</time>
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">数据结构</a>
+        /
+	<a href="http://blog.zzfanhero.info/tag/mian-shi.html">面试</a>
+        /
+	<a href="http://blog.zzfanhero.info/tag/bi-shi.html">笔试</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p><font size=4 color=Green>(tree-1)摘要：刚看完二叉搜索树和堆，二叉搜索树的建立并没有平衡方面的考虑，AVL(平衡二叉树的算法很好的解决了这一点)，红黑树也是一个非常好的结构，这两个结构中插入的旋转操作有点麻烦，特别是红黑树。在这里先介绍红黑树：</font>  </p>
+<h3>* 用途和好处</h3>
+<p>是一种自平衡二叉查找树，是在计算机科学中用到的一种数据结构，典型的用途是实现关联数组。  </p>
+<p>红黑树和AVL树一样都对插入时间、删除时间和查找时间提供了最好可能的最坏情况担保。这不只是使它们在时间敏感的应用如实时应用（real time application）中有价值，而且使它们有在提供最坏情况担保的其他数据结构中作为建造板块的价值；例如，在计算几何中使用的很多数据结构都可以基于红黑树。  </p>
+<p>红黑树在函数式编程中也特别有用，在这里它们是最常用的持久数据结构（persistent data structure）之一，它们用来构造关联数组和集合，每次插入、删除之后它们能保持为以前的版本。除了O(log n)的时间之外，红黑树的持久版本对每次插入或删除需要O(log n)的空间。  </p>
+<p>红黑树是2-3-4树的一种等同。换句话说，对于每个2-3-4树，都存在至少一个数据元素是同样次序的红黑树。在2-3-4树上的插入和删除操作也等同于在红黑树中颜色翻转和旋转。这使得2-3-4树成为理解红黑树背后的逻辑的重要工具，这也是很多介绍算法的教科书在红黑树之前介绍2-3-4树的原因，尽管2-3-4树在实践中不经常使用。  </p>
+<h3>* 性质</h3>
+<p>红黑树是每个节点都带有颜色属性的二叉查找树，颜色为红色或黑色。在二叉查找树强制一般要求以外，对于任何有效的红黑树我们增加了如下的额外要求：  </p>
+<ol>
+<li>节点是红色或黑色  </li>
+<li>根是黑色  </li>
+<li>所有叶子都是黑色（叶子是NIL节点）  </li>
+<li>每个红色节点必须有两个黑色的子节点。（从每个叶子到根的所有路径上不能有两个连续的红色节点。）  </li>
+<li>从任一节点到其每个叶子的所有简单路径都包含有相同数目的黑色节点。 <br />
+下面是一个具体的红黑树的图例：<br />
+<img alt="images1" src="/images/rbtree/1.png" />  </li>
+</ol>
+<p>这些约束确保了红黑树的关键特性：从根到叶子的最长的可能路径不多于最短的可能路径的两倍长。结果是这个树大致上是平衡的。因为操作比如插入、删除和查找某个值的最坏情况时间都要求与树的高度成比例，这个在高度上的理论上限允许红黑树在最坏情况下都是高效的，而不同于普通的二叉查找树。  </p>
+<p>要知道为什么这些性质确保了这个结果，注意到性质4导致了路径不能有两个毗连的红色节点就足够了。最短的可能路径都是黑色节点，最长的可能路径有交替的红色和黑色节点。因为根据性质5所有最长的路径都有相同数目的黑色节点，这就表明了没有路径能多于任何其他路径的两倍长。  </p>
+<p>在很多树数据结构的表示中，一个节点有可能只有一个子节点，而叶子节点包含数据。用这种范例表示红黑树是可能的，但是这会改变一些性质并使算法复杂。为此，本文中我们使用"nil叶子"或"空（null）叶子"，如上图所示，它不包含数据而只充当树在此结束的指示。这些节点在绘图中经常被省略，导致了这些树好像同上述原则相矛盾，而实际上不是这样。与此有关的结论是所有节点都有两个子节点，尽管其中的一个或两个可能是空叶子。  </p>
+<h3>* 操作</h3>
+<p>因为每一个红黑树也是一个特化的二叉查找树，因此红黑树上的只读操作与普通二叉查找树上的只读操作相同。然而，在红黑树上进行插入操作和删除操作会导致不再符合红黑树的性质。恢复红黑树的性质需要少量（O(log n)）的颜色变更（实际是非常快速的）和不超过三次树旋转（对于插入操作是两次）。虽然插入和删除很复杂，但操作时间仍可以保持为O(log n)次。  </p>
+<h4>插入</h4>
+<p>我们首先以二叉查找树的方法增加节点并标记它为红色。（如果设为黑色，就会导致根到叶子的路径上有一条路上，多一个额外的黑节点，这个是很难调整的。但是设为红色节点后，可能会导致出现两个连续红色节点的冲突，那么可以通过颜色调换（color flips）和树旋转来调整。）下面要进行什么操作取决于其他临近节点的颜色。同人类的家族树中一样，我们将使用术语叔父节点来指一个节点的父节点的兄弟节点。注意：<br />
+ 1. 性质1和性质3总是保持着。<br />
+ 2. 性质4只在增加红色节点、重绘黑色节点为红色，或做旋转时受到威胁。<br />
+ 3. 性质5只在增加黑色节点、重绘红色节点为黑色，或做旋转时受到威胁。  </p>
+<p>在下面的示意图中，将要插入的节点标为N，N的父节点标为P，N的祖父节点标为G，N的叔父节点标为U。在图中展示的任何颜色要么是由它所处情形这些所作的假定，要么是假定所暗含（imply）的。  </p>
+<p>对于每一种情形，我们将使用C示例代码来展示。通过下列函数，可以找到一个节点的叔父和祖父节点：  </p>
+<div class="highlight"><pre><span></span> node* grandparent(node *n){
+     return n-&gt;parent-&gt;parent;
+ }
+
+ node* uncle(node *n){
+     if(n-&gt;parent == grandparent(n)-&gt;left)
+         return grandparent (n)-&gt;right;
+     else
+         return grandparent (n)-&gt;left;
+ }
+</pre></div>
+
+
+<blockquote>
+<p>情形1:新节点N位于树的根上，没有父节点。在这种情形下，我们把它重绘为黑色以满足性质2。因为它在每个路径上对黑节点数目增加一，性质5符合。  </p>
+</blockquote>
+<div class="highlight"><pre><span></span>void insert_case1(node *n){
+     if(n-&gt;parent == NULL)
+         n-&gt;color = BLACK;
+     else
+         insert_case2 (n);
+ }
+</pre></div>
+
+
+<blockquote>
+<p>新节点的父节点P是黑色，所以性质4没有失效（新节点是红色的）。在这种情形下，树仍是有效的。性质5也未受到威胁，尽管新节点N有两个黑色叶子子节点；但由于新节点N是红色，通过它的每个子节点的路径就都有同通过它所取代的黑色的叶子的路径同样数目的黑色节点，所以依然满足这个性质。  </p>
+</blockquote>
+<div class="highlight"><pre><span></span>void insert_case2(node *n){
+     if(n-&gt;parent-&gt;color == BLACK)
+         return; /* 树仍旧有效*/
+     else
+         insert_case3 (n);
+ }
+</pre></div>
+
+
+<p><font color=Red><em>注意</em>：在下列情形下我们假定新节点的父节点为红色，所以它有祖父节点；因为如果父节点是根节点，那父节点就应当是黑色。所以新节点总有一个叔父节点，尽管在情形4和5下它可能是叶子节点。</font>   </p>
+<blockquote>
+<p>情形3:如果父节点P和叔父节点U二者都是红色，（此时新插入节点N做为P的左子节点或右子节点都属于情形3，这里右图仅显示N做为P左子的情形）则我们可以将它们两个重绘为黑色并重绘祖父节点G为红色（用来保持性质5）。现在我们的新节点N有了一个黑色的父节点P。因为通过父节点P或叔父节点U的任何路径都必定通过祖父节点G，在这些路径上的黑节点数目没有改变。但是，红色的祖父节点G可能是根节点，这就违反了性质2，也有可能祖父节点G的父节点是红色的，这就违反了性质4。为了解决这个问题，我们在祖父节点G上递归地进行情形1的整个过程。（把G当成是新加入的节点进行各种情形的检查）  </p>
+</blockquote>
+<p><img alt="images2" src="/images/rbtree/2.png" />  </p>
+<div class="highlight"><pre><span></span>void insert_case3(node *n){
+     if(uncle(n) != NULL &amp;&amp; uncle (n)-&gt;color == RED) {
+         n-&gt;parent-&gt;color = BLACK;
+         uncle (n)-&gt;color = BLACK;
+         grandparent (n)-&gt;color = RED;
+         insert_case1(grandparent(n));
+     }
+     else
+         insert_case4 (n);
+ }
+</pre></div>
+
+
+<p><font color=Red><em>注意</em>:在余下的情形下，我们假定父节点P是其父亲G的左子节点。如果它是右子节点，情形4和情形5中的左和右应当对调。</font>  </p>
+<blockquote>
+<p>情形4:父节点P是红色而叔父节点U是黑色或缺少，并且新节点N是其父节点P的右子节点而父节点P又是其父节点的左子节点。在这种情形下，我们进行一次左旋转调换新节点和其父节点的角色;接着，我们按情形5处理以前的父节点P以解决仍然失效的性质4。注意这个改变会导致某些路径通过它们以前不通过的新节点N（比如图中1号叶子节点）或不通过节点P（比如图中3号叶子节点），但由于这两个节点都是红色的，所以性质5仍有效。  </p>
+</blockquote>
+<p><img alt="images3" src="/images/rbtree/3.png" />  </p>
+<div class="highlight"><pre><span></span> void insert_case4(node *n){
+     if(n == n-&gt;parent-&gt;right &amp;&amp; n-&gt;parent == grandparent(n)-&gt;left) {
+         rotate_left(n-&gt;parent);
+         n = n-&gt;left;
+     } else if(n == n-&gt;parent-&gt;left &amp;&amp; n-&gt;parent == grandparent(n)-&gt;right) {
+         rotate_right(n-&gt;parent);
+         n = n-&gt;right;
+     }
+     insert_case5 (n);
+ }
+</pre></div>
+
+
+<blockquote>
+<p>情形5：父节点P是红色而叔父节点U是黑色或缺少，新节点N是其父节点的左子节点，而父节点P又是其父节点G的左子节点。在这种情形下，我们进行针对祖父节点G的一次右旋转；在旋转产生的树中，以前的父节点P现在是新节点N和以前的祖父节点G的父节点。我们知道以前的祖父节点G是黑色，否则父节点P就不可能是红色（如果P和G都是红色就违反了性质4，所以G必须是黑色）。我们切换以前的父节点P和祖父节点G的颜色，结果的树满足性质4。性质5也仍然保持满足，因为通过这三个节点中任何一个的所有路径以前都通过祖父节点G，现在它们都通过以前的父节点P。在各自的情形下，这都是三个节点中唯一的黑色节点。  </p>
+</blockquote>
+<p><img alt="images4" src="/images/rbtree/4.png" />  </p>
+<div class="highlight"><pre><span></span>void insert_case5(node *n){
+     n-&gt;parent-&gt;color = BLACK;
+     grandparent (n)-&gt;color = RED;
+     if(n == n-&gt;parent-&gt;left &amp;&amp; n-&gt;parent == grandparent(n)-&gt;left) {
+         rotate_right(grandparent(n));
+     } else {
+         /* Here, n == n-&gt;parent-&gt;right &amp;&amp; n-&gt;parent == grandparent (n)-&gt;right */
+         rotate_left(grandparent(n));
+     }
+ }
+</pre></div>
+
+
+<p><font color=Red>注意插入实际是<a href="https://zh.wikipedia.org/wiki/%E5%8E%9F%E5%9C%B0%E7%AE%97%E6%B3%95">原地算法</a>，因为上述所有调用都使用了<a href="https://zh.wikipedia.org/wiki/%E5%B0%BE%E8%B0%83%E7%94%A8">尾部递归</a></font>  </p>
+<h4>删除</h4>
+            </div>
+            <!-- /.entry-content -->
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'zzfanhero'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = 'hong-hei-shu';
+                var disqus_url = 'http://blog.zzfanhero.info/articles/hong-hei-shu.html';
+
+            var disqus_config = function () {
+                this.language = "zh";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+  <section>
+      <h1>About Me</h1>
+      <p>本科: 中国科学技术大学</p>
+      <p>研究生: 中国科学技术大学</p>
+      <ul>
+          <li><a href="http://blog.zzfan.info/archives" target="_blank">CV</a></li>
+          <li><a href="http://wiki.zzfan.info/" target="_blank">My Wiki</a></li>
+          <li><a href="http://game.zzfan.info/" target="_blank">My Game</a></li>
+          <li><a href="http://music.zzfan.info" target="_blank">My music</a></li>
+      </ul>
+  </section>
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="http://github.com/zzfan/blog"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
+                <li class="list-group-item"><a href="http://twitter.com/zzfan"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+              </ul>
+            </li>
+
+
+
+            <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group " id="tags">
+                    <li class="list-group-item tag-1">
+                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
+                            笔试
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
+                            面试
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
+                            数据结构
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://blog.zzfanhero.info/tag/code.html">
+                            code
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://blog.zzfanhero.info/tag/markdown.html">
+                            markdown
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/papers.html">
+                            papers
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
+                        </a>
+                    </li>
+                </ul>
+            </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2016 zzfan
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://blog.zzfanhero.info/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://blog.zzfanhero.info/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://blog.zzfanhero.info/theme/js/respond.min.js"></script>
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'zzfanhero'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+
+</body>
+</html>
