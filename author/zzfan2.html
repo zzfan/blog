@@ -76,6 +76,24 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/jin-cheng-de-chuang-jian-he-xiao-hui.html">进程的创建和销毁</a></h2>
+                <div class="summary"><p><font color=Green>刚在群里面看到有人问到这个问题，觉得自己用Libevent创建线程很熟悉，但是对于进程没有什么概念就总结下。 </font></p>
+<h3>* 进程的创建fork()函数</h3>
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;sys/types.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+
+<span class="n">pit_t</span> <span class="nf">fork</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</pre></div>
+
+
+<p>由fork创建的新进程被称为子进程(child process)。该函数被调用一次，但返回两次。两次返回的区别是子进程的返回值是0，而父进程的返回值则是 新子进程的进程ID。将子进程ID返回给父进程的理由是:因为一个进程的子进程可以多于一个，所有没有一个函数使一个进程可以获得其所有子进程的进程ID。fork使子进程得到返回值0的理由是:一个进程只会有一个父进程，所以子进程总是可以调用getppid以获得其父进程的进程ID(进程 ID  0总是由交换进程使用，所以一个子进程的进程ID不可能为0)。<br />
+    子进程和父进程继续执行fork之后的指令。子进程是父进程的复制品。例如，子进程获得父进程数据空间、堆和栈的复制品。注意，这是子进程拥有的拷贝。父、子进程并共享这些存储部分。如果正文段是只读的，则父、子进程共享正文段。<br />
+    现在很多的实现并不做一个父进程数据段和堆的完全拷贝，因为在fork之后经常跟随着exec。作为替代，使用了写时复制(copy-on-write ...</p>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/jin-cheng-de-chuang-jian-he-xiao-hui.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/yi-xie-wo-bu-zhi-dao-de-linuxming-ling.html">一些我不知道的Linux命令</a></h2>
                 <div class="summary"><p><font color=Green>摘要：刚看到ps命令，觉得之前一直没怎么搞明白，以前碰到的Linux命令也没有总结，刚在写blog就写一篇，以后的都总结在这吧。</font>  </p>
 <h3>1. ps -ef 和 ps aux</h3>
@@ -239,31 +257,6 @@ a = a/b  </li>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/dui-zhan-yi-ji-da-xiao-duan-jie-xi.html">堆栈以及大小端解析</a></h2>
-                <div class="summary"><p><font size=4 color=Green>摘要：网络字节序一般是大端（对大部分网络传输协议而言）</font></p>
-<h3>简介</h3>
-<p>在程序的设计中，都会设计堆栈的使用，其中堆使通过用户来调用的内存空间，需要用户主动分配和释放，如果只分配而不立即释放，则可能出现内存泄露的问题，其结果是难以估量的；
-栈使系统自动调用的内存空间，系统也会根据实际情况自动去释放该空间．</p>
-<p>在平时的使用当中，我们需要注意堆栈的增长方向，一般来说，当堆栈指针（栈顶）由高地址向低地址增长时，我们称为向下增长；当堆栈指针（栈顶）由低地址向高地址增长时，我们称为向上增长．</p>
-<p>当然在程序设计中我们还需要注意的就是数据存储的方式：<font color=OrangeRed>大端存储／小端存储 </font>．</p>
-<blockquote>
-<p>大端存储--数据的高位字节保存再内存的低地址中，而数据的低位字节保存在内存的高地址中，这样的存储模式有点类似于把数据当作字符串顺序处理：地址由小向大增加，而数据从高位往低位放;<br />
-  小端存储--数据的高位字节保存再内存的高地址中，而数据的低位字节保存在内存的低地址中，和我们的逻辑方式一致．  </p>
-</blockquote>
-<h3>大小端测试方法</h3>
-<ol>
-<li>这是一个面试题  </li>
-</ol>
-<div class="highlight"><pre><span></span>int main()
-{
-    long long a=1;
-    long long b=2;
-    long long c ...</pre></div>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/dui-zhan-yi-ji-da-xiao-duan-jie-xi.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.zzfanhero.info/author/zzfan.html">&laquo;</a>
@@ -331,11 +324,6 @@ a = a/b  </li>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/life.html">
-                            life
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
                             算法
                         </a>
@@ -343,6 +331,16 @@ a = a/b  </li>
                     <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/system.html">
                             system
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -356,13 +354,13 @@ a = a/b  </li>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
+                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
+                            字符串
                         </a>
                     </li>
                 </ul>

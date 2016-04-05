@@ -77,6 +77,20 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/zi-fu-chuan-wen-ti-zong-jie-chi-xu-geng-xin-zhong.html">字符串问题总结（持续更新中）</a></h2>
+                <div class="summary"><p><font size=4 color=Green>摘要：感觉自己的编程功底还是不太够，一直练下去吧，坚持下去总会取得好的结果，人生没有什么不可能，虽然我已经很厉害了.....</font>  </p>
+<h3>一、最长回文子序列</h3>
+<p><em>问题描述</em>:给一个字符串，找出它的最长的回文子序列的长度。例如，如果给定的序列是“BBABCBCAB”，则输出应该是7，“BABCBAB”是在它的最长回文子序列。 “BBBBB”和“BBCBB”也都是该字符串的回文子序列，但不是最长的。<font color=Red>注意和最长回文子串的区别</font>。  </p>
+<p><em>解决方案</em>:<br />
+假设 X[0 ... n-1]  是给定的序列，长度为n.  让 L(0,n-1) 表示 序列 X[0 ... n-1] 的最长回文子序列的长度。  </p>
+<ol>
+<li>
+<p>如果X的最后一个元素和第一个元素是相同的，这时：L(0, n-1) = L(1, n-2) + 2 ,  还以 ...</p></li></ol>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/zi-fu-chuan-wen-ti-zong-jie-chi-xu-geng-xin-zhong.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/dui-zhan-jing-tai-qu-chang-liang-qu.html">堆 栈 静态区 常量区</a></h2>
                 <div class="summary"><p><font size=4 color=Green>摘要：一个由c/C++编译的程序占用内存分为以下几个部分，刚才突然看到的。</font>  </p>
 <p>1、<code>栈区（stack）</code>— 由编译器自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。  </p>
@@ -244,19 +258,6 @@ stack 的基本操作有：<br />
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/yi-xie-wo-bu-zhi-dao-de-linuxming-ling.html">一些我不知道的Linux命令</a></h2>
-                <div class="summary"><p><font color=Green>摘要：刚看到ps命令，觉得之前一直没怎么搞明白，以前碰到的Linux命令也没有总结，刚在写blog就写一篇，以后的都总结在这吧。</font>  </p>
-<h3>1. ps -ef 和 ps aux</h3>
-<p>ps aux 是用BSD的格式来显示 java这个进程<br />
-显示的项目有：USER , PID , %CPU , %MEM , VSZ , RSS , TTY , STAT , START , TIME , COMMAND<br />
-ps -ef 是用标准的格式显示java这个进程<br />
-显示的项目有：UID , PID , PPID , C , STIME , TTY , TIME , CMD  </p>
-<p><font color=Orange>注意：ps -ef比 ps aux好的一点就是可以查看父进程号</font>  </p>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/yi-xie-wo-bu-zhi-dao-de-linuxming-ling.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev disabled"><a href="#">&laquo;</a></li>
@@ -321,11 +322,6 @@ ps -ef 是用标准的格式显示java这个进程<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/life.html">
-                            life
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
                             算法
                         </a>
@@ -333,6 +329,16 @@ ps -ef 是用标准的格式显示java这个进程<br />
                     <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/system.html">
                             system
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -346,13 +352,13 @@ ps -ef 是用标准的格式显示java这个进程<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
+                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
+                            字符串
                         </a>
                     </li>
                 </ul>
