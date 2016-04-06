@@ -77,6 +77,32 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/af_inethe-pf_inetde-qu-bie.html">AF\_INET和PF\_INET的区别</a></h2>
+                <div class="summary"><p><font size=4 color=Green>摘要：刚写了一个原始套接字发送ipv6包的程序，平时一直用的 AF_INET协议簇，一直没有在意这些，感觉还是要总结下的。</font>  </p>
+<p>在写网络程序的时候，建立TCP socket：<br />
+ socket = socket(PF_INET, SOCK_STREAM, 0);  </p>
+<p>然后再绑定本地地址或连接远程地址时需要初始化<code>sockaddr_in</code>结构，其中指定<code>address family</code>时一般设置为AF_INET，即使用IP。<br />
+相关的头文件的定义：  </p>
+<div class="highlight"><pre><span></span>AF = Address family
+PF = Protocol Family  
+AF_INET = PF_INET  
+</pre></div>
+
+
+<p>在Windows中的<code>insock2.h</code>中，  </p>
+<div class="highlight"><pre><span></span>#define AF_INET 0
+#define PF_INET AF_INET  
+</pre></div>
+
+
+<p>所以在windows中AF_INET与PF_INET完全一样。  </p>
+<p>而在Unix/Linux系统中，在不通过的版本中这两者有微小差别，对于BSD，是AF，对于POSIX是PF。<br />
+理论上建立socket时是指定协议，应该用PF_xxxx ...</p>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/af_inethe-pf_inetde-qu-bie.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/zi-fu-chuan-wen-ti-zong-jie-chi-xu-geng-xin-zhong.html">字符串问题总结（持续更新中）</a></h2>
                 <div class="summary"><p><font size=4 color=Green>摘要：感觉自己的编程功底还是不太够，一直练下去吧，坚持下去总会取得好的结果，人生没有什么不可能，虽然我已经很厉害了.....</font>  </p>
 <h3>一、最长回文子序列</h3>
@@ -240,24 +266,6 @@ stack 的基本操作有：<br />
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/jin-cheng-de-chuang-jian-he-xiao-hui.html">进程的创建和销毁</a></h2>
-                <div class="summary"><p><font color=Green>刚在群里面看到有人问到这个问题，觉得自己用Libevent创建线程很熟悉，但是对于进程没有什么概念就总结下。 </font></p>
-<h3>* 进程的创建fork()函数</h3>
-<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;sys/types.h&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
-
-<span class="n">pit_t</span> <span class="nf">fork</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-</pre></div>
-
-
-<p>由fork创建的新进程被称为子进程(child process)。该函数被调用一次，但返回两次。两次返回的区别是子进程的返回值是0，而父进程的返回值则是 新子进程的进程ID。将子进程ID返回给父进程的理由是:因为一个进程的子进程可以多于一个，所有没有一个函数使一个进程可以获得其所有子进程的进程ID。fork使子进程得到返回值0的理由是:一个进程只会有一个父进程，所以子进程总是可以调用getppid以获得其父进程的进程ID(进程 ID  0总是由交换进程使用，所以一个子进程的进程ID不可能为0)。<br />
-    子进程和父进程继续执行fork之后的指令。子进程是父进程的复制品。例如，子进程获得父进程数据空间、堆和栈的复制品。注意，这是子进程拥有的拷贝。父、子进程并共享这些存储部分。如果正文段是只读的，则父、子进程共享正文段。<br />
-    现在很多的实现并不做一个父进程数据段和堆的完全拷贝，因为在fork之后经常跟随着exec。作为替代，使用了写时复制(copy-on-write ...</p>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/jin-cheng-de-chuang-jian-he-xiao-hui.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev disabled"><a href="#">&laquo;</a></li>
@@ -307,13 +315,13 @@ stack 的基本操作有：<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
-                            数据结构
+                        <a href="http://blog.zzfanhero.info/tag/code.html">
+                            code
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://blog.zzfanhero.info/tag/code.html">
-                            code
+                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
+                            数据结构
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -332,16 +340,6 @@ stack 的基本操作有：<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/blog.html">
                             blog
                         </a>
@@ -352,13 +350,28 @@ stack 的基本操作有：<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/unp.html">
+                            unp
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
                             字符串
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/system.html">
-                            system
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
                         </a>
                     </li>
                 </ul>

@@ -1,5 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfanhero.info/</link><description></description><atom:link href="http://blog.zzfanhero.info/feeds/zzfan.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 05 Apr 2016 00:00:00 +0800</lastBuildDate><item><title>字符串问题总结（持续更新中）</title><link>http://blog.zzfanhero.info/articles/zi-fu-chuan-wen-ti-zong-jie-chi-xu-geng-xin-zhong.html</link><description>&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：感觉自己的编程功底还是不太够，一直练下去吧，坚持下去总会取得好的结果，人生没有什么不可能，虽然我已经很厉害了.....&lt;/font&gt;  &lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfanhero.info/</link><description></description><atom:link href="http://blog.zzfanhero.info/feeds/zzfan.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 06 Apr 2016 00:00:00 +0800</lastBuildDate><item><title>AF\_INET和PF\_INET的区别</title><link>http://blog.zzfanhero.info/articles/af_inethe-pf_inetde-qu-bie.html</link><description>&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：刚写了一个原始套接字发送ipv6包的程序，平时一直用的 AF_INET协议簇，一直没有在意这些，感觉还是要总结下的。&lt;/font&gt;  &lt;/p&gt;
+&lt;p&gt;在写网络程序的时候，建立TCP socket：&lt;br /&gt;
+ socket = socket(PF_INET, SOCK_STREAM, 0);  &lt;/p&gt;
+&lt;p&gt;然后再绑定本地地址或连接远程地址时需要初始化&lt;code&gt;sockaddr_in&lt;/code&gt;结构，其中指定&lt;code&gt;address family&lt;/code&gt;时一般设置为AF_INET，即使用IP。&lt;br /&gt;
+相关的头文件的定义：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;AF = Address family
+PF = Protocol Family  
+AF_INET = PF_INET  
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;在Windows中的&lt;code&gt;insock2.h&lt;/code&gt;中，  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#define AF_INET 0
+#define PF_INET AF_INET  
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;所以在windows中AF_INET与PF_INET完全一样。  &lt;/p&gt;
+&lt;p&gt;而在Unix/Linux系统中，在不通过的版本中这两者有微小差别，对于BSD，是AF，对于POSIX是PF。&lt;br /&gt;
+理论上建立socket时是指定协议，应该用PF_xxxx，设置地址时应该用AF_xxxx。当然AF_INET和PF_INET的值是相同的，混用也不会有太大的问题。也就是说你socket时候用PF_xxxx，设置的时候用AF_xxxx也是没关系的，这点随便找个TCP/IP例子就可以验证出来了。如下，不论是AF_INET还是PF_INET都是可行的，只不过这样子的话，有点不符合规范。  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="err"&gt;服务端开始建立&lt;/span&gt;&lt;span class="nt"&gt;socket&lt;/span&gt;&lt;span class="err"&gt;描述符&lt;/span&gt;
+&lt;span class="nt"&gt;if&lt;/span&gt;&lt;span class="o"&gt;((&lt;/span&gt;&lt;span class="nt"&gt;sockfd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;socket&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;PF_INET&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;SOCK_STREAM&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;0&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nt"&gt;-1&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;fprintf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;stderr&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Socket error: %s\n&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;strerror&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+    &lt;span class="n"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="err"&gt;服务器端填充&lt;/span&gt; &lt;span class="nt"&gt;sockaddr&lt;/span&gt;&lt;span class="err"&gt;结构&lt;/span&gt;
+&lt;span class="nt"&gt;bzero&lt;/span&gt;&lt;span class="o"&gt;(&amp;amp;&lt;/span&gt;&lt;span class="nt"&gt;server_addr&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;sizeof&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;struct&lt;/span&gt; &lt;span class="nt"&gt;sockaddr_in&lt;/span&gt;&lt;span class="o"&gt;));&lt;/span&gt;
+&lt;span class="nt"&gt;server_addr&lt;/span&gt;&lt;span class="nc"&gt;.sin_family&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;AF_INET&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nt"&gt;server_addr&lt;/span&gt;&lt;span class="nc"&gt;.sin_family&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;PF_INET&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="nt"&gt;server_addr&lt;/span&gt;&lt;span class="nc"&gt;.sin_addr.s_addr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;htonl&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;INADDR_ANY&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;span class="nt"&gt;server_addr&lt;/span&gt;&lt;span class="nc"&gt;.sin_port&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;htons&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;portnumber&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;在函数socketpair与socket的domain参数中有：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;AF_UNIX, AF_LOCAL, AF_INET, PF_UNIX, PF_LOCAL, PF_INET.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这几个参数有：&lt;code&gt;AF_UNIX = AF_LOCAL, PF_UNIX = PF_LOCAL, AF_LOCAL = PF_LOCAL, AF_INET = PF_INET.&lt;/code&gt;&lt;br /&gt;
+但是对于socketpair与socket的domain参数，使用PF_LOCAL系列，而在初始化套接口地址时，则使用AF_LOCAL.&lt;br /&gt;
+例如：  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;z = socket(PF_LOCAL, SOCK_STREAM, 0);
+adr_unix.sin_family = AF_LOCAL;&lt;/p&gt;
+&lt;/blockquote&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Wed, 06 Apr 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-04-06:articles/af_inethe-pf_inetde-qu-bie.html</guid><category>unp</category><category>面试</category></item><item><title>字符串问题总结（持续更新中）</title><link>http://blog.zzfanhero.info/articles/zi-fu-chuan-wen-ti-zong-jie-chi-xu-geng-xin-zhong.html</link><description>&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：感觉自己的编程功底还是不太够，一直练下去吧，坚持下去总会取得好的结果，人生没有什么不可能，虽然我已经很厉害了.....&lt;/font&gt;  &lt;/p&gt;
 &lt;h3&gt;一、最长回文子序列&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;问题描述&lt;/em&gt;:给一个字符串，找出它的最长的回文子序列的长度。例如，如果给定的序列是“BBABCBCAB”，则输出应该是7，“BABCBAB”是在它的最长回文子序列。 “BBBBB”和“BBCBB”也都是该字符串的回文子序列，但不是最长的。&lt;font color=Red&gt;注意和最长回文子串的区别&lt;/font&gt;。  &lt;/p&gt;
 &lt;p&gt;&lt;em&gt;解决方案&lt;/em&gt;:&lt;br /&gt;
