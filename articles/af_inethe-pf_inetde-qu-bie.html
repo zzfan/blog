@@ -2,7 +2,7 @@
 <html lang="zh"
 >
 <head>
-    <title>AF\_INET和PF\_INET的区别 - 赵志凡'Blog</title>
+    <title>AF_INET和PF_INET的区别 - 赵志凡'Blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -18,7 +18,7 @@
 
         <meta property="og:site_name" content="赵志凡'Blog" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="AF\_INET和PF\_INET的区别"/>
+        <meta property="og:title" content="AF_INET和PF_INET的区别"/>
         <meta property="og:url" content="http://blog.zzfanhero.info/articles/af_inethe-pf_inetde-qu-bie.html"/>
         <meta property="og:description" content="摘要：刚写了一个原始套接字发送ipv6包的程序，平时一直用的 AF_INET协议簇，一直没有在意这些，感觉还是要总结下的。 在写网络程序的时候，建立TCP socket： socket = socket(PF_INET, SOCK_STREAM, 0); 然后再绑定本地地址或连接远程地址时需要初始化sockaddr_in结构，其中指定address family时一般设置为AF_INET，即使用IP。 相关的头文件的定义： AF = Address family PF = Protocol Family AF_INET = PF_INET 在Windows中的insock2.h中， #define AF_INET 0 #define PF_INET AF_INET 所以在windows中AF_INET与PF_INET完全一样。 而在Unix/Linux系统中，在不通过的版本中这两者有微小差别，对于BSD，是AF，对于POSIX是PF。 理论上建立socket时是指定协议，应该用PF_xxxx ..."/>
         <meta property="article:published_time" content="2016-04-06" />
@@ -88,8 +88,8 @@
                 <h1>
                     <a href="http://blog.zzfanhero.info/articles/af_inethe-pf_inetde-qu-bie.html"
                        rel="bookmark"
-                       title="Permalink to AF\_INET和PF\_INET的区别">
-                        AF\_INET和PF\_INET的区别
+                       title="Permalink to AF_INET和PF_INET的区别">
+                        AF_INET和PF_INET的区别
                     </a>
                 </h1>
             </header>
@@ -222,13 +222,13 @@ adr_unix.sin_family = AF_LOCAL;</p>
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
-                            面试
+                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
+                            笔试
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
-                            笔试
+                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
+                            面试
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -252,8 +252,8 @@ adr_unix.sin_family = AF_LOCAL;</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -262,13 +262,8 @@ adr_unix.sin_family = AF_LOCAL;</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/life.html">
-                            life
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/system.html">
-                            system
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -277,18 +272,23 @@ adr_unix.sin_family = AF_LOCAL;</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
                             字符串
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
                         </a>
                     </li>
                 </ul>
