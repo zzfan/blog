@@ -76,6 +76,56 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/hong-hei-shu.html">红黑树</a></h2>
+                <div class="summary"><p><font size=4 color=Green>(tree-1)摘要：刚看完二叉搜索树和堆，二叉搜索树的建立并没有平衡方面的考虑，AVL(平衡二叉树的算法很好的解决了这一点)，红黑树也是一个非常好的结构，这两个结构中插入的旋转操作有点麻烦，特别是红黑树。在这里先介绍红黑树：</font>  </p>
+<h3>* 用途和好处</h3>
+<p>是一种自平衡二叉查找树，是在计算机科学中用到的一种数据结构，典型的用途是实现关联数组。  </p>
+<p>红黑树和AVL树一样都对插入时间、删除时间和查找时间提供了最好可能的最坏情况担保。这不只是使它们在时间敏感的应用如实时应用（real time application）中有价值，而且使它们有在提供最坏情况担保的其他数据结构中作为建造板块的价值；例如，在计算几何中使用的很多数据结构都可以基于红黑树。  </p>
+<p>红黑树在函数式编程中也特别有用，在这里它们是最常用的持久数据结构（persistent data structure）之一，它们用来构造关联数组和集合，每次插入、删除之后它们能保持为以前的版本。除了O(log n)的时间之外，红黑树的持久版本对每次插入或删除需要O(log n)的空间。  </p>
+<p>红黑树是2-3-4树的一种等同。换句话说，对于每个2-3-4树，都存在至少一个数据元素是同样次序的红黑树。在2-3-4树上的插入和删除操作也等同于在红黑树中颜色翻转和旋转。这使得2-3-4树成为理解红黑树背后的逻辑的重要工具，这也是很多介绍算法的教科书在红黑树之前介绍2-3-4树的原因，尽管2-3-4树在实践中不经常使用。  </p>
+<h3>* 性质 ...</h3>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/hong-hei-shu.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/c-stl-stackqueuede-shi-yong-fang-fa.html">C++ STL--stack/queue的使用方法</a></h2>
+                <div class="summary"><p><font size=4 color=Green>摘要：之前队这两个容器不是很熟悉，有时候用起来还不是很确定，有点时间就总结下。</font></p>
+<h3>1. stack</h3>
+<p>stack 模板类的定义在<stack>头文件中。<br />
+stack 模板类需要两个模板参数，一个是元素类型，一个容器类型，但只有元素类型是必要<br />
+的，在不指定容器类型时，默认的容器类型为deque。<br />
+定义stack 对象的示例代码如下：<br />
+stack<int> s1;<br />
+stack<string> s2;<br />
+stack 的基本操作有：<br />
+入栈，如例：s.push(x);<br />
+出栈，如例：s.pop();注意，出栈操作只是删除栈顶元素，并不返回该元素。<br />
+访问栈顶，如例：s.top()<br />
+判断栈空，如例：s.empty()，当栈空时，返回true。<br />
+访问栈中的元素个数，如例：s ...</string></int></stack></p>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/c-stl-stackqueuede-shi-yong-fang-fa.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/wang-yi-mian-shi-zong-jie-shu-zu-zhong-yuan-su-qi-ou-chu-xian-wen-ti.html">网易面试总结--数组中元素奇偶出现问题</a></h2>
+                <div class="summary"><p><font color=Green>摘要：今天室友参加了网易的电话面试，觉得里面的题很有意思，总共三道题，我之前只遇到过第二题，第一和第二题还是可以的。本来想把三题放在一起，结果发现拓展的有点多还是分开。</font>  </p>
+<h3>* 数组中有一个元素出现了奇数次，其他元素出现了偶数次，找出这个元素</h3>
+<p>最简单的方法，用异或<code>^</code>，异或数组中所有的数，最后等于的数是出现为奇数的数，复杂度为O(n).  </p>
+<p><font size=4 color=Red>注意：如果要找出数组中两个元素出现了奇数次呢，其他元素出现了偶数次。</font><br />
+把原数组分为两个子数组。在每个子数组中，包含一个只出现一次的数字，而其他数字都出现两次。如果能够这样拆分原数组，按照前面的办法就是分别求出这两个只出现一次的数字了。  </p>
+<p>我们还是从头到尾依次异或数组中的每一个数字，那么最终得到的结果就是两个只出现一次的数字的异或结果。因为其他数字都出现了两次，在异或中全部抵消掉了。由于这两个数字肯定不一样，那么这个异或结果肯定不为0，也就是说在这个结果数字的二进制表示中至少就有一位为1。我们在结果数字中找到第一个为1的位的位置，记为第N位。现在我们以第N位是不是1为标准把原数组中的数字分成两个子数组，第一个子数组中每个数字的第N位都为1，而第二个子数组的每个数字的第N位都为0。  </p>
+<p>现在我们已经把原数组分成了两个子数组，每个子数组都包含一个只出现一次的数字，而其他数字都出现了两次。因此到此为止，所有的问题我们都已经解决。  </p>
+<div class="highlight"><pre><span></span><span class="cm">/*************************************************************************</span>
+<span class="cm">    &gt; File Name: test3.cpp</span>
+<span class="cm">    &gt; Author: zzfan</span>
+<span class="cm">    &gt; Mail ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/wang-yi-mian-shi-zong-jie-shu-zu-zhong-yuan-su-qi-ou-chu-xian-wen-ti.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/er-cha-shu-de-bian-li-ji-ying-yong.html">二叉树的遍历及应用</a></h2>
                 <div class="summary"><p><font color=Green>摘要：先中后序遍历，深度广度，层次，路径，每层节点数。 </font></p>
 <h3>* 二叉树的遍历</h3>
@@ -218,60 +268,6 @@ ps -ef 是用标准的格式显示java这个进程<br />
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/wu-tempde-swapyi-ji-wei-yun-suan-jia-jian-fa.html">无temp的Swap以及位运算加减法</a></h2>
-                <div class="summary"><p><font color=Green>摘要：以前听别人提起过，面试连这样的题都有，也就花几分钟整理整理 </font></p>
-<h3>* 不用中间变量的Swap</h3>
-<ol>
-<li>加减法<br />
-//该方法可以狡猾整形和浮点型数值的变量，但是再处理浮点型的时候可能出现精度受损<br />
-a = a + b;<br />
-b = a - b;<br />
-a = a - b;  </li>
-<li>已获法：对浮点型无法交换<br />
-a = a^b;<br />
-b = a^b;<br />
-a = a^b;  </li>
-<li>乘除法<br />
-a = a*b<br />
-b = a/b<br />
-a = a/b  </li>
-</ol>
-<h3>* 位运算实现加减乘除</h3>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/wu-tempde-swapyi-ji-wei-yun-suan-jia-jian-fa.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/xian-cheng-chi.html">线程池</a></h2>
-                <div class="summary">
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/xian-cheng-chi.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/er-cha-shu-sou-suo-shu-he-dui.html">二叉树搜索树和堆</a></h2>
-                <div class="summary"><p><font size=4 color=Green>摘要：面试的时候以及笔试的时候都有很多关于树的问题，这篇文章把树的基本知识总结下。</font></p>
-<h3>* 二叉搜索树</h3>
-<p>二叉查找树（BinarySearch Tree，也叫二叉搜索树，或称二叉排序树Binary Sort Tree）或者是一棵空树，或者是具有下列性质的二叉树：  </p>
-<p>（1）、若它的左子树不为空，则左子树上所有结点的值均小于它的根结点的值；  </p>
-<p>（2）、若它的右子树不为空，则右子树上所有结点的值均大于它的根结点的值；  </p>
-<p>（3）、它的左、右子树也分别为二叉查找树。  </p>
-<p><font color=Red size=4>分析：除非小心行事，否则一颗n个元素的二叉查找树的高度可能位n。查找/插入/删除操作都是O（h），二叉查找树的平均高度位O（logn)。</font>  </p>
-<h3>* 堆</h3>
-<h4>+ 定义</h4>
-<p>二叉堆是完全二叉树或者是近似完全二叉树。  </p>
-<p>二叉堆满足二个特性：  </p>
-<p>1．父结点的键值总是大于或等于（小于或等于）任何一个子节点的键值。  </p>
-<p>2．每个结点的左子树和右子树都是一个二叉堆（都是最大堆或最小堆）。  </p>
-<p>当父结点的键值总是大于或等于任何一个子节点的键值时为最大堆。当父结点的键值总是小于或等于任何一个子节点的键值时为最小堆。下图展示一个最小堆：<br />
-<img alt="heap1" src="/images/heap/1.gif" />  </p>
-<h4>+ 堆的存储</h4>
-<p>一般都用数组来表示堆，i结点的父结点下标就为(i – 1 ...</p>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/er-cha-shu-sou-suo-shu-he-dui.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.zzfanhero.info/index.html">&laquo;</a>
@@ -282,6 +278,8 @@ a = a/b  </li>
                             href="http://blog.zzfanhero.info/index2.html">2</a></li>
                     <li class=""><a
                             href="http://blog.zzfanhero.info/index3.html">3</a></li>
+                    <li class=""><a
+                            href="http://blog.zzfanhero.info/index4.html">4</a></li>
                 <li class="next"><a
                         href="http://blog.zzfanhero.info/index3.html">&raquo;</a></li>
         </ul>
@@ -324,13 +322,13 @@ a = a/b  </li>
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://blog.zzfanhero.info/tag/code.html">
-                            code
+                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
+                            数据结构
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
-                            数据结构
+                        <a href="http://blog.zzfanhero.info/tag/code.html">
+                            code
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -344,18 +342,23 @@ a = a/b  </li>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/blog.html">
                             blog
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
+                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
+                            选择题
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -364,13 +367,8 @@ a = a/b  </li>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
-                            字符串
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -379,8 +377,13 @@ a = a/b  </li>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/life.html">
-                            life
+                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
+                            字符串
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
                         </a>
                     </li>
                 </ul>

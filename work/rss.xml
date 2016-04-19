@@ -1,5 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfanhero.info/</link><description></description><atom:link href="http://blog.zzfanhero.info/work/rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 06 Apr 2016 00:00:00 +0800</lastBuildDate><item><title>AF_INET和PF_INET的区别</title><link>http://blog.zzfanhero.info/articles/af_inethe-pf_inetde-qu-bie.html</link><description>&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：刚写了一个原始套接字发送ipv6包的程序，平时一直用的 AF_INET协议簇，一直没有在意这些，感觉还是要总结下的。&lt;/font&gt;  &lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>赵志凡'Blog</title><link>http://blog.zzfanhero.info/</link><description></description><atom:link href="http://blog.zzfanhero.info/work/rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 19 Apr 2016 00:00:00 +0800</lastBuildDate><item><title>阿里笔试题总结--牛客网1</title><link>http://blog.zzfanhero.info/articles/a-li-bi-shi-ti-zong-jie-niu-ke-wang-1.html</link><description>&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：明天阿里实习笔试，感觉还是做一些选择题压压惊....虽然我不去实习，但是这个很关键。&lt;/font&gt;  &lt;/p&gt;
+&lt;h4&gt;1. 线程间通讯机制中，关键路径上不会产生系统调用从而减少用户态到内核态的上下文切换的是。&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;pthread_spin_lock&lt;/code&gt;:&lt;br /&gt;
+spinlock又称自旋锁，线程通过busy-wait-loop的方式来获取锁，任时刻只有一个线程能够获得锁，其他线程忙等待直到获得锁。spinlock在多处理器多线程环境的场景中有很广泛的使用，一般要求使用spinlock的临界区尽量简短，这样获取的锁可以尽快释放，以满足其他忙等的线程。Spinlock和mutex不同，spinlock不会导致线程的状态切换(用户态-&amp;gt;内核态)，但是spinlock使用不当(如临界区执行时间过长)会导致cpu busy飙高。  &lt;/p&gt;
+&lt;p&gt;pthread_mutex、信号量、pthread_rwlock、管道、消息队列  &lt;/p&gt;
+&lt;h4&gt;2. 构造函数中，成员变量一定要通过初始化列表来初始化的是.&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt; {
+    ...
+    &lt;span class="n"&gt;private&lt;/span&gt;：
+       &lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;&amp;amp;a&lt;/span&gt;;
+
+};
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;B&lt;/span&gt; : &lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt; {
+    ...
+    &lt;span class="n"&gt;private:&lt;/span&gt;
+         &lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;;
+    &lt;span class="n"&gt;public:&lt;/span&gt;
+         &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;;
+         &lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;;
+         &lt;span class="n"&gt;static&lt;/span&gt; &lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;char&lt;/span&gt;* &lt;span class="n"&gt;d&lt;/span&gt;;
+         &lt;span class="n"&gt;A&lt;/span&gt;* &lt;span class="nb"&gt;e&lt;/span&gt;;
+
+};
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;解析：b、c&lt;br /&gt;
+构造函数初始化时必须采用初始化列表一共有三种情况， &lt;br /&gt;
+1.需要初始化的数据成员是对象(继承时调用基类构造函数) &lt;br /&gt;
+2.需要初始化const修饰的类成员 &lt;br /&gt;
+3.需要初始化引用成员数据  &lt;/p&gt;
+&lt;h4&gt;3. 互斥锁和排它锁&lt;/h4&gt;
+&lt;p&gt;问题：进程P1和P2，资源A和B，进程对资源的操作定义如下：读取资源A：rA读取资源B：rB写入资源A：wA写入资源B：wB同时规定，进程读取某一资源前，必须加上共享锁，写入某一资源前必须加上排他锁；资源在被进程加共享锁时，可以被其他进程继续加共享锁，但不能加排他锁；资源在被进程加排他锁时，其他进程无法加锁。进程完成全部操作后释放锁。进程P1和进程P2并发执行，如下哪种运行序列可能会出现死锁。  &lt;/p&gt;
+&lt;p&gt;解析：&lt;code&gt;P1(wB-&amp;gt;rA), P2(wA-&amp;gt;rB)&lt;/code&gt;&lt;br /&gt;
+产生死锁的四个必要条件：&lt;br /&gt;
+资源独占&lt;br /&gt;
+不可剥夺&lt;br /&gt;
+请求和保持&lt;br /&gt;
+循环等待  &lt;/p&gt;
+&lt;h4&gt;4. 快排算法效率最低&lt;/h4&gt;
+&lt;p&gt;初始序列有序时，快速排序效率最低。  &lt;/p&gt;
+&lt;h4&gt;5. 堆排序&lt;/h4&gt;
+&lt;p&gt;问题：将整数数组（7-6-3-5-4-1-2）按照堆排序的方式原地进行升序排列，请问在第一轮排序结束之后，数组的顺序。  &lt;/p&gt;
+&lt;p&gt;解析：&lt;code&gt;6-5-3-2-4-1-7&lt;/code&gt;&lt;br /&gt;
+    1 2 3 4 5 6 7&lt;br /&gt;
+    7 6 3 5 4 1 2&lt;br /&gt;
+    2 6 3 5 4 1 7&lt;br /&gt;
+    6 2 3 5 4 1 7&lt;br /&gt;
+    6 5 3 2 4 1 7&lt;br /&gt;
+构建最大堆的过程如上所示：&lt;br /&gt;
+1.先把堆顶元素和末尾数交换&lt;br /&gt;
+2.然后对前面的数进行最大堆调整  &lt;/p&gt;
+&lt;h4&gt;6. 很有意思的一道题&lt;/h4&gt;
+&lt;p&gt;问题：  函数func的定义如下：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;void&lt;/span&gt; &lt;span class="nt"&gt;func&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;const&lt;/span&gt; &lt;span class="nt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="nt"&gt;v1&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;cont&lt;/span&gt; &lt;span class="nt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="nt"&gt;v2&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;cout&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;v1&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;cout&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;v2&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;在Visual Studio开发环境下， 以下代码输出结果为  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int main (int argc, char* argv[])
+{
+    int i=0;
+    func(++i,i++);
+    return 0;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;解析：2、0&lt;br /&gt;
+此题的关键在于i++和++i的区别。&lt;br /&gt;
+i++返回的是一个临时变量，且 i = i + 1;&lt;br /&gt;
+++i返回的是i本事，且 i = i + 1。&lt;br /&gt;
+&lt;code&gt;void func(constint&amp;amp; v1, cont int&amp;amp; v2)&lt;/code&gt;  &lt;br /&gt;
+这个函数中，首先v2传入的是临时变量的别名。&lt;br /&gt;
+然后v1传入的i的别名;  所以，调用函数中v1指的是i,v2指的是临时变量。&lt;br /&gt;
+然后就是i++和++i的计算顺序问题。&lt;br /&gt;
+虽然传入参数的顺序是从右到左的，但是参数的计算顺序却是未确定的。&lt;br /&gt;
+所以，如果先计算i++, 再计算++i；则结果为2， 0&lt;br /&gt;
+如果先计算++i, 再计算i++; 则结果应该是2， 1  &lt;/p&gt;
+&lt;h4&gt;7. 森林和二叉树的转换&lt;/h4&gt;
+&lt;p&gt;问题：将森林转换为对应的二叉树，若在二叉树结点中，结点m是结点n的双亲结点的双亲结点，则在原来的森林中，m和n可能具有的关系是&lt;br /&gt;
+1.父子关系 &lt;br /&gt;
+2.m的双亲结点与n的双亲结点是兄弟关系&lt;br /&gt;
+3.兄弟关系  &lt;/p&gt;
+&lt;p&gt;解析：1、3  &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Tue, 19 Apr 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-04-19:articles/a-li-bi-shi-ti-zong-jie-niu-ke-wang-1.html</guid><category>笔试</category><category>面试</category><category>选择题</category></item><item><title>输出数组中第k小的数</title><link>http://blog.zzfanhero.info/articles/shu-chu-shu-zu-zhong-di-kxiao-de-shu.html</link><description>&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：今天忙了一天出国参加ICC的事，好烦，突然就想为什么我们要选这种专业，我们付出的比别人要多，最后只能成为螺丝钉，我们的智商如果用在别处还需要这么累吗。只是为了心中那莫名的进取心一步一步的进入了这个坑。&lt;/font&gt;  &lt;/p&gt;
+&lt;h3&gt;* 题目描述&lt;/h3&gt;
+&lt;p&gt;快速输出第k小的数。  &lt;/p&gt;
+&lt;h3&gt;* 思路&lt;/h3&gt;
+&lt;p&gt;使用快速排序的思想，递归求解。若键值位置i与k相等，返回。若大于k，则在&lt;code&gt;[start, i-1]&lt;/code&gt;中寻找第k大的数。若小于则在&lt;code&gt;[i+1, end]&lt;/code&gt;中寻找第&lt;code&gt;k+start-1&lt;/code&gt;小的数。  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/*************************************************************************&lt;/span&gt;
+&lt;span class="cm"&gt;    &amp;gt; File Name: choose.cpp&lt;/span&gt;
+&lt;span class="cm"&gt;    &amp;gt; Author: zzfan&lt;/span&gt;
+&lt;span class="cm"&gt;    &amp;gt; Mail: zzfan@mail.ustc.edu.cn &lt;/span&gt;
+&lt;span class="cm"&gt;    &amp;gt; Created Time: Tue 19 Apr 2016 04:41:43 PM HKT&lt;/span&gt;
+&lt;span class="cm"&gt; ************************************************************************/&lt;/span&gt;
+
+&lt;span class="cp"&gt;#include&lt;/span&gt;&lt;span class="cpf"&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="k"&gt;namespace&lt;/span&gt; &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;choose&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;end&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;start&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="nf"&gt;end&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;start&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;start&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nf"&gt;end&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+        &lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+        &lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;start&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;start&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;choose&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nf"&gt;end&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;start&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;choose&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;};&lt;/span&gt;
+    &lt;span class="n"&gt;cout&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;choose&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;endl&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;font size=4 color=Red&gt;分析：这个题目还是很有意思的,用到了快排的思想&lt;/font&gt;  &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Tue, 19 Apr 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-04-19:articles/shu-chu-shu-zu-zhong-di-kxiao-de-shu.html</guid><category>面试</category><category>笔试</category></item><item><title>深度优先搜索算法（DFS）</title><link>http://blog.zzfanhero.info/articles/shen-du-you-xian-sou-suo-suan-fa-dfs.html</link><description>&lt;p&gt;&lt;font size=4 color=Green&gt;（13）摘要：做leetcode遇到了Ksum的问题，用这个很方便。&lt;/font&gt;  &lt;/p&gt;
+&lt;h3&gt;* Pre&lt;/h3&gt;
+&lt;p&gt;深度优先搜索（缩写DFS）有点类似广度优先搜索，也是对一个连通图进行遍历的算法。它的思想是从一个顶点V0开始，沿着一条路一直走到底，如果发现不能到达目标解，那就返回到上一个节点，然后从另一条路开始走到底，这种尽量往深处走的概念即是深度优先的概念。  &lt;/p&gt;
+&lt;h4&gt;* 搜索过程&lt;/h4&gt;
+&lt;p&gt;找出一条V0到V6的道路，而无需最短路。&lt;br /&gt;
+&lt;img alt="dfs1" src="/images/dfs/1.png" /&gt;  &lt;/p&gt;
+&lt;p&gt;假设按照以下的顺序来搜索：&lt;br /&gt;
+1.&lt;code&gt;V0-&amp;gt;V1-&amp;gt;V4&lt;/code&gt;，此时到底尽头，仍然到不了&lt;code&gt;V6&lt;/code&gt;，于是原路返回到V1去搜索其他路径；&lt;br /&gt;
+2.返回到V1后既搜索V2，于是搜索路径是&lt;code&gt;V0-&amp;gt;V1-&amp;gt;V2-&amp;gt;V6&lt;/code&gt;，找到目标节点，返回有解。&lt;br /&gt;
+这样搜索只是2步就到达了，但是如果用BFS的话就需要多几步。  &lt;/p&gt;
+&lt;h4&gt;* further&lt;/h4&gt;
+&lt;p&gt;&lt;img alt="dfs2" src="/images/dfs/2.png" /&gt;&lt;br /&gt;
+求图中的V0出发，是否存在一条路径长度为4的搜索路径。  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/*************************************************************************&lt;/span&gt;
+&lt;span class="cm"&gt;    &amp;gt; File Name: dfs.cpp&lt;/span&gt;
+&lt;span class="cm"&gt;    &amp;gt; Author: zzfan&lt;/span&gt;
+&lt;span class="cm"&gt;    &amp;gt; Mail: zzfan@mail.ustc.edu.cn &lt;/span&gt;
+&lt;span class="cm"&gt;    &amp;gt; Created Time: Sun 17 Apr 2016 11:00:24 AM HKT&lt;/span&gt;
+&lt;span class="cm"&gt; ************************************************************************/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+memset&lt;span class="o"&gt;(&lt;/span&gt;visit&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;n&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="err"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+bool&lt;span class="w"&gt; &lt;/span&gt;DFS&lt;span class="o"&gt;(&lt;/span&gt;Node&lt;span class="w"&gt; &lt;/span&gt;n&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;int&lt;span class="w"&gt; &lt;/span&gt;d&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kr"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;d&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="kr"&gt;return&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;true&lt;span class="err"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kr"&gt;for&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;nextNode&lt;span class="w"&gt; &lt;/span&gt;in&lt;span class="w"&gt; &lt;/span&gt;n&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="kr"&gt;if&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="err"&gt;!&lt;/span&gt;visit&lt;span class="err"&gt;[&lt;/span&gt;nextNode&lt;span class="err"&gt;]&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;visit&lt;span class="err"&gt;[&lt;/span&gt;nextNode&lt;span class="err"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;true&lt;span class="err"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="kr"&gt;if&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;DFS&lt;span class="o"&gt;(&lt;/span&gt;nextNode&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;d&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="kr"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;true&lt;span class="err"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;visit&lt;span class="err"&gt;[&lt;/span&gt;nextNode&lt;span class="err"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;false&lt;span class="err"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="kr"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;false&lt;span class="err"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;* 24点&lt;/h4&gt;
+&lt;p&gt;很经典的一个题目：&lt;br /&gt;
+想必大家都玩过一个游戏，叫做“24点”：给出4个整数，要求用加减乘除4个运算使其运算结果变成24，4个数字要不重复的用到计算中。&lt;br /&gt;
+例如给出4个数：1、2、3、4。我可以用以下运算得到结果24： &lt;br /&gt;
+&lt;code&gt;1&lt;em&gt;2&lt;/em&gt;3&lt;em&gt;4 = 24；2&lt;/em&gt;3&lt;em&gt;4/1 = 24；(1+2+3)&lt;/em&gt;4=24&lt;/code&gt;；…… &lt;br /&gt;
+如上，是有很多种组合方式使得他们变成24的，当然也有无法得到结果的4个数，例如：1、1、1、1。&lt;br /&gt;
+现在我给你这样4个数，你能告诉我它们能够通过一定的运算组合之后变成24吗？这里我给出约束：数字之间的除法中不得出现小数，例如原本我们可以1/4=0.25，但是这里的约束指定了这样操作是不合法的。&lt;br /&gt;
+&lt;font size=4 color=Red&gt;分析：其实在不知道这个方法之前我遇到这种题是一点头绪都没有，之前也学过搜索树，但是觉得那个我一直没有用到，所以对那个也没有太多的概念.但是遇到这题之后总算是有点头绪了，相信慢慢的积累还是有用的。现在我也想重新看一次Unix网络编程这本书，把网络方面的基础知识过一遍，虽然自己现在在看内核，但是用户态的东西如果不是很清晰的话有些地方会有些迷惑（虽然我觉得我现在对IP网络以及未来网络的理解已经突破天际了，哈哈）。&lt;/font&gt;  &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Sun, 17 Apr 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-04-17:articles/shen-du-you-xian-sou-suo-suan-fa-dfs.html</guid><category>笔试</category><category>面试</category></item><item><title>AF_INET和PF_INET的区别</title><link>http://blog.zzfanhero.info/articles/af_inethe-pf_inetde-qu-bie.html</link><description>&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：刚写了一个原始套接字发送ipv6包的程序，平时一直用的 AF_INET协议簇，一直没有在意这些，感觉还是要总结下的。&lt;/font&gt;  &lt;/p&gt;
 &lt;p&gt;在写网络程序的时候，建立TCP socket：&lt;br /&gt;
  socket = socket(PF_INET, SOCK_STREAM, 0);  &lt;/p&gt;
 &lt;p&gt;然后再绑定本地地址或连接远程地址时需要初始化&lt;code&gt;sockaddr_in&lt;/code&gt;结构，其中指定&lt;code&gt;address family&lt;/code&gt;时一般设置为AF_INET，即使用IP。&lt;br /&gt;

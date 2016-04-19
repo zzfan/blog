@@ -5,30 +5,51 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://blog.zzfanhero.info/</loc>
-<lastmod>2016-04-17T20:14:54-00:00</lastmod>
+<lastmod>2016-04-19T22:26:36-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://blog.zzfanhero.info/archives.html</loc>
-<lastmod>2016-04-17T20:14:54-00:00</lastmod>
+<lastmod>2016-04-19T22:26:36-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://blog.zzfanhero.info/tags.html</loc>
-<lastmod>2016-04-17T20:14:54-00:00</lastmod>
+<lastmod>2016-04-19T22:26:36-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://blog.zzfanhero.info/categories.html</loc>
-<lastmod>2016-04-17T20:14:54-00:00</lastmod>
+<lastmod>2016-04-19T22:26:36-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://blog.zzfanhero.info/articles/a-li-bi-shi-ti-zong-jie-niu-ke-wang-1.html</loc>
+<lastmod>2016-04-19T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+
+<url>
+<loc>http://blog.zzfanhero.info/articles/shu-chu-shu-zu-zhong-di-kxiao-de-shu.html</loc>
+<lastmod>2016-04-19T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+
+<url>
+<loc>http://blog.zzfanhero.info/articles/shen-du-you-xian-sou-suo-suan-fa-dfs.html</loc>
+<lastmod>2016-04-17T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
 </url>
 
 <url>
@@ -250,7 +271,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://blog.zzfanhero.info/category/work.html</loc>
-<lastmod>2016-04-06T00:00:00+08:06</lastmod>
+<lastmod>2016-04-19T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -320,7 +341,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://blog.zzfanhero.info/tag/mian-shi.html</loc>
-<lastmod>2016-04-06T00:00:00+08:06</lastmod>
+<lastmod>2016-04-19T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -340,8 +361,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://blog.zzfanhero.info/tag/xuan-ze-ti.html</loc>
+<lastmod>2016-04-19T00:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://blog.zzfanhero.info/tag/bi-shi.html</loc>
-<lastmod>2016-04-05T00:00:00+08:06</lastmod>
+<lastmod>2016-04-19T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -355,7 +383,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://blog.zzfanhero.info/author/zzfan.html</loc>
-<lastmod>2016-04-06T00:00:00+08:06</lastmod>
+<lastmod>2016-04-19T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
