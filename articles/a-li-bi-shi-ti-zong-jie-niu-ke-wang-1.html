@@ -203,6 +203,81 @@ i++返回的是一个临时变量，且 i = i + 1;<br />
 2.m的双亲结点与n的双亲结点是兄弟关系<br />
 3.兄弟关系  </p>
 <p>解析：1、3  </p>
+<h4>8. 博弈论</h4>
+<p><font color=Red>但是溪老师讲博弈论，我没去听，发现真的很有用啊</font><br />
+题目：16个石子一次可以拿1,3,6个，取到最后一个的人必胜，先手拿几个必胜?两个人拿。  </p>
+<p>解析：显然0的时候是必败点，看1，只能选择拿走1个，变成0,0是必败点，所以1是必胜点，然后看2,2的下一步只能选择拿走1个变成1,1是必胜点;2只能到达必胜点，所以2是必败点;3的下一步2和0都是必败点，所以3是必胜点;4的下一步3、1都是必胜点，所以4是必败点；5的下一步4、2都是必败点，所以5是必胜点；6的下一步5\3\0，0是必败点，所以6是必胜点；7的下一步6\4\1,4是必败点，所以7是必胜点；8的下一步是7\4\2,4和2都是必败点，所以8是必胜点；9的下一步是8\6\3,8\6\3都是必胜点，所以9是必败点；10下一步9\7\4，必胜点；11下一步10\8\5，都是必胜点，所以11是必败点；12下一步11\9\6,11和9都是必败点，所以12是必胜点；13(12,10,7)，都是必胜点，所以13是必败点；由此类推。<br />
+先手拿3个最好。  </p>
+<p>题目：两人在一个n个点的无向完全图上进行游戏，每次可以选择当前图中两个端点度数奇偶性相同的边删除，谁不能操作谁输，则在n=1,2,3,......,9,10中，有____个图先手有必胜策略。  </p>
+<p>解析：N个点的无向完全图边数为：N*（N-1）/2；先手获胜必须总数为奇数；<br />
+N=1,2,3,......,9,10代入公式，为奇数的只有N=2,3,6,7,10这5个。  </p>
+<h4>9. 缺省参数静态绑定</h4>
+<div class="highlight"><pre><span></span><span class="nt">class</span> <span class="nt">A</span>
+<span class="p">{</span>
+<span class="n">public</span><span class="o">:</span>
+    <span class="n">virtual</span> <span class="n">void</span> <span class="n">func</span><span class="p">(</span><span class="n">int</span> <span class="n">val</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+    <span class="err">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;A-&gt;&quot;</span><span class="o">&lt;&lt;</span><span class="n">val</span> <span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;}</span>
+    <span class="nt">virtual</span> <span class="nt">void</span> <span class="nt">test</span><span class="o">()</span>
+    <span class="p">{</span> <span class="n">func</span><span class="p">();}</span>
+<span class="err">}</span><span class="o">;</span>
+<span class="nt">class</span> <span class="nt">B</span> <span class="o">:</span> <span class="nt">public</span> <span class="nt">A</span>
+<span class="p">{</span>
+<span class="n">public</span><span class="o">:</span>
+    <span class="n">void</span> <span class="n">func</span><span class="p">(</span><span class="n">int</span> <span class="n">val</span><span class="o">=</span><span class="m">0</span><span class="p">)</span>
+<span class="err">{</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;B-&gt;&quot;</span><span class="o">&lt;&lt;</span><span class="n">val</span> <span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;}</span>
+<span class="err">}</span><span class="o">;</span>
+<span class="nt">int</span> <span class="nt">main</span><span class="o">(</span><span class="nt">int</span> <span class="nt">argc</span> <span class="o">,</span><span class="nt">char</span><span class="o">*</span> <span class="nt">argv</span><span class="cp">[]</span><span class="o">)</span>
+<span class="p">{</span>
+    <span class="n">B</span><span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="n">new</span> <span class="n">B</span><span class="p">;</span>
+    <span class="n">p</span><span class="o">-&gt;</span><span class="n">test</span><span class="p">();</span>
+<span class="n">return</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>输出为：<code>B-&gt;1</code>  </p>
+<h4>10. 进程和线程</h4>
+<p>同一个进程的线程之间共享内存和堆，但不共享栈  </p>
+<h4>11. 智力题</h4>
+<p>题目：如果我国希望在３０年后实现经济翻翻，并且假设我国经济增长速度每年都保持相同，那么至少需要每年保持____增长速度才可实现目标。  </p>
+<p>解析：<code>A(1+X%)^30=2A</code>  </p>
+<h4>11. 折半查找</h4>
+<p>题目：下面是折半查找的实现，data是按升序排列的数据，x是查找下标，y是查找的上标，
+v是查找的数值，返回v在data的索引，若没找到返回-1。代码不正确是：  </p>
+<div class="highlight"><pre><span></span>public int bsearch(int[] data, int x, int y, int v) {
+    int m;
+    while(x&lt;y){ //1
+        m = x + (y-x)/2; //2
+        if(data[m] == v) return m; //3
+        else if(data[m] &gt; v) y = m; //4
+        else x = m; //5
+    }
+    return -1; //6
+}
+</pre></div>
+
+
+<p>解析：上下标没有写清楚，题目所指的应该是[x,y),这样5应该是m-1
+而在下标为[x,y]的情况下，1,4,5都是有问题的。。。。正确版本应该是这样吧  </p>
+<div class="highlight"><pre><span></span>while(x&lt;=y) {
+        m = x + (y-x)/2; //2
+        if(data[m] == v) return m; //3
+        else if(data[m] &gt; v) y = m-1; //4
+        else x = m+1; //5
+    }
+</pre></div>
+
+
+<p>补充：这里下标是个坑，记住上限有没有包含就可以对付1,4,5处的问题（熟记理解两个版本的代码区别），然后是2，写成x+(y-x)/2是防止xy都很大的情况下x+y越界。这样的话应对二分查找应该够了  </p>
+<h4>12. 概率题</h4>
+<p>题目：商品推荐场景中过于聚焦的商品推荐往往会损害用户的购物体验，在有些场景中，系统会通过一定程度的随机性给用户带来发现的惊喜感。假设在某推荐场景中，经计算A和B两个商品与当前访问用户的匹配度分别为0.8和0.2分，系统将随机为A生成一个均匀分布于0到0.8的最终得分，为B生成一个均匀分布于0到0.2的最终得分，那么最终B的分数大于A的分数的概率为_____。  </p>
+<p>解析：<code>(0.2<em>0.2)/2/(0.8</em>0.2)</code>  </p>
+<h4>* 组合数学</h4>
+<p>题目：从1,2,3,4...8,9里任意选择一部分数(至少1个),能得到多少种不同的乘积  </p>
+<p>解析：分解因子: <code>1<em>2</em>...<em>9=2^7  * 3^4  * 5  * 7</code><br />
+总=<code>8</em>5<em>2</em>2=160</code>
+但 <code>2^7 * 3^0</code> 和 <code>2^0 * 3^4</code> 这两种情况不存在，5和7的组合是4种
+所以答案=<code>160- 2*4 = 152</code>  </p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -267,23 +342,23 @@ i++返回的是一个临时变量，且 i = i + 1;<br />
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
-                            笔试
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
                         <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
                             面试
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
-                            数据结构
+                    <li class="list-group-item tag-1">
+                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
+                            笔试
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
                         <a href="http://blog.zzfanhero.info/tag/code.html">
                             code
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
+                            数据结构
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -297,8 +372,8 @@ i++返回的是一个临时变量，且 i = i + 1;<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -312,18 +387,8 @@ i++返回的是一个临时变量，且 i = i + 1;<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/unp.html">
-                            unp
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
+                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
+                            字符串
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -332,13 +397,23 @@ i++返回的是一个临时变量，且 i = i + 1;<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
-                            字符串
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/leetcode.html">
                             LeetCode
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/unp.html">
+                            unp
                         </a>
                     </li>
                 </ul>
