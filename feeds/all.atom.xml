@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>赵志凡'Blog</title><link href="http://blog.zzfanhero.info/" rel="alternate"></link><link href="http://blog.zzfanhero.info/feeds/all.atom.xml" rel="self"></link><id>http://blog.zzfanhero.info/</id><updated>2016-04-20T00:00:00+08:00</updated><entry><title>常用排序算法总结</title><link href="http://blog.zzfanhero.info/articles/chang-yong-pai-xu-suan-fa-zong-jie.html" rel="alternate"></link><updated>2016-04-20T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-04-20:articles/chang-yong-pai-xu-suan-fa-zong-jie.html</id><summary type="html">&lt;p&gt;&lt;font color=Green&gt;摘要：抄袭一下&lt;/font&gt;&lt;br /&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>赵志凡'Blog</title><link href="http://blog.zzfanhero.info/" rel="alternate"></link><link href="http://blog.zzfanhero.info/feeds/all.atom.xml" rel="self"></link><id>http://blog.zzfanhero.info/</id><updated>2016-04-21T00:00:00+08:00</updated><entry><title>二分搜索的陷阱</title><link href="http://blog.zzfanhero.info/articles/er-fen-sou-suo-de-xian-jing.html" rel="alternate"></link><updated>2016-04-21T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-04-21:articles/er-fen-sou-suo-de-xian-jing.html</id><summary type="html">&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：关于二分搜索，还是有一些陷阱的，总结下。&lt;/font&gt;  &lt;/p&gt;
+&lt;h4&gt;*示例1&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;template&amp;lt;class Type&amp;gt;
+int BinarySearch(Type a[], const Type&amp;amp; x, int n)
+{
+    //找到x时返回其在数组中的位置，否则返回-1
+    int left = 0, right = n-1;
+    while(left &amp;lt;= right){
+        int middle = (left + right)/2;
+        if(x == a[middle]) return middle;
+        if(x &amp;gt; a[middle]) left = middle + 1;
+        else right = middle - 1;
+    }
+    return -1;//not found!
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;解析：初看这个感觉还是很不错的，确实这个是正确的，但是如果数组比较大，也就是说&lt;code&gt;left+right&lt;/code&gt;可能会超过&lt;code&gt;int&lt;/code&gt;的范围，那么必须要有如下的改正：&lt;br /&gt;
+&lt;code&gt;middle = left + (right - left)/2&lt;/code&gt;  &lt;/p&gt;
+&lt;h4&gt;*示例2&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;public int bsearch(int[] data, int x, int y, int v) {
+    int m;
+    while(x&amp;lt;y){ //1
+        m = x + (y-x)/2; //2
+        if(data[m] == v) return m; //3
+        else if(data[m] &amp;gt; v) y = m; //4
+        else x = m+1; //5
+    }
+    return -1; //6
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;解析：这个题目初看没有问题，最后一看确实没有问题～～哈哈，但是请注意，这个只适用于&lt;code&gt;[x,y)&lt;/code&gt;的情况。  &lt;/p&gt;
+&lt;p&gt;&lt;font size=4 color=Red&gt;注意：二分查找算法的正确性确实需要很大的改进，有时候不注意就会调入陷阱，在这里错误的例子就不举了，因为很前面两个不同的基本是错误的。&lt;/p&gt;</summary><category term="笔试"></category><category term="面试"></category></entry><entry><title>常用排序算法总结</title><link href="http://blog.zzfanhero.info/articles/chang-yong-pai-xu-suan-fa-zong-jie.html" rel="alternate"></link><updated>2016-04-20T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-04-20:articles/chang-yong-pai-xu-suan-fa-zong-jie.html</id><summary type="html">&lt;p&gt;&lt;font color=Green&gt;摘要：抄袭一下&lt;/font&gt;&lt;br /&gt;
 &lt;img alt="images1" src="/images/sort/1.png" /&gt;  &lt;/p&gt;</summary><category term="笔试"></category><category term="面试"></category></entry><entry><title>阿里笔试题总结--牛客网1</title><link href="http://blog.zzfanhero.info/articles/a-li-bi-shi-ti-zong-jie-niu-ke-wang-1.html" rel="alternate"></link><updated>2016-04-19T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-04-19:articles/a-li-bi-shi-ti-zong-jie-niu-ke-wang-1.html</id><summary type="html">&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：明天阿里实习笔试，感觉还是做一些选择题压压惊....虽然我不去实习，但是这个很关键。&lt;/font&gt;  &lt;/p&gt;
 &lt;h4&gt;1. 线程间通讯机制中，关键路径上不会产生系统调用从而减少用户态到内核态的上下文切换的是。&lt;/h4&gt;
 &lt;p&gt;&lt;code&gt;pthread_spin_lock&lt;/code&gt;:&lt;br /&gt;
@@ -143,7 +178,7 @@ v是查找的数值，返回v在data的索引，若没找到返回-1。代码不
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;解析：上下标没有写清楚，题目所指的应该是[x,y),这样5应该是m-1
+&lt;p&gt;解析：上下标没有写清楚，题目所指的应该是[x,y),这样5应该是m+1
 而在下标为[x,y]的情况下，1,4,5都是有问题的。。。。正确版本应该是这样吧  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;while(x&amp;lt;=y) {
         m = x + (y-x)/2; //2

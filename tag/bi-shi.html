@@ -77,6 +77,26 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/er-fen-sou-suo-de-xian-jing.html">二分搜索的陷阱</a></h2>
+                <div class="summary"><p><font size=4 color=Green>摘要：关于二分搜索，还是有一些陷阱的，总结下。</font>  </p>
+<h4>*示例1</h4>
+<div class="highlight"><pre><span></span>template&lt;class Type&gt;
+int BinarySearch(Type a[], const Type&amp; x, int n)
+{
+    //找到x时返回其在数组中的位置，否则返回-1
+    int left = 0, right = n-1;
+    while(left &lt;= right){
+        int middle = (left + right)/2;
+        if(x == a[middle]) return middle;
+        if(x &gt; a[middle]) left = middle + 1;
+        else right = middle - 1;
+    }
+    return ...</pre></div>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/er-fen-sou-suo-de-xian-jing.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/chang-yong-pai-xu-suan-fa-zong-jie.html">常用排序算法总结</a></h2>
                 <div class="summary"><p><font color=Green>摘要：抄袭一下</font><br />
 <img alt="images1" src="/images/sort/1.png" />  </p>
@@ -220,34 +240,6 @@ void deleteRandomNode(Node *cur)
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/32wei-he-64wei-xia-nei-zhi-lei-xing-de-zi-jie-shu.html">32位和64位下内置类型的字节数</a></h2>
-                <div class="summary"><p><font size=4 color=Green>摘要：感觉很熟悉，但是有时候有点不确定，还是记一下吧，免得以后测试起来麻烦。</font>  </p>
-<h3>* 具体如下</h3>
-<h4>+ 32位机器下</h4>
-<p>char: 1<br />
-int:  4<br />
-unsigned int: 4<br />
-long: 4<br />
-long long: 8 <br />
-float: 4<br />
-double: 8<br />
-指针： 4<br />
-short int: 2<br />
-unsigned long: 4  </p>
-<h4>+ 64位机器下</h4>
-<p>char: 1<br />
-int: 大多数是4<br />
-unsigned int: 4<br />
-long: 8<br />
-long long: 8<br />
-float: 4<br />
-double: 8<br />
-指针： 8 ...</p>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/32wei-he-64wei-xia-nei-zhi-lei-xing-de-zi-jie-shu.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev disabled"><a href="#">&laquo;</a></li>
@@ -312,41 +304,6 @@ double: 8<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/unp.html">
-                            unp
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/papers.html">
-                            papers
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
-                            选择题
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
-                            字符串
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/system.html">
                             system
                         </a>
@@ -357,8 +314,43 @@ double: 8<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
+                            字符串
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/unp.html">
+                            unp
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/papers.html">
+                            papers
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/blog.html">
                             blog
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
+                            选择题
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
                         </a>
                     </li>
                 </ul>

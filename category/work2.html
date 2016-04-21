@@ -77,6 +77,24 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/mian-shi-lian-biao-wen-ti-wang-yi-mian-shi-ti-zong-jie.html">面试链表问题(网易面试题总结)</a></h2>
+                <div class="summary"><p><font size=4 color=Green>摘要：(10)链表问题在面试过程中也是很重要的也很基础的一部分，链表本身很灵活，很考查编程工地，所以是很值得考的地方。我将复习过程中觉得比较号的链表问题整理了一下。</font>  </p>
+<h3>* 在O（1）时间删除链表节点</h3>
+<p><em>题目描述</em>: 给定链表的头指针和一个节点指针，在O（1）时间删除该节点。[Google面试题]  </p>
+<p><em>分析</em>: 本题与《编程之美》上的[从无头单链表中删除节点]类似。主要思想都是[狸猫换太子]，即用下一个节点数据覆盖要删除的节点，然后删除下一个节点。但是如果节点是尾节点时，该方法就行不通了。  </p>
+<p>代码如下：  </p>
+<div class="highlight"><pre><span></span>//O（1）时间删除链表节点，从屋头单链表中删除节点  
+void deleteRandomNode(Node *cur)
+{
+    assert(cur != NULL);
+    assert(cur-&gt;next != NULL); //不能是尾节点
+    Node* pNext = cur-&gt;next;
+    cur- ...</pre></div>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/mian-shi-lian-biao-wen-ti-wang-yi-mian-shi-ti-zong-jie.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/32wei-he-64wei-xia-nei-zhi-lei-xing-de-zi-jie-shu.html">32位和64位下内置类型的字节数</a></h2>
                 <div class="summary"><p><font size=4 color=Green>摘要：感觉很熟悉，但是有时候有点不确定，还是记一下吧，免得以后测试起来麻烦。</font>  </p>
 <h3>* 具体如下</h3>
@@ -256,34 +274,6 @@ ps -ef 是用标准的格式显示java这个进程<br />
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/shu-zu-de-fan-zhuan-he-dan-lian-biao-de-fan-zhuan.html">数组的翻转和单链表的翻转</a></h2>
-                <div class="summary"><p>摘要：从最简单的开始，刚被网易的笔试给虐了</p>
-<h3>* 数组的翻转</h3>
-<p><i class="icon-file"></i>这里用string的翻转为例：</p>
-<div class="highlight"><pre><span></span><span class="cm">/*************************************************************************</span>
-<span class="cm">    &gt; File Name: test.cpp</span>
-<span class="cm">    &gt; Author: zzfan</span>
-<span class="cm">    &gt; Mail: zzfan@mail.ustc.edu.cn </span>
-<span class="cm">    &gt; Created Time: 2016年03月19日 星期六 20时20分04秒</span>
-<span class="cm"> ************************************************************************/</span>
-
-<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stack&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-
-<span class="c1">//c style</span>
-<span class="kt">void</span> <span class="nf">c_rever</span><span class="p">(</span><span class="kt">string</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">char</span> <span class="n">temp</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">j</span><span class="p">,</span><span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
-    <span class="k">for ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/shu-zu-de-fan-zhuan-he-dan-lian-biao-de-fan-zhuan.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.zzfanhero.info/category/work.html">&laquo;</a>
@@ -351,41 +341,6 @@ ps -ef 是用标准的格式显示java这个进程<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/unp.html">
-                            unp
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/papers.html">
-                            papers
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
-                            选择题
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
-                            字符串
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/system.html">
                             system
                         </a>
@@ -396,8 +351,43 @@ ps -ef 是用标准的格式显示java这个进程<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
+                            字符串
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/unp.html">
+                            unp
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/papers.html">
+                            papers
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/blog.html">
                             blog
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
+                            选择题
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
                         </a>
                     </li>
                 </ul>
