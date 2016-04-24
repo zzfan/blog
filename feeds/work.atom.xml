@@ -3,17 +3,17 @@
 &lt;h3&gt;* 关联容器&lt;/h3&gt;
 &lt;h4&gt;按关键字有序保存元素&lt;/h4&gt;
 &lt;blockquote&gt;
-&lt;p&gt;map         关联数组：保存关键字-值对
-set          关键字即值
-multimap     关键字可以重复出现的map
-multiset     关键字可重复重现的set&lt;/p&gt;
+&lt;p&gt;map         关联数组：保存关键字-值对&lt;br /&gt;
+set          关键字即值&lt;br /&gt;
+multimap     关键字可以重复出现的map&lt;br /&gt;
+multiset     关键字可重复重现的set  &lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h4&gt;无序集合&lt;/h4&gt;
 &lt;blockquote&gt;
-&lt;p&gt;unordered_map         用哈希函数组织的map
-unordered_set          用哈希函数组织的set
-unordered_multimap     哈希组织的map，关键字可以重复出现的
-unordered_multiset     哈希组织的set，关键字可以重复出现的&lt;/p&gt;
+&lt;p&gt;unordered_map         用哈希函数组织的map&lt;br /&gt;
+unordered_set          用哈希函数组织的set&lt;br /&gt;
+unordered_multimap     哈希组织的map，关键字可以重复出现的&lt;br /&gt;
+unordered_multiset     哈希组织的set，关键字可以重复出现的  &lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3&gt;* 题目&lt;/h3&gt;
 &lt;p&gt;&lt;img alt="187" src="/images/leetcode/187.png" /&gt;  &lt;/p&gt;
