@@ -77,6 +77,28 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/c-explicitde-zuo-yong.html">C++ explicit的作用</a></h2>
+                <div class="summary"><p><font size=4 color=Green>摘要：面试中会有一些关键字的问答，还是一步一步来吧，感觉自己的记忆力没以前好了~~ </font>  </p>
+<h3>* explicit作用</h3>
+<p>在C++中，explicit关键字用来修饰类的构造函数，被修饰的构造函数的类，不能发生相应的隐式类型转换，只能以显示的方式进行类型转化。  </p>
+<p>explicit使用注意事项：<br />
+<font color=Red>
+1. explicit关键字只能用于类内部的构造函数声明上。<br />
+2. explicit关键字作用于单个参数的构造函数。<br />
+3. 在C++中，explicit关键字用来修饰类的构造函数，被修饰的构造函数的类，不能发生相应的隐式类型转换<br />
+</font>  </p>
+<h3>* 例子</h3>
+<p>未加explicit时的隐式转换：  </p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">circle</span>{
+    <span class="n">public:</span>
+        <span class="n">circle</span>(<span class="n">double</span> <span class="n">r</span>): <span class="n">R</span>(<span class="n">r</span>) {}
+    <span class="n">circle</span>(<span class="nb">int</span> <span class="o">x</span>, <span class="nb">int</span> <span class="n">y</span> = <span class="mi">0</span>) : <span class="o">X</span>(<span class="o">x</span>), <span class="n">Y</span>(<span class="n">y</span>) {}
+    <span class="n">circle</span>(<span class="n">const</span> <span class="n">circle</span>&amp; <span class="n">c</span>) : <span class="n">R</span>(<span class="n">c</span>.<span class="n">R</span>), <span class="o">X ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/c-explicitde-zuo-yong.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/leetcode-repeated-dna-sequences.html">LeetCode--Repeated DNA Sequences</a></h2>
                 <div class="summary"><p><font size=4 color=Green>摘要：之前一直在不断的做题，并没有总结，现在开始总结下吧，之前做的几十道题，有空我也会贴出来。 </font>  </p>
 <h3>* 关联容器</h3>
@@ -240,14 +262,6 @@ spinlock又称自旋锁，线程通过busy-wait-loop的方式来获取锁，任�
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/leetcodenan-du-ji-mian-shi-pin-lu-biao.html">leetcode难度及面试频率表</a></h2>
-                <div class="summary"><p><font size=4 color=Green>摘要：不要问我为什么要看这个，我就是这么的俗....</font>  </p>
-<p><a href="http://blog.csdn.net/yutianzuijin/article/details/11477603">leetcode难度及面试频率表</a>  </p>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/leetcodenan-du-ji-mian-shi-pin-lu-biao.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev disabled"><a href="#">&laquo;</a></li>
@@ -287,13 +301,13 @@ spinlock又称自旋锁，线程通过busy-wait-loop的方式来获取锁，任�
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
-                            笔试
+                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
+                            面试
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
-                            面试
+                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
+                            笔试
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -312,33 +326,13 @@ spinlock又称自旋锁，线程通过busy-wait-loop的方式来获取锁，任�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/system.html">
-                            system
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/unp.html">
                             unp
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
-                            选择题
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
-                            字符串
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -357,13 +351,33 @@ spinlock又称自旋锁，线程通过busy-wait-loop的方式来获取锁，任�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
+                            选择题
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/papers.html">
                             papers
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
+                            字符串
                         </a>
                     </li>
                 </ul>

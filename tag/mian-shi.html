@@ -77,6 +77,28 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/c-explicitde-zuo-yong.html">C++ explicit的作用</a></h2>
+                <div class="summary"><p><font size=4 color=Green>摘要：面试中会有一些关键字的问答，还是一步一步来吧，感觉自己的记忆力没以前好了~~ </font>  </p>
+<h3>* explicit作用</h3>
+<p>在C++中，explicit关键字用来修饰类的构造函数，被修饰的构造函数的类，不能发生相应的隐式类型转换，只能以显示的方式进行类型转化。  </p>
+<p>explicit使用注意事项：<br />
+<font color=Red>
+1. explicit关键字只能用于类内部的构造函数声明上。<br />
+2. explicit关键字作用于单个参数的构造函数。<br />
+3. 在C++中，explicit关键字用来修饰类的构造函数，被修饰的构造函数的类，不能发生相应的隐式类型转换<br />
+</font>  </p>
+<h3>* 例子</h3>
+<p>未加explicit时的隐式转换：  </p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">circle</span>{
+    <span class="n">public:</span>
+        <span class="n">circle</span>(<span class="n">double</span> <span class="n">r</span>): <span class="n">R</span>(<span class="n">r</span>) {}
+    <span class="n">circle</span>(<span class="nb">int</span> <span class="o">x</span>, <span class="nb">int</span> <span class="n">y</span> = <span class="mi">0</span>) : <span class="o">X</span>(<span class="o">x</span>), <span class="n">Y</span>(<span class="n">y</span>) {}
+    <span class="n">circle</span>(<span class="n">const</span> <span class="n">circle</span>&amp; <span class="n">c</span>) : <span class="n">R</span>(<span class="n">c</span>.<span class="n">R</span>), <span class="o">X ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/c-explicitde-zuo-yong.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/leetcode-repeated-dna-sequences.html">LeetCode--Repeated DNA Sequences</a></h2>
                 <div class="summary"><p><font size=4 color=Green>摘要：之前一直在不断的做题，并没有总结，现在开始总结下吧，之前做的几十道题，有空我也会贴出来。 </font>  </p>
 <h3>* 关联容器</h3>
@@ -246,26 +268,6 @@ AF_INET = PF_INET
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/kuai-su-pai-xu.html">快速排序</a></h2>
-                <div class="summary"><p><font size=4 color=Green>摘要：本来以为快排很好写，写出来了但是花了较长的时间，还是总结下吧，免得以后措手不及。</font>  </p>
-<h3>* Typename和Class的区别</h3>
-<p>刚看到关于这两个的区别，这两个用于内置数据类型是是没有区别的，也都可以用于类，但当T是一个类，而这个类又有子类时（假设名为<code>innerClass</code>），应该用<code>template<typename></code>:  </p>
-<div class="highlight"><pre><span></span><span class="nt">typename</span> <span class="nt">T</span><span class="o">:</span><span class="nd">:innerClass</span> <span class="nt">myInnerObject</span><span class="o">;</span>
-</pre></div>
-
-
-<p>这里的<code>typename</code>告诉编译器，<code>T::innerClass</code> 是一个类，程序要声明一个 <code>T::innerClass</code> 类的对象，而不是声明 T 的静态成员，而 typename 如果换成 class 则语法错误。  </p>
-<h3>* 快速排序</h3>
-<p>思想就不啰嗦了，快排的思想都不会就不要看这个了.....  </p>
-<div class="highlight"><pre><span></span><span class="cm">/*************************************************************************</span>
-<span class="cm">    &gt; File Name: quickSort.cpp</span>
-<span class="cm">    &gt; Author: zzfan</span>
-<span class="cm">    &gt; Mail: zzfan@mail.ustc ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/kuai-su-pai-xu.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev disabled"><a href="#">&laquo;</a></li>
@@ -307,13 +309,13 @@ AF_INET = PF_INET
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
-                            笔试
+                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
+                            面试
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
-                            面试
+                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
+                            笔试
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -332,33 +334,13 @@ AF_INET = PF_INET
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/system.html">
-                            system
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/unp.html">
                             unp
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
-                            选择题
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
-                            字符串
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -377,13 +359,33 @@ AF_INET = PF_INET
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
+                            选择题
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/papers.html">
                             papers
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
+                            字符串
                         </a>
                     </li>
                 </ul>

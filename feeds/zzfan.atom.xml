@@ -1,5 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>赵志凡'Blog</title><link href="http://blog.zzfanhero.info/" rel="alternate"></link><link href="http://blog.zzfanhero.info/feeds/zzfan.atom.xml" rel="self"></link><id>http://blog.zzfanhero.info/</id><updated>2016-04-25T00:00:00+08:00</updated><entry><title>腾讯实习笔试</title><link href="http://blog.zzfanhero.info/articles/teng-xun-shi-xi-bi-shi.html" rel="alternate"></link><updated>2016-04-25T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-04-25:articles/teng-xun-shi-xi-bi-shi.html</id><summary type="html">&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：问的题目都是自己接触过的，第一题被问晕了，后面就一直有点晕啊，写点东西总结下吧。 &lt;/font&gt;  &lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>赵志凡'Blog</title><link href="http://blog.zzfanhero.info/" rel="alternate"></link><link href="http://blog.zzfanhero.info/feeds/zzfan.atom.xml" rel="self"></link><id>http://blog.zzfanhero.info/</id><updated>2016-04-27T00:00:00+08:00</updated><entry><title>C++ explicit的作用</title><link href="http://blog.zzfanhero.info/articles/c-explicitde-zuo-yong.html" rel="alternate"></link><updated>2016-04-27T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-04-27:articles/c-explicitde-zuo-yong.html</id><summary type="html">&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：面试中会有一些关键字的问答，还是一步一步来吧，感觉自己的记忆力没以前好了~~ &lt;/font&gt;  &lt;/p&gt;
+&lt;h3&gt;* explicit作用&lt;/h3&gt;
+&lt;p&gt;在C++中，explicit关键字用来修饰类的构造函数，被修饰的构造函数的类，不能发生相应的隐式类型转换，只能以显示的方式进行类型转化。  &lt;/p&gt;
+&lt;p&gt;explicit使用注意事项：&lt;br /&gt;
+&lt;font color=Red&gt;
+1. explicit关键字只能用于类内部的构造函数声明上。&lt;br /&gt;
+2. explicit关键字作用于单个参数的构造函数。&lt;br /&gt;
+3. 在C++中，explicit关键字用来修饰类的构造函数，被修饰的构造函数的类，不能发生相应的隐式类型转换&lt;br /&gt;
+&lt;/font&gt;  &lt;/p&gt;
+&lt;h3&gt;* 例子&lt;/h3&gt;
+&lt;p&gt;未加explicit时的隐式转换：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;circle&lt;/span&gt;{
+    &lt;span class="n"&gt;public:&lt;/span&gt;
+        &lt;span class="n"&gt;circle&lt;/span&gt;(&lt;span class="n"&gt;double&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;): &lt;span class="n"&gt;R&lt;/span&gt;(&lt;span class="n"&gt;r&lt;/span&gt;) {}
+    &lt;span class="n"&gt;circle&lt;/span&gt;(&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="o"&gt;x&lt;/span&gt;, &lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; = &lt;span class="mi"&gt;0&lt;/span&gt;) : &lt;span class="o"&gt;X&lt;/span&gt;(&lt;span class="o"&gt;x&lt;/span&gt;), &lt;span class="n"&gt;Y&lt;/span&gt;(&lt;span class="n"&gt;y&lt;/span&gt;) {}
+    &lt;span class="n"&gt;circle&lt;/span&gt;(&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;circle&lt;/span&gt;&amp;amp; &lt;span class="n"&gt;c&lt;/span&gt;) : &lt;span class="n"&gt;R&lt;/span&gt;(&lt;span class="n"&gt;c&lt;/span&gt;.&lt;span class="n"&gt;R&lt;/span&gt;), &lt;span class="o"&gt;X&lt;/span&gt;(&lt;span class="o"&gt;x&lt;/span&gt;.&lt;span class="o"&gt;X&lt;/span&gt;), &lt;span class="n"&gt;Y&lt;/span&gt;(&lt;span class="n"&gt;c&lt;/span&gt;.&lt;span class="n"&gt;Y&lt;/span&gt;) {}
+
+    &lt;span class="n"&gt;private:&lt;/span&gt;
+    &lt;span class="n"&gt;double&lt;/span&gt; &lt;span class="n"&gt;R&lt;/span&gt;;
+    &lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="o"&gt;X&lt;/span&gt;;
+    &lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;Y&lt;/span&gt;;
+};
+
+&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;main&lt;/span&gt;()
+{
+    //&lt;span class="n"&gt;发生隐式类型转换&lt;/span&gt;，&lt;span class="n"&gt;编译器会将它变成如下代码&lt;/span&gt;
+    //&lt;span class="n"&gt;tmp&lt;/span&gt; = &lt;span class="n"&gt;circle&lt;/span&gt;(&lt;span class="mf"&gt;1.23&lt;/span&gt;);
+    //&lt;span class="n"&gt;circle&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt;(&lt;span class="n"&gt;tmp&lt;/span&gt;);
+    //&lt;span class="n"&gt;tmp&lt;/span&gt;.~&lt;span class="n"&gt;circle&lt;/span&gt;();
+    &lt;span class="n"&gt;circle&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt; = &lt;span class="mf"&gt;1.23&lt;/span&gt;;
+
+    //&lt;span class="n"&gt;注意是int型的&lt;/span&gt;，&lt;span class="n"&gt;调用的是circle&lt;/span&gt;(&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="o"&gt;x&lt;/span&gt;, &lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;=&lt;span class="mi"&gt;0&lt;/span&gt;)
+    //&lt;span class="n"&gt;它虽然后2个参数&lt;/span&gt;，&lt;span class="n"&gt;但后一个有默认值&lt;/span&gt;，&lt;span class="n"&gt;任然能发生隐式转换&lt;/span&gt;
+    &lt;span class="n"&gt;circle&lt;/span&gt; &lt;span class="n"&gt;B&lt;/span&gt; = &lt;span class="mi"&gt;123&lt;/span&gt;;
+    //&lt;span class="n"&gt;这个算隐式调用了拷贝构造函数&lt;/span&gt;
+    &lt;span class="n"&gt;circle&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt; = &lt;span class="n"&gt;A&lt;/span&gt;;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;加了explicit关键字后，可防止以上隐式类型转换发生：  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;circle&lt;/span&gt;
+{
+    &lt;span class="n"&gt;public:&lt;/span&gt;
+    &lt;span class="n"&gt;explicit&lt;/span&gt; &lt;span class="n"&gt;circle&lt;/span&gt;(&lt;span class="n"&gt;double&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;): &lt;span class="n"&gt;R&lt;/span&gt;(&lt;span class="n"&gt;r&lt;/span&gt;) {}
+    &lt;span class="n"&gt;explicit&lt;/span&gt; &lt;span class="n"&gt;circle&lt;/span&gt;(&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="o"&gt;x&lt;/span&gt;, &lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; = &lt;span class="mi"&gt;0&lt;/span&gt;): &lt;span class="o"&gt;X&lt;/span&gt;(&lt;span class="o"&gt;x&lt;/span&gt;), &lt;span class="n"&gt;Y&lt;/span&gt;(&lt;span class="n"&gt;y&lt;/span&gt;){}
+    &lt;span class="n"&gt;explicit&lt;/span&gt; &lt;span class="n"&gt;circle&lt;/span&gt;(&lt;span class="n"&gt;const&lt;/span&gt; &lt;span class="n"&gt;circle&lt;/span&gt;&amp;amp; &lt;span class="n"&gt;c&lt;/span&gt;) : &lt;span class="n"&gt;R&lt;/span&gt;(&lt;span class="n"&gt;c&lt;/span&gt;.&lt;span class="n"&gt;R&lt;/span&gt;), &lt;span class="o"&gt;X&lt;/span&gt;(&lt;span class="n"&gt;c&lt;/span&gt;.&lt;span class="o"&gt;X&lt;/span&gt;), &lt;span class="n"&gt;Y&lt;/span&gt;(&lt;span class="n"&gt;c&lt;/span&gt;.&lt;span class="n"&gt;Y&lt;/span&gt;){}
+
+    &lt;span class="n"&gt;private:&lt;/span&gt;
+    &lt;span class="n"&gt;double&lt;/span&gt; &lt;span class="n"&gt;R&lt;/span&gt;;
+    &lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="o"&gt;X&lt;/span&gt;;
+    &lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;Y&lt;/span&gt;;
+};
+
+&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;main&lt;/span&gt;()
+{
+    //&lt;span class="n"&gt;一下3句&lt;/span&gt;，&lt;span class="n"&gt;都会报错&lt;/span&gt;
+    //&lt;span class="n"&gt;circle&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt; = &lt;span class="mf"&gt;1.23&lt;/span&gt;;
+    //&lt;span class="n"&gt;circle&lt;/span&gt; &lt;span class="n"&gt;B&lt;/span&gt; = &lt;span class="mi"&gt;123&lt;/span&gt;;
+    //&lt;span class="n"&gt;circle&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt; = &lt;span class="n"&gt;A&lt;/span&gt;;
+
+    //&lt;span class="n"&gt;只能用显示的方式调用了&lt;/span&gt;
+    //&lt;span class="n"&gt;未给拷贝构造函数加explicit之前可以这样&lt;/span&gt;
+    //&lt;span class="n"&gt;circle&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt; = &lt;span class="n"&gt;circle&lt;/span&gt;(&lt;span class="mf"&gt;1.23&lt;/span&gt;);
+    //&lt;span class="n"&gt;circle&lt;/span&gt; &lt;span class="n"&gt;B&lt;/span&gt; = &lt;span class="n"&gt;circle&lt;/span&gt;(&lt;span class="mi"&gt;123&lt;/span&gt;);
+    //&lt;span class="n"&gt;circle&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt; = &lt;span class="n"&gt;A&lt;/span&gt;;
+
+    //&lt;span class="n"&gt;给拷贝构造函申诉加了explicit后只能这样了&lt;/span&gt;
+    &lt;span class="n"&gt;circle&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt;(&lt;span class="mf"&gt;1.23&lt;/span&gt;);
+    &lt;span class="n"&gt;circle&lt;/span&gt; &lt;span class="n"&gt;B&lt;/span&gt;(&lt;span class="mi"&gt;123&lt;/span&gt;);
+    &lt;span class="n"&gt;circle&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt;(&lt;span class="n"&gt;A&lt;/span&gt;);
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;;
+}
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="笔试"></category><category term="面试"></category></entry><entry><title>腾讯实习笔试</title><link href="http://blog.zzfanhero.info/articles/teng-xun-shi-xi-bi-shi.html" rel="alternate"></link><updated>2016-04-25T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-04-25:articles/teng-xun-shi-xi-bi-shi.html</id><summary type="html">&lt;p&gt;&lt;font size=4 color=Green&gt;摘要：问的题目都是自己接触过的，第一题被问晕了，后面就一直有点晕啊，写点东西总结下吧。 &lt;/font&gt;  &lt;/p&gt;
 &lt;p&gt;去面试前感觉还是信心满满的，虽然没有自己复习一遍各种基础知识，但是刷过很多的题啊。可是临场的发挥不是很好，主要还是自己的基础不够扎实吧，总是有点模棱两可。问题自己都会，有些临场就想不起来，总结一下如何才能避免这种情况吧：&lt;br /&gt;
 1. 有些问题可能一点头绪都没有，不是因为你不会，而是因为你想歪了，这时候你就得回到原点了。讲的有点玄，你应该先说出自己知道的，这个是要针对问题里面的关键字，不要慌，慢慢的理解问题，回答不出来主要还是你没有了解到面试官在问什么。&lt;br /&gt;
 2. 真的不会的就pass，有些可以扯到你会的问题上。&lt;br /&gt;

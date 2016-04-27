@@ -76,6 +76,18 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/dui-zhan-jing-tai-qu-chang-liang-qu.html">堆 栈 静态区 常量区</a></h2>
+                <div class="summary"><p><font size=4 color=Green>摘要：一个由c/C++编译的程序占用内存分为以下几个部分，刚才突然看到的。</font>  </p>
+<p>1、<code>栈区（stack）</code>— 由编译器自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。  </p>
+<p>2、<code>堆区（heap）</code> — 一般由程序员分配释放 ， 若程序员不释放，程序结束时可能由OS回收 。注意它与数据结构中的堆是两回事，分配方式倒是类似于链表。   </p>
+<p>3、<code>全局区（静态区）（static）</code>—，全局变量和静态变量的存储是放在一块的，初始化的全局变量和静态变量在一块区域， 未初始化的全局变量和未初始化的静态变量在相邻的另一块区域(BSS)。 - 程序结束后由系统释放   </p>
+<p>4、<code>文字常量区</code> — 常量字符串就是放在这里的。 程序结束后由系统释放   </p>
+<p>5、<code>程序代码区</code> — 存放函数体的二进制代码。  </p>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/dui-zhan-jing-tai-qu-chang-liang-qu.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/kuai-su-pai-xu.html">快速排序</a></h2>
                 <div class="summary"><p><font size=4 color=Green>摘要：本来以为快排很好写，写出来了但是花了较长的时间，还是总结下吧，免得以后措手不及。</font>  </p>
 <h3>* Typename和Class的区别</h3>
@@ -244,19 +256,6 @@ stack 的基本操作有：<br />
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/yi-xie-wo-bu-zhi-dao-de-linuxming-ling.html">一些我不知道的Linux命令</a></h2>
-                <div class="summary"><p><font color=Green>摘要：刚看到ps命令，觉得之前一直没怎么搞明白，以前碰到的Linux命令也没有总结，刚在写blog就写一篇，以后的都总结在这吧。</font>  </p>
-<h3>1. ps -ef 和 ps aux</h3>
-<p>ps aux 是用BSD的格式来显示 java这个进程<br />
-显示的项目有：USER , PID , %CPU , %MEM , VSZ , RSS , TTY , STAT , START , TIME , COMMAND<br />
-ps -ef 是用标准的格式显示java这个进程<br />
-显示的项目有：UID , PID , PPID , C , STIME , TTY , TIME , CMD  </p>
-<p><font color=Orange>注意：ps -ef比 ps aux好的一点就是可以查看父进程号</font>  </p>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/yi-xie-wo-bu-zhi-dao-de-linuxming-ling.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.zzfanhero.info/index.html">&laquo;</a>
@@ -301,13 +300,13 @@ ps -ef 是用标准的格式显示java这个进程<br />
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
-                            笔试
+                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
+                            面试
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
-                            面试
+                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
+                            笔试
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -326,33 +325,13 @@ ps -ef 是用标准的格式显示java这个进程<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/system.html">
-                            system
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/unp.html">
                             unp
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
-                            选择题
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
-                            字符串
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -371,13 +350,33 @@ ps -ef 是用标准的格式显示java这个进程<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
+                            选择题
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/papers.html">
                             papers
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
+                            字符串
                         </a>
                     </li>
                 </ul>
