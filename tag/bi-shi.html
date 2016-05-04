@@ -77,6 +77,25 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/leetcode-327count-of-range-sum.html">LeetCode-(327)Count of Range Sum</a></h2>
+                <div class="summary"><p><font size=4 color=Green>这道题目我当时理解题目的意思就花了很长的时间，最好的解法有点不理解，先整理下，晚上回去睡觉前看下。 </font>  </p>
+<p><img alt="images" src="/images/leetcode/327.png" />  </p>
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="c1">//这道题目看了我半天才看懂，我也是醉了，题目意思挺好理解的</span>
+<span class="kt">int</span> <span class="nf">countRangeSum</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">lower</span><span class="p">,</span> <span class="kt">int</span> <span class="n">upper</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="nf">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span><span class="o">&gt;</span> <span class="n">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="nf">size</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">nums</span><span class="p">.</span><span class="nf">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">sum</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">sum</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/leetcode-327count-of-range-sum.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/c-explicitde-zuo-yong.html">C++ explicit的作用</a></h2>
                 <div class="summary"><p><font size=4 color=Green>摘要：面试中会有一些关键字的问答，还是一步一步来吧，感觉自己的记忆力没以前好了~~ </font>  </p>
 <h3>* explicit作用</h3>
@@ -242,26 +261,6 @@ spinlock又称自旋锁，线程通过busy-wait-loop的方式来获取锁，任�
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/kuai-su-pai-xu.html">快速排序</a></h2>
-                <div class="summary"><p><font size=4 color=Green>摘要：本来以为快排很好写，写出来了但是花了较长的时间，还是总结下吧，免得以后措手不及。</font>  </p>
-<h3>* Typename和Class的区别</h3>
-<p>刚看到关于这两个的区别，这两个用于内置数据类型是是没有区别的，也都可以用于类，但当T是一个类，而这个类又有子类时（假设名为<code>innerClass</code>），应该用<code>template<typename></code>:  </p>
-<div class="highlight"><pre><span></span><span class="nt">typename</span> <span class="nt">T</span><span class="o">:</span><span class="nd">:innerClass</span> <span class="nt">myInnerObject</span><span class="o">;</span>
-</pre></div>
-
-
-<p>这里的<code>typename</code>告诉编译器，<code>T::innerClass</code> 是一个类，程序要声明一个 <code>T::innerClass</code> 类的对象，而不是声明 T 的静态成员，而 typename 如果换成 class 则语法错误。  </p>
-<h3>* 快速排序</h3>
-<p>思想就不啰嗦了，快排的思想都不会就不要看这个了.....  </p>
-<div class="highlight"><pre><span></span><span class="cm">/*************************************************************************</span>
-<span class="cm">    &gt; File Name: quickSort.cpp</span>
-<span class="cm">    &gt; Author: zzfan</span>
-<span class="cm">    &gt; Mail: zzfan@mail.ustc ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/kuai-su-pai-xu.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev disabled"><a href="#">&laquo;</a></li>
@@ -269,6 +268,8 @@ spinlock又称自旋锁，线程通过busy-wait-loop的方式来获取锁，任�
                             href="http://blog.zzfanhero.info/tag/bi-shi.html">1</a></li>
                     <li class=""><a
                             href="http://blog.zzfanhero.info/tag/bi-shi2.html">2</a></li>
+                    <li class=""><a
+                            href="http://blog.zzfanhero.info/tag/bi-shi3.html">3</a></li>
                 <li class="next"><a
                         href="http://blog.zzfanhero.info/tag/bi-shi2.html">&raquo;</a></li>
         </ul>
@@ -301,13 +302,13 @@ spinlock又称自旋锁，线程通过busy-wait-loop的方式来获取锁，任�
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
-                            笔试
+                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
+                            面试
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
-                            面试
+                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
+                            笔试
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -326,28 +327,8 @@ spinlock又称自旋锁，线程通过busy-wait-loop的方式来获取锁，任�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
-                            选择题
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/unp.html">
-                            unp
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/system.html">
-                            system
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/papers.html">
-                            papers
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -356,18 +337,13 @@ spinlock又称自旋锁，线程通过busy-wait-loop的方式来获取锁，任�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
-                            字符串
+                        <a href="http://blog.zzfanhero.info/tag/papers.html">
+                            papers
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/others.html">
-                            Others
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/life.html">
-                            life
+                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
+                            选择题
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -376,8 +352,33 @@ spinlock又称自旋锁，线程通过busy-wait-loop的方式来获取锁，任�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
+                            字符串
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/others.html">
+                            Others
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/unp.html">
+                            unp
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/blog.html">
                             blog
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
                         </a>
                     </li>
                 </ul>
