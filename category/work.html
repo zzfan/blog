@@ -77,6 +77,13 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/cczhong-externguan-jian-zi-xiang-jie.html">C/C++中extern关键字详解</a></h2>
+                <div class="summary"><p><font size=4 color=Green>摘要：之前对extern关键字的认识有点不足，感觉这个很简单，但是在无意中看到一篇介绍之后就觉得需要总结下了。</font>  </p>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/cczhong-externguan-jian-zi-xiang-jie.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/leetcode-327count-of-range-sum.html">LeetCode-(327)Count of Range Sum</a></h2>
                 <div class="summary"><p><font size=4 color=Green>这道题目我当时理解题目的意思就花了很长的时间，最好的解法有点不理解，先整理下，晚上回去睡觉前看下。 </font>  </p>
 <p><img alt="images" src="/images/leetcode/327.png" />  </p>
@@ -249,32 +256,6 @@ spinlock又称自旋锁，线程通过busy-wait-loop的方式来获取锁，任�
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/af_inethe-pf_inetde-qu-bie.html">AF_INET和PF_INET的区别</a></h2>
-                <div class="summary"><p><font size=4 color=Green>摘要：刚写了一个原始套接字发送ipv6包的程序，平时一直用的 AF_INET协议簇，一直没有在意这些，感觉还是要总结下的。</font>  </p>
-<p>在写网络程序的时候，建立TCP socket：<br />
- socket = socket(PF_INET, SOCK_STREAM, 0);  </p>
-<p>然后再绑定本地地址或连接远程地址时需要初始化<code>sockaddr_in</code>结构，其中指定<code>address family</code>时一般设置为AF_INET，即使用IP。<br />
-相关的头文件的定义：  </p>
-<div class="highlight"><pre><span></span>AF = Address family
-PF = Protocol Family  
-AF_INET = PF_INET  
-</pre></div>
-
-
-<p>在Windows中的<code>insock2.h</code>中，  </p>
-<div class="highlight"><pre><span></span>#define AF_INET 0
-#define PF_INET AF_INET  
-</pre></div>
-
-
-<p>所以在windows中AF_INET与PF_INET完全一样。  </p>
-<p>而在Unix/Linux系统中，在不通过的版本中这两者有微小差别，对于BSD，是AF，对于POSIX是PF。<br />
-理论上建立socket时是指定协议，应该用PF_xxxx ...</p>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/af_inethe-pf_inetde-qu-bie.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev disabled"><a href="#">&laquo;</a></li>
@@ -326,13 +307,13 @@ AF_INET = PF_INET
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://blog.zzfanhero.info/tag/code.html">
-                            code
+                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
+                            数据结构
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
-                            数据结构
+                        <a href="http://blog.zzfanhero.info/tag/code.html">
+                            code
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -341,13 +322,28 @@ AF_INET = PF_INET
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
-                            选择题
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/papers.html">
                             papers
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
+                            选择题
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -361,23 +357,8 @@ AF_INET = PF_INET
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/system.html">
-                            system
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
-                            字符串
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -386,13 +367,13 @@ AF_INET = PF_INET
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
+                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
+                            字符串
                         </a>
                     </li>
                 </ul>

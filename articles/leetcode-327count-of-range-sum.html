@@ -136,6 +136,67 @@
     <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
 <span class="p">}</span>
 
+<span class="c1">//这种方法是最简单的，虽然下面一种方法很巧妙</span>
+<span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">LL</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">FenwickTree</span> <span class="p">{</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">sum_array</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="kr">inline</span> <span class="kt">int</span> <span class="nf">lowbit</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">&amp;</span> <span class="o">-</span><span class="n">x</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">FenwickTree</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="o">:</span><span class="n">n</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">sum_array</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{}</span>
+
+    <span class="kt">void</span> <span class="n">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">sum_array</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">+=</span> <span class="n">val</span><span class="p">;</span>
+            <span class="n">x</span> <span class="o">+=</span> <span class="n">lowbit</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="n">sum</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="n">sum_array</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
+            <span class="n">x</span> <span class="o">-=</span> <span class="n">lowbit</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">countRangeSum</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">lower</span><span class="p">,</span> <span class="kt">int</span> <span class="n">upper</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="nf">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">vector</span><span class="o">&lt;</span><span class="n">LL</span><span class="o">&gt;</span> <span class="n">sum_array</span> <span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="nf">size</span><span class="p">()</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+        <span class="n">LL</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">.</span><span class="nf">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">sum</span> <span class="o">+=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+            <span class="n">sum_array</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">sum</span><span class="p">;</span>
+            <span class="n">sum_array</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">lower</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="n">sum_array</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">upper</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">sum_array</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">upper</span><span class="p">);</span>
+        <span class="n">sum_array</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">lower</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">LL</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">index</span><span class="p">;</span>
+        <span class="n">sort</span><span class="p">(</span><span class="n">sum_array</span><span class="p">.</span><span class="nf">begin</span><span class="p">(),</span> <span class="n">sum_array</span><span class="p">.</span><span class="nf">end</span><span class="p">());</span>
+        <span class="k">auto</span> <span class="nf">end</span> <span class="o">=</span> <span class="n">unique</span><span class="p">(</span><span class="n">sum_array</span><span class="p">.</span><span class="nf">begin</span><span class="p">(),</span> <span class="n">sum_array</span><span class="p">.</span><span class="nf">end</span><span class="p">());</span>
+        <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">sum_array</span><span class="p">.</span><span class="nf">begin</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">it</span> <span class="o">!=</span> <span class="nf">end</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">,</span><span class="n">it</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">index</span><span class="p">[</span><span class="o">*</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">FenwickTree</span> <span class="n">tree</span><span class="p">(</span><span class="n">index</span><span class="p">.</span><span class="nf">size</span><span class="p">());</span>
+        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="nf">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">tree</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">index</span><span class="p">[</span><span class="n">sum</span><span class="p">],</span><span class="mi">1</span><span class="p">);</span>
+            <span class="n">sum</span> <span class="o">-=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+            <span class="n">ans</span> <span class="o">+=</span> <span class="n">tree</span><span class="p">.</span><span class="n">sum</span><span class="p">(</span><span class="n">index</span><span class="p">[</span><span class="n">upper</span> <span class="o">+</span> <span class="n">sum</span><span class="p">])</span> <span class="o">-</span> <span class="n">tree</span><span class="p">.</span><span class="n">sum</span><span class="p">(</span><span class="n">index</span><span class="p">[</span><span class="n">lower</span> <span class="o">+</span> <span class="n">sum</span> <span class="o">-</span><span class="mi">1</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
 <span class="c1">//上面的方法是O(n*n)的，下面介绍一个简单的方法</span>
 
 <span class="kt">int</span> <span class="nf">countAndMergeSort</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">sums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">start</span><span class="p">,</span> <span class="kt">int</span> <span class="nf">end</span><span class="p">,</span> <span class="kt">int</span> <span class="n">lower</span><span class="p">,</span> <span class="kt">int</span> <span class="n">upper</span><span class="p">)</span>
@@ -255,13 +316,13 @@
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://blog.zzfanhero.info/tag/code.html">
-                            code
+                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
+                            数据结构
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
-                            数据结构
+                        <a href="http://blog.zzfanhero.info/tag/code.html">
+                            code
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -270,13 +331,28 @@
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
-                            选择题
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/papers.html">
                             papers
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
+                            选择题
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -290,23 +366,8 @@
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/system.html">
-                            system
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
-                            字符串
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -315,13 +376,13 @@
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
+                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
+                            字符串
                         </a>
                     </li>
                 </ul>

@@ -76,6 +76,32 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/af_inethe-pf_inetde-qu-bie.html">AF_INET和PF_INET的区别</a></h2>
+                <div class="summary"><p><font size=4 color=Green>摘要：刚写了一个原始套接字发送ipv6包的程序，平时一直用的 AF_INET协议簇，一直没有在意这些，感觉还是要总结下的。</font>  </p>
+<p>在写网络程序的时候，建立TCP socket：<br />
+ socket = socket(PF_INET, SOCK_STREAM, 0);  </p>
+<p>然后再绑定本地地址或连接远程地址时需要初始化<code>sockaddr_in</code>结构，其中指定<code>address family</code>时一般设置为AF_INET，即使用IP。<br />
+相关的头文件的定义：  </p>
+<div class="highlight"><pre><span></span>AF = Address family
+PF = Protocol Family  
+AF_INET = PF_INET  
+</pre></div>
+
+
+<p>在Windows中的<code>insock2.h</code>中，  </p>
+<div class="highlight"><pre><span></span>#define AF_INET 0
+#define PF_INET AF_INET  
+</pre></div>
+
+
+<p>所以在windows中AF_INET与PF_INET完全一样。  </p>
+<p>而在Unix/Linux系统中，在不通过的版本中这两者有微小差别，对于BSD，是AF，对于POSIX是PF。<br />
+理论上建立socket时是指定协议，应该用PF_xxxx ...</p>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/af_inethe-pf_inetde-qu-bie.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/zi-fu-chuan-wen-ti-zong-jie-chi-xu-geng-xin-zhong.html">字符串问题总结（持续更新中）</a></h2>
                 <div class="summary"><p><font size=4 color=Green>摘要：感觉自己的编程功底还是不太够，一直练下去吧，坚持下去总会取得好的结果，人生没有什么不可能，虽然我已经很厉害了.....</font>  </p>
 <h3>一、最长回文子序列</h3>
@@ -225,33 +251,6 @@ stack 的基本操作有：<br />
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/er-cha-shu-de-bian-li-ji-ying-yong.html">二叉树的遍历及应用</a></h2>
-                <div class="summary"><p><font color=Green>摘要：先中后序遍历，深度广度，层次，路径，每层节点数。 </font></p>
-<h3>* 二叉树的遍历</h3>
-<p>由于二叉树是一种递归结构，所以我们很容易用递归方式实现其遍历操作。  </p>
-<h4>1. 先序遍历</h4>
-<p>（1）访问根节点；  （2）先序遍历左子树；  （3）先序遍历右子树；  </p>
-<div class="highlight"><pre><span></span>void PreOrder(Bitree T){
-    if(!T) return;
-    else{
-        visite(T-&gt;data);
-        PreOrder(T-&gt;lchild);
-        PreOrder(T-&gt;rchild);
-    }
-}
-</pre></div>
-
-
-<h4>2. 中序遍历</h4>
-<p>（1）先序遍历左子树； （1）访问根节点； （3）先序遍历右子树；  </p>
-<div class="highlight"><pre><span></span> void InOrder(Bitree T){
-     if(!T) return;
-     else ...</pre></div>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/er-cha-shu-de-bian-li-ji-ying-yong.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.zzfanhero.info/author/zzfan.html">&laquo;</a>
@@ -306,13 +305,13 @@ stack 的基本操作有：<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://blog.zzfanhero.info/tag/code.html">
-                            code
+                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
+                            数据结构
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
-                            数据结构
+                        <a href="http://blog.zzfanhero.info/tag/code.html">
+                            code
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -321,13 +320,28 @@ stack 的基本操作有：<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
-                            选择题
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/papers.html">
                             papers
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
+                            选择题
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -341,23 +355,8 @@ stack 的基本操作有：<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/system.html">
-                            system
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
-                            字符串
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -366,13 +365,13 @@ stack 的基本操作有：<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
+                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
+                            字符串
                         </a>
                     </li>
                 </ul>
