@@ -79,7 +79,32 @@
             <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/cczhong-externguan-jian-zi-xiang-jie.html">C/C++中extern关键字详解</a></h2>
                 <div class="summary"><p><font size=4 color=Green>摘要：之前对extern关键字的认识有点不足，感觉这个很简单，但是在无意中看到一篇介绍之后就觉得需要总结下了。</font>  </p>
+<h3>1 基本解释</h3>
+<p>extern可以置于变量或者函数前，以标示变量或者函数的定义在别的文件中，提示编译器遇到此变量和函数时在其他模块中寻找其定义。此外extern也可用来进行链接指定。  </p>
+<p>也就是说extern有两个作用，第一个,当它与"C"一起连用时，如: <code>extern "C" void fun(int a, int b)</code>;则告诉编译器在编译fun这个函数名时按着C的规则去翻译相应的函数名而不是C++的，C++的规则在翻译这个函数名时会把fun这个名字变得面目全非，可能是<code>fun@aBc_int_int#%$</code>也可能是别的，这要看编译器的"脾气"了(不同的编译器采用的方法不一样)，为什么这么做呢，因为C++支持函数的重载啊，在这里不去过多的论述这个问题，如果你有兴趣可以去网上搜索，相信你可以得到满意的解释!  </p>
+<p>第二，当extern不与"C"在一起修饰变量或函数时，如在头文件中: <code>extern int g_Int ...</code></p>
                     <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/cczhong-externguan-jian-zi-xiang-jie.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/charyu-charde-qu-bie.html">char\*与char\[]的区别</a></h2>
+                <div class="summary"><p><font size=4 color=Green>摘要：刚看了内核中的<code>list_node</code>结构，内核中真的是有好多很好的代码，但是还没理解，不管了，先把这个整理下，主要还是针对常量的一些知识点。</font>  </p>
+<p><code>char *a="hello"</code>中的a是指向第一个字符‘a’的一个指针<br />
+<code>char a[] = "hello"</code>中数组名a也是执行数组第一个字符‘h’的指针<br />
+两者不同：<br />
+<img alt="images" src="/images/cpp/1.png" /><br />
+结果：<br />
+<img alt="images" src="/images/cpp/3.png" />  </p>
+<p>对比：<br />
+<img alt="images" src="/images/cpp/2.png" /><br />
+结果：<br />
+<img alt="images" src="/images/cpp/4.png" />  </p>
+<p>把字符串加到指针所指的字串上去，出现段错误，本质原因：*d="0123456789"存放在常量区，是无法修的。而数组是存放在栈中，是可以修改的。两者区别如下：  </p>
+<p>一. ”读“ ”写“ 能力<br />
+<code>char *a = "abcd"</code>;  此时"abcd"存放在常量区。通过指针只可以访问字符串常量，而不可以改变它。<br />
+而<code>char a ...</code></p>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/charyu-charde-qu-bie.html">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -233,29 +258,6 @@ spinlock又称自旋锁，线程通过busy-wait-loop的方式来获取锁，任�
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/shen-du-you-xian-sou-suo-suan-fa-dfs.html">深度优先搜索算法（DFS）</a></h2>
-                <div class="summary"><p><font size=4 color=Green>（13）摘要：做leetcode遇到了Ksum的问题，用这个很方便。</font>  </p>
-<h3>* Pre</h3>
-<p>深度优先搜索（缩写DFS）有点类似广度优先搜索，也是对一个连通图进行遍历的算法。它的思想是从一个顶点V0开始，沿着一条路一直走到底，如果发现不能到达目标解，那就返回到上一个节点，然后从另一条路开始走到底，这种尽量往深处走的概念即是深度优先的概念。  </p>
-<h4>* 搜索过程</h4>
-<p>找出一条V0到V6的道路，而无需最短路。<br />
-<img alt="dfs1" src="/images/dfs/1.png" />  </p>
-<p>假设按照以下的顺序来搜索：<br />
-1.<code>V0-&gt;V1-&gt;V4</code>，此时到底尽头，仍然到不了<code>V6</code>，于是原路返回到V1去搜索其他路径；<br />
-2.返回到V1后既搜索V2，于是搜索路径是<code>V0-&gt;V1-&gt;V2-&gt;V6</code>，找到目标节点，返回有解。<br />
-这样搜索只是2步就到达了，但是如果用BFS的话就需要多几步。  </p>
-<h4>* further</h4>
-<p><img alt="dfs2" src="/images/dfs/2.png" /><br />
-求图中的V0出发，是否存在一条路径长度为4的搜索路径。  </p>
-<div class="highlight"><pre><span></span><span class="cm">/*************************************************************************</span>
-<span class="cm">    &gt; File Name: dfs.cpp</span>
-<span class="cm">    &gt; Author: zzfan</span>
-<span class="cm">    &gt; Mail: zzfan@mail ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/shen-du-you-xian-sou-suo-suan-fa-dfs.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev disabled"><a href="#">&laquo;</a></li>
@@ -297,18 +299,13 @@ spinlock又称自旋锁，线程通过busy-wait-loop的方式来获取锁，任�
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
-                            笔试
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
                         <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
                             面试
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
-                            数据结构
+                    <li class="list-group-item tag-1">
+                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
+                            笔试
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -317,53 +314,13 @@ spinlock又称自旋锁，线程通过busy-wait-loop的方式来获取锁，任�
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
+                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
+                            数据结构
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
                         <a href="http://blog.zzfanhero.info/tag/markdown.html">
                             markdown
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/system.html">
-                            system
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/papers.html">
-                            papers
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
-                            选择题
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/others.html">
-                            Others
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/unp.html">
-                            unp
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/life.html">
-                            life
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -372,8 +329,58 @@ spinlock又称自旋锁，线程通过busy-wait-loop的方式来获取锁，任�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/others.html">
+                            Others
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/papers.html">
+                            papers
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/cc.html">
+                            C/C++
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
+                            选择题
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
                             字符串
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/unp.html">
+                            unp
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
                         </a>
                     </li>
                 </ul>
