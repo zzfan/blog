@@ -76,6 +76,67 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/32wei-he-64wei-xia-nei-zhi-lei-xing-de-zi-jie-shu.html">32位和64位下内置类型的字节数</a></h2>
+                <div class="summary"><p><font size=4 color=Green>摘要：感觉很熟悉，但是有时候有点不确定，还是记一下吧，免得以后测试起来麻烦。</font>  </p>
+<h3>* 具体如下</h3>
+<h4>+ 32位机器下</h4>
+<p>char: 1<br />
+int:  4<br />
+unsigned int: 4<br />
+long: 4<br />
+long long: 8 <br />
+float: 4<br />
+double: 8<br />
+指针： 4<br />
+short int: 2<br />
+unsigned long: 4  </p>
+<h4>+ 64位机器下</h4>
+<p>char: 1<br />
+int: 大多数是4<br />
+unsigned int: 4<br />
+long: 8<br />
+long long: 8<br />
+float: 4<br />
+double: 8<br />
+指针： 8 ...</p>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/32wei-he-64wei-xia-nei-zhi-lei-xing-de-zi-jie-shu.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/hong-hei-shu.html">红黑树</a></h2>
+                <div class="summary"><p><font size=4 color=Green>(tree-1)摘要：刚看完二叉搜索树和堆，二叉搜索树的建立并没有平衡方面的考虑，AVL(平衡二叉树的算法很好的解决了这一点)，红黑树也是一个非常好的结构，这两个结构中插入的旋转操作有点麻烦，特别是红黑树。在这里先介绍红黑树：</font>  </p>
+<h3>* 用途和好处</h3>
+<p>是一种自平衡二叉查找树，是在计算机科学中用到的一种数据结构，典型的用途是实现关联数组。  </p>
+<p>红黑树和AVL树一样都对插入时间、删除时间和查找时间提供了最好可能的最坏情况担保。这不只是使它们在时间敏感的应用如实时应用（real time application）中有价值，而且使它们有在提供最坏情况担保的其他数据结构中作为建造板块的价值；例如，在计算几何中使用的很多数据结构都可以基于红黑树。  </p>
+<p>红黑树在函数式编程中也特别有用，在这里它们是最常用的持久数据结构（persistent data structure）之一，它们用来构造关联数组和集合，每次插入、删除之后它们能保持为以前的版本。除了O(log n)的时间之外，红黑树的持久版本对每次插入或删除需要O(log n)的空间。  </p>
+<p>红黑树是2-3-4树的一种等同。换句话说，对于每个2-3-4树，都存在至少一个数据元素是同样次序的红黑树。在2-3-4树上的插入和删除操作也等同于在红黑树中颜色翻转和旋转。这使得2-3-4树成为理解红黑树背后的逻辑的重要工具，这也是很多介绍算法的教科书在红黑树之前介绍2-3-4树的原因，尽管2-3-4树在实践中不经常使用。  </p>
+<h3>* 性质 ...</h3>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/hong-hei-shu.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/c-stl-stackqueuede-shi-yong-fang-fa.html">C++ STL--stack/queue的使用方法</a></h2>
+                <div class="summary"><p><font size=4 color=Green>摘要：之前队这两个容器不是很熟悉，有时候用起来还不是很确定，有点时间就总结下。</font></p>
+<h3>1. stack</h3>
+<p>stack 模板类的定义在<stack>头文件中。<br />
+stack 模板类需要两个模板参数，一个是元素类型，一个容器类型，但只有元素类型是必要<br />
+的，在不指定容器类型时，默认的容器类型为deque。<br />
+定义stack 对象的示例代码如下：<br />
+stack<int> s1;<br />
+stack<string> s2;<br />
+stack 的基本操作有：<br />
+入栈，如例：s.push(x);<br />
+出栈，如例：s.pop();注意，出栈操作只是删除栈顶元素，并不返回该元素。<br />
+访问栈顶，如例：s.top()<br />
+判断栈空，如例：s.empty()，当栈空时，返回true。<br />
+访问栈中的元素个数，如例：s ...</string></int></stack></p>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/c-stl-stackqueuede-shi-yong-fang-fa.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/wang-yi-mian-shi-zong-jie-shu-zu-zhong-yuan-su-qi-ou-chu-xian-wen-ti.html">网易面试总结--数组中元素奇偶出现问题</a></h2>
                 <div class="summary"><p><font color=Green>摘要：今天室友参加了网易的电话面试，觉得里面的题很有意思，总共三道题，我之前只遇到过第二题，第一和第二题还是可以的。本来想把三题放在一起，结果发现拓展的有点多还是分开。</font>  </p>
 <h3>* 数组中有一个元素出现了奇数次，其他元素出现了偶数次，找出这个元素</h3>
@@ -207,65 +268,6 @@ ps -ef 是用标准的格式显示java这个进程<br />
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/shu-zu-de-fan-zhuan-he-dan-lian-biao-de-fan-zhuan.html">数组的翻转和单链表的翻转</a></h2>
-                <div class="summary"><p>摘要：从最简单的开始，刚被网易的笔试给虐了</p>
-<h3>* 数组的翻转</h3>
-<p><i class="icon-file"></i>这里用string的翻转为例：</p>
-<div class="highlight"><pre><span></span><span class="cm">/*************************************************************************</span>
-<span class="cm">    &gt; File Name: test.cpp</span>
-<span class="cm">    &gt; Author: zzfan</span>
-<span class="cm">    &gt; Mail: zzfan@mail.ustc.edu.cn </span>
-<span class="cm">    &gt; Created Time: 2016年03月19日 星期六 20时20分04秒</span>
-<span class="cm"> ************************************************************************/</span>
-
-<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;stack&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
-<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-
-<span class="c1">//c style</span>
-<span class="kt">void</span> <span class="nf">c_rever</span><span class="p">(</span><span class="kt">string</span> <span class="o">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">char</span> <span class="n">temp</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">j</span><span class="p">,</span><span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
-    <span class="k">for ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/shu-zu-de-fan-zhuan-he-dan-lian-biao-de-fan-zhuan.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/wu-tempde-swapyi-ji-wei-yun-suan-jia-jian-fa.html">无temp的Swap以及位运算加减法</a></h2>
-                <div class="summary"><p><font color=Green>摘要：以前听别人提起过，面试连这样的题都有，也就花几分钟整理整理 </font></p>
-<h3>* 不用中间变量的Swap</h3>
-<ol>
-<li>加减法<br />
-//该方法可以狡猾整形和浮点型数值的变量，但是再处理浮点型的时候可能出现精度受损<br />
-a = a + b;<br />
-b = a - b;<br />
-a = a - b;  </li>
-<li>已获法：对浮点型无法交换<br />
-a = a^b;<br />
-b = a^b;<br />
-a = a^b;  </li>
-<li>乘除法<br />
-a = a*b<br />
-b = a/b<br />
-a = a/b  </li>
-</ol>
-<h3>* 位运算实现加减乘除</h3>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/wu-tempde-swapyi-ji-wei-yun-suan-jia-jian-fa.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/xian-cheng-chi.html">线程池</a></h2>
-                <div class="summary">
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/xian-cheng-chi.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.zzfanhero.info/author/zzfan2.html">&laquo;</a>
@@ -278,6 +280,8 @@ a = a/b  </li>
                             href="http://blog.zzfanhero.info/author/zzfan3.html">3</a></li>
                     <li class=""><a
                             href="http://blog.zzfanhero.info/author/zzfan4.html">4</a></li>
+                    <li class=""><a
+                            href="http://blog.zzfanhero.info/author/zzfan5.html">5</a></li>
                 <li class="next"><a
                         href="http://blog.zzfanhero.info/author/zzfan4.html">&raquo;</a></li>
         </ul>
@@ -310,13 +314,18 @@ a = a/b  </li>
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
+                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
+                            笔试
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
                         <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
                             面试
                         </a>
                     </li>
-                    <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
-                            笔试
+                    <li class="list-group-item tag-2">
+                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
+                            数据结构
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -325,33 +334,8 @@ a = a/b  </li>
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
-                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
-                            数据结构
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
                         <a href="http://blog.zzfanhero.info/tag/markdown.html">
                             markdown
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/others.html">
-                            Others
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -360,13 +344,18 @@ a = a/b  </li>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/cc.html">
-                            C/C++
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
-                            选择题
+                        <a href="http://blog.zzfanhero.info/tag/others.html">
+                            Others
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -375,8 +364,18 @@ a = a/b  </li>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
+                            选择题
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -385,13 +384,23 @@ a = a/b  </li>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/cc.html">
+                            C/C++
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/system.html">
                             system
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/life.html">
-                            life
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/c.html">
+                            C++
                         </a>
                     </li>
                 </ul>

@@ -77,6 +77,45 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/shu-chu-shu-zu-zhong-di-kxiao-de-shu.html">输出数组中第k小的数</a></h2>
+                <div class="summary"><p><font size=4 color=Green>摘要：今天忙了一天出国参加ICC的事，好烦，突然就想为什么我们要选这种专业，我们付出的比别人要多，最后只能成为螺丝钉，我们的智商如果用在别处还需要这么累吗。只是为了心中那莫名的进取心一步一步的进入了这个坑。</font>  </p>
+<h3>* 题目描述</h3>
+<p>快速输出第k小的数。  </p>
+<h3>* 思路</h3>
+<p>使用快速排序的思想，递归求解。若键值位置i与k相等，返回。若大于k，则在<code>[start, i-1]</code>中寻找第k大的数。若小于则在<code>[i+1, end]</code>中寻找第<code>k+start-1</code>小的数。  </p>
+<div class="highlight"><pre><span></span><span class="cm">/*************************************************************************</span>
+<span class="cm">    &gt; File Name: choose.cpp</span>
+<span class="cm">    &gt; Author: zzfan</span>
+<span class="cm">    &gt; Mail: zzfan@mail.ustc.edu.cn </span>
+<span class="cm">    &gt; Created Time: Tue 19 Apr 2016 04:41:43 PM ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/shu-chu-shu-zu-zhong-di-kxiao-de-shu.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/shen-du-you-xian-sou-suo-suan-fa-dfs.html">深度优先搜索算法（DFS）</a></h2>
+                <div class="summary"><p><font size=4 color=Green>（13）摘要：做leetcode遇到了Ksum的问题，用这个很方便。</font>  </p>
+<h3>* Pre</h3>
+<p>深度优先搜索（缩写DFS）有点类似广度优先搜索，也是对一个连通图进行遍历的算法。它的思想是从一个顶点V0开始，沿着一条路一直走到底，如果发现不能到达目标解，那就返回到上一个节点，然后从另一条路开始走到底，这种尽量往深处走的概念即是深度优先的概念。  </p>
+<h4>* 搜索过程</h4>
+<p>找出一条V0到V6的道路，而无需最短路。<br />
+<img alt="dfs1" src="/images/dfs/1.png" />  </p>
+<p>假设按照以下的顺序来搜索：<br />
+1.<code>V0-&gt;V1-&gt;V4</code>，此时到底尽头，仍然到不了<code>V6</code>，于是原路返回到V1去搜索其他路径；<br />
+2.返回到V1后既搜索V2，于是搜索路径是<code>V0-&gt;V1-&gt;V2-&gt;V6</code>，找到目标节点，返回有解。<br />
+这样搜索只是2步就到达了，但是如果用BFS的话就需要多几步。  </p>
+<h4>* further</h4>
+<p><img alt="dfs2" src="/images/dfs/2.png" /><br />
+求图中的V0出发，是否存在一条路径长度为4的搜索路径。  </p>
+<div class="highlight"><pre><span></span><span class="cm">/*************************************************************************</span>
+<span class="cm">    &gt; File Name: dfs.cpp</span>
+<span class="cm">    &gt; Author: zzfan</span>
+<span class="cm">    &gt; Mail: zzfan@mail ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/shen-du-you-xian-sou-suo-suan-fa-dfs.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/zi-fu-chuan-wen-ti-zong-jie-chi-xu-geng-xin-zhong.html">字符串问题总结（持续更新中）</a></h2>
                 <div class="summary"><p><font size=4 color=Green>摘要：感觉自己的编程功底还是不太够，一直练下去吧，坚持下去总会取得好的结果，人生没有什么不可能，虽然我已经很厉害了.....</font>  </p>
 <h3>一、最长回文子序列</h3>
@@ -209,36 +248,6 @@ stack 的基本操作有：<br />
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/wang-yi-mian-shi-zong-jie-shu-zu-zhong-yuan-su-qi-ou-chu-xian-wen-ti.html">网易面试总结--数组中元素奇偶出现问题</a></h2>
-                <div class="summary"><p><font color=Green>摘要：今天室友参加了网易的电话面试，觉得里面的题很有意思，总共三道题，我之前只遇到过第二题，第一和第二题还是可以的。本来想把三题放在一起，结果发现拓展的有点多还是分开。</font>  </p>
-<h3>* 数组中有一个元素出现了奇数次，其他元素出现了偶数次，找出这个元素</h3>
-<p>最简单的方法，用异或<code>^</code>，异或数组中所有的数，最后等于的数是出现为奇数的数，复杂度为O(n).  </p>
-<p><font size=4 color=Red>注意：如果要找出数组中两个元素出现了奇数次呢，其他元素出现了偶数次。</font><br />
-把原数组分为两个子数组。在每个子数组中，包含一个只出现一次的数字，而其他数字都出现两次。如果能够这样拆分原数组，按照前面的办法就是分别求出这两个只出现一次的数字了。  </p>
-<p>我们还是从头到尾依次异或数组中的每一个数字，那么最终得到的结果就是两个只出现一次的数字的异或结果。因为其他数字都出现了两次，在异或中全部抵消掉了。由于这两个数字肯定不一样，那么这个异或结果肯定不为0，也就是说在这个结果数字的二进制表示中至少就有一位为1。我们在结果数字中找到第一个为1的位的位置，记为第N位。现在我们以第N位是不是1为标准把原数组中的数字分成两个子数组，第一个子数组中每个数字的第N位都为1，而第二个子数组的每个数字的第N位都为0。  </p>
-<p>现在我们已经把原数组分成了两个子数组，每个子数组都包含一个只出现一次的数字，而其他数字都出现了两次。因此到此为止，所有的问题我们都已经解决。  </p>
-<div class="highlight"><pre><span></span><span class="cm">/*************************************************************************</span>
-<span class="cm">    &gt; File Name: test3.cpp</span>
-<span class="cm">    &gt; Author: zzfan</span>
-<span class="cm">    &gt; Mail ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/wang-yi-mian-shi-zong-jie-shu-zu-zhong-yuan-su-qi-ou-chu-xian-wen-ti.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/yi-xie-wo-bu-zhi-dao-de-linuxming-ling.html">一些我不知道的Linux命令</a></h2>
-                <div class="summary"><p><font color=Green>摘要：刚看到ps命令，觉得之前一直没怎么搞明白，以前碰到的Linux命令也没有总结，刚在写blog就写一篇，以后的都总结在这吧。</font>  </p>
-<h3>1. ps -ef 和 ps aux</h3>
-<p>ps aux 是用BSD的格式来显示 java这个进程<br />
-显示的项目有：USER , PID , %CPU , %MEM , VSZ , RSS , TTY , STAT , START , TIME , COMMAND<br />
-ps -ef 是用标准的格式显示java这个进程<br />
-显示的项目有：UID , PID , PPID , C , STIME , TTY , TIME , CMD  </p>
-<p><font color=Orange>注意：ps -ef比 ps aux好的一点就是可以查看父进程号</font>  </p>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/yi-xie-wo-bu-zhi-dao-de-linuxming-ling.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.zzfanhero.info/tag/bi-shi.html">&laquo;</a>
@@ -281,13 +290,18 @@ ps -ef 是用标准的格式显示java这个进程<br />
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
+                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
+                            笔试
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
                         <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
                             面试
                         </a>
                     </li>
-                    <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
-                            笔试
+                    <li class="list-group-item tag-2">
+                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
+                            数据结构
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -296,33 +310,8 @@ ps -ef 是用标准的格式显示java这个进程<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
-                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
-                            数据结构
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
                         <a href="http://blog.zzfanhero.info/tag/markdown.html">
                             markdown
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/others.html">
-                            Others
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -331,13 +320,18 @@ ps -ef 是用标准的格式显示java这个进程<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/cc.html">
-                            C/C++
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
-                            选择题
+                        <a href="http://blog.zzfanhero.info/tag/others.html">
+                            Others
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -346,8 +340,18 @@ ps -ef 是用标准的格式显示java这个进程<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
+                            选择题
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -356,13 +360,23 @@ ps -ef 是用标准的格式显示java这个进程<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/cc.html">
+                            C/C++
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/system.html">
                             system
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/life.html">
-                            life
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/c.html">
+                            C++
                         </a>
                     </li>
                 </ul>

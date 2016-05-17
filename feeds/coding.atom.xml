@@ -263,4 +263,4 @@ unsigned char b=*(unsigned char*)&amp;amp;a;
 &lt;p&gt;&lt;font color=OrageRed&gt;&lt;em&gt;小端模式&lt;/em&gt; &lt;/font&gt;下的内存分配格局：
 &lt;img alt="test" src="/images/cpp_stack_da.gif" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;font color=OrageRed&gt;&lt;em&gt;大端模式&lt;/em&gt; &lt;/font&gt;下的内存分配格局：
-&lt;img alt="test" src="/images/cpp_stack_xiao.jpg" /&gt;&lt;/p&gt;</summary><category term="code"></category></entry><entry><title>虚函数</title><link href="http://blog.zzfanhero.info/articles/xu-han-shu.html" rel="alternate"></link><updated>2016-03-07T00:00:00+08:00</updated><author><name>zzfan</name></author><id>tag:blog.zzfanhero.info,2016-03-07:articles/xu-han-shu.html</id><summary type="html"></summary><category term="code"></category></entry></feed>
+&lt;img alt="test" src="/images/cpp_stack_xiao.jpg" /&gt;&lt;/p&gt;</summary><category term="code"></category></entry></feed>

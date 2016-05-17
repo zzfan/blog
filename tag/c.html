@@ -2,7 +2,7 @@
 <html lang="zh"
 >
 <head>
-    <title>c++ - 赵志凡'Blog</title>
+    <title>C++ - 赵志凡'Blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
 
 
     <meta name="author" content="zzfan" />
-    <meta name="keywords" content="c++" />
+    <meta name="keywords" content="C++" />
 
     <!-- Open Graph tags -->
         <meta property="og:site_name" content="赵志凡'Blog" />
@@ -51,19 +51,16 @@
             <ul class="nav navbar-nav">
                     <li><a href="http://blog.zzfanhero.info">Home</a></li>
                         <li >
-                            <a href="http://blog.zzfanhero.info/category/code.html">Code</a>
-                        </li>
-                        <li >
                             <a href="http://blog.zzfanhero.info/category/coding.html">Coding</a>
                         </li>
                         <li >
-                            <a href="http://blog.zzfanhero.info/category/life.html">Life</a>
-                        </li>
-                        <li >
-                            <a href="http://blog.zzfanhero.info/category/papers.html">Papers</a>
+                            <a href="http://blog.zzfanhero.info/category/others.html">Others</a>
                         </li>
                         <li >
                             <a href="http://blog.zzfanhero.info/category/tools.html">Tools</a>
+                        </li>
+                        <li >
+                            <a href="http://blog.zzfanhero.info/category/work.html">Work</a>
                         </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -80,9 +77,29 @@
         <div class="col-sm-9">
 
             <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/xu-han-shu.html">虚函数</a></h2>
-                <div class="summary">
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/xu-han-shu.html">more ...</a>
+                <h2><a href="http://blog.zzfanhero.info/articles/xu-xi-gou-han-shu.html">虚析构函数</a></h2>
+                <div class="summary"><p><font size=4 color=Green>摘要：析构函数定义为虚的虽然是个很常见的问题，但是我栽在这个问题上好多次了，这次我一定要总结一次。</font>  </p>
+<h3>一、为什么基类的析构函数是虚函数？</h3>
+<p>在实现多态时，当用基类操作派生类，在析构时防止只析构基类而步析构派生类的状况发生。</p>
+<p>a、第一段代码  </p>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">ClxBase</span>{
+    <span class="n">public:</span>
+    <span class="n">ClxBase</span>() {};
+    ~<span class="n">ClxBase</span>() {
+        <span class="n">cout</span> <span class="s">&lt;&lt; &quot;Output from the destructor of class ClxBase!&quot; &lt;&lt; endl;</span>
+<span class="s">    }</span>
+
+<span class="s">    void doSomething() {</span>
+<span class="s">        cout &lt;&lt; &quot;Do something in class ClxBase!&quot; &lt;&lt; endl;</span>
+<span class="s">    }</span>
+<span class="s">};</span>
+
+<span class="s">class ClxDerived : public ClxBase{</span>
+<span class="s">    public:</span>
+<span class="s">    ClxDerived() {};</span>
+<span class="s">    ~ClxDerived() {</span>
+<span class="s">        cout &lt;&lt; &quot;Output from the destructor of class ClxDerived!&quot; &lt;&lt; endl ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/xu-xi-gou-han-shu.html">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -116,28 +133,28 @@
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
+                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
+                            笔试
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
+                            面试
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
+                            数据结构
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
                         <a href="http://blog.zzfanhero.info/tag/code.html">
                             code
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
+                    <li class="list-group-item tag-3">
                         <a href="http://blog.zzfanhero.info/tag/markdown.html">
                             markdown
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/ndn.html">
-                            NDN
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -146,13 +163,63 @@
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/c.html">
-                            c++
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/others.html">
+                            Others
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
+                            字符串
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/life.html">
                             life
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
+                            选择题
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/unp.html">
+                            unp
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/cc.html">
+                            C/C++
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/c.html">
+                            C++
                         </a>
                     </li>
                 </ul>
@@ -167,7 +234,7 @@
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2015 zzfan
+         <div class="col-xs-10">&copy; 2016 zzfan
             &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>

@@ -77,6 +77,19 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/xian-duan-shu.html">线段树</a></h2>
+                <div class="summary"><p><font size=4 color=Green>摘要：做leetcode的时候碰到了好几题要用到这个，还是花个时间整理下。我连内核里面那么多那么好的结构都没整理，偷点时间来做这个，所以说找工作真的是无语了。</font>  </p>
+<h3>一： 线段树基本概念</h3>
+<h4>1：概述</h4>
+<p>线段树，类似区间树，是一个二叉搜索树（注意不一定是完全二叉树），它在各个节点保存一条线段（数组中的一段子数组），主要用于高效解决连续区间的动态查询问题，由于二叉结构的特性，它基本能保持每个操作的复杂度为O(lgN)!<br />
+性质：父亲的区间是<code>[a,b],(c=(a+b)/2)</code>左儿子的区间是[a,c]，右儿子的区间是[c+1,b]，线段树需要的空间为数组大小的四倍<br />
+<font color=Red>解释：为什么需要4倍的空间，下面我来为大家解释下好吧，Show Time!</font>  </p>
+<p>假设我们用一个数组来头轻脚重地存储一个线段树，根节点是1，孩子节点分别是2n, 2n+1, 那么，设线段长为L(即[1 ...</p>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/xian-duan-shu.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/cczhong-externguan-jian-zi-xiang-jie.html">C/C++中extern关键字详解</a></h2>
                 <div class="summary"><p><font size=4 color=Green>摘要：之前对extern关键字的认识有点不足，感觉这个很简单，但是在无意中看到一篇介绍之后就觉得需要总结下了。</font>  </p>
 <h3>1 基本解释</h3>
@@ -105,6 +118,14 @@
 <code>char *a = "abcd"</code>;  此时"abcd"存放在常量区。通过指针只可以访问字符串常量，而不可以改变它。<br />
 而<code>char a ...</code></p>
                     <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/charyu-charde-qu-bie.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/list_headshi-li.html">list\_head实例</a></h2>
+                <div class="summary"><p><font size=4 color=Green>摘要：之前内核中的东西没有整理过，因为我觉得自己可能不会看内核，但是发现还是需要对其中的结构有很深的了解。 </font>  </p>
+<p>有时间再整理吧，没时间了.....等我两个礼拜后要去参加ICC国际会议的时候写</p>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/list_headshi-li.html">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -230,45 +251,6 @@ spinlock又称自旋锁，线程通过busy-wait-loop的方式来获取锁，任�
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/shu-chu-shu-zu-zhong-di-kxiao-de-shu.html">输出数组中第k小的数</a></h2>
-                <div class="summary"><p><font size=4 color=Green>摘要：今天忙了一天出国参加ICC的事，好烦，突然就想为什么我们要选这种专业，我们付出的比别人要多，最后只能成为螺丝钉，我们的智商如果用在别处还需要这么累吗。只是为了心中那莫名的进取心一步一步的进入了这个坑。</font>  </p>
-<h3>* 题目描述</h3>
-<p>快速输出第k小的数。  </p>
-<h3>* 思路</h3>
-<p>使用快速排序的思想，递归求解。若键值位置i与k相等，返回。若大于k，则在<code>[start, i-1]</code>中寻找第k大的数。若小于则在<code>[i+1, end]</code>中寻找第<code>k+start-1</code>小的数。  </p>
-<div class="highlight"><pre><span></span><span class="cm">/*************************************************************************</span>
-<span class="cm">    &gt; File Name: choose.cpp</span>
-<span class="cm">    &gt; Author: zzfan</span>
-<span class="cm">    &gt; Mail: zzfan@mail.ustc.edu.cn </span>
-<span class="cm">    &gt; Created Time: Tue 19 Apr 2016 04:41:43 PM ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/shu-chu-shu-zu-zhong-di-kxiao-de-shu.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/shen-du-you-xian-sou-suo-suan-fa-dfs.html">深度优先搜索算法（DFS）</a></h2>
-                <div class="summary"><p><font size=4 color=Green>（13）摘要：做leetcode遇到了Ksum的问题，用这个很方便。</font>  </p>
-<h3>* Pre</h3>
-<p>深度优先搜索（缩写DFS）有点类似广度优先搜索，也是对一个连通图进行遍历的算法。它的思想是从一个顶点V0开始，沿着一条路一直走到底，如果发现不能到达目标解，那就返回到上一个节点，然后从另一条路开始走到底，这种尽量往深处走的概念即是深度优先的概念。  </p>
-<h4>* 搜索过程</h4>
-<p>找出一条V0到V6的道路，而无需最短路。<br />
-<img alt="dfs1" src="/images/dfs/1.png" />  </p>
-<p>假设按照以下的顺序来搜索：<br />
-1.<code>V0-&gt;V1-&gt;V4</code>，此时到底尽头，仍然到不了<code>V6</code>，于是原路返回到V1去搜索其他路径；<br />
-2.返回到V1后既搜索V2，于是搜索路径是<code>V0-&gt;V1-&gt;V2-&gt;V6</code>，找到目标节点，返回有解。<br />
-这样搜索只是2步就到达了，但是如果用BFS的话就需要多几步。  </p>
-<h4>* further</h4>
-<p><img alt="dfs2" src="/images/dfs/2.png" /><br />
-求图中的V0出发，是否存在一条路径长度为4的搜索路径。  </p>
-<div class="highlight"><pre><span></span><span class="cm">/*************************************************************************</span>
-<span class="cm">    &gt; File Name: dfs.cpp</span>
-<span class="cm">    &gt; Author: zzfan</span>
-<span class="cm">    &gt; Mail: zzfan@mail ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/shen-du-you-xian-sou-suo-suan-fa-dfs.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev disabled"><a href="#">&laquo;</a></li>
@@ -310,13 +292,18 @@ spinlock又称自旋锁，线程通过busy-wait-loop的方式来获取锁，任�
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
+                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
+                            笔试
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
                         <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
                             面试
                         </a>
                     </li>
-                    <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
-                            笔试
+                    <li class="list-group-item tag-2">
+                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
+                            数据结构
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -325,33 +312,8 @@ spinlock又称自旋锁，线程通过busy-wait-loop的方式来获取锁，任�
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
-                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
-                            数据结构
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
                         <a href="http://blog.zzfanhero.info/tag/markdown.html">
                             markdown
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/others.html">
-                            Others
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -360,13 +322,18 @@ spinlock又称自旋锁，线程通过busy-wait-loop的方式来获取锁，任�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/cc.html">
-                            C/C++
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
-                            选择题
+                        <a href="http://blog.zzfanhero.info/tag/others.html">
+                            Others
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -375,8 +342,18 @@ spinlock又称自旋锁，线程通过busy-wait-loop的方式来获取锁，任�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
+                            选择题
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -385,13 +362,23 @@ spinlock又称自旋锁，线程通过busy-wait-loop的方式来获取锁，任�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/cc.html">
+                            C/C++
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/system.html">
                             system
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/life.html">
-                            life
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/c.html">
+                            C++
                         </a>
                     </li>
                 </ul>

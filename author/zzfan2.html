@@ -76,6 +76,57 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/chang-yong-pai-xu-suan-fa-zong-jie.html">常用排序算法总结</a></h2>
+                <div class="summary"><p><font color=Green>摘要：抄袭一下</font>  </p>
+<p><img alt="images1" src="/images/sort/1.png" />  </p>
+<p><font color=Red>基本有序的情况下最好的是：堆排，最坏的是：快排.</font><br />
+<font color=Red>一个从大到小的数组，排序成从小到大，堆排序最快，插入、冒泡、快速都是O(N^2)</font>  </p>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/chang-yong-pai-xu-suan-fa-zong-jie.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/a-li-bi-shi-ti-zong-jie-niu-ke-wang-1.html">阿里笔试题总结--牛客网1</a></h2>
+                <div class="summary"><p><font size=4 color=Green>摘要：明天阿里实习笔试，感觉还是做一些选择题压压惊....虽然我不去实习，但是这个很关键。</font>  </p>
+<h4>1. 线程间通讯机制中，关键路径上不会产生系统调用从而减少用户态到内核态的上下文切换的是。</h4>
+<p><code>pthread_spin_lock</code>:<br />
+spinlock又称自旋锁，线程通过busy-wait-loop的方式来获取锁，任时刻只有一个线程能够获得锁，其他线程忙等待直到获得锁。spinlock在多处理器多线程环境的场景中有很广泛的使用，一般要求使用spinlock的临界区尽量简短，这样获取的锁可以尽快释放，以满足其他忙等的线程。Spinlock和mutex不同，spinlock不会导致线程的状态切换(用户态-&gt;内核态)，但是spinlock使用不当(如临界区执行时间过长)会导致cpu busy飙高。  </p>
+<p>pthread_mutex、信号量、pthread_rwlock、管道、消息队列  </p>
+<h4>2. 构造函数中，成员变量一定要通过初始化列表来初始化的是.</h4>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">A</span> {
+    ...
+    <span class="n">private</span>：
+       <span class="nb">int</span> <span class="nv">&amp;a</span>;
+
+};
+<span class="k">class</span> <span class="n">B</span> : <span class="n">public</span> <span class="n">A</span> {
+    ...
+    <span class="n">private:</span>
+         <span class="nb">int</span> <span class="n">a</span>;
+    <span class="n">public:</span>
+         <span class="n">const</span> <span class="nb">int</span> <span class="n">b</span>;
+         <span class="n">A ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/a-li-bi-shi-ti-zong-jie-niu-ke-wang-1.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/shu-chu-shu-zu-zhong-di-kxiao-de-shu.html">输出数组中第k小的数</a></h2>
+                <div class="summary"><p><font size=4 color=Green>摘要：今天忙了一天出国参加ICC的事，好烦，突然就想为什么我们要选这种专业，我们付出的比别人要多，最后只能成为螺丝钉，我们的智商如果用在别处还需要这么累吗。只是为了心中那莫名的进取心一步一步的进入了这个坑。</font>  </p>
+<h3>* 题目描述</h3>
+<p>快速输出第k小的数。  </p>
+<h3>* 思路</h3>
+<p>使用快速排序的思想，递归求解。若键值位置i与k相等，返回。若大于k，则在<code>[start, i-1]</code>中寻找第k大的数。若小于则在<code>[i+1, end]</code>中寻找第<code>k+start-1</code>小的数。  </p>
+<div class="highlight"><pre><span></span><span class="cm">/*************************************************************************</span>
+<span class="cm">    &gt; File Name: choose.cpp</span>
+<span class="cm">    &gt; Author: zzfan</span>
+<span class="cm">    &gt; Mail: zzfan@mail.ustc.edu.cn </span>
+<span class="cm">    &gt; Created Time: Tue 19 Apr 2016 04:41:43 PM ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/shu-chu-shu-zu-zhong-di-kxiao-de-shu.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/shen-du-you-xian-sou-suo-suan-fa-dfs.html">深度优先搜索算法（DFS）</a></h2>
                 <div class="summary"><p><font size=4 color=Green>（13）摘要：做leetcode遇到了Ksum的问题，用这个很方便。</font>  </p>
 <h3>* Pre</h3>
@@ -196,67 +247,6 @@ void deleteRandomNode(Node *cur)
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/32wei-he-64wei-xia-nei-zhi-lei-xing-de-zi-jie-shu.html">32位和64位下内置类型的字节数</a></h2>
-                <div class="summary"><p><font size=4 color=Green>摘要：感觉很熟悉，但是有时候有点不确定，还是记一下吧，免得以后测试起来麻烦。</font>  </p>
-<h3>* 具体如下</h3>
-<h4>+ 32位机器下</h4>
-<p>char: 1<br />
-int:  4<br />
-unsigned int: 4<br />
-long: 4<br />
-long long: 8 <br />
-float: 4<br />
-double: 8<br />
-指针： 4<br />
-short int: 2<br />
-unsigned long: 4  </p>
-<h4>+ 64位机器下</h4>
-<p>char: 1<br />
-int: 大多数是4<br />
-unsigned int: 4<br />
-long: 8<br />
-long long: 8<br />
-float: 4<br />
-double: 8<br />
-指针： 8 ...</p>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/32wei-he-64wei-xia-nei-zhi-lei-xing-de-zi-jie-shu.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/hong-hei-shu.html">红黑树</a></h2>
-                <div class="summary"><p><font size=4 color=Green>(tree-1)摘要：刚看完二叉搜索树和堆，二叉搜索树的建立并没有平衡方面的考虑，AVL(平衡二叉树的算法很好的解决了这一点)，红黑树也是一个非常好的结构，这两个结构中插入的旋转操作有点麻烦，特别是红黑树。在这里先介绍红黑树：</font>  </p>
-<h3>* 用途和好处</h3>
-<p>是一种自平衡二叉查找树，是在计算机科学中用到的一种数据结构，典型的用途是实现关联数组。  </p>
-<p>红黑树和AVL树一样都对插入时间、删除时间和查找时间提供了最好可能的最坏情况担保。这不只是使它们在时间敏感的应用如实时应用（real time application）中有价值，而且使它们有在提供最坏情况担保的其他数据结构中作为建造板块的价值；例如，在计算几何中使用的很多数据结构都可以基于红黑树。  </p>
-<p>红黑树在函数式编程中也特别有用，在这里它们是最常用的持久数据结构（persistent data structure）之一，它们用来构造关联数组和集合，每次插入、删除之后它们能保持为以前的版本。除了O(log n)的时间之外，红黑树的持久版本对每次插入或删除需要O(log n)的空间。  </p>
-<p>红黑树是2-3-4树的一种等同。换句话说，对于每个2-3-4树，都存在至少一个数据元素是同样次序的红黑树。在2-3-4树上的插入和删除操作也等同于在红黑树中颜色翻转和旋转。这使得2-3-4树成为理解红黑树背后的逻辑的重要工具，这也是很多介绍算法的教科书在红黑树之前介绍2-3-4树的原因，尽管2-3-4树在实践中不经常使用。  </p>
-<h3>* 性质 ...</h3>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/hong-hei-shu.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/c-stl-stackqueuede-shi-yong-fang-fa.html">C++ STL--stack/queue的使用方法</a></h2>
-                <div class="summary"><p><font size=4 color=Green>摘要：之前队这两个容器不是很熟悉，有时候用起来还不是很确定，有点时间就总结下。</font></p>
-<h3>1. stack</h3>
-<p>stack 模板类的定义在<stack>头文件中。<br />
-stack 模板类需要两个模板参数，一个是元素类型，一个容器类型，但只有元素类型是必要<br />
-的，在不指定容器类型时，默认的容器类型为deque。<br />
-定义stack 对象的示例代码如下：<br />
-stack<int> s1;<br />
-stack<string> s2;<br />
-stack 的基本操作有：<br />
-入栈，如例：s.push(x);<br />
-出栈，如例：s.pop();注意，出栈操作只是删除栈顶元素，并不返回该元素。<br />
-访问栈顶，如例：s.top()<br />
-判断栈空，如例：s.empty()，当栈空时，返回true。<br />
-访问栈中的元素个数，如例：s ...</string></int></stack></p>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/c-stl-stackqueuede-shi-yong-fang-fa.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.zzfanhero.info/author/zzfan.html">&laquo;</a>
@@ -269,6 +259,8 @@ stack 的基本操作有：<br />
                             href="http://blog.zzfanhero.info/author/zzfan3.html">3</a></li>
                     <li class=""><a
                             href="http://blog.zzfanhero.info/author/zzfan4.html">4</a></li>
+                    <li class=""><a
+                            href="http://blog.zzfanhero.info/author/zzfan5.html">5</a></li>
                 <li class="next"><a
                         href="http://blog.zzfanhero.info/author/zzfan3.html">&raquo;</a></li>
         </ul>
@@ -301,13 +293,18 @@ stack 的基本操作有：<br />
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
+                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
+                            笔试
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
                         <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
                             面试
                         </a>
                     </li>
-                    <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
-                            笔试
+                    <li class="list-group-item tag-2">
+                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
+                            数据结构
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -316,33 +313,8 @@ stack 的基本操作有：<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
-                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
-                            数据结构
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
                         <a href="http://blog.zzfanhero.info/tag/markdown.html">
                             markdown
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/others.html">
-                            Others
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -351,13 +323,18 @@ stack 的基本操作有：<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/cc.html">
-                            C/C++
+                        <a href="http://blog.zzfanhero.info/tag/writing.html">
+                            writing
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
-                            选择题
+                        <a href="http://blog.zzfanhero.info/tag/others.html">
+                            Others
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -366,8 +343,18 @@ stack 的基本操作有：<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/writing.html">
-                            writing
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
+                            选择题
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -376,13 +363,23 @@ stack 的基本操作有：<br />
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/cc.html">
+                            C/C++
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/system.html">
                             system
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/life.html">
-                            life
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/c.html">
+                            C++
                         </a>
                     </li>
                 </ul>
