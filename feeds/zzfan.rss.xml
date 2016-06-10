@@ -1260,22 +1260,19 @@ void deleteRandomNode(Node *cur)
 &lt;p&gt;&lt;em&gt;分析&lt;/em&gt;: 链表的转置事宜改革很常见的问题，费递归算法很简单，用三个临时指针pre/head/next在链表上循环一边即可。递归算法也是比较简单的，但是如果思路不清晰估计一时半会也写不出来把。  &lt;/p&gt;
 &lt;p&gt;线面是玄幻版本和递归版本的链表转置代码：  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;//单链表的转置，循环方法  
-Node* reverseByLoop(Node *head)
-{
-    if(head == NULL || head-&amp;gt;next == NULL){
-        return head;
-    }
-
-    Node *pre = NULL;
-    Node *next = NULL;
-    while(head){
-        next = head-&amp;gt;next;
-        head-&amp;gt;next = pre;
-        pre = head;
-        head = next;
-    }
-    return pre;
-}
+ListNode* reverseList(ListNode* head) {  
+    if(head == NULL || head-&amp;gt;next == NULL)  
+        return head;  
+    ListNode result(0);  
+    ListNode *p = head;  
+    while (p) {  
+        ListNode *q = p-&amp;gt;next;  
+        p-&amp;gt;next = result.next;  
+        result.next = p;  
+        p = q;  
+    }  
+    return result.next;  
+}  
 
 //递归版本的单链表转置  
 Node* reverseByRecursion(Node *head)
@@ -2319,21 +2316,19 @@ ps -ef 是用标准的格式显示java这个进程&lt;br /&gt;
 
 
 &lt;h3&gt;* 单链表的翻转&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Llist list\_reverse(Llist list)
-{
-    Lnode *tmp = null;
-    Lnode *p = null;
-
-    if(list == NULL) return NULL;
-    tmp = list-&amp;gt;next;
-    while(tmp-&amp;gt;next != NULL){
-        p = tmp-&amp;gt;next;
-        tmp-&amp;gt;next = p-&amp;gt;next;
-        p-&amp;gt;next = list-&amp;gt;next;
-        list-&amp;gt;next = p;
-    }
-    return list;
-}
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ListNode* reverseList(ListNode* head) {  
+    if(head == NULL || head-&amp;gt;next == NULL)  
+        return head;  
+    ListNode result(0);  
+    ListNode *p = head;  
+    while (p) {  
+        ListNode *q = p-&amp;gt;next;  
+        p-&amp;gt;next = result.next;  
+        result.next = p;  
+        p = q;  
+    }  
+    return result.next;  
+}  
 &lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">zzfan</dc:creator><pubDate>Sat, 19 Mar 2016 00:00:00 +0800</pubDate><guid>tag:blog.zzfanhero.info,2016-03-19:articles/shu-zu-de-fan-zhuan-he-dan-lian-biao-de-fan-zhuan.html</guid><category>面试</category></item><item><title>无temp的Swap以及位运算加减法</title><link>http://blog.zzfanhero.info/articles/wu-tempde-swapyi-ji-wei-yun-suan-jia-jian-fa.html</link><description>&lt;p&gt;&lt;font color=Green&gt;摘要：以前听别人提起过，面试连这样的题都有，也就花几分钟整理整理 &lt;/font&gt;&lt;/p&gt;
 &lt;h3&gt;* 不用中间变量的Swap&lt;/h3&gt;
 &lt;ol&gt;
