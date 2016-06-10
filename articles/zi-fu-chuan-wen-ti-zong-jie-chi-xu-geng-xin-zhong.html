@@ -171,51 +171,55 @@
 <p><em>解法一：</em><br />
 不需要做过多的无用功，那么我们可以枚举中心位置，然后再在该位置上用扩展法，记录并更新得到的最长的回文长度。  </p>
 <div class="highlight"><pre><span></span><span class="cm">/*************************************************************************</span>
-<span class="cm">    &gt; File Name: longestPalindromic.cpp</span>
+<span class="cm">    &gt; File Name: longestPalindrome.cpp</span>
 <span class="cm">    &gt; Author: zzfan</span>
 <span class="cm">    &gt; Mail: zzfan@mail.ustc.edu.cn </span>
-<span class="cm">    &gt; Created Time: Tue 05 Apr 2016 03:31:22 PM HKT</span>
+<span class="cm">    &gt; Created Time: Fri 10 Jun 2016 12:09:18 PM HKT</span>
 <span class="cm"> ************************************************************************/</span>
 
-<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
-<span class="kt">int</span> <span class="nf">longestPalindromic</span><span class="p">(</span><span class="kt">string</span> <span class="n">str</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="nf">max</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">str</span><span class="p">.</span><span class="nf">size</span><span class="p">();</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">len</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="nf">max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kt">string</span> <span class="nf">longestPalindrome</span><span class="p">(</span><span class="kt">string</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="nf">max</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="n">sub</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="nf">size</span><span class="p">();</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">len</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nf">max</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
 
     <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
-        <span class="c1">//对于奇数的情况</span>
-        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span><span class="o">&amp;&amp;</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">j</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">);</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">])</span>
-            <span class="k">break</span><span class="p">;</span>
-            <span class="n">c</span> <span class="o">=</span> <span class="n">j</span><span class="o">*</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="c1">//偶数情况</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">&amp;&amp;</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="o">&lt;</span><span class="n">len</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="k">break</span><span class="p">;</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">j</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">c</span><span class="o">&gt;</span><span class="nf">max</span><span class="p">){</span>
+                <span class="nf">max</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+                <span class="n">offset</span> <span class="o">=</span> <span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">;</span>
+                <span class="n">sub</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="nf">max</span><span class="p">);</span>
+            <span class="p">}</span>
         <span class="p">}</span>
-        <span class="c1">//对于偶数的情况</span>
-        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span><span class="o">&amp;&amp;</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">);</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
-            <span class="k">break</span><span class="p">;</span>
-            <span class="n">c</span> <span class="o">=</span> <span class="n">j</span><span class="o">*</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">c</span> <span class="o">&gt;</span> <span class="nf">max</span><span class="p">){</span>
-            <span class="nf">max</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+
+        <span class="c1">//奇数情况</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="o">&gt;=</span><span class="mi">0</span><span class="o">&amp;&amp;</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="o">&lt;</span><span class="n">len</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">])</span> <span class="k">break</span><span class="p">;</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">c</span><span class="o">&gt;</span><span class="nf">max</span><span class="p">){</span>
+                <span class="nf">max</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+                <span class="n">offset</span> <span class="o">=</span> <span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">;</span>
+                <span class="n">sub</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="nf">max</span><span class="p">);</span>
+            <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">}</span>
-    <span class="k">return</span> <span class="nf">max</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">sub</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="kt">string</span> <span class="n">str</span><span class="p">;</span>
-    <span class="k">while</span><span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">str</span><span class="p">){</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Longest Prindromic: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">longestPalindromic</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="n">s</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">longestPalindrome</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -285,23 +289,23 @@
             <li class="list-group-item"><a href="http://blog.zzfanhero.info/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
-                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
-                            笔试
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
                         <a href="http://blog.zzfanhero.info/tag/mian-shi.html">
                             面试
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
-                            数据结构
+                    <li class="list-group-item tag-1">
+                        <a href="http://blog.zzfanhero.info/tag/bi-shi.html">
+                            笔试
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
                         <a href="http://blog.zzfanhero.info/tag/code.html">
                             code
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://blog.zzfanhero.info/tag/shu-ju-jie-gou.html">
+                            数据结构
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -310,53 +314,8 @@
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/papers.html">
-                            papers
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/writing.html">
                             writing
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/others.html">
-                            Others
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
-                            算法
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
-                            字符串
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/life.html">
-                            life
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
-                            选择题
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/unp.html">
-                            unp
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/cc.html">
-                            C/C++
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -365,13 +324,58 @@
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/papers.html">
+                            papers
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
+                            算法
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/c.html">
                             C++
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/zi-fu-chuan.html">
+                            字符串
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
+                            选择题
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/cc.html">
+                            C/C++
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/others.html">
+                            Others
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/unp.html">
+                            unp
                         </a>
                     </li>
                 </ul>
