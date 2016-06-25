@@ -76,6 +76,33 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/bi-shi-ti-ge-lei-ma-he-wei-xin-hong-bao.html">笔试题－格雷码和微信红包</a></h2>
+                <div class="summary"><p><font color=Green>腾讯的两道笔试题，挺灵活的，觉得很有必要分析下，就写下来．另外我还分析了一下字符串的输入等．</font></p>
+<h3>* 关于字符串题目的输入的一些需要注意的地方</h3>
+<p>+论<code>cin.get()</code>的重要行,看如下代码，第一行输入数组的个数，第二行输入数组．  </p>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;sstream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+        <span class="kt">string</span> <span class="n">temp</span><span class="p">;</span>
+        <span class="kt">char</span> <span class="n">tab</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="nf">size</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="nf">size</span><span class="p">){</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">lay</span><span class="p">;</span>
+                <span class="n">cin</span><span class="p">.</span><span class="nf">get</span><span class="p">();</span>
+                <span class="n">getline</span><span class="p">(</span><span class="n">cin</span><span class="p">,</span><span class="n">temp</span><span class="p">);</span>
+                <span class="n">stringstream</span> <span class="n">sp</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0 ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/bi-shi-ti-ge-lei-ma-he-wei-xin-hong-bao.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/shu-zu-de-fan-zhuan-he-dan-lian-biao-de-fan-zhuan.html">数组的翻转和单链表的翻转</a></h2>
                 <div class="summary"><p>摘要：从最简单的开始，刚被网易的笔试给虐了</p>
 <h3>* 数组的翻转</h3>
@@ -244,27 +271,6 @@ a = a/b  </li>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/markdownyu-fa-zong-jie.html">Markdown语法总结</a></h2>
-                <div class="summary"><p>完成了github博客的搭建（稍后会介绍如何搭建），先学习一下Markdown。
-Markdown是一个将文本转化为HTML的工具，就是为了方便我们编写网页显示文章。
-(本文档仅在vim插件markdown中使用，其他的平台可能有一些偏差)</p>
-<h4>常用的一些符号</h4>
-<p>在这里我就不详细介绍了，主要是写一些符号以免忘记．　　</p>
-<div class="highlight"><pre><span></span># 标题
-＂&#39;&#39;&#39;&quot; 代码块  
-&quot;*&quot; &quot;+&quot; 符号  
-&quot;*&quot; 加重
-&quot;&lt;code&gt;&quot; 代码  
-&quot;![]()&quot; 添加图片  
-&quot;[]()&quot; 添加链接  
-&quot;|&quot; &quot;|------|&quot; 制表  
-![test](/images/test.png)
-</pre></div>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/markdownyu-fa-zong-jie.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.zzfanhero.info/author/zzfan3.html">&laquo;</a>
@@ -335,9 +341,9 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
                             markdown
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
+                    <li class="list-group-item tag-3">
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -346,38 +352,8 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/unp.html">
-                            unp
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/c.html">
-                            C++
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/papers.html">
-                            papers
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/cc.html">
                             C/C++
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
-                            选择题
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/system.html">
-                            system
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -391,13 +367,43 @@ Markdown是一个将文本转化为HTML的工具，就是为了方便我们编�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/life.html">
-                            life
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/unp.html">
+                            unp
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/c.html">
+                            C++
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
                             算法
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/papers.html">
+                            papers
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
+                            选择题
                         </a>
                     </li>
                 </ul>

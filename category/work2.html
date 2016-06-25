@@ -77,6 +77,26 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/er-fen-sou-suo-de-xian-jing.html">二分搜索的陷阱</a></h2>
+                <div class="summary"><p><font size=4 color=Green>摘要：关于二分搜索，还是有一些陷阱的，总结下。</font>  </p>
+<h4>*示例1</h4>
+<div class="highlight"><pre><span></span>template&lt;class Type&gt;
+int BinarySearch(Type a[], const Type&amp; x, int n)
+{
+    //找到x时返回其在数组中的位置，否则返回-1
+    int left = 0, right = n-1;
+    while(left &lt;= right){
+        int middle = (left + right)/2;
+        if(x == a[middle]) return middle;
+        if(x &gt; a[middle]) left = middle + 1;
+        else right = middle - 1;
+    }
+    return ...</pre></div>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/er-fen-sou-suo-de-xian-jing.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/chang-yong-pai-xu-suan-fa-zong-jie.html">常用排序算法总结</a></h2>
                 <div class="summary"><p><font color=Green>摘要：抄袭一下</font>  </p>
 <p><img alt="images1" src="/images/sort/1.png" />  </p>
@@ -230,24 +250,6 @@ AF_INET = PF_INET
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/mian-shi-lian-biao-wen-ti-wang-yi-mian-shi-ti-zong-jie.html">面试链表问题(网易面试题总结)</a></h2>
-                <div class="summary"><p><font size=4 color=Green>摘要：(10)链表问题在面试过程中也是很重要的也很基础的一部分，链表本身很灵活，很考查编程工地，所以是很值得考的地方。我将复习过程中觉得比较号的链表问题整理了一下。</font>  </p>
-<h3>* 在O（1）时间删除链表节点</h3>
-<p><em>题目描述</em>: 给定链表的头指针和一个节点指针，在O（1）时间删除该节点。[Google面试题]  </p>
-<p><em>分析</em>: 本题与《编程之美》上的[从无头单链表中删除节点]类似。主要思想都是[狸猫换太子]，即用下一个节点数据覆盖要删除的节点，然后删除下一个节点。但是如果节点是尾节点时，该方法就行不通了。  </p>
-<p>代码如下：  </p>
-<div class="highlight"><pre><span></span>//O（1）时间删除链表节点，从屋头单链表中删除节点  
-void deleteRandomNode(Node *cur)
-{
-    assert(cur != NULL);
-    assert(cur-&gt;next != NULL); //不能是尾节点
-    Node* pNext = cur-&gt;next;
-    cur- ...</pre></div>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/mian-shi-lian-biao-wen-ti-wang-yi-mian-shi-ti-zong-jie.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.zzfanhero.info/category/work.html">&laquo;</a>
@@ -316,9 +318,9 @@ void deleteRandomNode(Node *cur)
                             markdown
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
+                    <li class="list-group-item tag-3">
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -327,38 +329,8 @@ void deleteRandomNode(Node *cur)
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/unp.html">
-                            unp
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/c.html">
-                            C++
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/papers.html">
-                            papers
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/cc.html">
                             C/C++
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
-                            选择题
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/system.html">
-                            system
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -372,13 +344,43 @@ void deleteRandomNode(Node *cur)
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/life.html">
-                            life
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/unp.html">
+                            unp
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/c.html">
+                            C++
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
                             算法
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/papers.html">
+                            papers
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
+                            选择题
                         </a>
                     </li>
                 </ul>

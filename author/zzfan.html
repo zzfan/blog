@@ -76,6 +76,13 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://blog.zzfanhero.info/articles/ting-zhi-geng-xin-fa-xian-huan-shi-yong-bi-ji-zai-ben-zi-shang-hao-dian.html">停止更新(发现还是用笔记在本子上好点)</a></h2>
+                <div class="summary"><p><font size=4 color=Green>基础的东西用笔写在本子上好点，而且最近在忙内核那块，就到这里吧 </font>  </p>
+                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/ting-zhi-geng-xin-fa-xian-huan-shi-yong-bi-ji-zai-ben-zi-shang-hao-dian.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://blog.zzfanhero.info/articles/xu-xi-gou-han-shu.html">虚析构函数</a></h2>
                 <div class="summary"><p><font size=4 color=Green>摘要：析构函数定义为虚的虽然是个很常见的问题，但是我栽在这个问题上好多次了，这次我一定要总结一次。</font>  </p>
 <h3>一、为什么基类的析构函数是虚函数？</h3>
@@ -234,26 +241,6 @@ unordered_multiset     哈希组织的set，关键字可以重复出现的  </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://blog.zzfanhero.info/articles/er-fen-sou-suo-de-xian-jing.html">二分搜索的陷阱</a></h2>
-                <div class="summary"><p><font size=4 color=Green>摘要：关于二分搜索，还是有一些陷阱的，总结下。</font>  </p>
-<h4>*示例1</h4>
-<div class="highlight"><pre><span></span>template&lt;class Type&gt;
-int BinarySearch(Type a[], const Type&amp; x, int n)
-{
-    //找到x时返回其在数组中的位置，否则返回-1
-    int left = 0, right = n-1;
-    while(left &lt;= right){
-        int middle = (left + right)/2;
-        if(x == a[middle]) return middle;
-        if(x &gt; a[middle]) left = middle + 1;
-        else right = middle - 1;
-    }
-    return ...</pre></div>
-                    <a class="btn btn-default btn-xs" href="http://blog.zzfanhero.info/articles/er-fen-sou-suo-de-xian-jing.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev disabled"><a href="#">&laquo;</a></li>
@@ -323,9 +310,9 @@ int BinarySearch(Type a[], const Type&amp; x, int n)
                             markdown
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/blog.html">
-                            blog
+                    <li class="list-group-item tag-3">
+                        <a href="http://blog.zzfanhero.info/tag/life.html">
+                            life
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -334,38 +321,8 @@ int BinarySearch(Type a[], const Type&amp; x, int n)
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/unp.html">
-                            unp
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/c.html">
-                            C++
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
-                            LeetCode
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/papers.html">
-                            papers
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/cc.html">
                             C/C++
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
-                            选择题
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/system.html">
-                            system
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -379,13 +336,43 @@ int BinarySearch(Type a[], const Type&amp; x, int n)
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://blog.zzfanhero.info/tag/life.html">
-                            life
+                        <a href="http://blog.zzfanhero.info/tag/leetcode.html">
+                            LeetCode
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/unp.html">
+                            unp
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/blog.html">
+                            blog
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/system.html">
+                            system
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/c.html">
+                            C++
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://blog.zzfanhero.info/tag/suan-fa.html">
                             算法
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/papers.html">
+                            papers
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.zzfanhero.info/tag/xuan-ze-ti.html">
+                            选择题
                         </a>
                     </li>
                 </ul>
